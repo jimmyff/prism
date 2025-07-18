@@ -1,6 +1,6 @@
 name: prism
-description: A powerful and efficient color manipulation library for Dart and Flutter applications. Work with colors through the Ray class.
-version: 1.0.1
+description: A powerful and efficient color manipulation library for Dart and Flutter applications. Features Ray class, RayScheme accessibility tools, and extensive color palettes.
+version: 1.1.0
 repository: https://github.com/jimmyff/prism
 website: https://github.com/jimmyff/prism/packages/prism
 
@@ -12,3 +12,4 @@ environment:
 dev_dependencies:
   lints: any
   test: any
+  path: any

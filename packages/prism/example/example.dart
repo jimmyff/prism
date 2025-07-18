@@ -1,4 +1,9 @@
 import 'package:prism/prism.dart';
+import 'package:prism/palettes/css.dart';
+import 'package:prism/palettes/material.dart';
+import 'package:prism/palettes/catppuccin_mocha.dart';
+import 'package:prism/palettes/solarized.dart';
+import 'package:prism/palettes/open_color.dart';
 
 void main() {
   print('🌈 Prism Examples\n');
@@ -96,6 +101,136 @@ void main() {
   stopwatch.stop();
   print('Created 100-ray spectrum in ${stopwatch.elapsedMicroseconds}μs');
   print('First: ${spectrum.first.toHex()} → Last: ${spectrum.last.toHex()}');
+  print('');
+
+  // === RayScheme Examples ===
+  print('🎭 RayScheme - Accessibility-Focused Color Schemes:');
+  final primaryColors = [
+    Ray.fromHex('#2196F3'), // Blue
+    Ray.fromHex('#F44336'), // Red
+    Ray.fromHex('#4CAF50'), // Green
+    Ray.fromHex('#FF9800'), // Orange
+    Ray.fromHex('#9C27B0'), // Purple
+  ];
+  
+  for (final color in primaryColors) {
+    final scheme = RayScheme.fromRay(color);
+    final theme = scheme.isDark ? 'Dark' : 'Light';
+    print('${color.toHex()} → $theme theme:');
+    print('  ├─ Text color: ${scheme.onRay.toHex()}');
+    print('  ├─ Light surface: ${scheme.surfaceLight.toHex()}');
+    print('  ├─ Dark surface: ${scheme.surfaceDark.toHex()}');
+    print('  └─ Luminance: ${scheme.luminance.toStringAsFixed(3)}');
+  }
+  print('');
+
+  // === Color Palettes ===
+  print('🎨 Color Palettes:');
+  
+  // CSS Colors
+  print('CSS Colors:');
+  final cssColors = [CssPalette.red, CssPalette.blue, CssPalette.green, CssPalette.gold];
+  for (final color in cssColors) {
+    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+  }
+  print('');
+  
+  // Material Design
+  print('Material Design:');
+  final materialColors = [
+    MaterialPalette.red500, 
+    MaterialPalette.blue500, 
+    MaterialPalette.green500,
+    MaterialPalette.amber500
+  ];
+  for (final color in materialColors) {
+    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+  }
+  print('');
+  
+  // Catppuccin Mocha
+  print('Catppuccin Mocha Theme:');
+  final mochaColors = [
+    CatppuccinMochaPalette.red,
+    CatppuccinMochaPalette.blue, 
+    CatppuccinMochaPalette.green,
+    CatppuccinMochaPalette.yellow
+  ];
+  for (final color in mochaColors) {
+    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+  }
+  print('');
+  
+  // Solarized
+  print('Solarized:');
+  final solarizedColors = [
+    SolarizedPalette.red,
+    SolarizedPalette.blue,
+    SolarizedPalette.green,
+    SolarizedPalette.orange
+  ];
+  for (final color in solarizedColors) {
+    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+  }
+  print('');
+  
+  // Open Color
+  print('Open Color:');
+  final openColors = [
+    OpenColorPalette.red5,
+    OpenColorPalette.blue5,
+    OpenColorPalette.green5,
+    OpenColorPalette.yellow5
+  ];
+  for (final color in openColors) {
+    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+  }
+  print('');
+
+  // === Palette Theme Generation ===
+  print('🌙 Theme Generation Example:');
+  final themeColor = CssPalette.blue.scheme;
+  
+  print('Creating a blue theme:');
+  print('  Primary: ${themeColor.ray.toHex()}');
+  print('  On Primary: ${themeColor.onRay.toHex()}');
+  print('  Surface (Light): ${themeColor.surfaceLight.toHex()}');
+  print('  Surface (Dark): ${themeColor.surfaceDark.toHex()}');
+  print('  Theme type: ${themeColor.isDark ? 'Dark' : 'Light'}');
+  print('  Luminance: ${themeColor.luminance.toStringAsFixed(3)}');
+  print('');
+
+  // === Advanced Palette Operations ===
+  print('⚙️ Advanced Palette Operations:');
+  
+  // Create gradient using palette colors
+  final gradientStart = MaterialPalette.purple500.scheme.ray;
+  final gradientEnd = MaterialPalette.pink500.scheme.ray;
+  print('Material Purple → Pink gradient:');
+  for (int i = 0; i <= 4; i++) {
+    final step = gradientStart.lerp(gradientEnd, i / 4.0);
+    final stepScheme = RayScheme.fromRay(step);
+    print('  Step $i: ${step.toHex()} (contrast: ${stepScheme.onRay.toHex()})');
+  }
+  print('');
+
+  // Palette accessibility analysis
+  print('♿ Palette Accessibility Analysis:');
+  final testColors = [
+    ('CSS Red', CssPalette.red.scheme),
+    ('Material Blue', MaterialPalette.blue500.scheme),
+    ('Catppuccin Green', CatppuccinMochaPalette.green.scheme),
+    ('Solarized Orange', SolarizedPalette.orange.scheme),
+  ];
+  
+  for (final (name, scheme) in testColors) {
+    final contrast = scheme.ray.maxContrast(
+      Ray.fromHex('#000000'), // Black
+      Ray.fromHex('#FFFFFF'), // White
+    );
+    print('  $name:');
+    print('    └─ Best contrast: ${contrast.toHex()} (${contrast == Ray.fromHex('#000000') ? 'Black' : 'White'})');
+  }
   print('');
 
   print('✅ All examples completed successfully!');

@@ -1,5 +1,3 @@
-library prism;
-
 import 'dart:math' as math;
 
 /// Hexadecimal color format for parsing and output.

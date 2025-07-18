@@ -6,53 +6,53 @@ import 'package:prism_flutter/prism_flutter.dart';
 void main() {
   group('Ray to Flutter Color Extensions', () {
     test('toColor() converts Ray to Flutter Color correctly', () {
-      final ray = Ray.fromARGB(255, 255, 0, 0);
+      const ray = Ray.fromARGB(255, 255, 0, 0);
       final color = ray.toColor();
 
-      expect(color.value, ray.toIntARGB());
-      expect(color.alpha, 255);
-      expect(color.red, 255);
-      expect(color.green, 0);
-      expect(color.blue, 0);
+      expect(color.toARGB32(), ray.toIntARGB());
+      expect((color.a * 255.0).round() & 0xff, 255);
+      expect((color.r * 255.0).round() & 0xff, 255);
+      expect((color.g * 255.0).round() & 0xff, 0);
+      expect((color.b * 255.0).round() & 0xff, 0);
     });
 
     test('toColor() preserves transparency', () {
-      final ray = Ray.fromARGB(128, 0, 255, 0);
+      const ray = Ray.fromARGB(128, 0, 255, 0);
       final color = ray.toColor();
 
-      expect(color.value, ray.toIntARGB());
-      expect(color.alpha, 128);
-      expect(color.red, 0);
-      expect(color.green, 255);
-      expect(color.blue, 0);
+      expect(color.toARGB32(), ray.toIntARGB());
+      expect((color.a * 255.0).round() & 0xff, 128);
+      expect((color.r * 255.0).round() & 0xff, 0);
+      expect((color.g * 255.0).round() & 0xff, 255);
+      expect((color.b * 255.0).round() & 0xff, 0);
     });
 
     test('toColorWithOpacity() creates Color with specified opacity', () {
-      final ray = Ray.fromARGB(255, 0, 0, 255);
+      const ray = Ray.fromARGB(255, 0, 0, 255);
       final color = ray.toColorWithOpacity(0.5);
 
-      expect(color.alpha, 128); // 0.5 * 255 rounded
-      expect(color.red, 0);
-      expect(color.green, 0);
-      expect(color.blue, 255);
+      expect((color.a * 255.0).round() & 0xff, 128); // 0.5 * 255 rounded
+      expect((color.r * 255.0).round() & 0xff, 0);
+      expect((color.g * 255.0).round() & 0xff, 0);
+      expect((color.b * 255.0).round() & 0xff, 255);
     });
 
     test('toColorWithOpacity() handles edge cases', () {
-      final ray = Ray.fromARGB(100, 255, 128, 64);
+      const ray = Ray.fromARGB(100, 255, 128, 64);
 
       // Full opacity
       final opaque = ray.toColorWithOpacity(1.0);
-      expect(opaque.alpha, 255);
-      expect(opaque.red, 255);
-      expect(opaque.green, 128);
-      expect(opaque.blue, 64);
+      expect((opaque.a * 255.0).round() & 0xff, 255);
+      expect((opaque.r * 255.0).round() & 0xff, 255);
+      expect((opaque.g * 255.0).round() & 0xff, 128);
+      expect((opaque.b * 255.0).round() & 0xff, 64);
 
       // Zero opacity
       final transparent = ray.toColorWithOpacity(0.0);
-      expect(transparent.alpha, 0);
-      expect(transparent.red, 255);
-      expect(transparent.green, 128);
-      expect(transparent.blue, 64);
+      expect((transparent.a * 255.0).round() & 0xff, 0);
+      expect((transparent.r * 255.0).round() & 0xff, 255);
+      expect((transparent.g * 255.0).round() & 0xff, 128);
+      expect((transparent.b * 255.0).round() & 0xff, 64);
     });
   });
 
@@ -61,7 +61,7 @@ void main() {
       const color = Color(0xFFFF0000);
       final ray = color.toRay();
 
-      expect(ray.toIntARGB(), color.value);
+      expect(ray.toIntARGB(), color.toARGB32());
       expect(ray.alpha, 255);
       expect(ray.red, 255);
       expect(ray.green, 0);
@@ -72,7 +72,7 @@ void main() {
       const color = Color(0x8000FF00);
       final ray = color.toRay();
 
-      expect(ray.toIntARGB(), color.value);
+      expect(ray.toIntARGB(), color.toARGB32());
       expect(ray.alpha, 128);
       expect(ray.red, 0);
       expect(ray.green, 255);
@@ -99,7 +99,7 @@ void main() {
 
   group('Round Trip Conversions', () {
     test('Ray -> Color -> Ray preserves values', () {
-      final originalRay = Ray.fromARGB(200, 100, 150, 75);
+      const originalRay = Ray.fromARGB(200, 100, 150, 75);
       final color = originalRay.toColor();
       final convertedRay = color.toRay();
 
@@ -112,7 +112,7 @@ void main() {
       final ray = originalColor.toRay();
       final convertedColor = ray.toColor();
 
-      expect(convertedColor.value, originalColor.value);
+      expect(convertedColor.toARGB32(), originalColor.toARGB32());
       expect(convertedColor, originalColor);
     });
 
@@ -147,7 +147,7 @@ void main() {
         final ray = color.toRay();
         final backToColor = ray.toColor();
 
-        expect(backToColor.value, color.value);
+        expect(backToColor.toARGB32(), color.toARGB32());
         expect(backToColor, color);
       }
     });
@@ -164,7 +164,7 @@ void main() {
         final ray = color.toRay();
         final backToColor = ray.toColor();
 
-        expect(backToColor.value, color.value);
+        expect(backToColor.toARGB32(), color.toARGB32());
         expect(backToColor, color);
       }
     });
@@ -182,10 +182,10 @@ void main() {
           .withAlpha(200)
           .toColor();
 
-      expect(result.alpha, 200);
+      expect((result.a * 255.0).round() & 0xff, 200);
       // Result should be a blend of red and blue with specific alpha
-      expect(result.red, greaterThan(100));
-      expect(result.blue, greaterThan(50));
+      expect((result.r * 255.0).round() & 0xff, greaterThan(100));
+      expect((result.b * 255.0).round() & 0xff, greaterThan(50));
     });
 
     test('can use Ray analysis methods on Flutter Colors', () {
@@ -212,8 +212,8 @@ void main() {
       final aboveOne = ray.toColorWithOpacity(1.5);
 
       // Should clamp to valid range
-      expect(belowZero.alpha, 0);
-      expect(aboveOne.alpha, 255);
+      expect((belowZero.a * 255.0).round() & 0xff, 0);
+      expect((aboveOne.a * 255.0).round() & 0xff, 255);
     });
   });
 }

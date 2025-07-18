@@ -67,7 +67,16 @@ final result = Colors.red
     .inverse
     .toColor();
 
-// Use Ray analysis methods
+// Create accessibility schemes from Flutter Colors
+final scheme = RayScheme.fromRay(Colors.blue.toRay());
+final textColor = scheme.onRay.toColor();        // Optimal contrast
+final darkSurface = scheme.surfaceDark.toColor(); // Dark theme surface
+
+// Use pre-built palettes with Flutter
+final materialBlue = MaterialPalette.blue500.ray.toColor();
+final cssRed = CssPalette.red.ray.toColor();
+
+// Access Ray analysis methods
 final luminance = Colors.grey.toRay().computeLuminance();
 final bestContrast = Colors.grey.toRay().maxContrast(
   Colors.black.toRay(),

@@ -1,3 +1,15 @@
+## 1.1.0
+
+- **Enhanced Integration**: Full support for Prism 1.1.0 features
+- **RayScheme Support**: Seamless conversion of RayScheme colors to Flutter Colors
+  - Convert scheme colors (`onRay`, `surfaceLight`, `surfaceDark`) directly to Flutter Colors
+  - Create accessibility-focused Flutter themes using RayScheme
+- **Color Palette Integration**: Easy access to all Prism color palettes from Flutter
+  - Convert any palette color to Flutter Color with perfect fidelity
+  - Use Material, CSS, Catppuccin, Solarized, and OpenColor palettes in Flutter apps
+- **Enhanced Examples**: Updated documentation with RayScheme and palette usage patterns
+- **Dependency Update**: Updated to require Prism ^1.1.0 for new features
+
 ## 1.0.0
 
 - Initial release of Prism Flutter extensions
