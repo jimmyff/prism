@@ -4,6 +4,13 @@ Flutter extensions for the [Prism](https://pub.dev/packages/prism) color manipul
 
 Seamlessly convert between `Ray` and Flutter `Color` objects with intuitive extension methods.
 
+## Resources
+
+- [Repository on GitHub](https://github.com/jimmyff/prism/tree/main/packages/prism_flutter)
+- [Package on Pub.dev](https://pub.dev/packages/prism_flutter)
+- [Documentation](https://pub.dev/documentation/prism_flutter/latest/)
+- [Pure Dart package](https://pub.dev/packages/prism)
+
 ## Features
 
 - 🔄 **Seamless conversion**: Extensions for both `Ray` → `Color` and `Color` → `Ray`
@@ -104,4 +111,4 @@ All conversions preserve complete ARGB color information with perfect fidelity.
 
 ## License
 
-MIT License © 2025 Jimmy Forrester-Fellowes - see LICENSE file for details.
+MIT License © 2025 [Jimmy Forrester-Fellowes](https://github.com/jimmyff) - see LICENSE file for details.

@@ -1,8 +1,15 @@
 # Prism 🌈
 
-A powerful and efficient color manipulation library for Dart and Flutter applications.
+A powerful and efficient color manipulation library for Dart & Flutter applications with zero dependencies. See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter specific extensions.
 
 Work with colors through the `Ray` class - a clean, intuitive API for all your color needs.
+
+## Resources
+
+- [Repository on GitHub](https://github.com/jimmyff/prism/tree/main/packages/prism)
+- [Package on Pub.dev](https://pub.dev/packages/prism)
+- [Documentation](https://pub.dev/documentation/prism/latest/)
+- [Flutter package](https://pub.dev/packages/prism_flutter)
 
 ## Features
 
@@ -101,4 +108,4 @@ Prism is optimized for performance:
 
 ## License
 
-MIT License © 2025 Jimmy Forrester-Fellowes - see LICENSE file for details.
+MIT License © 2025 [Jimmy Forrester-Fellowes](https://github.com/jimmyff) - see LICENSE file for details.
