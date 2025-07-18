@@ -9,7 +9,7 @@ Seamlessly convert between `Ray` and Flutter `Color` objects with intuitive exte
 - [Repository on GitHub](https://github.com/jimmyff/prism/tree/main/packages/prism_flutter)
 - [Package on Pub.dev](https://pub.dev/packages/prism_flutter)
 - [Documentation](https://pub.dev/documentation/prism_flutter/latest/)
-- [Pure Dart package](https://pub.dev/packages/prism)
+- [Dart Package](https://pub.dev/packages/prism)
 
 ## Features
 
