@@ -28,9 +28,9 @@ enum HexFormat {
 /// final fromHex = RayRgb.fromHex('#FF0000');
 ///
 /// // Convert to different formats
-/// print(red.toHex());        // #FF0000
-/// print(red.toRGB());        // rgb(255, 0, 0)
-/// print(red.toRGBA());       // rgba(255, 0, 0, 1.00)
+/// print(red.toHexStr());        // #FF0000
+/// print(red.toRgbStr());        // rgb(255, 0, 0)
+/// print(red.toRgbaStr());       // rgba(255, 0, 0, 1.00)
 ///
 /// // Work with color properties
 /// final lighter = red.withOpacity(0.5);
@@ -210,7 +210,7 @@ base class RayRgb extends Ray {
   /// ```dart
   /// final transparent = RayRgb.empty();
   /// print(transparent.alpha); // 0
-  /// print(transparent.toHex(8)); // #00000000
+  /// print(transparent.toHexStr(8)); // #00000000
   /// ```
   const RayRgb.empty() : _value = 0x00000000, super();
 
@@ -298,18 +298,18 @@ base class RayRgb extends Ray {
   /// Example:
   /// ```dart
   /// final red = RayRgb(red: 255, green: 0, blue: 0);
-  /// print(red.toHex());                    // #FF0000
-  /// print(red.toHex(8));                   // #FF0000FF (RGBA)
-  /// print(red.toHex(8, HexFormat.argb));   // #FFFF0000 (ARGB)
+  /// print(red.toHexStr());                    // #FF0000
+  /// print(red.toHexStr(8));                   // #FF0000FF (RGBA)
+  /// print(red.toHexStr(8, HexFormat.argb));   // #FFFF0000 (ARGB)
   /// ```
   ///
   /// Throws [ArgumentError] if [length] is not 6 or 8.
-  String toHex([int length = 6, HexFormat format = HexFormat.rgba]) =>
+  String toHexStr([int length = 6, HexFormat format = HexFormat.rgba]) =>
       switch (length) {
-        6 => "#${toIntRGB().toRadixString(16).padLeft(6, '0').toUpperCase()}",
+        6 => "#${toRgbInt().toRadixString(16).padLeft(6, '0').toUpperCase()}",
         8 => format == HexFormat.rgba
-            ? "#${toIntRGBA().toRadixString(16).padLeft(8, '0').toUpperCase()}"
-            : "#${toIntARGB().toRadixString(16).padLeft(8, '0').toUpperCase()}",
+            ? "#${toRgbaInt().toRadixString(16).padLeft(8, '0').toUpperCase()}"
+            : "#${toArgbInt().toRadixString(16).padLeft(8, '0').toUpperCase()}",
         _ =>
           throw ArgumentError("Invalid hex length: $length. Expected 6 or 8.")
       };
@@ -322,9 +322,9 @@ base class RayRgb extends Ray {
   /// Example:
   /// ```dart
   /// final red = RayRgb(red: 255, green: 0, blue: 0);
-  /// print(red.toRGB()); // rgb(255, 0, 0)
+  /// print(red.toRgbStr()); // rgb(255, 0, 0)
   /// ```
-  String toRGB() => "rgb($red, $green, $blue)";
+  String toRgbStr() => "rgb($red, $green, $blue)";
 
   /// Converts the color to a CSS rgba() string.
   ///
@@ -334,9 +334,9 @@ base class RayRgb extends Ray {
   /// Example:
   /// ```dart
   /// final semiRed = RayRgb(red: 255, green: 0, blue: 0, alpha: 128);
-  /// print(semiRed.toRGBA()); // rgba(255, 0, 0, 0.50)
+  /// print(semiRed.toRgbaStr()); // rgba(255, 0, 0, 0.50)
   /// ```
-  String toRGBA() =>
+  String toRgbaStr() =>
       "rgba($red, $green, $blue, ${(alpha / 255).toStringAsFixed(2)})";
 
   @override
@@ -349,9 +349,9 @@ base class RayRgb extends Ray {
   /// Example:
   /// ```dart
   /// final red = RayRgb(red: 255, green: 0, blue: 0);
-  /// print(red.toIntARGB().toRadixString(16)); // ffff0000
+  /// print(red.toArgbInt().toRadixString(16)); // ffff0000
   /// ```
-  int toIntARGB() => _value;
+  int toArgbInt() => _value;
 
   /// Returns the color as a 24-bit RGB integer, discarding alpha.
   ///
@@ -360,9 +360,9 @@ base class RayRgb extends Ray {
   /// Example:
   /// ```dart
   /// final red = RayRgb(red: 255, green: 0, blue: 0, alpha: 128);
-  /// print(red.toIntRGB().toRadixString(16)); // ff0000 (alpha discarded)
+  /// print(red.toRgbInt().toRadixString(16)); // ff0000 (alpha discarded)
   /// ```
-  int toIntRGB() => _value & _rgbMask;
+  int toRgbInt() => _value & _rgbMask;
 
   /// Returns the color as a 32-bit RGBA integer (alpha last).
   ///
@@ -372,9 +372,9 @@ base class RayRgb extends Ray {
   /// Example:
   /// ```dart
   /// final red = RayRgb(red: 255, green: 0, blue: 0);
-  /// print(red.toIntRGBA().toRadixString(16)); // ff0000ff
+  /// print(red.toRgbaInt().toRadixString(16)); // ff0000ff
   /// ```
-  int toIntRGBA() =>
+  int toRgbaInt() =>
       ((_value & _rgbMask) << 8) | ((_value & _alphaMask) >> _alphaShift);
 
   @override

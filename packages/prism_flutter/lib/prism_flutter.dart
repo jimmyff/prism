@@ -21,7 +21,7 @@ extension RayToFlutterColor on RayRgb {
   /// final ray = RayRgb.fromHex('#FF0000');
   /// final flutterColor = ray.toColor();
   /// ```
-  Color toColor() => Color(toIntARGB());
+  Color toColor() => Color(toArgbInt());
 
   /// Converts this [RayRgb] to a Flutter [Color] with a specific opacity.
   ///

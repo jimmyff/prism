@@ -11,7 +11,7 @@ void main() {
       const ray = RayRgb.fromARGB(255, 255, 0, 0);
       final color = ray.toColor();
 
-      expect(color.toARGB32(), ray.toIntARGB());
+      expect(color.toARGB32(), ray.toArgbInt());
       expect((color.a * 255.0).round() & 0xff, 255);
       expect((color.r * 255.0).round() & 0xff, 255);
       expect((color.g * 255.0).round() & 0xff, 0);
@@ -22,7 +22,7 @@ void main() {
       const ray = RayRgb.fromARGB(128, 0, 255, 0);
       final color = ray.toColor();
 
-      expect(color.toARGB32(), ray.toIntARGB());
+      expect(color.toARGB32(), ray.toArgbInt());
       expect((color.a * 255.0).round() & 0xff, 128);
       expect((color.r * 255.0).round() & 0xff, 0);
       expect((color.g * 255.0).round() & 0xff, 255);
@@ -63,7 +63,7 @@ void main() {
       const color = Color(0xFFFF0000);
       final ray = color.toRay();
 
-      expect(ray.toIntARGB(), color.toARGB32());
+      expect(ray.toArgbInt(), color.toARGB32());
       expect(ray.alpha, 255);
       expect(ray.red, 255);
       expect(ray.green, 0);
@@ -74,7 +74,7 @@ void main() {
       const color = Color(0x8000FF00);
       final ray = color.toRay();
 
-      expect(ray.toIntARGB(), color.toARGB32());
+      expect(ray.toArgbInt(), color.toARGB32());
       expect(ray.alpha, closeTo(128, flutterColorTolerance));
       expect(ray.red, 0);
       expect(ray.green, 255);
@@ -105,7 +105,7 @@ void main() {
       final color = originalRay.toColor();
       final convertedRay = color.toRay();
 
-      expect(convertedRay.toIntARGB(), originalRay.toIntARGB());
+      expect(convertedRay.toArgbInt(), originalRay.toArgbInt());
       expect(convertedRay, originalRay);
     });
 
@@ -127,7 +127,7 @@ void main() {
       final color2 = ray1.toColor();
       final finalRay = color2.toRay();
 
-      expect(finalRay.toIntARGB(), originalRay.toIntARGB());
+      expect(finalRay.toArgbInt(), originalRay.toArgbInt());
       expect(finalRay, originalRay);
     });
   });

@@ -99,15 +99,15 @@ void _generatePalette({
     // 3. Write the pre-computed const values directly into the code
     buffer.writeln('  $name(RayScheme(');
     buffer.writeln(
-        '    ray: RayRgb.fromIntARGB(0x${ray.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    ray: RayRgb.fromIntARGB(0x${ray.toArgbInt().toRadixString(16).toUpperCase()}),');
     buffer.writeln('    luminance: ${profile.luminance},');
     buffer.writeln('    isDark: ${profile.isDark},');
     buffer.writeln(
-        '    onRay: RayRgb.fromIntARGB(0x${profile.onRay.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    onRay: RayRgb.fromIntARGB(0x${profile.onRay.toArgbInt().toRadixString(16).toUpperCase()}),');
     buffer.writeln(
-        '    surfaceDark: RayRgb.fromIntARGB(0x${profile.surfaceDark.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    surfaceDark: RayRgb.fromIntARGB(0x${profile.surfaceDark.toArgbInt().toRadixString(16).toUpperCase()}),');
     buffer.writeln(
-        '    surfaceLight: RayRgb.fromIntARGB(0x${profile.surfaceLight.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    surfaceLight: RayRgb.fromIntARGB(0x${profile.surfaceLight.toArgbInt().toRadixString(16).toUpperCase()}),');
     buffer.writeln('  )),');
   }
 
@@ -236,7 +236,7 @@ void _generatePalette({
 
     // Main color header with onRay text
     galleryBuffer.writeln(
-        '<div class="color-header" style="background-color: ${ray.toHex()}; color: ${profile.onRay.toHex()};">');
+        '<div class="color-header" style="background-color: ${ray.toHexStr()}; color: ${profile.onRay.toHexStr()};">');
     if (hasAlias) {
       galleryBuffer.writeln('${alias?.key} / $name');
     } else {
@@ -246,13 +246,13 @@ void _generatePalette({
 
     galleryBuffer.writeln('<div class="color-info">');
     galleryBuffer.writeln('<div class="color-name">$name</div>');
-    galleryBuffer.writeln('<div class="hex-value">${ray.toHex()}</div>');
+    galleryBuffer.writeln('<div class="hex-value">${ray.toHexStr()}</div>');
     galleryBuffer.writeln(
         '<div class="luminance">Luminance: ${profile.luminance.toStringAsFixed(3)} (${profile.isDark ? 'Dark' : 'Light'})</div>');
 
     // Text weight demonstrations on main color
     galleryBuffer.writeln(
-        '<div class="text-demo" style="background-color: ${ray.toHex()}; color: ${profile.onRay.toHex()};">');
+        '<div class="text-demo" style="background-color: ${ray.toHexStr()}; color: ${profile.onRay.toHexStr()};">');
     galleryBuffer.writeln('<span class="text-weight-300">Light</span>');
     galleryBuffer.writeln('<span class="text-weight-400">Regular</span>');
     galleryBuffer.writeln('<span class="text-weight-500">Medium</span>');
@@ -263,18 +263,18 @@ void _generatePalette({
     // Surface demonstrations
     galleryBuffer.writeln('<div class="surface-demos">');
     galleryBuffer.writeln(
-        '<div class="surface-demo" style="background-color: ${profile.surfaceDark.toHex()}; color: ${profile.surfaceDark.computeLuminance() > 0.5 ? '#000' : '#fff'};">');
+        '<div class="surface-demo" style="background-color: ${profile.surfaceDark.toHexStr()}; color: ${profile.surfaceDark.computeLuminance() > 0.5 ? '#000' : '#fff'};">');
     galleryBuffer.writeln('Surface Dark<br>');
     galleryBuffer.writeln(
-        '<span class="hex-value">${profile.surfaceDark.toHex()}</span><br>');
+        '<span class="hex-value">${profile.surfaceDark.toHexStr()}</span><br>');
     galleryBuffer.writeln(
         '<span class="hex-value">Lum: ${profile.surfaceDark.computeLuminance().toStringAsFixed(3)}</span>');
     galleryBuffer.writeln('</div>');
     galleryBuffer.writeln(
-        '<div class="surface-demo" style="background-color: ${profile.surfaceLight.toHex()}; color: ${profile.surfaceLight.computeLuminance() > 0.5 ? '#000' : '#fff'};">');
+        '<div class="surface-demo" style="background-color: ${profile.surfaceLight.toHexStr()}; color: ${profile.surfaceLight.computeLuminance() > 0.5 ? '#000' : '#fff'};">');
     galleryBuffer.writeln('Surface Light<br>');
     galleryBuffer.writeln(
-        '<span class="hex-value">${profile.surfaceLight.toHex()}</span><br>');
+        '<span class="hex-value">${profile.surfaceLight.toHexStr()}</span><br>');
     galleryBuffer.writeln(
         '<span class="hex-value">Lum: ${profile.surfaceLight.computeLuminance().toStringAsFixed(3)}</span>');
     galleryBuffer.writeln('</div>');

@@ -23,7 +23,7 @@ import 'ray_oklab.dart';
 ///
 /// // Convert between color spaces
 /// final rgbEquivalent = red.toRgb() as RayRgb;
-/// print(rgbEquivalent.toHex()); // #FF0000
+/// print(rgbEquivalent.toHexStr()); // #FF0000
 ///
 /// // Work with HSL-specific operations
 /// final complementary = red.withHue(red.hue + 180);

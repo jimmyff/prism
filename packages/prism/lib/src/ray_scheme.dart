@@ -15,7 +15,7 @@ import 'ray_rgb.dart';
 /// ```dart
 /// final scheme = RayScheme.fromRay(RayRgb.fromHex('#2196F3'));
 /// print(scheme.isDark); // false
-/// print(scheme.onRay.toHex()); // '#000000' (black text on blue)
+/// print(scheme.onRay.toHexStr()); // '#000000' (black text on blue)
 /// print(scheme.luminance); // 0.540 (computed luminance)
 ///
 /// // Use surface variants for different themes

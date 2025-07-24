@@ -82,17 +82,17 @@ void main() {
     expect(ray.blue, expected['b'], reason: '$desc: blue component');
     expect(ray.alpha, expected['a'], reason: '$desc: alpha component');
     expect(ray.toJson(), expected['argb'], reason: '$desc: ARGB value');
-    expect(ray.toIntARGB(), expected['argb'], reason: '$desc: ARGB integer');
-    expect(ray.toIntRGBA(), expected['rgbaInt'], reason: '$desc: RGBA integer');
-    expect(ray.toIntRGB(), expected['argb'] & 0x00FFFFFF,
+    expect(ray.toArgbInt(), expected['argb'], reason: '$desc: ARGB integer');
+    expect(ray.toRgbaInt(), expected['rgbaInt'], reason: '$desc: RGBA integer');
+    expect(ray.toRgbInt(), expected['argb'] & 0x00FFFFFF,
         reason: '$desc: RGB integer');
-    expect(ray.toHex(), expected['hex6'], reason: '$desc: hex6 output');
-    expect(ray.toHex(8), expected['hex8Rgba'],
+    expect(ray.toHexStr(), expected['hex6'], reason: '$desc: hex6 output');
+    expect(ray.toHexStr(8), expected['hex8Rgba'],
         reason: '$desc: hex8 RGBA output');
-    expect(ray.toHex(8, HexFormat.argb), expected['hex8Argb'],
+    expect(ray.toHexStr(8, HexFormat.argb), expected['hex8Argb'],
         reason: '$desc: hex8 ARGB output');
-    expect(ray.toRGB(), expected['rgb'], reason: '$desc: RGB string');
-    expect(ray.toRGBA(), expected['rgba'], reason: '$desc: RGBA string');
+    expect(ray.toRgbStr(), expected['rgb'], reason: '$desc: RGB string');
+    expect(ray.toRgbaStr(), expected['rgba'], reason: '$desc: RGBA string');
   }
 
   group('Ray Constructors', () {
@@ -191,7 +191,7 @@ void main() {
       test('case insensitive hex parsing', () {
         final upper = RayRgb.fromHex('#FF0000');
         final lower = RayRgb.fromHex('#ff0000');
-        expect(upper.toIntARGB(), lower.toIntARGB());
+        expect(upper.toArgbInt(), lower.toArgbInt());
       });
     });
   });
@@ -199,28 +199,28 @@ void main() {
   group('Output Format Conversion', () {
     test('toHex with different lengths', () {
       final ray = RayRgb.fromHex('#12345678');
-      expect(ray.toHex(6), '#123456');
-      expect(ray.toHex(8), '#12345678');
-      expect(ray.toHex(8, HexFormat.argb), '#78123456');
+      expect(ray.toHexStr(6), '#123456');
+      expect(ray.toHexStr(8), '#12345678');
+      expect(ray.toHexStr(8, HexFormat.argb), '#78123456');
     });
 
     test('toHex throws error for invalid length', () {
       final ray = RayRgb.fromHex('#FF0000');
-      expect(() => ray.toHex(5), throwsA(isA<ArgumentError>()));
-      expect(() => ray.toHex(9), throwsA(isA<ArgumentError>()));
+      expect(() => ray.toHexStr(5), throwsA(isA<ArgumentError>()));
+      expect(() => ray.toHexStr(9), throwsA(isA<ArgumentError>()));
     });
 
     test('integer format conversions', () {
       final ray = RayRgb.fromHex('#12345678');
-      expect(ray.toIntARGB(), 0x78123456);
-      expect(ray.toIntRGBA(), 0x12345678);
-      expect(ray.toIntRGB(), 0x123456);
+      expect(ray.toArgbInt(), 0x78123456);
+      expect(ray.toRgbaInt(), 0x12345678);
+      expect(ray.toRgbInt(), 0x123456);
     });
 
     test('string format conversions', () {
       final ray = RayRgb.fromARGB(127, 255, 128, 64);
-      expect(ray.toRGB(), 'rgb(255, 128, 64)');
-      expect(ray.toRGBA(), 'rgba(255, 128, 64, 0.50)');
+      expect(ray.toRgbStr(), 'rgb(255, 128, 64)');
+      expect(ray.toRgbaStr(), 'rgba(255, 128, 64, 0.50)');
     });
   });
 
@@ -237,7 +237,8 @@ void main() {
     test('opacity calculation', () {
       expect(RayRgb.fromARGB(0, 0, 0, 0).opacity, 0.0);
       expect(RayRgb.fromARGB(255, 0, 0, 0).opacity, 1.0);
-      expect(RayRgb.fromARGB(127, 0, 0, 0).opacity, closeTo(0.5, componentTolerance));
+      expect(RayRgb.fromARGB(127, 0, 0, 0).opacity,
+          closeTo(0.5, componentTolerance));
     });
 
     test('color inversion', () {
@@ -275,7 +276,7 @@ void main() {
   group('Special Cases', () {
     test('empty color', () {
       final empty = RayRgb.empty();
-      expect(empty.toIntARGB(), 0x00000000);
+      expect(empty.toArgbInt(), 0x00000000);
       expect(empty.alpha, 0);
       expect(empty.red, 0);
       expect(empty.green, 0);
@@ -292,8 +293,8 @@ void main() {
       final ray2 = RayRgb.fromARGB(255, 255, 0, 0);
       final ray3 = RayRgb.fromARGB(255, 0, 255, 0);
 
-      expect(ray1.toIntARGB(), ray2.toIntARGB());
-      expect(ray1.toIntARGB(), isNot(ray3.toIntARGB()));
+      expect(ray1.toArgbInt(), ray2.toArgbInt());
+      expect(ray1.toArgbInt(), isNot(ray3.toArgbInt()));
     });
   });
 
@@ -305,7 +306,7 @@ void main() {
       final fromRgba = RayRgb.fromHex(rgbaHex);
       final fromArgb = RayRgb.fromHex(argbHex, format: HexFormat.argb);
 
-      expect(fromRgba.toIntARGB(), fromArgb.toIntARGB());
+      expect(fromRgba.toArgbInt(), fromArgb.toArgbInt());
       expect(fromRgba.red, fromArgb.red);
       expect(fromRgba.green, fromArgb.green);
       expect(fromRgba.blue, fromArgb.blue);
@@ -316,14 +317,14 @@ void main() {
       final original = RayRgb.fromARGB(127, 255, 128, 64);
 
       // Test RGBA round trip
-      final rgbaHex = original.toHex(8);
+      final rgbaHex = original.toHexStr(8);
       final fromRgbaHex = RayRgb.fromHex(rgbaHex);
-      expect(fromRgbaHex.toIntARGB(), original.toIntARGB());
+      expect(fromRgbaHex.toArgbInt(), original.toArgbInt());
 
       // Test ARGB round trip
-      final argbHex = original.toHex(8, HexFormat.argb);
+      final argbHex = original.toHexStr(8, HexFormat.argb);
       final fromArgbHex = RayRgb.fromHex(argbHex, format: HexFormat.argb);
-      expect(fromArgbHex.toIntARGB(), original.toIntARGB());
+      expect(fromArgbHex.toArgbInt(), original.toArgbInt());
     });
   });
 
@@ -336,7 +337,7 @@ void main() {
       expect(semiRed.green, 0);
       expect(semiRed.blue, 0);
       expect(semiRed.alpha, 128);
-      expect(semiRed.toIntARGB(), 0x80FF0000);
+      expect(semiRed.toArgbInt(), 0x80FF0000);
     });
 
     test('withOpacity creates color with new opacity', () {
@@ -400,9 +401,9 @@ void main() {
 
     test('toHex throws for invalid length', () {
       final red = RayRgb.fromARGB(255, 255, 0, 0);
-      expect(() => red.toHex(5), throwsArgumentError);
-      expect(() => red.toHex(9), throwsArgumentError);
-      expect(() => red.toHex(0), throwsArgumentError);
+      expect(() => red.toHexStr(5), throwsArgumentError);
+      expect(() => red.toHexStr(9), throwsArgumentError);
+      expect(() => red.toHexStr(0), throwsArgumentError);
     });
   });
 

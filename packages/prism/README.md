@@ -45,10 +45,18 @@ void main() {
   final oklabRed = RayOklab(l: 0.628, a: 0.225, b: 0.126);
   final oklabBlue = RayOklab(l: 0.452, a: -0.032, b: -0.312);
   
-  // Convert between formats
-  print(red.toHex());        // #FF0000
-  print(red.toRGB());        // rgb(255, 0, 0)
-  print(red.toRGBA());       // rgba(255, 0, 0, 1.00)
+  // Output to various formats
+  // String formats
+  print(red.toHexStr());     // #FF0000
+  print(red.toHexStr(8));    // #FF0000FF (with alpha)
+  print(red.toRgbStr());     // rgb(255, 0, 0)
+  print(red.toRgbaStr());    // rgba(255, 0, 0, 1.00)
+  
+  // Integer formats
+  print(red.toArgbInt());    // 4294901760 (0xFFFF0000)
+  print(red.toRgbaInt());    // 4278190335 (0xFF0000FF)
+  print(red.toRgbInt());     // 16711680 (0xFF0000, no alpha)
+  print(red.toJson());       // 4294901760 (RGB rays encode to ARGB ints)
   
   // Convert between color models
   final rgbToHsl = red.toHsl();           // RGB → HSL
@@ -232,11 +240,11 @@ final darkSurface = blueScheme.surfaceDark;   // Dark theme surface
 - `RayRgb.fromJson(int)` - From JSON integer
 
 ### Output Methods
-- `toHex([int length, HexFormat format])` - To hex string
-- `toRGB()` - To CSS rgb() string
-- `toRGBA()` - To CSS rgba() string
-- `toIntARGB()` - To ARGB integer
-- `toIntRGBA()` - To RGBA integer
+- `toHexStr([int length, HexFormat format])` - To hex string
+- `toRgbStr()` - To CSS rgb() string
+- `toRgbaStr()` - To CSS rgba() string
+- `toArgbInt()` - To ARGB integer
+- `toRgbaInt()` - To RGBA integer
 
 ### Color Operations
 - `withAlpha(int alpha)` - Copy with new alpha
