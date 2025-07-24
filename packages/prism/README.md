@@ -1,6 +1,6 @@
 # Prism 🌈
 
-A powerful and efficient color manipulation library for Dart & Flutter applications with zero dependencies. Features multiple color models (`RayRgb`, `RayHsl`, `RayOklab`) with seamless conversion, `RayScheme` for accessibility-focused color schemes, and extensive pre-built color palettes.
+A powerful and efficient color manipulation library for Dart & Flutter applications with zero dependencies. Features multiple color models (`RayRgb`, `RayHsl`, `RayOklab`, `RayOklch`) with seamless conversion, `RayScheme` for accessibility-focused color schemes, and extensive pre-built color palettes.
 
 See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter specific extensions.
 
@@ -13,7 +13,7 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 
 ## Features
 
-- 🎨 **Multiple color models**: RGB (`RayRgb`), HSL (`RayHsl`), and Oklab (`RayOklab`) with seamless conversion
+- 🎨 **Multiple color models**: RGB (`RayRgb`), HSL (`RayHsl`), Oklab (`RayOklab`), and Oklch (`RayOklch`)
 - 🔀 **Format conversion**: Easy conversion between color models and formats
 - 📐 **HSL color analysis**: Distance and difference functions for color comparison
 - 🎭 **Color schemes**: RayScheme for accessibility-focused UI color schemes
@@ -45,6 +45,10 @@ void main() {
   final oklabRed = RayOklab(l: 0.628, a: 0.225, b: 0.126);
   final oklabBlue = RayOklab(l: 0.452, a: -0.032, b: -0.312);
   
+  // Oklch Color Model (cylindrical Oklab with intuitive controls)
+  final oklchRed = RayOklch(l: 0.628, c: 0.257, h: 29.2);  // Red with hue, chroma
+  final oklchBlue = RayOklch(l: 0.452, c: 0.313, h: 264.1); // Blue with hue, chroma
+  
   // Output to various formats
   // String formats
   print(red.toHexStr());     // #FF0000
@@ -61,9 +65,11 @@ void main() {
   // Convert between color models
   final rgbToHsl = red.toHsl();           // RGB → HSL
   final rgbToOklab = red.toOklab();       // RGB → Oklab
+  final rgbToOklch = red.toOklch();       // RGB → Oklch
   final hslToRgb = hslRed.toRgb();        // HSL → RGB
   print('RGB Red as HSL: $rgbToHsl');     // RayHsl(0.0°, 100.0%, 50.0%)
   print('RGB Red as Oklab: $rgbToOklab'); // RayOklab(l: 0.628, a: 0.225, b: 0.126)
+  print('RGB Red as Oklch: $rgbToOklch'); // RayOklch(l: 0.628, c: 0.257, h: 29.2°, opacity: 1.000)
   
   // HSL color analysis
   final color1 = RayHsl(hue: 30, saturation: 0.8, lightness: 0.6);
@@ -181,19 +187,53 @@ final midpoint = color1.lerp(color2, 0.5);  // More perceptually accurate than R
 // - Improved color harmony calculations
 ```
 
+### RayOklch (Cylindrical Oklab with Intuitive Controls)
+```dart
+// Create Oklch colors (Lightness, Chroma, Hue)
+final red = RayOklch(l: 0.628, c: 0.257, h: 29.2);    // Red
+final green = RayOklch(l: 0.866, c: 0.295, h: 142.5); // Green  
+final blue = RayOklch(l: 0.452, c: 0.313, h: 264.1);  // Blue
+
+// Convert from RGB to Oklch
+final rgbPurple = RayRgb(red: 128, green: 0, blue: 128);
+final oklchPurple = rgbPurple.toOklch();
+
+// Oklch-specific properties
+print('L: ${red.l}, C: ${red.c}, H: ${red.h}°');
+
+// Intuitive color manipulation
+final baseColor = RayOklch(l: 0.7, c: 0.15, h: 120.0);
+final desaturated = baseColor.withChroma(0.05);        // Reduce saturation
+final rotated = baseColor.withHue(baseColor.h + 180);  // Complementary color
+final darker = baseColor.withLightness(0.4);           // Darker variant
+
+// Hue-aware interpolation (takes shortest path around color wheel)
+final color1 = RayOklch(l: 0.6, c: 0.2, h: 10.0);   // Near red
+final color2 = RayOklch(l: 0.6, c: 0.2, h: 350.0);  // Near red (other side)
+final midpoint = color1.lerp(color2, 0.5);           // Interpolates through 0° (red)
+
+// Benefits of Oklch:
+// - Perceptual uniformity of Oklab with intuitive HSL-like controls
+// - Perfect for color harmonies (complementary, triadic, analogous)
+// - Superior chroma/saturation control compared to HSL
+// - Hue-aware interpolation with shortest path around color wheel
+```
+
 ### Seamless Conversion
 ```dart
 // Convert between all color models
 final rgbRed = RayRgb(red: 255, green: 0, blue: 0);
 final hslRed = rgbRed.toHsl();              // RGB → HSL
 final oklabRed = rgbRed.toOklab();          // RGB → Oklab
+final oklchRed = rgbRed.toOklch();          // RGB → Oklch
 final backToRgb = hslRed.toRgb();           // HSL → RGB
 final oklabToRgb = oklabRed.toRgb();        // Oklab → RGB
+final oklchToRgb = oklchRed.toRgb();        // Oklch → RGB
 
 print(rgbRed == backToRgb);  // true - perfect round-trip conversion
 
 // Universal base class methods work on all models
-Ray anyColor = condition ? rgbRed : (anotherCondition ? hslRed : oklabRed);
+Ray anyColor = condition ? rgbRed : (anotherCondition ? hslRed : (oklabRed.l > 0.5 ? oklabRed : oklchRed));
 final luminance = anyColor.computeLuminance();  // Works for all models
 final scheme = RayScheme.fromRay(anyColor);     // Works for all models
 ```

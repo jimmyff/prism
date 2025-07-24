@@ -1,3 +1,19 @@
+## 2.0.0-alpha.3
+
+### New Features
+- **RayOklch Color Space**: Cylindrical form of Oklab with intuitive lightness, chroma, and hue controls
+  - Components: L (lightness 0.0-1.0), C (chroma ≥0), H (hue 0.0-360.0°)
+  - Intuitive manipulation methods: `withChroma()`, `withHue()`, `withLightness()`
+  - Hue-aware interpolation with shortest path around color wheel
+  - Perfect for color harmonies and systematic color generation
+- **Universal Conversion**: Added `toOklch()` method to `Ray` base class and all color models
+- **ColorModel Enhancement**: Added `ColorModel.oklch` enum value for runtime type identification
+
+### Improvements
+- Extended color conversion tests to cover all 4 color models (RGB, HSL, Oklab, Oklch)
+- Updated documentation and examples with comprehensive Oklch usage patterns
+- Enhanced `RayScheme` to support Oklch color model
+
 ## 2.0.0-alpha.2
 
 ### Breaking Changes

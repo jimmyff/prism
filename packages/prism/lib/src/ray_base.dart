@@ -11,6 +11,9 @@ enum ColorModel {
 
   /// Oklab color model - perceptually uniform color space
   oklab,
+
+  /// Oklch color model - cylindrical form of Oklab with lightness, chroma, and hue
+  oklch,
 }
 
 /// Abstract base class for all Ray color implementations.
@@ -109,6 +112,12 @@ abstract base class Ray {
   /// Returns a [RayOklab] instance with the same visual appearance.
   /// If this color is already Oklab, it may return itself.
   RayOklab toOklab();
+
+  /// Converts this color to Oklch representation.
+  ///
+  /// Returns a [RayOklch] instance with the same visual appearance.
+  /// If this color is already Oklch, it may return itself.
+  RayOklch toOklch();
 
   /// Returns the color as a JSON-serializable value.
   ///

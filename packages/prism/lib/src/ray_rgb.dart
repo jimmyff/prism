@@ -1,6 +1,7 @@
 import 'ray_base.dart';
 import 'ray_hsl.dart';
 import 'ray_oklab.dart';
+import 'ray_oklch.dart';
 
 /// Hexadecimal color format for parsing and output.
 enum HexFormat {
@@ -286,6 +287,9 @@ base class RayRgb extends Ray {
 
   @override
   RayOklab toOklab() => RayOklab.fromRgb(red, green, blue, opacity);
+
+  @override
+  RayOklch toOklch() => RayOklch.fromOklab(toOklab());
 
   /// Converts the color to a hexadecimal string representation.
   ///

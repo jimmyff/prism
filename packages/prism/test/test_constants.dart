@@ -2,7 +2,7 @@
 ///
 /// This file contains standardized tolerance values used across all test files
 /// to ensure consistency and maintainability in test assertions.
-library test_constants;
+library;
 
 // ============================================================================
 // Color Conversion Tolerance Constants

@@ -116,6 +116,10 @@ class RayScheme<T extends Ray> {
         black = blackRgb.toOklab() as T;
         white = whiteRgb.toOklab() as T;
         break;
+      case ColorModel.oklch:
+        black = blackRgb.toOklch() as T;
+        white = whiteRgb.toOklch() as T;
+        break;
     }
 
     // Generate dark surface variant

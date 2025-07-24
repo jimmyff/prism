@@ -1,3 +1,9 @@
+## 2.0.0-alpha.2
+
+- **New Feature**: Full support for `RayOklch` color model with seamless Flutter integration
+- **Enhanced Conversion**: All 4 color models (RGB, HSL, Oklab, Oklch) now convert perfectly to Flutter Colors
+- **Updated Dependencies**: Compatible with Prism 2.0.0-alpha.3 and its enhanced color model support
+
 ## 2.0.0-alpha.1
 
 - **BREAKING CHANGE**: Updated to use `RayRgb` class instead of `Ray` (follows Prism 1.1.0)

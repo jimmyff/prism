@@ -486,5 +486,119 @@ void main() {
   }
   print('');
 
+  // === Oklch Color Examples ===
+  print('🎨 Oklch Color Examples (Cylindrical Oklab with Intuitive Controls):');
+
+  // Basic Oklch creation
+  final brightOklch = RayOklch(l: 0.8, c: 0.2, h: 60.0, opacity: 1.0); // Bright yellow-green
+  final mutedOklch = RayOklch(l: 0.5, c: 0.1, h: 240.0, opacity: 1.0); // Muted blue
+  final vibrantOklch = RayOklch(l: 0.6, c: 0.25, h: 0.0, opacity: 1.0); // Vibrant red
+
+  print('Bright Yellow-Green: ${brightOklch.toString()} → ${brightOklch.toRgb().toHexStr()}');
+  print('Muted Blue: ${mutedOklch.toString()} → ${mutedOklch.toRgb().toHexStr()}');
+  print('Vibrant Red: ${vibrantOklch.toString()} → ${vibrantOklch.toRgb().toHexStr()}');
+  print('');
+
+  // RGB → Oklch conversion
+  print('🔄 RGB → Oklch Conversion:');
+  final rgbTeal = RayRgb.fromHex('#008080');
+  final oklchTeal = rgbTeal.toOklch();
+  final rgbOrangeColor = RayRgb.fromHex('#FFA500');
+  final oklchOrange = rgbOrangeColor.toOklch();
+  
+  print('RGB Teal: ${rgbTeal.toHexStr()} → Oklch: $oklchTeal');
+  print('RGB Orange: ${rgbOrangeColor.toHexStr()} → Oklch: $oklchOrange');
+  print('');
+
+  // Oklch Hue-based Interpolation with Shortest Path
+  print('🌈 Oklch Hue-aware Interpolation (Shortest Path):');
+  final redOklch = RayOklch(l: 0.6, c: 0.2, h: 10.0);   // Near red
+  final blueOklch = RayOklch(l: 0.6, c: 0.2, h: 350.0); // Near red on other side
+  
+  print('Color A: ${redOklch.toString()} → ${redOklch.toRgb().toHexStr()}');
+  print('Color B: ${blueOklch.toString()} → ${blueOklch.toRgb().toHexStr()}');
+  print('Interpolation path goes through 0° (red):');
+  
+  for (double t = 0.0; t <= 1.0; t += 0.25) {
+    final lerped = redOklch.lerp(blueOklch, t);
+    print('  t=${t.toStringAsFixed(2)} - H=${lerped.h.toStringAsFixed(1)}° → ${lerped.toRgb().toHexStr()}');
+  }
+  print('');
+
+  // Oklch Chroma Manipulation (Saturation Control)
+  print('🎨 Oklch Chroma Manipulation (Saturation Control):');
+  final baseOklch = RayOklch(l: 0.7, c: 0.15, h: 120.0); // Green base
+  
+  print('Base Color: ${baseOklch.toString()} → ${baseOklch.toRgb().toHexStr()}');
+  print('Chroma variations:');
+  
+  for (double chroma = 0.0; chroma <= 0.25; chroma += 0.05) {
+    final chromaVariant = baseOklch.withChroma(chroma);
+    print('  C=${chroma.toStringAsFixed(2)} → ${chromaVariant.toRgb().toHexStr()}');
+  }
+  print('');
+
+  // Oklch Lightness Scale
+  print('💡 Oklch Lightness Scale (Consistent Hue/Chroma):');
+  
+  print('Purple lightness scale (H=270°, C=0.15):');
+  for (double lightness = 0.1; lightness <= 0.9; lightness += 0.1) {
+    final lightnessVariant = RayOklch(l: lightness, c: 0.15, h: 270.0);
+    print('  L=${lightness.toStringAsFixed(1)} → ${lightnessVariant.toRgb().toHexStr()}');
+  }
+  print('');
+
+  // Oklch Color Harmonies
+  print('🎵 Oklch Color Harmonies (Hue Relationships):');
+  final primaryOklch = RayOklch(l: 0.65, c: 0.18, h: 45.0); // Orange
+  
+  // Create harmonious colors by rotating hue
+  final complementaryOklch = primaryOklch.withHue(primaryOklch.h + 180); // Opposite
+  final triadicOklch1 = primaryOklch.withHue(primaryOklch.h + 120);      // +120°
+  final triadicOklch2 = primaryOklch.withHue(primaryOklch.h + 240);      // +240°
+  final analogousOklch1 = primaryOklch.withHue(primaryOklch.h + 30);     // +30°
+  final analogousOklch2 = primaryOklch.withHue(primaryOklch.h - 30);     // -30°
+  
+  print('Primary: ${primaryOklch.toString()} → ${primaryOklch.toRgb().toHexStr()}');
+  print('Complementary (+180°): ${complementaryOklch.toRgb().toHexStr()}');
+  print('Triadic 1 (+120°): ${triadicOklch1.toRgb().toHexStr()}');
+  print('Triadic 2 (+240°): ${triadicOklch2.toRgb().toHexStr()}');
+  print('Analogous 1 (+30°): ${analogousOklch1.toRgb().toHexStr()}');
+  print('Analogous 2 (-30°): ${analogousOklch2.toRgb().toHexStr()}');
+  print('');
+
+  // Round-trip conversion comparison
+  print('🔄 Round-trip Conversion Comparison:');
+  final originalRgbBlue = RayRgb.fromHex('#4A90E2'); // Blue
+  final viaOklchRound = originalRgbBlue.toOklch().toRgb();
+  final viaOklabRound = originalRgbBlue.toOklab().toRgb();
+  final viaHslRound = originalRgbBlue.toHsl().toRgb();
+  
+  print('Original RGB: ${originalRgbBlue.toHexStr()}');
+  print('RGB → Oklch → RGB: ${viaOklchRound.toHexStr()}');
+  print('RGB → Oklab → RGB: ${viaOklabRound.toHexStr()}');
+  print('RGB → HSL → RGB: ${viaHslRound.toHexStr()}');
+  print('');
+
+  // Oklch vs HSL Saturation Comparison
+  print('⚖️  Oklch vs HSL Saturation Comparison:');
+  final testRgb = RayRgb.fromHex('#FF6B6B'); // Coral
+  final testHsl = testRgb.toHsl();
+  final testOklch = testRgb.toOklch();
+  
+  print('Original: ${testRgb.toHexStr()}');
+  print('HSL representation: H=${testHsl.hue.toStringAsFixed(1)}°, S=${testHsl.saturation.toStringAsFixed(3)}, L=${testHsl.lightness.toStringAsFixed(3)}');
+  print('Oklch representation: H=${testOklch.h.toStringAsFixed(1)}°, C=${testOklch.c.toStringAsFixed(3)}, L=${testOklch.l.toStringAsFixed(3)}');
+  print('');
+  
+  // Desaturating comparison
+  print('Desaturation comparison (50% reduction):');
+  final hslDesaturated = testHsl.withSaturation(testHsl.saturation * 0.5).toRgb();
+  final oklchDesaturated = testOklch.withChroma(testOklch.c * 0.5).toRgb();
+  
+  print('HSL 50% saturation: ${hslDesaturated.toHexStr()}');
+  print('Oklch 50% chroma: ${oklchDesaturated.toHexStr()}');
+  print('');
+
   print('✅ All examples completed successfully!');
 }

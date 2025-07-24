@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'ray_base.dart';
 import 'ray_rgb.dart';
 import 'ray_oklab.dart';
+import 'ray_oklch.dart';
 
 /// HSL color implementation of the Ray color system.
 ///
@@ -244,6 +245,9 @@ base class RayHsl extends Ray {
 
   @override
   RayOklab toOklab() => toRgb().toOklab();
+
+  @override
+  RayOklch toOklch() => toRgb().toOklch();
 
   @override
   Map<String, dynamic> toJson() => {
