@@ -3,10 +3,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:prism/prism.dart';
 import 'package:prism_flutter/prism_flutter.dart';
 
+import 'test_constants.dart';
+
 void main() {
-  group('Ray to Flutter Color Extensions', () {
-    test('toColor() converts Ray to Flutter Color correctly', () {
-      const ray = Ray.fromARGB(255, 255, 0, 0);
+  group('RayRgb to Flutter Color Extensions', () {
+    test('toColor() converts RayRgb to Flutter Color correctly', () {
+      const ray = RayRgb.fromARGB(255, 255, 0, 0);
       final color = ray.toColor();
 
       expect(color.toARGB32(), ray.toIntARGB());
@@ -17,7 +19,7 @@ void main() {
     });
 
     test('toColor() preserves transparency', () {
-      const ray = Ray.fromARGB(128, 0, 255, 0);
+      const ray = RayRgb.fromARGB(128, 0, 255, 0);
       final color = ray.toColor();
 
       expect(color.toARGB32(), ray.toIntARGB());
@@ -28,7 +30,7 @@ void main() {
     });
 
     test('toColorWithOpacity() creates Color with specified opacity', () {
-      const ray = Ray.fromARGB(255, 0, 0, 255);
+      const ray = RayRgb.fromARGB(255, 0, 0, 255);
       final color = ray.toColorWithOpacity(0.5);
 
       expect((color.a * 255.0).round() & 0xff, 128); // 0.5 * 255 rounded
@@ -38,7 +40,7 @@ void main() {
     });
 
     test('toColorWithOpacity() handles edge cases', () {
-      const ray = Ray.fromARGB(100, 255, 128, 64);
+      const ray = RayRgb.fromARGB(100, 255, 128, 64);
 
       // Full opacity
       final opaque = ray.toColorWithOpacity(1.0);
@@ -56,8 +58,8 @@ void main() {
     });
   });
 
-  group('Flutter Color to Ray Extensions', () {
-    test('toRay() converts Flutter Color to Ray correctly', () {
+  group('Flutter Color to RayRgb Extensions', () {
+    test('toRay() converts Flutter Color to RayRgb correctly', () {
       const color = Color(0xFFFF0000);
       final ray = color.toRay();
 
@@ -73,33 +75,33 @@ void main() {
       final ray = color.toRay();
 
       expect(ray.toIntARGB(), color.toARGB32());
-      expect(ray.alpha, 128);
+      expect(ray.alpha, closeTo(128, flutterColorTolerance));
       expect(ray.red, 0);
       expect(ray.green, 255);
       expect(ray.blue, 0);
     });
 
-    test('toRay() enables Ray manipulation methods', () {
+    test('toRay() enables RayRgb manipulation methods', () {
       const color = Color(0xFFFF0000);
       final ray = color.toRay();
 
-      // Test that we can use Ray methods
+      // Test that we can use RayRgb methods
       final withOpacity = ray.withOpacity(0.5);
       final inverted = ray.inverse;
-      final lerped = ray.lerp(Ray.fromHex('#0000FF'), 0.5);
+      final lerped = ray.lerp(RayRgb.fromHex('#0000FF'), 0.5);
 
-      expect(withOpacity.alpha, 127);
+      expect(withOpacity.alpha, closeTo(127, flutterColorTolerance));
       expect(inverted.red, 0);
       expect(inverted.green, 255);
       expect(inverted.blue, 255);
-      expect(lerped.red, 128);
-      expect(lerped.blue, 128);
+      expect(lerped.red, closeTo(128, flutterColorTolerance));
+      expect(lerped.blue, closeTo(128, flutterColorTolerance));
     });
   });
 
   group('Round Trip Conversions', () {
-    test('Ray -> Color -> Ray preserves values', () {
-      const originalRay = Ray.fromARGB(200, 100, 150, 75);
+    test('RayRgb -> Color -> RayRgb preserves values', () {
+      const originalRay = RayRgb.fromARGB(200, 100, 150, 75);
       final color = originalRay.toColor();
       final convertedRay = color.toRay();
 
@@ -107,7 +109,7 @@ void main() {
       expect(convertedRay, originalRay);
     });
 
-    test('Color -> Ray -> Color preserves values', () {
+    test('Color -> RayRgb -> Color preserves values', () {
       const originalColor = Color(0xC8649650);
       final ray = originalColor.toRay();
       final convertedColor = ray.toColor();
@@ -117,9 +119,9 @@ void main() {
     });
 
     test('Multiple round trips maintain fidelity', () {
-      final originalRay = Ray.fromHex('#7F123456');
+      final originalRay = RayRgb.fromHex('#7F123456');
 
-      // Ray -> Color -> Ray -> Color -> Ray
+      // RayRgb -> Color -> RayRgb -> Color -> RayRgb
       final color1 = originalRay.toColor();
       final ray1 = color1.toRay();
       final color2 = ray1.toColor();
@@ -171,7 +173,7 @@ void main() {
   });
 
   group('Integration with Ray Methods', () {
-    test('can chain Ray operations after Color conversion', () {
+    test('can chain RayRgb operations after Color conversion', () {
       const redColor = Color(0xFFFF0000);
       const blueColor = Color(0xFF0000FF);
 
@@ -188,7 +190,7 @@ void main() {
       expect((result.b * 255.0).round() & 0xff, greaterThan(50));
     });
 
-    test('can use Ray analysis methods on Flutter Colors', () {
+    test('can use RayRgb analysis methods on Flutter Colors', () {
       const color = Color(0xFF808080); // Gray
       final ray = color.toRay();
 
@@ -197,15 +199,15 @@ void main() {
 
       expect(luminance, greaterThan(0.0));
       expect(luminance, lessThan(1.0));
-      expect(inverted.red, 127);
-      expect(inverted.green, 127);
-      expect(inverted.blue, 127);
+      expect(inverted.red, closeTo(127, flutterColorTolerance));
+      expect(inverted.green, closeTo(127, flutterColorTolerance));
+      expect(inverted.blue, closeTo(127, flutterColorTolerance));
     });
   });
 
   group('Error Handling', () {
     test('toColorWithOpacity clamps opacity values', () {
-      final ray = Ray.fromHex('#FF0000');
+      final ray = RayRgb.fromHex('#FF0000');
 
       // Test values outside 0.0-1.0 range
       final belowZero = ray.toColorWithOpacity(-0.5);

@@ -8,13 +8,13 @@ import 'package:prism/palettes/open_color.dart';
 void main() {
   print('🌈 Prism Examples\n');
 
-  // === Ray Creation ===
-  print('✨ Creating Rays:');
-  final red = Ray.fromHex('#FF0000');
-  final blue = Ray.fromARGB(255, 0, 0, 255);
-  final green = Ray.fromRGBO(0, 255, 0, 1.0);
-  final transparent = Ray.fromHex('#FF000080'); // 50% transparent red
-  
+  // === RayRgb Creation ===
+  print('✨ Creating RayRgbs:');
+  final red = RayRgb.fromHex('#FF0000');
+  final blue = RayRgb.fromARGB(255, 0, 0, 255);
+  final green = RayRgb(red: 0, green: 255, blue: 0);
+  final transparent = RayRgb.fromHex('#FF000080'); // 50% transparent red
+
   print('Red: ${red.toHex()}');
   print('Blue: ${blue.toHex()}');
   print('Green: ${green.toHex()}');
@@ -30,22 +30,22 @@ void main() {
   print('JSON: ${red.toJson()}');
   print('');
 
-  // === Ray Manipulation ===
-  print('🔧 Ray Manipulation:');
+  // === RayRgb Manipulation ===
+  print('🔧 RayRgb Manipulation:');
   final semiRed = red.withOpacity(0.5);
   final darkRed = red.withAlpha(128);
   final cyan = red.inverse;
-  
+
   print('50% Opacity Red: ${semiRed.toRGBA()}');
   print('Dark Red: ${darkRed.toHex(8)}');
   print('Red Inverse (Cyan): ${cyan.toHex()}');
   print('');
 
-  // === Ray Interpolation ===
-  print('🌈 Ray Interpolation:');
+  // === RayRgb Interpolation ===
+  print('🌈 RayRgb Interpolation:');
   final purple = red.lerp(blue, 0.5);
-  final orange = red.lerp(Ray.fromHex('#FFFF00'), 0.5);
-  
+  final orange = red.lerp(RayRgb.fromHex('#FFFF00'), 0.5);
+
   print('Red → Blue (50%): ${purple.toHex()}');
   print('Red → Yellow (50%): ${orange.toHex()}');
   print('');
@@ -53,114 +53,124 @@ void main() {
   // === Advanced Features ===
   print('🔬 Advanced Features:');
   final colors = [
-    Ray.fromHex('#FF0000'), // Red
-    Ray.fromHex('#00FF00'), // Green
-    Ray.fromHex('#0000FF'), // Blue
-    Ray.fromHex('#FFFF00'), // Yellow
-    Ray.fromHex('#FF00FF'), // Magenta
+    RayRgb.fromHex('#FF0000'), // Red
+    RayRgb.fromHex('#00FF00'), // Green
+    RayRgb.fromHex('#0000FF'), // Blue
+    RayRgb.fromHex('#FFFF00'), // Yellow
+    RayRgb.fromHex('#FF00FF'), // Magenta
   ];
-  
-  print('Ray Analysis:');
+
+  print('RayRgb Analysis:');
   for (final ray in colors) {
     final luminance = ray.computeLuminance();
     final brightness = luminance > 0.5 ? 'Light' : 'Dark';
-    print('${ray.toHex()}: $brightness (luminance: ${luminance.toStringAsFixed(3)})');
+    print(
+        '${ray.toHex()}: $brightness (luminance: ${luminance.toStringAsFixed(3)})');
   }
   print('');
 
   // === Hex Format Support ===
   print('🌐 Hex Format Support:');
-  final webRay = Ray.fromHex('#FF000080'); // RGBA format
-  final flutterRay = Ray.fromHex('#80FF0000', format: HexFormat.argb); // ARGB format
-  
+  final webRay = RayRgb.fromHex('#FF000080'); // RGBA format
+  final flutterRay =
+      RayRgb.fromHex('#80FF0000', format: HexFormat.argb); // ARGB format
+
   print('Web format (#FF000080): ${webRay.toRGBA()}');
   print('Flutter format (#80FF0000): ${flutterRay.toRGBA()}');
-  print('Same ray? ${webRay == flutterRay}');
+  print('Same RayRgb? ${webRay == flutterRay}');
   print('');
 
   // === Accessibility ===
   print('♿ Accessibility Features:');
-  final gray = Ray.fromHex('#808080');
-  final black = Ray.fromHex('#000000');
-  final white = Ray.fromHex('#FFFFFF');
-  
-  final bestContrast = gray.maxContrast(black, white);
+  final gray = RayRgb.fromHex('#808080');
+  final black = RayRgb.fromHex('#000000');
+  final white = RayRgb.fromHex('#FFFFFF');
+
+  final bestContrast = gray.maxContrast(black, white) as RayRgb;
   print('Best contrast for gray: ${bestContrast.toHex()}');
   print('');
 
   // === Performance Demo ===
   print('⚡ Performance Demo:');
   final stopwatch = Stopwatch()..start();
-  
-  // Create gradient of 100 rays
-  final spectrum = <Ray>[];
+
+  // Create gradient of 100 RayRgbs
+  final spectrum = <RayRgb>[];
   for (int i = 0; i < 100; i++) {
     spectrum.add(red.lerp(blue, i / 99.0));
   }
-  
+
   stopwatch.stop();
-  print('Created 100-ray spectrum in ${stopwatch.elapsedMicroseconds}μs');
+  print('Created 100-RayRgb spectrum in ${stopwatch.elapsedMicroseconds}μs');
   print('First: ${spectrum.first.toHex()} → Last: ${spectrum.last.toHex()}');
   print('');
 
   // === RayScheme Examples ===
   print('🎭 RayScheme - Accessibility-Focused Color Schemes:');
   final primaryColors = [
-    Ray.fromHex('#2196F3'), // Blue
-    Ray.fromHex('#F44336'), // Red
-    Ray.fromHex('#4CAF50'), // Green
-    Ray.fromHex('#FF9800'), // Orange
-    Ray.fromHex('#9C27B0'), // Purple
+    RayRgb.fromHex('#2196F3'), // Blue
+    RayRgb.fromHex('#F44336'), // Red
+    RayRgb.fromHex('#4CAF50'), // Green
+    RayRgb.fromHex('#FF9800'), // Orange
+    RayRgb.fromHex('#9C27B0'), // Purple
   ];
-  
+
   for (final color in primaryColors) {
     final scheme = RayScheme.fromRay(color);
     final theme = scheme.isDark ? 'Dark' : 'Light';
     print('${color.toHex()} → $theme theme:');
-    print('  ├─ Text color: ${scheme.onRay.toHex()}');
-    print('  ├─ Light surface: ${scheme.surfaceLight.toHex()}');
-    print('  ├─ Dark surface: ${scheme.surfaceDark.toHex()}');
+    print('  ├─ Text color: ${scheme.onRay.toRgb().toHex()}');
+    print('  ├─ Light surface: ${scheme.surfaceLight.toRgb().toHex()}');
+    print('  ├─ Dark surface: ${scheme.surfaceDark.toRgb().toHex()}');
     print('  └─ Luminance: ${scheme.luminance.toStringAsFixed(3)}');
   }
   print('');
 
   // === Color Palettes ===
   print('🎨 Color Palettes:');
-  
+
   // CSS Colors
   print('CSS Colors:');
-  final cssColors = [CssPalette.red, CssPalette.blue, CssPalette.green, CssPalette.gold];
+  final cssColors = [
+    CssPalette.red,
+    CssPalette.blue,
+    CssPalette.green,
+    CssPalette.gold
+  ];
   for (final color in cssColors) {
-    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+    print(
+        '  ${color.name}: ${color.scheme.ray.toRgb().toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
   }
   print('');
-  
+
   // Material Design
   print('Material Design:');
   final materialColors = [
-    MaterialPalette.red500, 
-    MaterialPalette.blue500, 
+    MaterialPalette.red500,
+    MaterialPalette.blue500,
     MaterialPalette.green500,
     MaterialPalette.amber500
   ];
   for (final color in materialColors) {
-    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+    print(
+        '  ${color.name}: ${color.scheme.ray.toRgb().toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
   }
   print('');
-  
+
   // Catppuccin Mocha
   print('Catppuccin Mocha Theme:');
   final mochaColors = [
     CatppuccinMochaPalette.red,
-    CatppuccinMochaPalette.blue, 
+    CatppuccinMochaPalette.blue,
     CatppuccinMochaPalette.green,
     CatppuccinMochaPalette.yellow
   ];
   for (final color in mochaColors) {
-    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+    print(
+        '  ${color.name}: ${color.scheme.ray.toRgb().toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
   }
   print('');
-  
+
   // Solarized
   print('Solarized:');
   final solarizedColors = [
@@ -170,10 +180,11 @@ void main() {
     SolarizedPalette.orange
   ];
   for (final color in solarizedColors) {
-    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+    print(
+        '  ${color.name}: ${color.scheme.ray.toRgb().toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
   }
   print('');
-  
+
   // Open Color
   print('Open Color:');
   final openColors = [
@@ -183,26 +194,27 @@ void main() {
     OpenColorPalette.yellow5
   ];
   for (final color in openColors) {
-    print('  ${color.name}: ${color.scheme.ray.toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
+    print(
+        '  ${color.name}: ${color.scheme.ray.toRgb().toHex()} (${color.scheme.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
   // === Palette Theme Generation ===
   print('🌙 Theme Generation Example:');
   final themeColor = CssPalette.blue.scheme;
-  
+
   print('Creating a blue theme:');
-  print('  Primary: ${themeColor.ray.toHex()}');
-  print('  On Primary: ${themeColor.onRay.toHex()}');
-  print('  Surface (Light): ${themeColor.surfaceLight.toHex()}');
-  print('  Surface (Dark): ${themeColor.surfaceDark.toHex()}');
+  print('  Primary: ${themeColor.ray.toRgb().toHex()}');
+  print('  On Primary: ${themeColor.onRay.toRgb().toHex()}');
+  print('  Surface (Light): ${themeColor.surfaceLight.toRgb().toHex()}');
+  print('  Surface (Dark): ${themeColor.surfaceDark.toRgb().toHex()}');
   print('  Theme type: ${themeColor.isDark ? 'Dark' : 'Light'}');
   print('  Luminance: ${themeColor.luminance.toStringAsFixed(3)}');
   print('');
 
   // === Advanced Palette Operations ===
   print('⚙️ Advanced Palette Operations:');
-  
+
   // Create gradient using palette colors
   final gradientStart = MaterialPalette.purple500.scheme.ray;
   final gradientEnd = MaterialPalette.pink500.scheme.ray;
@@ -210,7 +222,7 @@ void main() {
   for (int i = 0; i <= 4; i++) {
     final step = gradientStart.lerp(gradientEnd, i / 4.0);
     final stepScheme = RayScheme.fromRay(step);
-    print('  Step $i: ${step.toHex()} (contrast: ${stepScheme.onRay.toHex()})');
+    print('  Step $i: ${step.toRgb().toHex()} (contrast: ${stepScheme.onRay.toRgb().toHex()})');
   }
   print('');
 
@@ -222,14 +234,234 @@ void main() {
     ('Catppuccin Green', CatppuccinMochaPalette.green.scheme),
     ('Solarized Orange', SolarizedPalette.orange.scheme),
   ];
-  
+
   for (final (name, scheme) in testColors) {
     final contrast = scheme.ray.maxContrast(
-      Ray.fromHex('#000000'), // Black
-      Ray.fromHex('#FFFFFF'), // White
+      RayRgb.fromHex('#000000'), // Black
+      RayRgb.fromHex('#FFFFFF'), // White
     );
     print('  $name:');
-    print('    └─ Best contrast: ${contrast.toHex()} (${contrast == Ray.fromHex('#000000') ? 'Black' : 'White'})');
+    print(
+        '    └─ Best contrast: ${contrast.toRgb().toHex()} (${contrast == RayRgb.fromHex('#000000') ? 'Black' : 'White'})');
+  }
+  print('');
+
+  // === HSL Color Examples ===
+  print('🌈 HSL Color Examples:');
+  
+  // Basic HSL creation
+  final hslRed = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
+  final hslGreen = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
+  final hslBlue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
+  final hslPastel = RayHsl(hue: 60, saturation: 0.3, lightness: 0.8, opacity: 0.7);
+  
+  print('HSL Colors:');
+  print('  Red: $hslRed → ${hslRed.toRgb().toHex()}');
+  print('  Green: $hslGreen → ${hslGreen.toRgb().toHex()}');
+  print('  Blue: $hslBlue → ${hslBlue.toRgb().toHex()}');
+  print('  Pastel Yellow: $hslPastel → ${hslPastel.toRgb().toHex(8)}');
+  print('');
+
+  // HSL manipulation
+  print('🎨 HSL Manipulation:');
+  final baseHsl = RayHsl(hue: 200, saturation: 0.8, lightness: 0.6);
+  print('Base Color: $baseHsl → ${baseHsl.toRgb().toHex()}');
+  print('  Hue Shifted (+60°): ${baseHsl.withHue(baseHsl.hue + 60)} → ${baseHsl.withHue(baseHsl.hue + 60).toRgb().toHex()}');
+  print('  More Saturated: ${baseHsl.withSaturation(1.0)} → ${baseHsl.withSaturation(1.0).toRgb().toHex()}');
+  print('  Darker: ${baseHsl.withLightness(0.3)} → ${baseHsl.withLightness(0.3).toRgb().toHex()}');
+  print('  Semi-transparent: ${baseHsl.withOpacity(0.5)} → ${baseHsl.withOpacity(0.5).toRgb().toHex(8)}');
+  print('');
+
+  // RGB ↔ HSL Conversion
+  print('🔄 RGB ↔ HSL Conversion:');
+  final rgbOrange = RayRgb(red: 255, green: 165, blue: 0);
+  final hslOrange = rgbOrange.toHsl();
+  final backToRgb = hslOrange.toRgb();
+  
+  print('RGB Orange: ${rgbOrange.toHex()} → HSL: $hslOrange');
+  print('Back to RGB: ${backToRgb.toHex()} (Perfect round-trip: ${rgbOrange == backToRgb})');
+  print('');
+
+  // HSL Distance and Difference Functions
+  print('📐 HSL Distance and Difference Functions:');
+  final color1 = RayHsl(hue: 30, saturation: 0.8, lightness: 0.6);
+  final color2 = RayHsl(hue: 150, saturation: 0.5, lightness: 0.4);
+  
+  print('Color 1: $color1');
+  print('Color 2: $color2');
+  print('Differences (signed):');
+  print('  Hue: ${color1.hueDifference(color2).toStringAsFixed(1)}°');
+  print('  Saturation: ${color1.saturationDifference(color2).toStringAsFixed(2)}');
+  print('  Lightness: ${color1.lightnessDifference(color2).toStringAsFixed(2)}');
+  print('Distances (absolute):');
+  print('  Hue: ${color1.hueDistance(color2).toStringAsFixed(1)}°');
+  print('  Saturation: ${color1.saturationDistance(color2).toStringAsFixed(2)}');
+  print('  Lightness: ${color1.lightnessDistance(color2).toStringAsFixed(2)}');
+  print('');
+
+  // HSL Color Wheel Demonstration
+  print('🎯 HSL Color Wheel (12 colors):');
+  for (int i = 0; i < 12; i++) {
+    final hue = i * 30.0;
+    final wheelColor = RayHsl(hue: hue, saturation: 0.8, lightness: 0.6);
+    final rgbHex = wheelColor.toRgb().toHex();
+    print('  ${hue.toStringAsFixed(0).padLeft(3)}°: $wheelColor → $rgbHex');
+  }
+  print('');
+
+  // HSL Lightness Scale
+  print('💡 HSL Lightness Scale (Blue Hue):');
+  for (int i = 0; i <= 10; i++) {
+    final lightness = i / 10.0;
+    final scaleColor = RayHsl(hue: 240, saturation: 1.0, lightness: lightness);
+    final rgbHex = scaleColor.toRgb().toHex();
+    print('  L=${lightness.toStringAsFixed(1)}: $scaleColor → $rgbHex');
+  }
+  print('');
+
+  // HSL Interpolation
+  print('🌈 HSL Interpolation (Hue-aware):');
+  final startHsl = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);    // Red
+  final endHsl = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);    // Blue
+  
+  print('HSL Interpolation (Red → Blue):');
+  for (int i = 0; i <= 4; i++) {
+    final t = i / 4.0;
+    final interpolated = startHsl.lerp(endHsl, t);
+    final rgbHex = interpolated.toRgb().toHex();
+    print('  Step $i (t=${t.toStringAsFixed(2)}): $interpolated → $rgbHex');
+  }
+  print('');
+
+  // HSL Accessibility Analysis
+  print('♿ HSL Accessibility Analysis:');
+  final testHslColors = [
+    ('Bright Red', RayHsl(hue: 0, saturation: 1.0, lightness: 0.5)),
+    ('Dark Green', RayHsl(hue: 120, saturation: 0.8, lightness: 0.3)),
+    ('Light Blue', RayHsl(hue: 200, saturation: 0.6, lightness: 0.7)),
+    ('Purple', RayHsl(hue: 280, saturation: 0.9, lightness: 0.4)),
+  ];
+  
+  for (final (name, hslColor) in testHslColors) {
+    final luminance = hslColor.computeLuminance();
+    final scheme = RayScheme.fromRay(hslColor);
+    final contrastColor = scheme.onRay.toRgb();
+    
+    print('  $name: $hslColor');
+    print('    └─ Luminance: ${luminance.toStringAsFixed(3)}, Text: ${contrastColor.toHex()} (${scheme.isDark ? 'Dark' : 'Light'} theme)');
+  }
+  print('');
+
+  // === Oklab Color Examples ===
+  print('🧪 Oklab Color Examples (Perceptually Uniform):');
+  
+  // Basic Oklab creation
+  final oklabRed = RayOklab(l: 0.628, a: 0.225, b: 0.126);
+  final oklabGreen = RayOklab(l: 0.866, a: -0.234, b: 0.179);
+  final oklabBlue = RayOklab(l: 0.452, a: -0.032, b: -0.312);
+  final oklabNeutral = RayOklab(l: 0.5, a: 0.0, b: 0.0, opacity: 0.8);
+  
+  print('Oklab Colors:');
+  print('  Red: $oklabRed → ${oklabRed.toRgb().toHex()}');
+  print('  Green: $oklabGreen → ${oklabGreen.toRgb().toHex()}');
+  print('  Blue: $oklabBlue → ${oklabBlue.toRgb().toHex()}');
+  print('  Neutral Gray: $oklabNeutral → ${oklabNeutral.toRgb().toHex(8)}');
+  print('');
+
+  // RGB → Oklab conversion
+  print('🔄 RGB → Oklab Conversion:');
+  final rgbPurple = RayRgb(red: 128, green: 0, blue: 128);
+  final oklabPurple = rgbPurple.toOklab();
+  final backToRgbFromOklab = oklabPurple.toRgb();
+  
+  print('RGB Purple: ${rgbPurple.toHex()} → Oklab: $oklabPurple');
+  print('Back to RGB: ${backToRgbFromOklab.toHex()} (Close match: ${(rgbPurple.red - backToRgbFromOklab.red).abs() < 5})');
+  print('');
+
+  // Oklab Perceptual Interpolation
+  print('🌈 Oklab Perceptual Interpolation:');
+  final oklabStart = RayOklab(l: 0.3, a: 0.2, b: -0.1);  // Dark reddish
+  final oklabEnd = RayOklab(l: 0.8, a: -0.1, b: 0.15);   // Light greenish
+  
+  print('Oklab Interpolation (Perceptually Uniform):');
+  for (int i = 0; i <= 4; i++) {
+    final t = i / 4.0;
+    final interpolated = oklabStart.lerp(oklabEnd, t);
+    final rgbHex = interpolated.toRgb().toHex();
+    print('  Step $i (t=${t.toStringAsFixed(2)}): $interpolated → $rgbHex');
+  }
+  print('');
+
+  // Compare RGB vs Oklab interpolation
+  print('🔬 RGB vs Oklab Interpolation Comparison:');
+  final startRgb = RayRgb(red: 255, green: 0, blue: 0);    // Red
+  final endRgb = RayRgb(red: 0, green: 255, blue: 0);      // Green
+  final startOklab = startRgb.toOklab();
+  final endOklab = endRgb.toOklab();
+  
+  print('Red → Green interpolation:');
+  for (int i = 0; i <= 2; i++) {
+    final t = i / 2.0;
+    final rgbLerp = startRgb.lerp(endRgb, t);
+    final oklabLerp = startOklab.lerp(endOklab, t).toRgb();
+    
+    print('  t=${t.toStringAsFixed(1)} - RGB: ${rgbLerp.toHex()}, Oklab: ${oklabLerp.toHex()}');
+  }
+  print('');
+
+  // Oklab Lightness Scale
+  print('💡 Oklab Lightness Scale (Neutral):');
+  for (int i = 0; i <= 5; i++) {
+    final lightness = i / 5.0;
+    final scaleColor = RayOklab(l: lightness, a: 0.0, b: 0.0);
+    final rgbHex = scaleColor.toRgb().toHex();
+    print('  L=${lightness.toStringAsFixed(1)}: $scaleColor → $rgbHex');
+  }
+  print('');
+
+  // Oklab Color Harmony
+  print('🎨 Oklab Color Harmony:');
+  final baseOklab = RayOklab(l: 0.6, a: 0.1, b: -0.05);
+  print('Base Color: $baseOklab → ${baseOklab.toRgb().toHex()}');
+  
+  // Generate harmonious colors by varying a and b components
+  final complementary = RayOklab(l: baseOklab.l, a: -baseOklab.a, b: -baseOklab.b);
+  final analogous1 = RayOklab(l: baseOklab.l, a: baseOklab.a * 0.5, b: baseOklab.b + 0.1);
+  final analogous2 = RayOklab(l: baseOklab.l, a: baseOklab.a + 0.05, b: baseOklab.b * 0.5);
+  
+  print('  Complementary: $complementary → ${complementary.toRgb().toHex()}');
+  print('  Analogous 1: $analogous1 → ${analogous1.toRgb().toHex()}');
+  print('  Analogous 2: $analogous2 → ${analogous2.toRgb().toHex()}');
+  print('');
+
+  // Multi-space conversion demonstration
+  print('🔄 Multi-Space Conversion Chain:');
+  final originalRgb = RayRgb(red: 180, green: 60, blue: 200);
+  final viaHsl = originalRgb.toHsl().toOklab().toRgb();
+  final viaOklab = originalRgb.toOklab().toHsl().toRgb();
+  
+  print('Original RGB: ${originalRgb.toHex()}');
+  print('RGB → HSL → Oklab → RGB: ${viaHsl.toHex()}');
+  print('RGB → Oklab → HSL → RGB: ${viaOklab.toHex()}');
+  print('Conversion accuracy: ${(originalRgb.red - viaHsl.red).abs() < 10 ? 'Good' : 'Fair'}');
+  print('');
+
+  // Oklab Accessibility Analysis
+  print('♿ Oklab Accessibility Analysis:');
+  final testOklabColors = [
+    ('Bright Red', RayOklab(l: 0.628, a: 0.225, b: 0.126)),
+    ('Dark Green', RayOklab(l: 0.4, a: -0.15, b: 0.1)),
+    ('Light Blue', RayOklab(l: 0.7, a: -0.02, b: -0.2)),
+    ('Neutral Gray', RayOklab(l: 0.5, a: 0.0, b: 0.0)),
+  ];
+  
+  for (final (name, oklabColor) in testOklabColors) {
+    final luminance = oklabColor.computeLuminance();
+    final scheme = RayScheme.fromRay(oklabColor);
+    final contrastColor = scheme.onRay.toRgb();
+    
+    print('  $name: L=${oklabColor.l.toStringAsFixed(3)} → ${oklabColor.toRgb().toHex()}');
+    print('    └─ Luminance: ${luminance.toStringAsFixed(3)}, Text: ${contrastColor.toHex()} (${scheme.isDark ? 'Dark' : 'Light'} theme)');
   }
   print('');
 

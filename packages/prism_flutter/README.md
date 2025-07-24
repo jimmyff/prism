@@ -2,7 +2,7 @@
 
 Flutter extensions for the [Prism](https://pub.dev/packages/prism) color manipulation library.
 
-Seamlessly convert between `Ray` and Flutter `Color` objects with intuitive extension methods.
+Seamlessly convert between `RayRgb` and Flutter `Color` objects with intuitive extension methods.
 
 ## Resources
 
@@ -13,103 +13,94 @@ Seamlessly convert between `Ray` and Flutter `Color` objects with intuitive exte
 
 ## Features
 
-- 🔄 **Seamless conversion**: Extensions for both `Ray` → `Color` and `Color` → `Ray`
+- 🔄 **Seamless conversion**: Extensions for both `RayRgb` → `Color` and `Color` → `RayRgb`
 - 🎨 **Perfect fidelity**: Preserves all ARGB color information
 - ⚡ **Zero overhead**: Direct value conversions with no performance cost
-- 🔧 **Enhanced manipulation**: Access Ray's powerful color operations from Flutter Colors
+- 🔧 **Enhanced manipulation**: Access RayRgb's powerful color operations from Flutter Colors
 - 🎯 **Type safe**: Comprehensive API with proper error handling
 
-## Installation
-
-Add both packages to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  prism: ^1.0.0
-  prism_flutter: ^1.0.0
-```
 
 ## Usage
 
-### Ray to Flutter Color
+### RayRgb to Flutter Color
 
 ```dart
 import 'package:prism_flutter/prism_flutter.dart';
 
-// Convert Ray to Flutter Color
-final ray = Ray.fromHex('#FF0000');
+// Convert RayRgb to Flutter Color
+final ray = RayRgb.fromHex('#FF0000');
 final color = ray.toColor();
 
 // Convert with specific opacity
 final semiTransparent = ray.toColorWithOpacity(0.5);
 ```
 
-### Flutter Color to Ray
+### Flutter Color to RayRgb
 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:prism_flutter/prism_flutter.dart';
 
-// Convert Flutter Color to Ray
+// Convert Flutter Color to RayRgb
 final color = Colors.red;
-final ray = color.toRay();
+final ray = color.toRayRgb();
 
 ```
 
 ### Enhanced Color Manipulation
 
 ```dart
-// Chain Ray operations on Flutter Colors
+// Chain RayRgb operations on Flutter Colors
 final result = Colors.red
-    .toRay()
+    .toRayRgb()
     .withOpacity(0.8)
-    .lerp(Colors.blue.toRay(), 0.3)
+    .lerp(Colors.blue.toRayRgb(), 0.3)
     .inverse
     .toColor();
 
 // Create accessibility schemes from Flutter Colors
-final scheme = RayScheme.fromRay(Colors.blue.toRay());
-final textColor = scheme.onRay.toColor();        // Optimal contrast
+final scheme = RayScheme.fromRay(Colors.blue);
+final textColor = scheme.onRayRgb.toColor();        // Optimal contrast
 final darkSurface = scheme.surfaceDark.toColor(); // Dark theme surface
 
 // Use pre-built palettes with Flutter
-final materialBlue = MaterialPalette.blue500.ray.toColor();
-final cssRed = CssPalette.red.ray.toColor();
+final materialBlue = MaterialPalette.blue500.rayRgb.toColor();
+final cssRed = CssPalette.red.rayRgb.toColor();
 
-// Access Ray analysis methods
-final luminance = Colors.grey.toRay().computeLuminance();
-final bestContrast = Colors.grey.toRay().maxContrast(
-  Colors.black.toRay(),
-  Colors.white.toRay(),
+// Access RayRgb analysis methods
+final luminance = Colors.grey.toRayRgb().computeLuminance();
+final bestContrast = Colors.grey.toRayRgb().maxContrast(
+  Colors.black.toRayRgb(),
+  Colors.white.toRayRgb(),
 );
 ```
 
 ### Perfect Round-Trip Conversions
 
 ```dart
-// Ray → Color → Ray maintains perfect fidelity
-final originalRay = Ray.fromHex('#7F123456');
+// RayRgb → Color → RayRgb maintains perfect fidelity
+final originalRay = RayRgb.fromHex('#7F123456');
 final color = originalRay.toColor();
-final backToRay = color.toRay();
+final backToRay = color.toRayRgb();
 assert(backToRay == originalRay); // ✅ Always true
 
-// Color → Ray → Color maintains perfect fidelity
+// Color → RayRgb → Color maintains perfect fidelity
 const originalColor = Color(0x7F123456);
-final ray = originalColor.toRay();
+final ray = originalColor.toRayRgb();
 final backToColor = ray.toColor();
 assert(backToColor == originalColor); // ✅ Always true
 ```
 
 ## API Reference
 
-### Ray Extensions
+### RayRgb Extensions
 
-- `toColor()` - Convert Ray to Flutter Color
-- `toColorWithOpacity(double opacity)` - Convert Ray to Flutter Color with specific opacity
+- `toColor()` - Convert RayRgb to Flutter Color
+- `toColorWithOpacity(double opacity)` - Convert RayRgb to Flutter Color with specific opacity
 
 ### Flutter Color Extensions
 
-- `toRay()` - Convert Flutter Color to Ray
+- `toRayRgb()` - Convert Flutter Color to RayRgb
 
 
 All conversions preserve complete ARGB color information with perfect fidelity.

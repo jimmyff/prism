@@ -93,21 +93,21 @@ void _generatePalette({
 
     // Use your library's logic to pre-compute the profile
     final ray =
-        Ray.fromHex(hex); // Assuming fromHex exists and is const-friendly
-    final profile = RayScheme.fromRay(ray);
+        RayRgb.fromHex(hex); // Assuming fromHex exists and is const-friendly
+    final profile = RayScheme<RayRgb>.fromRay(ray);
 
     // 3. Write the pre-computed const values directly into the code
     buffer.writeln('  $name(RayScheme(');
     buffer.writeln(
-        '    ray: Ray(0x${ray.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    ray: RayRgb.fromIntARGB(0x${ray.toIntARGB().toRadixString(16).toUpperCase()}),');
     buffer.writeln('    luminance: ${profile.luminance},');
     buffer.writeln('    isDark: ${profile.isDark},');
     buffer.writeln(
-        '    onRay: Ray(0x${profile.onRay.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    onRay: RayRgb.fromIntARGB(0x${profile.onRay.toIntARGB().toRadixString(16).toUpperCase()}),');
     buffer.writeln(
-        '    surfaceDark: Ray(0x${profile.surfaceDark.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    surfaceDark: RayRgb.fromIntARGB(0x${profile.surfaceDark.toIntARGB().toRadixString(16).toUpperCase()}),');
     buffer.writeln(
-        '    surfaceLight: Ray(0x${profile.surfaceLight.toIntARGB().toRadixString(16).toUpperCase()}),');
+        '    surfaceLight: RayRgb.fromIntARGB(0x${profile.surfaceLight.toIntARGB().toRadixString(16).toUpperCase()}),');
     buffer.writeln('  )),');
   }
 
@@ -149,8 +149,10 @@ void _generatePalette({
   galleryBuffer.writeln(
       'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 20px; background: #f5f5f5; }');
   galleryBuffer.writeln('h1 { color: #333; margin-bottom: 30px; }');
-  galleryBuffer.writeln('h1 a { color: #2196F3; text-decoration: none; transition: all 0.2s ease; }');
-  galleryBuffer.writeln('h1 a:hover { color: #1976D2; text-decoration: underline; }');
+  galleryBuffer.writeln(
+      'h1 a { color: #2196F3; text-decoration: none; transition: all 0.2s ease; }');
+  galleryBuffer
+      .writeln('h1 a:hover { color: #1976D2; text-decoration: underline; }');
   galleryBuffer.writeln(
       '.palette-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }');
   galleryBuffer.writeln(
@@ -220,7 +222,7 @@ void _generatePalette({
   for (final entry in data.entries) {
     final name = entry.key;
     final hex = entry.value;
-    final ray = Ray.fromHex(hex);
+    final ray = RayRgb.fromHex(hex);
     final profile = RayScheme.fromRay(ray);
 
     // Check if this color has an alias

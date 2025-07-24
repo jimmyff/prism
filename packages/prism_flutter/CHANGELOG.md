@@ -1,6 +1,8 @@
-## 1.1.0
+## 2.0.0-alpha.1
 
-- **Enhanced Integration**: Full support for Prism 1.1.0 features
+- **BREAKING CHANGE**: Updated to use `RayRgb` class instead of `Ray` (follows Prism 1.1.0)
+- **New Feature**: Support for `RayHsl` colors with automatic RGB conversion for Flutter compatibility
+- **Enhanced Integration**: Full support for Prism 1.1.0 features including base `Ray` class interface
 - **RayScheme Support**: Seamless conversion of RayScheme colors to Flutter Colors
   - Convert scheme colors (`onRay`, `surfaceLight`, `surfaceDark`) directly to Flutter Colors
   - Create accessibility-focused Flutter themes using RayScheme
