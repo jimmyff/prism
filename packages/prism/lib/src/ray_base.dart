@@ -1,18 +1,17 @@
-import 'dart:math' as math;
 import 'package:prism/prism.dart';
 
-/// Enumeration of supported color models.
-enum ColorModel {
-  /// RGB (Red, Green, Blue) color model
+/// Enumeration of supported color spaces.
+enum ColorSpace {
+  /// RGB (Red, Green, Blue) color space
   rgb,
 
-  /// HSL (Hue, Saturation, Lightness) color model
+  /// HSL (Hue, Saturation, Lightness) color space
   hsl,
 
-  /// Oklab color model - perceptually uniform color space
+  /// Oklab color space - perceptually uniform color space
   oklab,
 
-  /// Oklch color model - cylindrical form of Oklab with lightness, chroma, and hue
+  /// Oklch color space - cylindrical form of Oklab with lightness, chroma, and hue
   oklch,
 }
 
@@ -26,10 +25,10 @@ enum ColorModel {
 abstract base class Ray {
   const Ray();
 
-  /// The color model used by this Ray implementation.
+  /// The color space used by this Ray implementation.
   ///
   /// Useful for runtime type checking without using runtimeType.
-  ColorModel get colorModel;
+  ColorSpace get colorSpace;
 
   /// The opacity of this color as a double.
   ///
@@ -68,13 +67,10 @@ abstract base class Ray {
   /// Returns the relative luminance of the color.
   ///
   /// Represents a brightness value between 0 (darkest) and 1 (lightest).
-  /// This calculation follows the WCAG 2.0 specification for accessibility.
-  ///
-  /// The luminance is calculated in RGB space using the formula:
-  /// L = 0.2126 * R + 0.7152 * G + 0.0722 * B
-  ///
-  /// Where R, G, B are the linearized color components.
-  double computeLuminance();
+  /// This calculation is color-space specific:
+  /// - RGB/HSL: Uses WCAG 2.0 specification in RGB space
+  /// - Oklab/Oklch: Uses the lightness component directly
+  double get luminance;
 
   /// Returns the color with the highest contrast relative to this color.
   ///
@@ -87,12 +83,28 @@ abstract base class Ray {
   ///
   /// Returns the color ([a] or [b]) with the highest contrast to this color.
   Ray maxContrast(Ray a, Ray b) {
-    final lum = computeLuminance();
-    final lumA = a.computeLuminance();
-    final lumB = b.computeLuminance();
+    final lum = luminance;
+    final lumA = a.luminance;
+    final lumB = b.luminance;
     final contrastA = (lum - lumA).abs();
     final contrastB = (lum - lumB).abs();
     return contrastA > contrastB ? a : b;
+  }
+
+  /// Converts this color to a different color space, specified by the generic
+  /// type [T].
+  ///
+  /// Example:
+  /// ```dart
+  /// final hslColor = rgbColor.toColorSpace<RayHsl>();
+  /// ```
+  T toColorSpace<T extends Ray>() {
+    if (T == RayRgb) return toRgb() as T;
+    if (T == RayHsl) return toHsl() as T;
+    if (T == RayOklab) return toOklab() as T;
+    if (T == RayOklch) return toOklch() as T;
+
+    return this as T;
   }
 
   /// Converts this color to RGB representation.
@@ -130,15 +142,5 @@ abstract base class Ray {
   /// The exact format depends on the color space implementation.
   static Ray fromJson(dynamic json) {
     throw UnimplementedError('fromJson must be implemented by subclasses');
-  }
-
-  /// Linearizes a color component for luminance calculation.
-  ///
-  /// See <https://www.w3.org/TR/WCAG20/#relativeluminancedef>
-  static double linearizeColorComponent(double component) {
-    if (component <= 0.03928) {
-      return component / 12.92;
-    }
-    return math.pow((component + 0.055) / 1.055, 2.4) as double;
   }
 }

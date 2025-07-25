@@ -14,7 +14,7 @@
   - Create accessibility-focused Flutter themes using RayScheme
 - **Color Palette Integration**: Easy access to all Prism color palettes from Flutter
   - Convert any palette color to Flutter Color with perfect fidelity
-  - Use Material, CSS, Catppuccin, Solarized, and OpenColor palettes in Flutter apps
+  - Use Spectrum, Material, CSS, and OpenColor palettes in Flutter apps
 - **Enhanced Examples**: Updated documentation with RayScheme and palette usage patterns
 - **Dependency Update**: Updated to require Prism ^1.1.0 for new features
 

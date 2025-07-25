@@ -257,10 +257,10 @@ void main() {
       final white = RayRgb.fromARGB(255, 255, 255, 255);
       final red = RayRgb.fromARGB(255, 255, 0, 0);
 
-      expect(black.computeLuminance(), 0.0);
-      expect(white.computeLuminance(), 1.0);
-      expect(red.computeLuminance(), greaterThan(0.0));
-      expect(red.computeLuminance(), lessThan(0.5));
+      expect(black.luminance, 0.0);
+      expect(white.luminance, 1.0);
+      expect(red.luminance, greaterThan(0.0));
+      expect(red.luminance, lessThan(0.5));
     });
 
     test('max contrast selection', () {

@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'ray_base.dart';
 import 'ray_hsl.dart';
 import 'ray_oklab.dart';
@@ -57,7 +59,7 @@ base class RayRgb extends Ray {
   final int _value;
 
   @override
-  ColorModel get colorModel => ColorModel.rgb;
+  ColorSpace get colorSpace => ColorSpace.rgb;
 
   /// Creates a [RayRgb] from individual RGB component values with named parameters.
   ///
@@ -74,7 +76,11 @@ base class RayRgb extends Ray {
   /// final red = RayRgb(red: 255, green: 0, blue: 0);
   /// final semiRed = RayRgb(red: 255, green: 0, blue: 0, alpha: 128);
   /// ```
-  const RayRgb({required int red, required int green, required int blue, int alpha = 255})
+  const RayRgb(
+      {required int red,
+      required int green,
+      required int blue,
+      int alpha = 255})
       : _value = ((alpha & 0xff) << _alphaShift) |
             ((red & 0xff) << _redShift) |
             ((green & 0xff) << _greenShift) |
@@ -90,12 +96,16 @@ base class RayRgb extends Ray {
   /// final red = RayRgb.fromInt(0xFFFF0000);  // Opaque red
   /// final blue = RayRgb.fromInt(0xFF0000FF); // Opaque blue
   /// ```
-  const RayRgb.fromInt(int value) : _value = value & _fullMask, super();
+  const RayRgb.fromInt(int value)
+      : _value = value & _fullMask,
+        super();
 
   /// Creates a [RayRgb] from a 32-bit ARGB integer value.
   ///
   /// This is identical to [fromInt] but with a more explicit name.
-  const RayRgb.fromIntARGB(int value) : _value = value & _fullMask, super();
+  const RayRgb.fromIntARGB(int value)
+      : _value = value & _fullMask,
+        super();
 
   /// Creates a [RayRgb] from a 32-bit RGBA integer value.
   ///
@@ -194,7 +204,8 @@ base class RayRgb extends Ray {
         }
 
       default:
-        throw ArgumentError('Invalid hex color length: ${hex.length}. Expected 3, 6, or 8 characters.');
+        throw ArgumentError(
+            'Invalid hex color length: ${hex.length}. Expected 3, 6, or 8 characters.');
     }
   }
 
@@ -213,7 +224,9 @@ base class RayRgb extends Ray {
   /// print(transparent.alpha); // 0
   /// print(transparent.toHexStr(8)); // #00000000
   /// ```
-  const RayRgb.empty() : _value = 0x00000000, super();
+  const RayRgb.empty()
+      : _value = 0x00000000,
+        super();
 
   @override
   double get opacity => alpha / 255.0;
@@ -242,17 +255,22 @@ base class RayRgb extends Ray {
   /// final red = RayRgb(red: 255, green: 0, blue: 0);
   /// final semiRed = red.withAlpha(128);  // Semi-transparent red
   /// ```
-  RayRgb withAlpha(int alpha) => RayRgb(red: red, green: green, blue: blue, alpha: alpha);
+  RayRgb withAlpha(int alpha) =>
+      RayRgb(red: red, green: green, blue: blue, alpha: alpha);
 
   @override
-  RayRgb withOpacity(double opacity) => 
-      RayRgb(red: red, green: green, blue: blue, alpha: (opacity.clamp(0.0, 1.0) * 255).round());
+  RayRgb withOpacity(double opacity) => RayRgb(
+      red: red,
+      green: green,
+      blue: blue,
+      alpha: (opacity.clamp(0.0, 1.0) * 255).round());
 
   @override
   RayRgb lerp(Ray other, double t) {
     // Convert other to RGB if needed
-    final otherRgb = other.colorModel == ColorModel.rgb ? other as RayRgb : other.toRgb();
-    
+    final otherRgb =
+        other.colorSpace == ColorSpace.rgb ? other as RayRgb : other.toRgb();
+
     final clampedT = t.clamp(0.0, 1.0);
     return RayRgb(
       red: (red + (otherRgb.red - red) * clampedT).round(),
@@ -270,13 +288,43 @@ base class RayRgb extends Ray {
         alpha: alpha,
       );
 
+  /// Returns the relative luminance of this RGB color.
+  ///
+  /// ⚠️ **Performance Warning**: Calculating luminance from RGB values is
+  /// computationally expensive and should be avoided if possible. Consider using:
+  /// - Pre-calculated luminance values from [RayScheme]
+  /// - Alternative color spaces like [RayOklab] or [RayOklch] where luminance
+  ///   is directly available as the L component
+  ///
+  /// See [computeLuminance] for implementation details.
   @override
+  double get luminance => computeLuminance();
+
+  /// Computes the relative luminance of this RGB color.
+  ///
+  /// Represents a brightness value between 0 (darkest) and 1 (lightest).
+  /// This calculation follows the WCAG 2.0 specification for accessibility.
+  ///
+  /// The luminance is calculated in RGB space using the formula:
+  /// L = 0.2126 * R + 0.7152 * G + 0.0722 * B
+  ///
+  /// Where R, G, B are the linearized color components.
   double computeLuminance() {
     // See <https://www.w3.org/TR/WCAG20/#relativeluminancedef>
-    final double R = Ray.linearizeColorComponent(red / 0xFF);
-    final double G = Ray.linearizeColorComponent(green / 0xFF);
-    final double B = Ray.linearizeColorComponent(blue / 0xFF);
+    final double R = linearizeColorComponent(red / 0xFF);
+    final double G = linearizeColorComponent(green / 0xFF);
+    final double B = linearizeColorComponent(blue / 0xFF);
     return 0.2126 * R + 0.7152 * G + 0.0722 * B;
+  }
+
+  /// Linearizes a color component for RGB luminance calculation.
+  ///
+  /// See <https://www.w3.org/TR/WCAG20/#relativeluminancedef>
+  static double linearizeColorComponent(double component) {
+    if (component <= 0.03928) {
+      return component / 12.92;
+    }
+    return math.pow((component + 0.055) / 1.055, 2.4) as double;
   }
 
   @override

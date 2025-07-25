@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prism Palette Gallery - Material</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="MaterialRgb.css">
+<link rel="stylesheet" href="MaterialOklch.css">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 20px; background: #f5f5f5; }
+h1 { color: #333; margin-bottom: 30px; }
+h1 a { color: #2196F3; text-decoration: none; transition: all 0.2s ease; }
+h1 a:hover { color: #1976D2; text-decoration: underline; }
+.palette-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.color-card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
+.color-header { height: 60px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
+.color-info { padding: 15px; }
+.color-name { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
+.luminance { font-size: 14px; color: #666; margin-bottom: 15px; }
+.color-spaces { display: flex; border-radius: 4px; overflow: hidden; }
+.color-space-section { flex: 1; }
+.color-space-section h3 { margin: 0; padding: 8px; background: #f8f9fa; color: #333; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; text-align: center; border-bottom: 1px solid #dee2e6; }
+.shades-column { display: flex; flex-direction: column; }
+.shade-item { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; position: relative; }
+.shade-name { font-size: 9px; font-weight: 600; margin-right: 4px; }
+.shade-luminance { font-size: 8px; opacity: 0.8; }
+.hex-value { font-family: monospace; font-size: 12px; color: #888; }
+.package-info { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 30px; }
+.package-info h2 { margin-top: 0; color: #333; }
+.package-info p { margin: 10px 0; color: #666; }
+.package-info a { color: #2196F3; text-decoration: none; }
+.package-info a:hover { text-decoration: underline; }
+.package-links { display: flex; gap: 20px; margin-top: 15px; flex-wrap: wrap; }
+.package-link { padding: 12px 16px; border-radius: 4px; background: #f0f8ff; border: 1px solid #2196F3; flex: 1; min-width: 200px; }
+@media (max-width: 480px) { .package-links { flex-direction: column; gap: 10px; } .package-link { min-width: unset; } }
+</style>
+</head>
+<body>
+<h1><a href="https://github.com/jimmyff/prism/tree/main/packages/prism/tools/palettes/gallery/">Palettes</a> → Material</h1>
+<div class="package-info">
+<h2>About Prism 🌈</h2>
+<p>This palette is part of the <strong>Prism</strong> color manipulation library for Dart and Flutter. Prism provides comprehensive color operations, accessibility-focused color schemes, and extensive pre-built palettes.</p>
+<div class="package-links">
+<div class="package-link">
+<strong>📦 Dart Package:</strong><br>
+<a href="https://pub.dev/packages/prism" target="_blank">pub.dev/packages/prism</a>
+</div>
+<div class="package-link">
+<strong>🎯 Flutter Package:</strong><br>
+<a href="https://pub.dev/packages/prism_flutter" target="_blank">pub.dev/packages/prism_flutter</a>
+</div>
+</div>
+</div>
+<div class="palette-container">
+<div class="color-card">
+<div class="color-header" style="background-color: #F44336; color: #FFFFFF;">
+red
+</div>
+<div class="color-info">
+<div class="color-name">red</div>
+<div class="luminance">Luminance: 0.235 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-red-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.87</span>
+</div>
+<div class="shade-item bg-material-red-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.70</span>
+</div>
+<div class="shade-item bg-material-red-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-red-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.30</span>
+</div>
+<div class="shade-item bg-material-red-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-red-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-red-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.20</span>
+</div>
+<div class="shade-item bg-material-red-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.16</span>
+</div>
+<div class="shade-item bg-material-red-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.14</span>
+</div>
+<div class="shade-item bg-material-red-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-red-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.87</span>
+</div>
+<div class="shade-item bg-material-red-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.70</span>
+</div>
+<div class="shade-item bg-material-red-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-red-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.30</span>
+</div>
+<div class="shade-item bg-material-red-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-red-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-red-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.20</span>
+</div>
+<div class="shade-item bg-material-red-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.16</span>
+</div>
+<div class="shade-item bg-material-red-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.14</span>
+</div>
+<div class="shade-item bg-material-red-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #E91E63; color: #FFFFFF;">
+pink
+</div>
+<div class="color-info">
+<div class="color-name">pink</div>
+<div class="luminance">Luminance: 0.192 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-pink-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.82</span>
+</div>
+<div class="shade-item bg-material-pink-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.60</span>
+</div>
+<div class="shade-item bg-material-pink-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-pink-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-pink-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.23</span>
+</div>
+<div class="shade-item bg-material-pink-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-pink-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.16</span>
+</div>
+<div class="shade-item bg-material-pink-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.13</span>
+</div>
+<div class="shade-item bg-material-pink-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.10</span>
+</div>
+<div class="shade-item bg-material-pink-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-pink-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.82</span>
+</div>
+<div class="shade-item bg-material-pink-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.60</span>
+</div>
+<div class="shade-item bg-material-pink-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-pink-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-pink-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.23</span>
+</div>
+<div class="shade-item bg-material-pink-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-pink-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.16</span>
+</div>
+<div class="shade-item bg-material-pink-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.13</span>
+</div>
+<div class="shade-item bg-material-pink-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.10</span>
+</div>
+<div class="shade-item bg-material-pink-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #9C27B0; color: #FFFFFF;">
+purple
+</div>
+<div class="color-info">
+<div class="color-name">purple</div>
+<div class="luminance">Luminance: 0.117 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-purple-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.82</span>
+</div>
+<div class="shade-item bg-material-purple-100" style="color: #fff;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-purple-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-purple-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-purple-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.17</span>
+</div>
+<div class="shade-item bg-material-purple-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.12</span>
+</div>
+<div class="shade-item bg-material-purple-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.10</span>
+</div>
+<div class="shade-item bg-material-purple-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.08</span>
+</div>
+<div class="shade-item bg-material-purple-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-purple-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.04</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-purple-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.82</span>
+</div>
+<div class="shade-item bg-material-purple-100" style="color: #fff;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-purple-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-purple-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-purple-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.17</span>
+</div>
+<div class="shade-item bg-material-purple-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.12</span>
+</div>
+<div class="shade-item bg-material-purple-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.10</span>
+</div>
+<div class="shade-item bg-material-purple-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.08</span>
+</div>
+<div class="shade-item bg-material-purple-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-purple-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #673AB7; color: #FFFFFF;">
+deepPurple
+</div>
+<div class="color-info">
+<div class="color-name">deepPurple</div>
+<div class="luminance">Luminance: 0.093 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-deeppurple-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.82</span>
+</div>
+<div class="shade-item bg-material-deeppurple-100" style="color: #fff;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-deeppurple-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-deeppurple-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-deeppurple-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-deeppurple-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-deeppurple-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.08</span>
+</div>
+<div class="shade-item bg-material-deeppurple-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-deeppurple-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.05</span>
+</div>
+<div class="shade-item bg-material-deeppurple-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.04</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-deeppurple-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.82</span>
+</div>
+<div class="shade-item bg-material-deeppurple-100" style="color: #fff;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-deeppurple-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-deeppurple-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-deeppurple-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-deeppurple-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-deeppurple-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.08</span>
+</div>
+<div class="shade-item bg-material-deeppurple-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-deeppurple-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.05</span>
+</div>
+<div class="shade-item bg-material-deeppurple-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #3F51B5; color: #FFFFFF;">
+indigo
+</div>
+<div class="color-info">
+<div class="color-name">indigo</div>
+<div class="luminance">Luminance: 0.103 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-indigo-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.83</span>
+</div>
+<div class="shade-item bg-material-indigo-100" style="color: #fff;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.60</span>
+</div>
+<div class="shade-item bg-material-indigo-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.40</span>
+</div>
+<div class="shade-item bg-material-indigo-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-indigo-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.17</span>
+</div>
+<div class="shade-item bg-material-indigo-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.10</span>
+</div>
+<div class="shade-item bg-material-indigo-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-indigo-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.07</span>
+</div>
+<div class="shade-item bg-material-indigo-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.05</span>
+</div>
+<div class="shade-item bg-material-indigo-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-indigo-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.83</span>
+</div>
+<div class="shade-item bg-material-indigo-100" style="color: #fff;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.60</span>
+</div>
+<div class="shade-item bg-material-indigo-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.40</span>
+</div>
+<div class="shade-item bg-material-indigo-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-indigo-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.17</span>
+</div>
+<div class="shade-item bg-material-indigo-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.10</span>
+</div>
+<div class="shade-item bg-material-indigo-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-indigo-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.07</span>
+</div>
+<div class="shade-item bg-material-indigo-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.05</span>
+</div>
+<div class="shade-item bg-material-indigo-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #2196F3; color: #FFFFFF;">
+blue
+</div>
+<div class="color-info">
+<div class="color-name">blue</div>
+<div class="luminance">Luminance: 0.286 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-blue-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.87</span>
+</div>
+<div class="shade-item bg-material-blue-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.70</span>
+</div>
+<div class="shade-item bg-material-blue-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.55</span>
+</div>
+<div class="shade-item bg-material-blue-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-blue-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.35</span>
+</div>
+<div class="shade-item bg-material-blue-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-blue-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-blue-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-blue-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.13</span>
+</div>
+<div class="shade-item bg-material-blue-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.07</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-blue-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.87</span>
+</div>
+<div class="shade-item bg-material-blue-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.70</span>
+</div>
+<div class="shade-item bg-material-blue-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.55</span>
+</div>
+<div class="shade-item bg-material-blue-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-blue-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.35</span>
+</div>
+<div class="shade-item bg-material-blue-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-blue-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-blue-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-blue-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.13</span>
+</div>
+<div class="shade-item bg-material-blue-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.07</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #03A9F4; color: #FFFFFF;">
+lightBlue
+</div>
+<div class="color-info">
+<div class="color-name">lightBlue</div>
+<div class="luminance">Luminance: 0.349 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-lightblue-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.88</span>
+</div>
+<div class="shade-item bg-material-lightblue-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.73</span>
+</div>
+<div class="shade-item bg-material-lightblue-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-lightblue-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.47</span>
+</div>
+<div class="shade-item bg-material-lightblue-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.41</span>
+</div>
+<div class="shade-item bg-material-lightblue-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.35</span>
+</div>
+<div class="shade-item bg-material-lightblue-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-lightblue-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-lightblue-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.17</span>
+</div>
+<div class="shade-item bg-material-lightblue-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-lightblue-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.88</span>
+</div>
+<div class="shade-item bg-material-lightblue-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.73</span>
+</div>
+<div class="shade-item bg-material-lightblue-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-lightblue-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.47</span>
+</div>
+<div class="shade-item bg-material-lightblue-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.41</span>
+</div>
+<div class="shade-item bg-material-lightblue-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.35</span>
+</div>
+<div class="shade-item bg-material-lightblue-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-lightblue-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-lightblue-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.17</span>
+</div>
+<div class="shade-item bg-material-lightblue-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #00BCD4; color: #FFFFFF;">
+cyan
+</div>
+<div class="color-info">
+<div class="color-name">cyan</div>
+<div class="luminance">Luminance: 0.407 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-cyan-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.89</span>
+</div>
+<div class="shade-item bg-material-cyan-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.75</span>
+</div>
+<div class="shade-item bg-material-cyan-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.63</span>
+</div>
+<div class="shade-item bg-material-cyan-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.52</span>
+</div>
+<div class="shade-item bg-material-cyan-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.46</span>
+</div>
+<div class="shade-item bg-material-cyan-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.41</span>
+</div>
+<div class="shade-item bg-material-cyan-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+<div class="shade-item bg-material-cyan-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-cyan-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-cyan-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-cyan-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.89</span>
+</div>
+<div class="shade-item bg-material-cyan-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.75</span>
+</div>
+<div class="shade-item bg-material-cyan-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.63</span>
+</div>
+<div class="shade-item bg-material-cyan-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.52</span>
+</div>
+<div class="shade-item bg-material-cyan-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.46</span>
+</div>
+<div class="shade-item bg-material-cyan-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.41</span>
+</div>
+<div class="shade-item bg-material-cyan-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+<div class="shade-item bg-material-cyan-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-cyan-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-cyan-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #009688; color: #FFFFFF;">
+teal
+</div>
+<div class="color-info">
+<div class="color-name">teal</div>
+<div class="luminance">Luminance: 0.236 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-teal-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.86</span>
+</div>
+<div class="shade-item bg-material-teal-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.67</span>
+</div>
+<div class="shade-item bg-material-teal-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.51</span>
+</div>
+<div class="shade-item bg-material-teal-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.38</span>
+</div>
+<div class="shade-item bg-material-teal-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.30</span>
+</div>
+<div class="shade-item bg-material-teal-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-teal-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-teal-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-teal-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-teal-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-teal-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.86</span>
+</div>
+<div class="shade-item bg-material-teal-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.67</span>
+</div>
+<div class="shade-item bg-material-teal-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.51</span>
+</div>
+<div class="shade-item bg-material-teal-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.38</span>
+</div>
+<div class="shade-item bg-material-teal-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.30</span>
+</div>
+<div class="shade-item bg-material-teal-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.24</span>
+</div>
+<div class="shade-item bg-material-teal-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-teal-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-teal-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-teal-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #4CAF50; color: #FFFFFF;">
+green
+</div>
+<div class="color-info">
+<div class="color-name">green</div>
+<div class="luminance">Luminance: 0.328 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-green-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.88</span>
+</div>
+<div class="shade-item bg-material-green-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.73</span>
+</div>
+<div class="shade-item bg-material-green-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-green-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.47</span>
+</div>
+<div class="shade-item bg-material-green-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-green-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+<div class="shade-item bg-material-green-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.27</span>
+</div>
+<div class="shade-item bg-material-green-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.21</span>
+</div>
+<div class="shade-item bg-material-green-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-green-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.08</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-green-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.88</span>
+</div>
+<div class="shade-item bg-material-green-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.73</span>
+</div>
+<div class="shade-item bg-material-green-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-green-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.47</span>
+</div>
+<div class="shade-item bg-material-green-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-green-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+<div class="shade-item bg-material-green-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.27</span>
+</div>
+<div class="shade-item bg-material-green-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.21</span>
+</div>
+<div class="shade-item bg-material-green-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-green-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.08</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #8BC34A; color: #FFFFFF;">
+lightGreen
+</div>
+<div class="color-info">
+<div class="color-name">lightGreen</div>
+<div class="luminance">Luminance: 0.450 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-lightgreen-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.92</span>
+</div>
+<div class="shade-item bg-material-lightgreen-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.80</span>
+</div>
+<div class="shade-item bg-material-lightgreen-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.68</span>
+</div>
+<div class="shade-item bg-material-lightgreen-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-lightgreen-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.51</span>
+</div>
+<div class="shade-item bg-material-lightgreen-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.45</span>
+</div>
+<div class="shade-item bg-material-lightgreen-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.37</span>
+</div>
+<div class="shade-item bg-material-lightgreen-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.28</span>
+</div>
+<div class="shade-item bg-material-lightgreen-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.21</span>
+</div>
+<div class="shade-item bg-material-lightgreen-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-lightgreen-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.92</span>
+</div>
+<div class="shade-item bg-material-lightgreen-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.80</span>
+</div>
+<div class="shade-item bg-material-lightgreen-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.68</span>
+</div>
+<div class="shade-item bg-material-lightgreen-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-lightgreen-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.51</span>
+</div>
+<div class="shade-item bg-material-lightgreen-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.45</span>
+</div>
+<div class="shade-item bg-material-lightgreen-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.37</span>
+</div>
+<div class="shade-item bg-material-lightgreen-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.28</span>
+</div>
+<div class="shade-item bg-material-lightgreen-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.21</span>
+</div>
+<div class="shade-item bg-material-lightgreen-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #CDDC39; color: #000000;">
+lime
+</div>
+<div class="color-info">
+<div class="color-name">lime</div>
+<div class="luminance">Luminance: 0.645 (Light)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-lime-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.95</span>
+</div>
+<div class="shade-item bg-material-lime-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.87</span>
+</div>
+<div class="shade-item bg-material-lime-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.80</span>
+</div>
+<div class="shade-item bg-material-lime-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.74</span>
+</div>
+<div class="shade-item bg-material-lime-400" style="color: #000;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.69</span>
+</div>
+<div class="shade-item bg-material-lime-500" style="color: #000;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.64</span>
+</div>
+<div class="shade-item bg-material-lime-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.54</span>
+</div>
+<div class="shade-item bg-material-lime-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-lime-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.32</span>
+</div>
+<div class="shade-item bg-material-lime-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-lime-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.95</span>
+</div>
+<div class="shade-item bg-material-lime-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.87</span>
+</div>
+<div class="shade-item bg-material-lime-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.80</span>
+</div>
+<div class="shade-item bg-material-lime-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.74</span>
+</div>
+<div class="shade-item bg-material-lime-400" style="color: #000;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.69</span>
+</div>
+<div class="shade-item bg-material-lime-500" style="color: #000;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.64</span>
+</div>
+<div class="shade-item bg-material-lime-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.54</span>
+</div>
+<div class="shade-item bg-material-lime-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-lime-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.32</span>
+</div>
+<div class="shade-item bg-material-lime-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #FFEB3B; color: #000000;">
+yellow
+</div>
+<div class="color-info">
+<div class="color-name">yellow</div>
+<div class="luminance">Luminance: 0.810 (Light)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-yellow-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.97</span>
+</div>
+<div class="shade-item bg-material-yellow-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.93</span>
+</div>
+<div class="shade-item bg-material-yellow-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.89</span>
+</div>
+<div class="shade-item bg-material-yellow-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-yellow-400" style="color: #000;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.83</span>
+</div>
+<div class="shade-item bg-material-yellow-500" style="color: #000;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.81</span>
+</div>
+<div class="shade-item bg-material-yellow-600" style="color: #000;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.70</span>
+</div>
+<div class="shade-item bg-material-yellow-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-yellow-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.48</span>
+</div>
+<div class="shade-item bg-material-yellow-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.35</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-yellow-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.97</span>
+</div>
+<div class="shade-item bg-material-yellow-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.93</span>
+</div>
+<div class="shade-item bg-material-yellow-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.89</span>
+</div>
+<div class="shade-item bg-material-yellow-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-yellow-400" style="color: #000;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.83</span>
+</div>
+<div class="shade-item bg-material-yellow-500" style="color: #000;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.81</span>
+</div>
+<div class="shade-item bg-material-yellow-600" style="color: #000;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.70</span>
+</div>
+<div class="shade-item bg-material-yellow-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-yellow-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.48</span>
+</div>
+<div class="shade-item bg-material-yellow-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.35</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #FFC107; color: #000000;">
+amber
+</div>
+<div class="color-info">
+<div class="color-name">amber</div>
+<div class="luminance">Luminance: 0.594 (Light)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-amber-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.94</span>
+</div>
+<div class="shade-item bg-material-amber-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-amber-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.76</span>
+</div>
+<div class="shade-item bg-material-amber-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.69</span>
+</div>
+<div class="shade-item bg-material-amber-400" style="color: #000;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.64</span>
+</div>
+<div class="shade-item bg-material-amber-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-amber-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.54</span>
+</div>
+<div class="shade-item bg-material-amber-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.46</span>
+</div>
+<div class="shade-item bg-material-amber-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.41</span>
+</div>
+<div class="shade-item bg-material-amber-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-amber-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.94</span>
+</div>
+<div class="shade-item bg-material-amber-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-amber-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.76</span>
+</div>
+<div class="shade-item bg-material-amber-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.69</span>
+</div>
+<div class="shade-item bg-material-amber-400" style="color: #000;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.64</span>
+</div>
+<div class="shade-item bg-material-amber-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.59</span>
+</div>
+<div class="shade-item bg-material-amber-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.54</span>
+</div>
+<div class="shade-item bg-material-amber-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.46</span>
+</div>
+<div class="shade-item bg-material-amber-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.41</span>
+</div>
+<div class="shade-item bg-material-amber-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #FF9800; color: #FFFFFF;">
+orange
+</div>
+<div class="color-info">
+<div class="color-name">orange</div>
+<div class="luminance">Luminance: 0.437 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-orange-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.91</span>
+</div>
+<div class="shade-item bg-material-orange-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.78</span>
+</div>
+<div class="shade-item bg-material-orange-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.66</span>
+</div>
+<div class="shade-item bg-material-orange-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.56</span>
+</div>
+<div class="shade-item bg-material-orange-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.49</span>
+</div>
+<div class="shade-item bg-material-orange-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-orange-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-orange-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-orange-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-orange-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.23</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-orange-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.91</span>
+</div>
+<div class="shade-item bg-material-orange-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.78</span>
+</div>
+<div class="shade-item bg-material-orange-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.66</span>
+</div>
+<div class="shade-item bg-material-orange-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.56</span>
+</div>
+<div class="shade-item bg-material-orange-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.49</span>
+</div>
+<div class="shade-item bg-material-orange-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-orange-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.39</span>
+</div>
+<div class="shade-item bg-material-orange-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-orange-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.29</span>
+</div>
+<div class="shade-item bg-material-orange-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.23</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #FF5722; color: #FFFFFF;">
+deepOrange
+</div>
+<div class="color-info">
+<div class="color-name">deepOrange</div>
+<div class="luminance">Luminance: 0.282 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-deeporange-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-deeporange-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.68</span>
+</div>
+<div class="shade-item bg-material-deeporange-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.52</span>
+</div>
+<div class="shade-item bg-material-deeporange-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.40</span>
+</div>
+<div class="shade-item bg-material-deeporange-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+<div class="shade-item bg-material-deeporange-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.28</span>
+</div>
+<div class="shade-item bg-material-deeporange-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-deeporange-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-deeporange-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-deeporange-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.14</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-deeporange-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-deeporange-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.68</span>
+</div>
+<div class="shade-item bg-material-deeporange-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.52</span>
+</div>
+<div class="shade-item bg-material-deeporange-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.40</span>
+</div>
+<div class="shade-item bg-material-deeporange-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.33</span>
+</div>
+<div class="shade-item bg-material-deeporange-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.28</span>
+</div>
+<div class="shade-item bg-material-deeporange-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.25</span>
+</div>
+<div class="shade-item bg-material-deeporange-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-deeporange-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-deeporange-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.14</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #795548; color: #FFFFFF;">
+brown
+</div>
+<div class="color-info">
+<div class="color-name">brown</div>
+<div class="luminance">Luminance: 0.110 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-brown-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.84</span>
+</div>
+<div class="shade-item bg-material-brown-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.62</span>
+</div>
+<div class="shade-item bg-material-brown-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-brown-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.27</span>
+</div>
+<div class="shade-item bg-material-brown-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-brown-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-brown-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-brown-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-brown-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.04</span>
+</div>
+<div class="shade-item bg-material-brown-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-brown-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.84</span>
+</div>
+<div class="shade-item bg-material-brown-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.62</span>
+</div>
+<div class="shade-item bg-material-brown-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.42</span>
+</div>
+<div class="shade-item bg-material-brown-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.27</span>
+</div>
+<div class="shade-item bg-material-brown-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-brown-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-brown-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-brown-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-brown-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.04</span>
+</div>
+<div class="shade-item bg-material-brown-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #9E9E9E; color: #FFFFFF;">
+gray
+</div>
+<div class="color-info">
+<div class="color-name">gray</div>
+<div class="luminance">Luminance: 0.342 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-gray-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.96</span>
+</div>
+<div class="shade-item bg-material-gray-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.91</span>
+</div>
+<div class="shade-item bg-material-gray-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-gray-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.75</span>
+</div>
+<div class="shade-item bg-material-gray-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.51</span>
+</div>
+<div class="shade-item bg-material-gray-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-gray-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-gray-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.12</span>
+</div>
+<div class="shade-item bg-material-gray-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.05</span>
+</div>
+<div class="shade-item bg-material-gray-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.02</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-gray-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.96</span>
+</div>
+<div class="shade-item bg-material-gray-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.91</span>
+</div>
+<div class="shade-item bg-material-gray-200" style="color: #000;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.85</span>
+</div>
+<div class="shade-item bg-material-gray-300" style="color: #000;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.75</span>
+</div>
+<div class="shade-item bg-material-gray-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.51</span>
+</div>
+<div class="shade-item bg-material-gray-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-gray-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.18</span>
+</div>
+<div class="shade-item bg-material-gray-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.12</span>
+</div>
+<div class="shade-item bg-material-gray-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.05</span>
+</div>
+<div class="shade-item bg-material-gray-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.02</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #607D8B; color: #FFFFFF;">
+blueGray
+</div>
+<div class="color-info">
+<div class="color-name">blueGray</div>
+<div class="luminance">Luminance: 0.190 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-bluegray-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.86</span>
+</div>
+<div class="shade-item bg-material-bluegray-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.68</span>
+</div>
+<div class="shade-item bg-material-bluegray-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.50</span>
+</div>
+<div class="shade-item bg-material-bluegray-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.36</span>
+</div>
+<div class="shade-item bg-material-bluegray-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.26</span>
+</div>
+<div class="shade-item bg-material-bluegray-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-bluegray-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.14</span>
+</div>
+<div class="shade-item bg-material-bluegray-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-bluegray-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-bluegray-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-bluegray-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.86</span>
+</div>
+<div class="shade-item bg-material-bluegray-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.68</span>
+</div>
+<div class="shade-item bg-material-bluegray-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.50</span>
+</div>
+<div class="shade-item bg-material-bluegray-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.36</span>
+</div>
+<div class="shade-item bg-material-bluegray-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.26</span>
+</div>
+<div class="shade-item bg-material-bluegray-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.19</span>
+</div>
+<div class="shade-item bg-material-bluegray-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.14</span>
+</div>
+<div class="shade-item bg-material-bluegray-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.09</span>
+</div>
+<div class="shade-item bg-material-bluegray-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-bluegray-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #000000; color: #FFFFFF;">
+black
+</div>
+<div class="color-info">
+<div class="color-name">black</div>
+<div class="luminance">Luminance: 0.000 (Dark)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-black-0" style="color: #000;">
+<span class="shade-name">0</span>
+<span class="shade-luminance">L: 0.96</span>
+</div>
+<div class="shade-item bg-material-black-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.90</span>
+</div>
+<div class="shade-item bg-material-black-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.78</span>
+</div>
+<div class="shade-item bg-material-black-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-black-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-black-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-black-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.26</span>
+</div>
+<div class="shade-item bg-material-black-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-black-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-black-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-black-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-black-950" style="color: #fff;">
+<span class="shade-name">950</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+<div class="shade-item bg-material-black-1000" style="color: #fff;">
+<span class="shade-name">1000</span>
+<span class="shade-luminance">L: 0.01</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-black-0" style="color: #000;">
+<span class="shade-name">0</span>
+<span class="shade-luminance">L: 0.96</span>
+</div>
+<div class="shade-item bg-material-black-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.90</span>
+</div>
+<div class="shade-item bg-material-black-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.78</span>
+</div>
+<div class="shade-item bg-material-black-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-black-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-black-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-black-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.26</span>
+</div>
+<div class="shade-item bg-material-black-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-black-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-black-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-black-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-black-950" style="color: #fff;">
+<span class="shade-name">950</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+<div class="shade-item bg-material-black-1000" style="color: #fff;">
+<span class="shade-name">1000</span>
+<span class="shade-luminance">L: 0.01</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="color-card">
+<div class="color-header" style="background-color: #FFFFFF; color: #000000;">
+white
+</div>
+<div class="color-info">
+<div class="color-name">white</div>
+<div class="luminance">Luminance: 1.000 (Light)</div>
+<div class="color-spaces">
+<div class="color-space-section">
+<h3>RGB</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-white-0" style="color: #000;">
+<span class="shade-name">0</span>
+<span class="shade-luminance">L: 0.96</span>
+</div>
+<div class="shade-item bg-material-white-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.90</span>
+</div>
+<div class="shade-item bg-material-white-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.78</span>
+</div>
+<div class="shade-item bg-material-white-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-white-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-white-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-white-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.26</span>
+</div>
+<div class="shade-item bg-material-white-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-white-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-white-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-white-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-white-950" style="color: #fff;">
+<span class="shade-name">950</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+<div class="shade-item bg-material-white-1000" style="color: #fff;">
+<span class="shade-name">1000</span>
+<span class="shade-luminance">L: 0.01</span>
+</div>
+</div>
+</div>
+<div class="color-space-section">
+<h3>Oklch</h3>
+<div class="shades-column">
+<div class="shade-item bg-material-white-0" style="color: #000;">
+<span class="shade-name">0</span>
+<span class="shade-luminance">L: 0.96</span>
+</div>
+<div class="shade-item bg-material-white-50" style="color: #000;">
+<span class="shade-name">50</span>
+<span class="shade-luminance">L: 0.90</span>
+</div>
+<div class="shade-item bg-material-white-100" style="color: #000;">
+<span class="shade-name">100</span>
+<span class="shade-luminance">L: 0.78</span>
+</div>
+<div class="shade-item bg-material-white-200" style="color: #fff;">
+<span class="shade-name">200</span>
+<span class="shade-luminance">L: 0.58</span>
+</div>
+<div class="shade-item bg-material-white-300" style="color: #fff;">
+<span class="shade-name">300</span>
+<span class="shade-luminance">L: 0.44</span>
+</div>
+<div class="shade-item bg-material-white-400" style="color: #fff;">
+<span class="shade-name">400</span>
+<span class="shade-luminance">L: 0.34</span>
+</div>
+<div class="shade-item bg-material-white-500" style="color: #fff;">
+<span class="shade-name">500</span>
+<span class="shade-luminance">L: 0.26</span>
+</div>
+<div class="shade-item bg-material-white-600" style="color: #fff;">
+<span class="shade-name">600</span>
+<span class="shade-luminance">L: 0.22</span>
+</div>
+<div class="shade-item bg-material-white-700" style="color: #fff;">
+<span class="shade-name">700</span>
+<span class="shade-luminance">L: 0.15</span>
+</div>
+<div class="shade-item bg-material-white-800" style="color: #fff;">
+<span class="shade-name">800</span>
+<span class="shade-luminance">L: 0.11</span>
+</div>
+<div class="shade-item bg-material-white-900" style="color: #fff;">
+<span class="shade-name">900</span>
+<span class="shade-luminance">L: 0.06</span>
+</div>
+<div class="shade-item bg-material-white-950" style="color: #fff;">
+<span class="shade-name">950</span>
+<span class="shade-luminance">L: 0.03</span>
+</div>
+<div class="shade-item bg-material-white-1000" style="color: #fff;">
+<span class="shade-name">1000</span>
+<span class="shade-luminance">L: 0.01</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

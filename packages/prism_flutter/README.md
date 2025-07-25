@@ -64,8 +64,8 @@ final textColor = scheme.onRayRgb.toColor();        // Optimal contrast
 final darkSurface = scheme.surfaceDark.toColor(); // Dark theme surface
 
 // Use pre-built palettes with Flutter
-final materialBlue = MaterialPalette.blue500.rayRgb.toColor();
-final cssRed = CssPalette.red.rayRgb.toColor();
+final materialBlue = MaterialRgb.blue500.rayRgb.toColor();
+final cssRed = CssRgb.red.rayRgb.toColor();
 
 // Access RayRgb analysis methods
 final luminance = Colors.grey.toRayRgb().computeLuminance();

@@ -33,18 +33,18 @@ import 'ray_oklch.dart';
 base class RayHsl extends Ray {
   /// The hue component in degrees (0.0-360.0)
   final double _hue;
-  
+
   /// The saturation component (0.0-1.0)
   final double _saturation;
-  
-  /// The lightness component (0.0-1.0)  
+
+  /// The lightness component (0.0-1.0)
   final double _lightness;
-  
+
   /// The opacity component (0.0-1.0)
   final double _opacity;
 
   @override
-  ColorModel get colorModel => ColorModel.hsl;
+  ColorSpace get colorSpace => ColorSpace.hsl;
 
   /// Creates a [RayHsl] from HSL components with named parameters.
   ///
@@ -64,11 +64,11 @@ base class RayHsl extends Ray {
     required double saturation,
     required double lightness,
     double opacity = 1.0,
-  }) : _hue = _normalizeHue(hue),
-       _saturation = saturation.clamp(0.0, 1.0),
-       _lightness = lightness.clamp(0.0, 1.0),
-       _opacity = opacity.clamp(0.0, 1.0),
-       super();
+  })  : _hue = _normalizeHue(hue),
+        _saturation = saturation.clamp(0.0, 1.0),
+        _lightness = lightness.clamp(0.0, 1.0),
+        _opacity = opacity.clamp(0.0, 1.0),
+        super();
 
   /// Creates a [RayHsl] from an RGB color by converting RGB to HSL.
   ///
@@ -81,7 +81,8 @@ base class RayHsl extends Ray {
   /// print('${hslRed.hue}, ${hslRed.saturation}, ${hslRed.lightness}'); // 0.0, 1.0, 0.5
   /// ```
   factory RayHsl.fromRgb(RayRgb rgb) {
-    return _rgbToHsl(rgb.red / 255.0, rgb.green / 255.0, rgb.blue / 255.0, rgb.opacity);
+    return _rgbToHsl(
+        rgb.red / 255.0, rgb.green / 255.0, rgb.blue / 255.0, rgb.opacity);
   }
 
   /// Creates a [RayHsl] for JSON deserialization.
@@ -116,7 +117,7 @@ base class RayHsl extends Ray {
   ///
   /// Represents the color position on the color wheel:
   /// - 0° = Red
-  /// - 120° = Green  
+  /// - 120° = Green
   /// - 240° = Blue
   /// - 360° = Red (full circle)
   double get hue => _hue;
@@ -198,14 +199,15 @@ base class RayHsl extends Ray {
   @override
   RayHsl lerp(Ray other, double t) {
     // Convert other to HSL if needed
-    final otherHsl = other.colorModel == ColorModel.hsl ? other as RayHsl : other.toHsl();
-    
+    final otherHsl =
+        other.colorSpace == ColorSpace.hsl ? other as RayHsl : other.toHsl();
+
     final clampedT = t.clamp(0.0, 1.0);
-    
+
     // Handle hue interpolation considering circular nature (0° = 360°)
     final hueDiff = _shortestHueDistance(hue, otherHsl.hue);
     final newHue = _normalizeHue(hue + hueDiff * clampedT);
-    
+
     return RayHsl(
       hue: newHue,
       saturation: saturation + (otherHsl.saturation - saturation) * clampedT,
@@ -217,16 +219,26 @@ base class RayHsl extends Ray {
   @override
   RayHsl get inverse => RayHsl(
         hue: _normalizeHue(hue + 180), // Shift hue by 180 degrees
-        saturation: 1.0 - saturation,  // Invert saturation
-        lightness: 1.0 - lightness,   // Invert lightness
-        opacity: opacity,              // Keep opacity
+        saturation: 1.0 - saturation, // Invert saturation
+        lightness: 1.0 - lightness, // Invert lightness
+        opacity: opacity, // Keep opacity
       );
 
+  /// Returns the relative luminance of this HSL color.
+  ///
+  /// ⚠️ **Performance Warning**: Calculating luminance from HSL values requires
+  /// conversion to RGB and is computationally expensive. This should be avoided
+  /// if possible. Consider using:
+  /// - Pre-calculated luminance values from [RayScheme]
+  /// - Alternative color spaces like [RayOklab] or [RayOklch] where luminance
+  ///   is directly available as the L component
+  ///
+  /// This method converts to RGB first, then computes luminance in RGB space.
   @override
-  double computeLuminance() {
+  double get luminance {
     // Convert to RGB first, then compute luminance in RGB space
     final rgb = toRgb();
-    return rgb.computeLuminance();
+    return rgb.luminance;
   }
 
   @override
@@ -234,7 +246,7 @@ base class RayHsl extends Ray {
     final rgbValues = _hslToRgb(hue, saturation, lightness);
     return RayRgb(
       red: (rgbValues.r * 255).round(),
-      green: (rgbValues.g * 255).round(),  
+      green: (rgbValues.g * 255).round(),
       blue: (rgbValues.b * 255).round(),
       alpha: (opacity * 255).round(),
     );
@@ -293,7 +305,7 @@ base class RayHsl extends Ray {
   /// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
   /// final blue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
   /// final green = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-  /// 
+  ///
   /// print(red.hueDifference(blue)); // -120.0 (blue is 120° counter-clockwise from red)
   /// print(red.hueDifference(green)); // 120.0 (green is 120° clockwise from red)
   /// ```
@@ -311,7 +323,7 @@ base class RayHsl extends Ray {
   /// ```dart
   /// final vivid = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
   /// final pastel = RayHsl(hue: 120, saturation: 0.3, lightness: 0.5);
-  /// 
+  ///
   /// print(vivid.saturationDifference(pastel)); // -0.7 (pastel is less saturated)
   /// print(pastel.saturationDifference(vivid)); // 0.7 (vivid is more saturated)
   /// ```
@@ -329,7 +341,7 @@ base class RayHsl extends Ray {
   /// ```dart
   /// final dark = RayHsl(hue: 240, saturation: 1.0, lightness: 0.2);
   /// final bright = RayHsl(hue: 240, saturation: 1.0, lightness: 0.8);
-  /// 
+  ///
   /// print(dark.lightnessDifference(bright)); // 0.6 (bright is lighter)
   /// print(bright.lightnessDifference(dark)); // -0.6 (dark is darker)
   /// ```
@@ -348,7 +360,7 @@ base class RayHsl extends Ray {
   /// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
   /// final blue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
   /// final yellow = RayHsl(hue: 60, saturation: 1.0, lightness: 0.5);
-  /// 
+  ///
   /// print(red.hueDistance(blue)); // 120.0 (shortest path on color wheel)
   /// print(red.hueDistance(yellow)); // 60.0
   /// ```
@@ -365,7 +377,7 @@ base class RayHsl extends Ray {
   /// ```dart
   /// final vivid = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
   /// final pastel = RayHsl(hue: 120, saturation: 0.3, lightness: 0.5);
-  /// 
+  ///
   /// print(vivid.saturationDistance(pastel)); // 0.7
   /// print(pastel.saturationDistance(vivid)); // 0.7
   /// ```
@@ -382,7 +394,7 @@ base class RayHsl extends Ray {
   /// ```dart
   /// final dark = RayHsl(hue: 240, saturation: 1.0, lightness: 0.2);
   /// final bright = RayHsl(hue: 240, saturation: 1.0, lightness: 0.8);
-  /// 
+  ///
   /// print(dark.lightnessDistance(bright)); // 0.6
   /// print(bright.lightnessDistance(dark)); // 0.6
   /// ```
@@ -421,9 +433,8 @@ base class RayHsl extends Ray {
 
     if (delta != 0) {
       // Calculate saturation
-      saturation = lightness > 0.5 
-          ? delta / (2 - max - min)
-          : delta / (max + min);
+      saturation =
+          lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
 
       // Calculate hue
       if (max == r) {
@@ -445,7 +456,8 @@ base class RayHsl extends Ray {
   }
 
   /// High-precision HSL to RGB conversion
-  static ({double r, double g, double b}) _hslToRgb(double hue, double saturation, double lightness) {
+  static ({double r, double g, double b}) _hslToRgb(
+      double hue, double saturation, double lightness) {
     if (saturation == 0) {
       // Achromatic (gray)
       return (r: lightness, g: lightness, b: lightness);
@@ -457,26 +469,38 @@ base class RayHsl extends Ray {
     final m = lightness - c / 2;
 
     double r1, g1, b1;
-    
+
     final h = (hueNormalized * 6).floor();
     switch (h) {
       case 0:
-        r1 = c; g1 = x; b1 = 0;
+        r1 = c;
+        g1 = x;
+        b1 = 0;
         break;
       case 1:
-        r1 = x; g1 = c; b1 = 0;
+        r1 = x;
+        g1 = c;
+        b1 = 0;
         break;
       case 2:
-        r1 = 0; g1 = c; b1 = x;
+        r1 = 0;
+        g1 = c;
+        b1 = x;
         break;
       case 3:
-        r1 = 0; g1 = x; b1 = c;
+        r1 = 0;
+        g1 = x;
+        b1 = c;
         break;
       case 4:
-        r1 = x; g1 = 0; b1 = c;
+        r1 = x;
+        g1 = 0;
+        b1 = c;
         break;
       default: // case 5
-        r1 = c; g1 = 0; b1 = x;
+        r1 = c;
+        g1 = 0;
+        b1 = x;
         break;
     }
 

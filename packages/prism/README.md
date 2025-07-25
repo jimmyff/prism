@@ -17,7 +17,7 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 - 🔀 **Format conversion**: Easy conversion between color models and formats
 - 📐 **HSL color analysis**: Distance and difference functions for color comparison
 - 🎭 **Color schemes**: RayScheme for accessibility-focused UI color schemes
-- 🎨 **Color palettes**: Pre-built palettes (CSS, Material, Catppuccin, Solarized, OpenColor)
+- 🎨 **Color palettes**: Pre-built palettes (Spectrum, CSS, Material, OpenColor)
 - 📱 **Flutter compatible**: Perfect conversion to/from Flutter's Color class
 - 🌐 **Web standard support**: Default RGBA hex format for web compatibility
 - ♿ **Accessibility**: WCAG luminance calculations and contrast ratios
@@ -89,8 +89,8 @@ void main() {
   final isLight = scheme.isLight;         // Theme classification
   
   // Use pre-built color palettes
-  final materialBlue = MaterialPalette.blue500.scheme.ray;
-  final cssNavy = CssPalette.navy.scheme.ray;
+  final materialBlue = MaterialRgb.blue500.scheme.ray;
+  final cssNavy = CssRgb.navy.scheme.ray;
   
   // Access components and calculations
   print('Red: ${red.red}, Alpha: ${red.alpha}');
@@ -238,38 +238,6 @@ final luminance = anyColor.computeLuminance();  // Works for all models
 final scheme = RayScheme.fromRay(anyColor);     // Works for all models
 ```
 
-## Color Palettes
-
-Prism includes extensive pre-built color palettes with accessibility-focused schemes:
-
-### Available Palettes
-
-- **[CSS Colors](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/CssPalette.html)** - Complete CSS color palette
-- **[Material Design](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/MaterialPalette.html)** - Material Design color system
-- **[Open Color](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/OpenColorPalette.html)** - Open Color palette system
-- Catppuccin flavors: **[Latte](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/CatppuccinLattePalette.html)**, **[Frappé](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/CatppuccinFrappePalette.html)**, **[Macchiato](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/CatppuccinMacchiatoPalette.html)**, **[Mocha](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/CatppuccinMochaPalette.html)**
-- **[Solarized](https://raw.githubusercontent.com/jimmyff/prism/main/packages/prism/tools/palettes/gallery/SolarizedPalette.html)** - Solarized color scheme
-
-
-### Usage
-
-**Note**: Palettes are not exported by default to avoid namespace pollution. Import only the palettes you need:
-
-```dart
-// Import specific palettes as needed
-import 'package:prism/palettes/css.dart';
-import 'package:prism/palettes/material.dart';
-
-// Access colors from imported palettes
-final primaryBlue = CssPalette.blue.rayRgb;
-final materialRed = MaterialPalette.red500.rayRgb;
-
-// Get complete accessibility schemes
-final blueScheme = CssPalette.blue.scheme;
-final textColor = blueScheme.onRay;          // Optimal contrast color
-final lightSurface = blueScheme.surfaceLight; // Light theme surface
-final darkSurface = blueScheme.surfaceDark;   // Dark theme surface
-```
 
 ## API Overview
 
@@ -308,10 +276,53 @@ final darkSurface = blueScheme.surfaceDark;   // Dark theme surface
 ## Performance
 
 Prism is optimized for performance:
+
 - Efficient bit operations for color manipulation
 - Minimal memory allocations
 - Optimized string operations
 - Cached component calculations
+
+## Color Palettes
+
+Prism includes extensive pre-built color palettes with accessibility-focused schemes:
+
+### Available Palettes
+
+#### Spectrum (Prim's own color palette)
+![Spectrum Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Spectrum.png)
+
+#### CSS Colors  
+![CSS Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Css.png)
+
+#### Material Colors
+![Material Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Material.png)
+
+#### Open Color
+![Open Color Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/OpenColor.png)
+
+CSS versions of all palettes are also available in the [palette_gallery/](https://github.com/jimmyff/prism/tree/main/palette_gallery/) directory for web development use.
+
+
+### Usage
+
+**Note**: Palettes are not exported by default to avoid namespace pollution. Import only the palettes you need:
+
+```dart
+// Import specific palettes as needed
+import 'package:prism/palettes/css.dart';
+import 'package:prism/palettes/material.dart';
+
+// Access colors from imported palettes
+final primaryBlue = CssRgb.blue.rayRgb;
+final materialRed = MaterialRgb.red500.rayRgb;
+
+// Get complete accessibility schemes
+final blueScheme = CssRgb.blue.scheme;
+final textColor = blueScheme.onRay;          // Optimal contrast color
+final lightSurface = blueScheme.surfaceLight; // Light theme surface
+final darkSurface = blueScheme.surfaceDark;   // Dark theme surface
+```
+
 
 ## License
 

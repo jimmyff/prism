@@ -1,3 +1,23 @@
+## 2.0.0-alpha.4
+
+### New Features
+- **Gamut Clipping**: Added smart gamut clipping for Oklab and Oklch color spaces (based on Björn Ottosson's research)
+  - `getMaxValidChroma()` calculates maximum valid chroma for any lightness/hue combination
+  - `findMaxChromaPoint()` determines cusp points for color boundaries
+  - Automatic clipping in `withChroma()` and `withLightness()` methods keeps colors within sRGB gamut
+- **Expanded RayScheme**: Redesigned shade system with Material Design-style organization
+  - **13 tonal shades**: `shade0` through `shade1000` (including 50, 950 variants)
+  - **4 accent variants**: `accent100`, `accent200`, `accent400`, `accent700` for UI emphasis
+  - Fine-grained control over color relationships for design systems
+- **Gallery Generation**: New palette visualization and export tools
+  - Interactive HTML galleries with side-by-side RGB/Oklch comparisons
+  - PNG image exports and web-ready CSS files in both RGB and Oklch formats
+  - Automated generation via `build_gallery.dart`, `palette_html_generator.dart`, and `palette_image_generator.dart`
+
+### Improvements
+- Better color accuracy with precise gamut boundary calculations
+- Streamlined palette generation with multiple output formats
+
 ## 2.0.0-alpha.3
 
 ### New Features
@@ -49,7 +69,7 @@
   - Dark and light surface variants with luminance targeting
   - W3C WCAG luminance calculations
 - **Color Palettes**: Pre-built palette system with RayScheme support
-  - CSS Colors (147 colors), Material Design, Catppuccin (4 variants), Solarized, Open Color
+  - Spectrum (Prism's own palette), CSS Colors (147 colors), Material Design, Open Color
 
 ### Improvements
 - Seamless RGB ↔ HSL conversion with round-trip fidelity

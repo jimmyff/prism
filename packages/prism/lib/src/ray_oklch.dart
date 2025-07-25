@@ -40,48 +40,63 @@ base class RayOklch extends Ray {
   /// The opacity component (0.0 to 1.0).
   final double _opacity;
 
-  /// Creates an Oklch color with the specified components.
+  /// Creates a constant Oklch color with the specified components.
+  ///
+  /// It is the responsibility of the caller to ensure that the provided
+  /// values are within the valid range for Oklch.
   ///
   /// Parameters:
   /// - [l]: Lightness (0.0 to 1.0)
   /// - [c]: Chroma (0.0 to approximately 0.4)
   /// - [h]: Hue in degrees (0.0 to 360.0)
   /// - [opacity]: Opacity (0.0 to 1.0, defaults to 1.0)
-  ///
-  /// The hue value will be normalized to the range [0.0, 360.0).
-  /// Chroma values below 0.0 will be clamped to 0.0.
-  RayOklch({
+  const RayOklch({
     required this.l,
+    required this.c,
+    required this.h,
+    double opacity = 1.0,
+  }) : _opacity = opacity;
+
+  /// Creates an Oklch color with validation and normalization.
+  ///
+  /// This factory constructor validates and normalizes the input values:
+  /// - Lightness and opacity must be between 0.0 and 1.0
+  /// - Hue is normalized to the range [0.0, 360.0)
+  /// - Chroma is clamped to a minimum of 0.0
+  ///
+  /// Parameters:
+  /// - [l]: Lightness (0.0 to 1.0)
+  /// - [c]: Chroma (0.0 to approximately 0.4)
+  /// - [h]: Hue in degrees (normalized to 0.0-360.0 range)
+  /// - [opacity]: Opacity (0.0 to 1.0, defaults to 1.0)
+  factory RayOklch.validated({
+    required double l,
     required double c,
     required double h,
     double opacity = 1.0,
-  })  : c = math.max(0.0, c),
-        h = _normalizeHue(h),
-        _opacity = opacity {
+  }) {
     if (l < 0.0 || l > 1.0) {
       throw ArgumentError.value(
-          l, 'l', 'Lightness must be between 0.0 and 1.0');
+          l, 'lightness', 'Lightness must be between 0.0 and 1.0');
     }
     if (opacity < 0.0 || opacity > 1.0) {
       throw ArgumentError.value(
           opacity, 'opacity', 'Opacity must be between 0.0 and 1.0');
     }
+
+    return RayOklch(
+      l: l,
+      c: math.max(0.0, c),
+      h: _normalizeHue(h),
+      opacity: opacity,
+    );
   }
 
-  /// Creates an Oklch color from individual LCH components.
-  RayOklch.fromLch(this.l, double c, double h, [double opacity = 1.0])
-      : c = math.max(0.0, c),
-        h = _normalizeHue(h),
-        _opacity = opacity {
-    if (l < 0.0 || l > 1.0) {
-      throw ArgumentError.value(
-          l, 'l', 'Lightness must be between 0.0 and 1.0');
-    }
-    if (opacity < 0.0 || opacity > 1.0) {
-      throw ArgumentError.value(
-          opacity, 'opacity', 'Opacity must be between 0.0 and 1.0');
-    }
-  }
+  /// Creates a constant Oklch color from individual LCH components.
+  ///
+  /// It is the responsibility of the caller to ensure that the provided
+  /// values are within the valid range for Oklch.
+  const RayOklch.fromLch(this.l, this.c, this.h, [this._opacity = 1.0]);
 
   /// Creates a transparent black Oklch color.
   const RayOklch.empty()
@@ -100,7 +115,7 @@ base class RayOklch extends Ray {
     return RayOklch(
       l: oklab.l,
       c: chroma,
-      h: hue,
+      h: _normalizeHue(hue),
       opacity: oklab.opacity,
     );
   }
@@ -118,7 +133,7 @@ base class RayOklch extends Ray {
   }
 
   @override
-  ColorModel get colorModel => ColorModel.oklch;
+  ColorSpace get colorSpace => ColorSpace.oklch;
 
   @override
   double get opacity => _opacity;
@@ -134,23 +149,61 @@ base class RayOklch extends Ray {
 
   /// Creates a new color with the same lightness and hue but different chroma.
   ///
-  /// The [chroma] value will be clamped to a minimum of 0.0.
+  /// The [chroma] value will be clamped to a minimum of 0.0 and a maximum
+  /// that stays within the RGB gamut for the current lightness and hue.
   RayOklch withChroma(double chroma) {
-    return RayOklch(l: l, c: chroma, h: h, opacity: opacity);
+    // Clamp to minimum 0.0
+    final clampedChroma = math.max(0.0, chroma);
+
+    // Find maximum valid chroma for this lightness and hue
+    final maxChroma = RayOklab.getMaxValidChroma(l, h);
+
+    // Clamp to maximum valid chroma
+    final finalChroma = math.min(clampedChroma, maxChroma);
+
+    return RayOklch(
+      l: l,
+      c: finalChroma,
+      h: h,
+      opacity: opacity,
+    );
   }
 
   /// Creates a new color with the same lightness and chroma but different hue.
   ///
   /// The [hue] value will be normalized to the range [0.0, 360.0).
   RayOklch withHue(double hue) {
-    return RayOklch(l: l, c: c, h: hue, opacity: opacity);
+    return RayOklch.validated(
+      l: l,
+      c: c,
+      h: hue,
+      opacity: opacity,
+    );
   }
 
   /// Creates a new color with the same chroma and hue but different lightness.
   ///
   /// The [lightness] value must be between 0.0 and 1.0.
+  /// The chroma will be clamped to the maximum valid value for the new lightness and current hue
+  /// to ensure the resulting color stays within the RGB gamut.
   RayOklch withLightness(double lightness) {
-    return RayOklch(l: lightness, c: c, h: h, opacity: opacity);
+    if (lightness < 0.0 || lightness > 1.0) {
+      throw ArgumentError.value(
+          lightness, 'lightness', 'Lightness must be between 0.0 and 1.0');
+    }
+
+    // Find the maximum valid chroma for this lightness and hue combination
+    final maxChroma = RayOklab.getMaxValidChroma(lightness, h);
+
+    // Clamp the current chroma to the valid range
+    final clampedChroma = math.min(c, maxChroma);
+
+    return RayOklch(
+      l: lightness,
+      c: clampedChroma,
+      h: h,
+      opacity: opacity,
+    );
   }
 
   @override
@@ -189,9 +242,9 @@ base class RayOklch extends Ray {
   }
 
   @override
-  double computeLuminance() {
-    // Convert to RGB to compute luminance using the standard formula
-    return toRgb().computeLuminance();
+  double get luminance {
+    // In Oklch, the L component already represents perceptual lightness/luminance
+    return l;
   }
 
   @override
@@ -221,12 +274,15 @@ base class RayOklch extends Ray {
 
   @override
   Map<String, dynamic> toJson() {
-    return {
+    final json = <String, dynamic>{
       'l': l,
       'c': c,
       'h': h,
-      'o': opacity,
     };
+    if (opacity != 1.0) {
+      json['o'] = opacity;
+    }
+    return json;
   }
 
   /// Normalizes a hue value to the range [0.0, 360.0).
@@ -234,6 +290,7 @@ base class RayOklch extends Ray {
     hue = hue % 360.0;
     return hue < 0.0 ? hue + 360.0 : hue;
   }
+
 
   /// Calculates the shortest distance between two hue values.
   ///

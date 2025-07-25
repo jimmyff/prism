@@ -1,0 +1,522 @@
+/* Generated CSS for OpenColorRgb palette */
+
+.bg-oc-gray-50 { background-color: rgb(248, 249, 250); }
+.text-oc-gray-50 { color: rgb(248, 249, 250); }
+.border-oc-gray-50 { border-color: rgb(248, 249, 250); }
+
+.bg-oc-gray-100 { background-color: rgb(241, 243, 245); }
+.text-oc-gray-100 { color: rgb(241, 243, 245); }
+.border-oc-gray-100 { border-color: rgb(241, 243, 245); }
+
+.bg-oc-gray-200 { background-color: rgb(233, 236, 239); }
+.text-oc-gray-200 { color: rgb(233, 236, 239); }
+.border-oc-gray-200 { border-color: rgb(233, 236, 239); }
+
+.bg-oc-gray-300 { background-color: rgb(222, 226, 230); }
+.text-oc-gray-300 { color: rgb(222, 226, 230); }
+.border-oc-gray-300 { border-color: rgb(222, 226, 230); }
+
+.bg-oc-gray-400 { background-color: rgb(206, 212, 218); }
+.text-oc-gray-400 { color: rgb(206, 212, 218); }
+.border-oc-gray-400 { border-color: rgb(206, 212, 218); }
+
+.bg-oc-gray-500 { background-color: rgb(173, 181, 189); }
+.text-oc-gray-500 { color: rgb(173, 181, 189); }
+.border-oc-gray-500 { border-color: rgb(173, 181, 189); }
+
+.bg-oc-gray-600 { background-color: rgb(134, 142, 150); }
+.text-oc-gray-600 { color: rgb(134, 142, 150); }
+.border-oc-gray-600 { border-color: rgb(134, 142, 150); }
+
+.bg-oc-gray-700 { background-color: rgb(73, 80, 87); }
+.text-oc-gray-700 { color: rgb(73, 80, 87); }
+.border-oc-gray-700 { border-color: rgb(73, 80, 87); }
+
+.bg-oc-gray-800 { background-color: rgb(52, 58, 64); }
+.text-oc-gray-800 { color: rgb(52, 58, 64); }
+.border-oc-gray-800 { border-color: rgb(52, 58, 64); }
+
+.bg-oc-gray-900 { background-color: rgb(33, 37, 41); }
+.text-oc-gray-900 { color: rgb(33, 37, 41); }
+.border-oc-gray-900 { border-color: rgb(33, 37, 41); }
+
+.bg-oc-red-50 { background-color: rgb(255, 245, 245); }
+.text-oc-red-50 { color: rgb(255, 245, 245); }
+.border-oc-red-50 { border-color: rgb(255, 245, 245); }
+
+.bg-oc-red-100 { background-color: rgb(255, 227, 227); }
+.text-oc-red-100 { color: rgb(255, 227, 227); }
+.border-oc-red-100 { border-color: rgb(255, 227, 227); }
+
+.bg-oc-red-200 { background-color: rgb(255, 201, 201); }
+.text-oc-red-200 { color: rgb(255, 201, 201); }
+.border-oc-red-200 { border-color: rgb(255, 201, 201); }
+
+.bg-oc-red-300 { background-color: rgb(255, 168, 168); }
+.text-oc-red-300 { color: rgb(255, 168, 168); }
+.border-oc-red-300 { border-color: rgb(255, 168, 168); }
+
+.bg-oc-red-400 { background-color: rgb(255, 135, 135); }
+.text-oc-red-400 { color: rgb(255, 135, 135); }
+.border-oc-red-400 { border-color: rgb(255, 135, 135); }
+
+.bg-oc-red-500 { background-color: rgb(255, 107, 107); }
+.text-oc-red-500 { color: rgb(255, 107, 107); }
+.border-oc-red-500 { border-color: rgb(255, 107, 107); }
+
+.bg-oc-red-600 { background-color: rgb(250, 82, 82); }
+.text-oc-red-600 { color: rgb(250, 82, 82); }
+.border-oc-red-600 { border-color: rgb(250, 82, 82); }
+
+.bg-oc-red-700 { background-color: rgb(240, 62, 62); }
+.text-oc-red-700 { color: rgb(240, 62, 62); }
+.border-oc-red-700 { border-color: rgb(240, 62, 62); }
+
+.bg-oc-red-800 { background-color: rgb(224, 49, 49); }
+.text-oc-red-800 { color: rgb(224, 49, 49); }
+.border-oc-red-800 { border-color: rgb(224, 49, 49); }
+
+.bg-oc-red-900 { background-color: rgb(201, 42, 42); }
+.text-oc-red-900 { color: rgb(201, 42, 42); }
+.border-oc-red-900 { border-color: rgb(201, 42, 42); }
+
+.bg-oc-pink-50 { background-color: rgb(255, 240, 246); }
+.text-oc-pink-50 { color: rgb(255, 240, 246); }
+.border-oc-pink-50 { border-color: rgb(255, 240, 246); }
+
+.bg-oc-pink-100 { background-color: rgb(255, 222, 235); }
+.text-oc-pink-100 { color: rgb(255, 222, 235); }
+.border-oc-pink-100 { border-color: rgb(255, 222, 235); }
+
+.bg-oc-pink-200 { background-color: rgb(252, 194, 215); }
+.text-oc-pink-200 { color: rgb(252, 194, 215); }
+.border-oc-pink-200 { border-color: rgb(252, 194, 215); }
+
+.bg-oc-pink-300 { background-color: rgb(250, 162, 193); }
+.text-oc-pink-300 { color: rgb(250, 162, 193); }
+.border-oc-pink-300 { border-color: rgb(250, 162, 193); }
+
+.bg-oc-pink-400 { background-color: rgb(247, 131, 172); }
+.text-oc-pink-400 { color: rgb(247, 131, 172); }
+.border-oc-pink-400 { border-color: rgb(247, 131, 172); }
+
+.bg-oc-pink-500 { background-color: rgb(240, 101, 149); }
+.text-oc-pink-500 { color: rgb(240, 101, 149); }
+.border-oc-pink-500 { border-color: rgb(240, 101, 149); }
+
+.bg-oc-pink-600 { background-color: rgb(230, 73, 128); }
+.text-oc-pink-600 { color: rgb(230, 73, 128); }
+.border-oc-pink-600 { border-color: rgb(230, 73, 128); }
+
+.bg-oc-pink-700 { background-color: rgb(214, 51, 108); }
+.text-oc-pink-700 { color: rgb(214, 51, 108); }
+.border-oc-pink-700 { border-color: rgb(214, 51, 108); }
+
+.bg-oc-pink-800 { background-color: rgb(194, 37, 92); }
+.text-oc-pink-800 { color: rgb(194, 37, 92); }
+.border-oc-pink-800 { border-color: rgb(194, 37, 92); }
+
+.bg-oc-pink-900 { background-color: rgb(166, 30, 77); }
+.text-oc-pink-900 { color: rgb(166, 30, 77); }
+.border-oc-pink-900 { border-color: rgb(166, 30, 77); }
+
+.bg-oc-grape-50 { background-color: rgb(248, 240, 252); }
+.text-oc-grape-50 { color: rgb(248, 240, 252); }
+.border-oc-grape-50 { border-color: rgb(248, 240, 252); }
+
+.bg-oc-grape-100 { background-color: rgb(243, 217, 250); }
+.text-oc-grape-100 { color: rgb(243, 217, 250); }
+.border-oc-grape-100 { border-color: rgb(243, 217, 250); }
+
+.bg-oc-grape-200 { background-color: rgb(238, 190, 250); }
+.text-oc-grape-200 { color: rgb(238, 190, 250); }
+.border-oc-grape-200 { border-color: rgb(238, 190, 250); }
+
+.bg-oc-grape-300 { background-color: rgb(229, 153, 247); }
+.text-oc-grape-300 { color: rgb(229, 153, 247); }
+.border-oc-grape-300 { border-color: rgb(229, 153, 247); }
+
+.bg-oc-grape-400 { background-color: rgb(218, 119, 242); }
+.text-oc-grape-400 { color: rgb(218, 119, 242); }
+.border-oc-grape-400 { border-color: rgb(218, 119, 242); }
+
+.bg-oc-grape-500 { background-color: rgb(204, 93, 232); }
+.text-oc-grape-500 { color: rgb(204, 93, 232); }
+.border-oc-grape-500 { border-color: rgb(204, 93, 232); }
+
+.bg-oc-grape-600 { background-color: rgb(190, 75, 219); }
+.text-oc-grape-600 { color: rgb(190, 75, 219); }
+.border-oc-grape-600 { border-color: rgb(190, 75, 219); }
+
+.bg-oc-grape-700 { background-color: rgb(174, 62, 201); }
+.text-oc-grape-700 { color: rgb(174, 62, 201); }
+.border-oc-grape-700 { border-color: rgb(174, 62, 201); }
+
+.bg-oc-grape-800 { background-color: rgb(156, 54, 181); }
+.text-oc-grape-800 { color: rgb(156, 54, 181); }
+.border-oc-grape-800 { border-color: rgb(156, 54, 181); }
+
+.bg-oc-grape-900 { background-color: rgb(134, 46, 156); }
+.text-oc-grape-900 { color: rgb(134, 46, 156); }
+.border-oc-grape-900 { border-color: rgb(134, 46, 156); }
+
+.bg-oc-violet-50 { background-color: rgb(243, 240, 255); }
+.text-oc-violet-50 { color: rgb(243, 240, 255); }
+.border-oc-violet-50 { border-color: rgb(243, 240, 255); }
+
+.bg-oc-violet-100 { background-color: rgb(229, 219, 255); }
+.text-oc-violet-100 { color: rgb(229, 219, 255); }
+.border-oc-violet-100 { border-color: rgb(229, 219, 255); }
+
+.bg-oc-violet-200 { background-color: rgb(208, 191, 255); }
+.text-oc-violet-200 { color: rgb(208, 191, 255); }
+.border-oc-violet-200 { border-color: rgb(208, 191, 255); }
+
+.bg-oc-violet-300 { background-color: rgb(177, 151, 252); }
+.text-oc-violet-300 { color: rgb(177, 151, 252); }
+.border-oc-violet-300 { border-color: rgb(177, 151, 252); }
+
+.bg-oc-violet-400 { background-color: rgb(151, 117, 250); }
+.text-oc-violet-400 { color: rgb(151, 117, 250); }
+.border-oc-violet-400 { border-color: rgb(151, 117, 250); }
+
+.bg-oc-violet-500 { background-color: rgb(132, 94, 247); }
+.text-oc-violet-500 { color: rgb(132, 94, 247); }
+.border-oc-violet-500 { border-color: rgb(132, 94, 247); }
+
+.bg-oc-violet-600 { background-color: rgb(121, 80, 242); }
+.text-oc-violet-600 { color: rgb(121, 80, 242); }
+.border-oc-violet-600 { border-color: rgb(121, 80, 242); }
+
+.bg-oc-violet-700 { background-color: rgb(112, 72, 232); }
+.text-oc-violet-700 { color: rgb(112, 72, 232); }
+.border-oc-violet-700 { border-color: rgb(112, 72, 232); }
+
+.bg-oc-violet-800 { background-color: rgb(103, 65, 217); }
+.text-oc-violet-800 { color: rgb(103, 65, 217); }
+.border-oc-violet-800 { border-color: rgb(103, 65, 217); }
+
+.bg-oc-violet-900 { background-color: rgb(95, 61, 196); }
+.text-oc-violet-900 { color: rgb(95, 61, 196); }
+.border-oc-violet-900 { border-color: rgb(95, 61, 196); }
+
+.bg-oc-indigo-50 { background-color: rgb(237, 242, 255); }
+.text-oc-indigo-50 { color: rgb(237, 242, 255); }
+.border-oc-indigo-50 { border-color: rgb(237, 242, 255); }
+
+.bg-oc-indigo-100 { background-color: rgb(219, 228, 255); }
+.text-oc-indigo-100 { color: rgb(219, 228, 255); }
+.border-oc-indigo-100 { border-color: rgb(219, 228, 255); }
+
+.bg-oc-indigo-200 { background-color: rgb(186, 200, 255); }
+.text-oc-indigo-200 { color: rgb(186, 200, 255); }
+.border-oc-indigo-200 { border-color: rgb(186, 200, 255); }
+
+.bg-oc-indigo-300 { background-color: rgb(145, 167, 255); }
+.text-oc-indigo-300 { color: rgb(145, 167, 255); }
+.border-oc-indigo-300 { border-color: rgb(145, 167, 255); }
+
+.bg-oc-indigo-400 { background-color: rgb(116, 143, 252); }
+.text-oc-indigo-400 { color: rgb(116, 143, 252); }
+.border-oc-indigo-400 { border-color: rgb(116, 143, 252); }
+
+.bg-oc-indigo-500 { background-color: rgb(92, 124, 250); }
+.text-oc-indigo-500 { color: rgb(92, 124, 250); }
+.border-oc-indigo-500 { border-color: rgb(92, 124, 250); }
+
+.bg-oc-indigo-600 { background-color: rgb(76, 110, 245); }
+.text-oc-indigo-600 { color: rgb(76, 110, 245); }
+.border-oc-indigo-600 { border-color: rgb(76, 110, 245); }
+
+.bg-oc-indigo-700 { background-color: rgb(66, 99, 235); }
+.text-oc-indigo-700 { color: rgb(66, 99, 235); }
+.border-oc-indigo-700 { border-color: rgb(66, 99, 235); }
+
+.bg-oc-indigo-800 { background-color: rgb(59, 91, 219); }
+.text-oc-indigo-800 { color: rgb(59, 91, 219); }
+.border-oc-indigo-800 { border-color: rgb(59, 91, 219); }
+
+.bg-oc-indigo-900 { background-color: rgb(54, 79, 199); }
+.text-oc-indigo-900 { color: rgb(54, 79, 199); }
+.border-oc-indigo-900 { border-color: rgb(54, 79, 199); }
+
+.bg-oc-blue-50 { background-color: rgb(231, 245, 255); }
+.text-oc-blue-50 { color: rgb(231, 245, 255); }
+.border-oc-blue-50 { border-color: rgb(231, 245, 255); }
+
+.bg-oc-blue-100 { background-color: rgb(208, 235, 255); }
+.text-oc-blue-100 { color: rgb(208, 235, 255); }
+.border-oc-blue-100 { border-color: rgb(208, 235, 255); }
+
+.bg-oc-blue-200 { background-color: rgb(165, 216, 255); }
+.text-oc-blue-200 { color: rgb(165, 216, 255); }
+.border-oc-blue-200 { border-color: rgb(165, 216, 255); }
+
+.bg-oc-blue-300 { background-color: rgb(116, 192, 252); }
+.text-oc-blue-300 { color: rgb(116, 192, 252); }
+.border-oc-blue-300 { border-color: rgb(116, 192, 252); }
+
+.bg-oc-blue-400 { background-color: rgb(77, 171, 247); }
+.text-oc-blue-400 { color: rgb(77, 171, 247); }
+.border-oc-blue-400 { border-color: rgb(77, 171, 247); }
+
+.bg-oc-blue-500 { background-color: rgb(51, 154, 240); }
+.text-oc-blue-500 { color: rgb(51, 154, 240); }
+.border-oc-blue-500 { border-color: rgb(51, 154, 240); }
+
+.bg-oc-blue-600 { background-color: rgb(34, 139, 230); }
+.text-oc-blue-600 { color: rgb(34, 139, 230); }
+.border-oc-blue-600 { border-color: rgb(34, 139, 230); }
+
+.bg-oc-blue-700 { background-color: rgb(28, 126, 214); }
+.text-oc-blue-700 { color: rgb(28, 126, 214); }
+.border-oc-blue-700 { border-color: rgb(28, 126, 214); }
+
+.bg-oc-blue-800 { background-color: rgb(25, 113, 194); }
+.text-oc-blue-800 { color: rgb(25, 113, 194); }
+.border-oc-blue-800 { border-color: rgb(25, 113, 194); }
+
+.bg-oc-blue-900 { background-color: rgb(24, 100, 171); }
+.text-oc-blue-900 { color: rgb(24, 100, 171); }
+.border-oc-blue-900 { border-color: rgb(24, 100, 171); }
+
+.bg-oc-cyan-50 { background-color: rgb(227, 250, 252); }
+.text-oc-cyan-50 { color: rgb(227, 250, 252); }
+.border-oc-cyan-50 { border-color: rgb(227, 250, 252); }
+
+.bg-oc-cyan-100 { background-color: rgb(197, 246, 250); }
+.text-oc-cyan-100 { color: rgb(197, 246, 250); }
+.border-oc-cyan-100 { border-color: rgb(197, 246, 250); }
+
+.bg-oc-cyan-200 { background-color: rgb(153, 233, 242); }
+.text-oc-cyan-200 { color: rgb(153, 233, 242); }
+.border-oc-cyan-200 { border-color: rgb(153, 233, 242); }
+
+.bg-oc-cyan-300 { background-color: rgb(102, 217, 232); }
+.text-oc-cyan-300 { color: rgb(102, 217, 232); }
+.border-oc-cyan-300 { border-color: rgb(102, 217, 232); }
+
+.bg-oc-cyan-400 { background-color: rgb(59, 201, 219); }
+.text-oc-cyan-400 { color: rgb(59, 201, 219); }
+.border-oc-cyan-400 { border-color: rgb(59, 201, 219); }
+
+.bg-oc-cyan-500 { background-color: rgb(34, 184, 207); }
+.text-oc-cyan-500 { color: rgb(34, 184, 207); }
+.border-oc-cyan-500 { border-color: rgb(34, 184, 207); }
+
+.bg-oc-cyan-600 { background-color: rgb(21, 170, 191); }
+.text-oc-cyan-600 { color: rgb(21, 170, 191); }
+.border-oc-cyan-600 { border-color: rgb(21, 170, 191); }
+
+.bg-oc-cyan-700 { background-color: rgb(16, 152, 173); }
+.text-oc-cyan-700 { color: rgb(16, 152, 173); }
+.border-oc-cyan-700 { border-color: rgb(16, 152, 173); }
+
+.bg-oc-cyan-800 { background-color: rgb(12, 133, 153); }
+.text-oc-cyan-800 { color: rgb(12, 133, 153); }
+.border-oc-cyan-800 { border-color: rgb(12, 133, 153); }
+
+.bg-oc-cyan-900 { background-color: rgb(11, 114, 133); }
+.text-oc-cyan-900 { color: rgb(11, 114, 133); }
+.border-oc-cyan-900 { border-color: rgb(11, 114, 133); }
+
+.bg-oc-teal-50 { background-color: rgb(230, 252, 245); }
+.text-oc-teal-50 { color: rgb(230, 252, 245); }
+.border-oc-teal-50 { border-color: rgb(230, 252, 245); }
+
+.bg-oc-teal-100 { background-color: rgb(195, 250, 232); }
+.text-oc-teal-100 { color: rgb(195, 250, 232); }
+.border-oc-teal-100 { border-color: rgb(195, 250, 232); }
+
+.bg-oc-teal-200 { background-color: rgb(150, 242, 215); }
+.text-oc-teal-200 { color: rgb(150, 242, 215); }
+.border-oc-teal-200 { border-color: rgb(150, 242, 215); }
+
+.bg-oc-teal-300 { background-color: rgb(99, 230, 190); }
+.text-oc-teal-300 { color: rgb(99, 230, 190); }
+.border-oc-teal-300 { border-color: rgb(99, 230, 190); }
+
+.bg-oc-teal-400 { background-color: rgb(56, 217, 169); }
+.text-oc-teal-400 { color: rgb(56, 217, 169); }
+.border-oc-teal-400 { border-color: rgb(56, 217, 169); }
+
+.bg-oc-teal-500 { background-color: rgb(32, 201, 151); }
+.text-oc-teal-500 { color: rgb(32, 201, 151); }
+.border-oc-teal-500 { border-color: rgb(32, 201, 151); }
+
+.bg-oc-teal-600 { background-color: rgb(18, 184, 134); }
+.text-oc-teal-600 { color: rgb(18, 184, 134); }
+.border-oc-teal-600 { border-color: rgb(18, 184, 134); }
+
+.bg-oc-teal-700 { background-color: rgb(12, 166, 120); }
+.text-oc-teal-700 { color: rgb(12, 166, 120); }
+.border-oc-teal-700 { border-color: rgb(12, 166, 120); }
+
+.bg-oc-teal-800 { background-color: rgb(9, 146, 104); }
+.text-oc-teal-800 { color: rgb(9, 146, 104); }
+.border-oc-teal-800 { border-color: rgb(9, 146, 104); }
+
+.bg-oc-teal-900 { background-color: rgb(8, 127, 91); }
+.text-oc-teal-900 { color: rgb(8, 127, 91); }
+.border-oc-teal-900 { border-color: rgb(8, 127, 91); }
+
+.bg-oc-green-50 { background-color: rgb(235, 251, 238); }
+.text-oc-green-50 { color: rgb(235, 251, 238); }
+.border-oc-green-50 { border-color: rgb(235, 251, 238); }
+
+.bg-oc-green-100 { background-color: rgb(211, 249, 216); }
+.text-oc-green-100 { color: rgb(211, 249, 216); }
+.border-oc-green-100 { border-color: rgb(211, 249, 216); }
+
+.bg-oc-green-200 { background-color: rgb(178, 242, 187); }
+.text-oc-green-200 { color: rgb(178, 242, 187); }
+.border-oc-green-200 { border-color: rgb(178, 242, 187); }
+
+.bg-oc-green-300 { background-color: rgb(140, 233, 154); }
+.text-oc-green-300 { color: rgb(140, 233, 154); }
+.border-oc-green-300 { border-color: rgb(140, 233, 154); }
+
+.bg-oc-green-400 { background-color: rgb(105, 219, 124); }
+.text-oc-green-400 { color: rgb(105, 219, 124); }
+.border-oc-green-400 { border-color: rgb(105, 219, 124); }
+
+.bg-oc-green-500 { background-color: rgb(81, 207, 102); }
+.text-oc-green-500 { color: rgb(81, 207, 102); }
+.border-oc-green-500 { border-color: rgb(81, 207, 102); }
+
+.bg-oc-green-600 { background-color: rgb(64, 192, 87); }
+.text-oc-green-600 { color: rgb(64, 192, 87); }
+.border-oc-green-600 { border-color: rgb(64, 192, 87); }
+
+.bg-oc-green-700 { background-color: rgb(55, 178, 77); }
+.text-oc-green-700 { color: rgb(55, 178, 77); }
+.border-oc-green-700 { border-color: rgb(55, 178, 77); }
+
+.bg-oc-green-800 { background-color: rgb(47, 158, 68); }
+.text-oc-green-800 { color: rgb(47, 158, 68); }
+.border-oc-green-800 { border-color: rgb(47, 158, 68); }
+
+.bg-oc-green-900 { background-color: rgb(43, 138, 62); }
+.text-oc-green-900 { color: rgb(43, 138, 62); }
+.border-oc-green-900 { border-color: rgb(43, 138, 62); }
+
+.bg-oc-lime-50 { background-color: rgb(244, 252, 227); }
+.text-oc-lime-50 { color: rgb(244, 252, 227); }
+.border-oc-lime-50 { border-color: rgb(244, 252, 227); }
+
+.bg-oc-lime-100 { background-color: rgb(233, 250, 200); }
+.text-oc-lime-100 { color: rgb(233, 250, 200); }
+.border-oc-lime-100 { border-color: rgb(233, 250, 200); }
+
+.bg-oc-lime-200 { background-color: rgb(216, 245, 162); }
+.text-oc-lime-200 { color: rgb(216, 245, 162); }
+.border-oc-lime-200 { border-color: rgb(216, 245, 162); }
+
+.bg-oc-lime-300 { background-color: rgb(192, 235, 117); }
+.text-oc-lime-300 { color: rgb(192, 235, 117); }
+.border-oc-lime-300 { border-color: rgb(192, 235, 117); }
+
+.bg-oc-lime-400 { background-color: rgb(169, 227, 75); }
+.text-oc-lime-400 { color: rgb(169, 227, 75); }
+.border-oc-lime-400 { border-color: rgb(169, 227, 75); }
+
+.bg-oc-lime-500 { background-color: rgb(148, 216, 45); }
+.text-oc-lime-500 { color: rgb(148, 216, 45); }
+.border-oc-lime-500 { border-color: rgb(148, 216, 45); }
+
+.bg-oc-lime-600 { background-color: rgb(130, 201, 30); }
+.text-oc-lime-600 { color: rgb(130, 201, 30); }
+.border-oc-lime-600 { border-color: rgb(130, 201, 30); }
+
+.bg-oc-lime-700 { background-color: rgb(116, 184, 22); }
+.text-oc-lime-700 { color: rgb(116, 184, 22); }
+.border-oc-lime-700 { border-color: rgb(116, 184, 22); }
+
+.bg-oc-lime-800 { background-color: rgb(102, 168, 15); }
+.text-oc-lime-800 { color: rgb(102, 168, 15); }
+.border-oc-lime-800 { border-color: rgb(102, 168, 15); }
+
+.bg-oc-lime-900 { background-color: rgb(92, 148, 13); }
+.text-oc-lime-900 { color: rgb(92, 148, 13); }
+.border-oc-lime-900 { border-color: rgb(92, 148, 13); }
+
+.bg-oc-yellow-50 { background-color: rgb(255, 249, 219); }
+.text-oc-yellow-50 { color: rgb(255, 249, 219); }
+.border-oc-yellow-50 { border-color: rgb(255, 249, 219); }
+
+.bg-oc-yellow-100 { background-color: rgb(255, 243, 191); }
+.text-oc-yellow-100 { color: rgb(255, 243, 191); }
+.border-oc-yellow-100 { border-color: rgb(255, 243, 191); }
+
+.bg-oc-yellow-200 { background-color: rgb(255, 236, 153); }
+.text-oc-yellow-200 { color: rgb(255, 236, 153); }
+.border-oc-yellow-200 { border-color: rgb(255, 236, 153); }
+
+.bg-oc-yellow-300 { background-color: rgb(255, 224, 102); }
+.text-oc-yellow-300 { color: rgb(255, 224, 102); }
+.border-oc-yellow-300 { border-color: rgb(255, 224, 102); }
+
+.bg-oc-yellow-400 { background-color: rgb(255, 212, 59); }
+.text-oc-yellow-400 { color: rgb(255, 212, 59); }
+.border-oc-yellow-400 { border-color: rgb(255, 212, 59); }
+
+.bg-oc-yellow-500 { background-color: rgb(252, 196, 25); }
+.text-oc-yellow-500 { color: rgb(252, 196, 25); }
+.border-oc-yellow-500 { border-color: rgb(252, 196, 25); }
+
+.bg-oc-yellow-600 { background-color: rgb(250, 176, 5); }
+.text-oc-yellow-600 { color: rgb(250, 176, 5); }
+.border-oc-yellow-600 { border-color: rgb(250, 176, 5); }
+
+.bg-oc-yellow-700 { background-color: rgb(245, 159, 0); }
+.text-oc-yellow-700 { color: rgb(245, 159, 0); }
+.border-oc-yellow-700 { border-color: rgb(245, 159, 0); }
+
+.bg-oc-yellow-800 { background-color: rgb(240, 140, 0); }
+.text-oc-yellow-800 { color: rgb(240, 140, 0); }
+.border-oc-yellow-800 { border-color: rgb(240, 140, 0); }
+
+.bg-oc-yellow-900 { background-color: rgb(230, 119, 0); }
+.text-oc-yellow-900 { color: rgb(230, 119, 0); }
+.border-oc-yellow-900 { border-color: rgb(230, 119, 0); }
+
+.bg-oc-orange-50 { background-color: rgb(255, 244, 230); }
+.text-oc-orange-50 { color: rgb(255, 244, 230); }
+.border-oc-orange-50 { border-color: rgb(255, 244, 230); }
+
+.bg-oc-orange-100 { background-color: rgb(255, 232, 204); }
+.text-oc-orange-100 { color: rgb(255, 232, 204); }
+.border-oc-orange-100 { border-color: rgb(255, 232, 204); }
+
+.bg-oc-orange-200 { background-color: rgb(255, 216, 168); }
+.text-oc-orange-200 { color: rgb(255, 216, 168); }
+.border-oc-orange-200 { border-color: rgb(255, 216, 168); }
+
+.bg-oc-orange-300 { background-color: rgb(255, 192, 120); }
+.text-oc-orange-300 { color: rgb(255, 192, 120); }
+.border-oc-orange-300 { border-color: rgb(255, 192, 120); }
+
+.bg-oc-orange-400 { background-color: rgb(255, 169, 77); }
+.text-oc-orange-400 { color: rgb(255, 169, 77); }
+.border-oc-orange-400 { border-color: rgb(255, 169, 77); }
+
+.bg-oc-orange-500 { background-color: rgb(255, 146, 43); }
+.text-oc-orange-500 { color: rgb(255, 146, 43); }
+.border-oc-orange-500 { border-color: rgb(255, 146, 43); }
+
+.bg-oc-orange-600 { background-color: rgb(253, 126, 20); }
+.text-oc-orange-600 { color: rgb(253, 126, 20); }
+.border-oc-orange-600 { border-color: rgb(253, 126, 20); }
+
+.bg-oc-orange-700 { background-color: rgb(247, 103, 7); }
+.text-oc-orange-700 { color: rgb(247, 103, 7); }
+.border-oc-orange-700 { border-color: rgb(247, 103, 7); }
+
+.bg-oc-orange-800 { background-color: rgb(232, 89, 12); }
+.text-oc-orange-800 { color: rgb(232, 89, 12); }
+.border-oc-orange-800 { border-color: rgb(232, 89, 12); }
+
+.bg-oc-orange-900 { background-color: rgb(217, 72, 15); }
+.text-oc-orange-900 { color: rgb(217, 72, 15); }
+.border-oc-orange-900 { border-color: rgb(217, 72, 15); }
+

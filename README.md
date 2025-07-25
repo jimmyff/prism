@@ -18,8 +18,13 @@ Please see the `README.md` in each package's directory for more information.
 ├── packages/
 │   ├── prism/
 │   └── prism_flutter/
+├── palette_gallery/
 └── README.md
 ```
+
+## Palette Gallery
+
+The color palettes can be previewed as PNG images or HTML files in the `palette_gallery/` directory. CSS versions are also available for web development use. Dart implementations of all palettes are included within the [prism](./packages/prism_flutter) package.
 
 ## License
 
