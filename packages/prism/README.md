@@ -32,44 +32,24 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 import 'package:prism/prism.dart';
 
 void main() {
-  // RGB Color Model
+
+  // Let's create an Rgc color from hex then convert to oklch
   final red = RayRgb.fromHex('#FF0000');
-  final blue = RayRgb.fromARGB(255, 0, 0, 255);
-  final green = RayRgb(red: 0, green: 255, blue: 0);
-  
-  // HSL Color Model  
-  final hslRed = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-  final hslBlue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
-  
-  // Oklab Color Model (perceptually uniform)
-  final oklabRed = RayOklab(l: 0.628, a: 0.225, b: 0.126);
-  final oklabBlue = RayOklab(l: 0.452, a: -0.032, b: -0.312);
-  
-  // Oklch Color Model (cylindrical Oklab with intuitive controls)
-  final oklchRed = RayOklch(l: 0.628, c: 0.257, h: 29.2);  // Red with hue, chroma
-  final oklchBlue = RayOklch(l: 0.452, c: 0.313, h: 264.1); // Blue with hue, chroma
-  
-  // Output to various formats
-  // String formats
-  print(red.toHexStr());     // #FF0000
-  print(red.toHexStr(8));    // #FF0000FF (with alpha)
-  print(red.toRgbStr());     // rgb(255, 0, 0)
-  print(red.toRgbaStr());    // rgba(255, 0, 0, 1.00)
-  
-  // Integer formats
-  print(red.toArgbInt());    // 4294901760 (0xFFFF0000)
-  print(red.toRgbaInt());    // 4278190335 (0xFF0000FF)
-  print(red.toRgbInt());     // 16711680 (0xFF0000, no alpha)
-  print(red.toJson());       // 4294901760 (RGB rays encode to ARGB ints)
-  
-  // Convert between color models
-  final rgbToHsl = red.toHsl();           // RGB → HSL
-  final rgbToOklab = red.toOklab();       // RGB → Oklab
-  final rgbToOklch = red.toOklch();       // RGB → Oklch
-  final hslToRgb = hslRed.toRgb();        // HSL → RGB
-  print('RGB Red as HSL: $rgbToHsl');     // RayHsl(0.0°, 100.0%, 50.0%)
-  print('RGB Red as Oklab: $rgbToOklab'); // RayOklab(l: 0.628, a: 0.225, b: 0.126)
-  print('RGB Red as Oklch: $rgbToOklch'); // RayOklch(l: 0.628, c: 0.257, h: 29.2°, opacity: 1.000)
+  final redInOklch = red.toOklch();
+  print(redInOklch); 
+  // RayOklch(l: 0.628, c: 0.258, h: 29.2°)
+
+  // Lets' now create a darker red (with perceptually uniform lightness)
+  final darkRed = redInOklch.withLightness(0.3);
+  print(darkRed);
+  // RayOklch(l: 0.300, c: 0.089, h: 29.2°)
+
+  // let's take it back to rgb to print the hex
+  final darkRedInRgb = darkRed.toRgb();
+  print(darkRedInRgb.toHexStr());
+  // #521711
+
+  // ---
   
   // HSL color analysis
   final color1 = RayHsl(hue: 30, saturation: 0.8, lightness: 0.6);
@@ -288,17 +268,17 @@ Prism includes extensive pre-built color palettes with accessibility-focused sch
 
 ### Available Palettes
 
-#### Spectrum (Prim's own color palette)
-![Spectrum Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Spectrum.png)
-
-#### CSS Colors  
-![CSS Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Css.png)
-
 #### Material Colors
 ![Material Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Material.png)
 
 #### Open Color
 ![Open Color Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/OpenColor.png)
+
+#### Spectrum (Prim's own color palette)
+![Spectrum Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Spectrum.png)
+
+#### CSS Colors  
+![CSS Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Css.png)
 
 CSS versions of all palettes are also available in the [palette_gallery/](https://github.com/jimmyff/prism/tree/main/palette_gallery/) directory for web development use.
 

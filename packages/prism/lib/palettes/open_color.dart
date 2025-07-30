@@ -5,237 +5,211 @@ import 'package:prism/prism.dart';
 /// RGB-based RayScheme enum for the OpenColor palette.
 enum OpenColorRgb implements PrismPalette {
   gray(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFFADB5BD),
-    baseLuminance: 0.45606106758087217,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFADB5BD),
+    luminance: 0.45606106758087217),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF8F9FA), luminance: 0.9460994970463299),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFF1F3F5), luminance: 0.8939452857711131),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFE9ECEF), luminance: 0.8354653852615065),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFDEE2E6), luminance: 0.7563547903789942),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFCED4DA), luminance: 0.6527073410862401),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFADB5BD), luminance: 0.45606106758087217),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF868E96), luminance: 0.26616342840087925),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF495057), luminance: 0.07841908913532951),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF343A40), luminance: 0.04126341869813483),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF212529), luminance: 0.01806564208421097),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF8F9FA), luminance: 0.9460994970463299),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF1F3F5), luminance: 0.8939452857711131),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE9ECEF), luminance: 0.8354653852615065),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFDEE2E6), luminance: 0.7563547903789942),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFCED4DA), luminance: 0.6527073410862401),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFADB5BD), luminance: 0.45606106758087217),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF868E96), luminance: 0.26616342840087925),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF495057), luminance: 0.07841908913532951),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF343A40), luminance: 0.04126341869813483),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF212529), luminance: 0.01806564208421097),
     },
   )),
   red(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFFFF6B6B),
-    baseLuminance: 0.3283692696402063,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFF6B6B),
+    luminance: 0.3283692696402063),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF5F5), luminance: 0.9315738784221382),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFE3E3), luminance: 0.817442213342687),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFFC9C9), luminance: 0.6725033462475025),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFFA8A8), luminance: 0.5209241689801322),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFFF8787), luminance: 0.4033721558293779),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFFF6B6B), luminance: 0.3283692696402063),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFFA5252), luminance: 0.269677763870661),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFF03E3E), luminance: 0.22318314393791702),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFE03131), luminance: 0.18265670054364558),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFC92A2A), luminance: 0.14240603217230563),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFF5F5), luminance: 0.9315738784221382),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFE3E3), luminance: 0.817442213342687),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFC9C9), luminance: 0.6725033462475025),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFA8A8), luminance: 0.5209241689801322),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFF8787), luminance: 0.4033721558293779),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFF6B6B), luminance: 0.3283692696402063),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFA5252), luminance: 0.269677763870661),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF03E3E), luminance: 0.22318314393791702),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE03131), luminance: 0.18265670054364558),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFC92A2A), luminance: 0.14240603217230563),
     },
   )),
   pink(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFFF06595),
-    baseLuminance: 0.30002551962743185,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF06595),
+    luminance: 0.30002551962743185),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF0F6), luminance: 0.9023399736742004),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFDEEB), luminance: 0.7950071064157509),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFCC2D7), luminance: 0.6418531655876709),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFAA2C1), luminance: 0.5001491001715227),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFF783AC), luminance: 0.3898531379185753),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFF06595), luminance: 0.30002551962743185),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFE64980), luminance: 0.23146594154096709),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFD6336C), luminance: 0.17746504104502733),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFC2255C), luminance: 0.13565176483482208),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFA61E4D), luminance: 0.09571359439872486),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFF0F6), luminance: 0.9023399736742004),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFDEEB), luminance: 0.7950071064157509),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFCC2D7), luminance: 0.6418531655876709),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFAA2C1), luminance: 0.5001491001715227),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF783AC), luminance: 0.3898531379185753),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF06595), luminance: 0.30002551962743185),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE64980), luminance: 0.23146594154096709),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFD6336C), luminance: 0.17746504104502733),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFC2255C), luminance: 0.13565176483482208),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFA61E4D), luminance: 0.09571359439872486),
     },
   )),
   grape(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFFCC5DE8),
-    baseLuminance: 0.26492266079300447,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFCC5DE8),
+    luminance: 0.26492266079300447),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF8F0FC), luminance: 0.8930490994878921),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFF3D9FA), luminance: 0.7558252243079986),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFEEBEFA), luminance: 0.6190618188690986),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFE599F7), luminance: 0.4615587941682401),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFDA77F2), luminance: 0.3450988274027435),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFCC5DE8), luminance: 0.26492266079300447),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFBE4BDB), luminance: 0.21093776740943362),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFAE3EC9), luminance: 0.16660965709785222),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF9C36B5), luminance: 0.13042449092911268),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF862E9C), luminance: 0.09422622681694932),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF8F0FC), luminance: 0.8930490994878921),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF3D9FA), luminance: 0.7558252243079986),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFEEBEFA), luminance: 0.6190618188690986),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE599F7), luminance: 0.4615587941682401),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFDA77F2), luminance: 0.3450988274027435),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFCC5DE8), luminance: 0.26492266079300447),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFBE4BDB), luminance: 0.21093776740943362),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFAE3EC9), luminance: 0.16660965709785222),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF9C36B5), luminance: 0.13042449092911268),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF862E9C), luminance: 0.09422622681694932),
     },
   )),
   violet(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF845EF7),
-    baseLuminance: 0.19626341067993713,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF845EF7),
+    luminance: 0.19626341067993713),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF3F0FF), luminance: 0.8859486281783487),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFE5DBFF), luminance: 0.7454104922570032),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFD0BFFF), luminance: 0.578915001142945),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFB197FC), luminance: 0.38508603872442676),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF9775FA), luminance: 0.2620401642070923),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF845EF7), luminance: 0.19626341067993713),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF7950F2), luminance: 0.16213074235067795),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF7048E8), luminance: 0.13905669460336118),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF6741D9), luminance: 0.11673912180095691),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF5F3DC4), luminance: 0.09755905341291768),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF3F0FF), luminance: 0.8859486281783487),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE5DBFF), luminance: 0.7454104922570032),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFD0BFFF), luminance: 0.578915001142945),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFB197FC), luminance: 0.38508603872442676),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF9775FA), luminance: 0.2620401642070923),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF845EF7), luminance: 0.19626341067993713),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF7950F2), luminance: 0.16213074235067795),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF7048E8), luminance: 0.13905669460336118),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF6741D9), luminance: 0.11673912180095691),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF5F3DC4), luminance: 0.09755905341291768),
     },
   )),
   indigo(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF5C7CFA),
-    baseLuminance: 0.23592742051153093,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF5C7CFA),
+    luminance: 0.23592742051153093),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFEDF2FF), luminance: 0.8872878629281782),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFDBE4FF), luminance: 0.7776687413455939),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFBAC8FF), luminance: 0.589676563672936),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF91A7FF), luminance: 0.4087717532599137),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF748FFC), luminance: 0.30386200156952986),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF5C7CFA), luminance: 0.23592742051153093),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF4C6EF5), luminance: 0.1928093249583837),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF4263EB), luminance: 0.1608008957943851),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF3B5BDB), luminance: 0.13526450795017003),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF364FC7), luminance: 0.10499755391770696),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFEDF2FF), luminance: 0.8872878629281782),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFDBE4FF), luminance: 0.7776687413455939),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFBAC8FF), luminance: 0.589676563672936),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF91A7FF), luminance: 0.4087717532599137),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF748FFC), luminance: 0.30386200156952986),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF5C7CFA), luminance: 0.23592742051153093),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF4C6EF5), luminance: 0.1928093249583837),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF4263EB), luminance: 0.1608008957943851),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF3B5BDB), luminance: 0.13526450795017003),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF364FC7), luminance: 0.10499755391770696),
     },
   )),
   blue(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF339AF0),
-    baseLuminance: 0.3010628025367057,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF339AF0),
+    luminance: 0.3010628025367057),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFE7F5FF), luminance: 0.8951373978645168),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFD0EBFF), luminance: 0.8004655830564238),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFA5D8FF), luminance: 0.643310662801603),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF74C0FC), luminance: 0.48440552588874025),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF4DABF7), luminance: 0.3741900081644475),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF339AF0), luminance: 0.3010628025367057),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF228BE6), luminance: 0.24518489967104856),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF1C7ED6), luminance: 0.2002362487854455),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF1971C2), luminance: 0.15911969541654936),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF1864AB), luminance: 0.12248807322697257),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE7F5FF), luminance: 0.8951373978645168),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFD0EBFF), luminance: 0.8004655830564238),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFA5D8FF), luminance: 0.643310662801603),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF74C0FC), luminance: 0.48440552588874025),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF4DABF7), luminance: 0.3741900081644475),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF339AF0), luminance: 0.3010628025367057),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF228BE6), luminance: 0.24518489967104856),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF1C7ED6), luminance: 0.2002362487854455),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF1971C2), luminance: 0.15911969541654936),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF1864AB), luminance: 0.12248807322697257),
     },
   )),
   cyan(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF22B8CF),
-    baseLuminance: 0.39126054720215914,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF22B8CF),
+    luminance: 0.39126054720215914),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFE3FAFC), luminance: 0.9173038261154748),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFC5F6FA), luminance: 0.846839786550365),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFF99E9F2), luminance: 0.714609362589428),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF66D9E8), luminance: 0.5827668418420928),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF3BC9DB), luminance: 0.47817568300397284),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF22B8CF), luminance: 0.39126054720215914),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF15AABF), luminance: 0.32670468273373066),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF1098AD), luminance: 0.2558376203724658),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF0C8599), luminance: 0.19153127919927504),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF0B7285), luminance: 0.13799230055109635),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE3FAFC), luminance: 0.9173038261154748),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFC5F6FA), luminance: 0.846839786550365),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF99E9F2), luminance: 0.714609362589428),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF66D9E8), luminance: 0.5827668418420928),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF3BC9DB), luminance: 0.47817568300397284),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF22B8CF), luminance: 0.39126054720215914),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF15AABF), luminance: 0.32670468273373066),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF1098AD), luminance: 0.2558376203724658),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF0C8599), luminance: 0.19153127919927504),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF0B7285), luminance: 0.13799230055109635),
     },
   )),
   teal(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF20C997),
-    baseLuminance: 0.4431473018517139,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF20C997),
+    luminance: 0.4431473018517139),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFE6FCF5), luminance: 0.9303637364671467),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFC3FAE8), luminance: 0.857995115734911),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFF96F2D7), luminance: 0.7489458831879495),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF63E6BE), luminance: 0.6296398307795401),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF38D9A9), luminance: 0.5333103409542548),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF20C997), luminance: 0.4431473018517139),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF12B886), luminance: 0.36130808168361667),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF0CA678), luminance: 0.287066648593747),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF099268), luminance: 0.21615321827795672),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF087F5B), luminance: 0.15985698654752986),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE6FCF5), luminance: 0.9303637364671467),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFC3FAE8), luminance: 0.857995115734911),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF96F2D7), luminance: 0.7489458831879495),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF63E6BE), luminance: 0.6296398307795401),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF38D9A9), luminance: 0.5333103409542548),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF20C997), luminance: 0.4431473018517139),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF12B886), luminance: 0.36130808168361667),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF0CA678), luminance: 0.287066648593747),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF099268), luminance: 0.21615321827795672),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF087F5B), luminance: 0.15985698654752986),
     },
   )),
   green(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF51CF66),
-    baseLuminance: 0.47334286847799867,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF51CF66),
+    luminance: 0.47334286847799867),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFEBFBEE), luminance: 0.9282957466029826),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFD3F9D8), luminance: 0.8655811531448687),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFB2F2BB), luminance: 0.7655709501067272),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF8CE99A), luminance: 0.661863697937724),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF69DB7C), luminance: 0.5512152949989115),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF51CF66), luminance: 0.47334286847799867),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF40C057), luminance: 0.3947738238458747),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF37B24D), luminance: 0.3318883633562236),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF2F9E44), luminance: 0.25475412475310916),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF2B8A3E), luminance: 0.19038349623314083),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFEBFBEE), luminance: 0.9282957466029826),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFD3F9D8), luminance: 0.8655811531448687),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFB2F2BB), luminance: 0.7655709501067272),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF8CE99A), luminance: 0.661863697937724),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF69DB7C), luminance: 0.5512152949989115),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF51CF66), luminance: 0.47334286847799867),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF40C057), luminance: 0.3947738238458747),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF37B24D), luminance: 0.3318883633562236),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF2F9E44), luminance: 0.25475412475310916),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF2B8A3E), luminance: 0.19038349623314083),
     },
   )),
   lime(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFF94D82D),
-    baseLuminance: 0.5559709480462673,
-    baseIsDark: false,
-    onBase: RayRgb.fromIntARGB(0xFF000000),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF94D82D),
+    luminance: 0.5559709480462673),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF4FCE3), luminance: 0.943999550199773),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFE9FAC8), luminance: 0.8986498312960534),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFD8F5A2), luminance: 0.8251238026867704),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFC0EB75), luminance: 0.7190748352283068),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFA9E34B), luminance: 0.6388118614729795),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF94D82D), luminance: 0.5559709480462673),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF82C91E), luminance: 0.4661285231364189),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF74B816), luminance: 0.38051910750443346),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF66A80F), luminance: 0.3086453372902499),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF5C940D), luminance: 0.23484178753687437),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF4FCE3), luminance: 0.943999550199773),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE9FAC8), luminance: 0.8986498312960534),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFD8F5A2), luminance: 0.8251238026867704),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFC0EB75), luminance: 0.7190748352283068),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFA9E34B), luminance: 0.6388118614729795),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF94D82D), luminance: 0.5559709480462673),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF82C91E), luminance: 0.4661285231364189),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF74B816), luminance: 0.38051910750443346),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF66A80F), luminance: 0.3086453372902499),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFF5C940D), luminance: 0.23484178753687437),
     },
   )),
   yellow(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFFFCC419),
-    baseLuminance: 0.6024548949906061,
-    baseIsDark: false,
-    onBase: RayRgb.fromIntARGB(0xFF000000),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFCC419),
+    luminance: 0.6024548949906061),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF9DB), luminance: 0.9412583663797642),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFF3BF), luminance: 0.8912277219186296),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFFEC99), luminance: 0.8355081305776089),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFFE066), luminance: 0.7553061834794708),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFFFD43B), luminance: 0.6866273384306151),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFFCC419), luminance: 0.6024548949906061),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFFAB005), luminance: 0.5138561887340398),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFF59F00), luminance: 0.44208751447639805),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFF08C00), luminance: 0.37281431980690305),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFE67700), luminance: 0.3001664581814326),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFF9DB), luminance: 0.9412583663797642),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFF3BF), luminance: 0.8912277219186296),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFEC99), luminance: 0.8355081305776089),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFE066), luminance: 0.7553061834794708),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFD43B), luminance: 0.6866273384306151),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFCC419), luminance: 0.6024548949906061),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFAB005), luminance: 0.5138561887340398),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF59F00), luminance: 0.44208751447639805),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF08C00), luminance: 0.37281431980690305),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE67700), luminance: 0.3001664581814326),
     },
   )),
   orange(RayScheme<RayRgb>(
-    base: RayRgb.fromIntARGB(0xFFFF922B),
-    baseLuminance: 0.41992186820507343,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
+    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFF922B),
+    luminance: 0.41992186820507343),
     shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF4E6), luminance: 0.9167453832165661),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFE8CC), luminance: 0.833328588550404),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFFD8A8), luminance: 0.7319888683472663),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFFC078), luminance: 0.6031533976649064),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFFFA94D), luminance: 0.5017175606520151),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFFF922B), luminance: 0.41992186820507343),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFFD7E14), luminance: 0.3585486251442282),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFF76707), luminance: 0.29489992839750373),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFE8590C), luminance: 0.243271064251615),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFD9480F), luminance: 0.19420932883074934),
+      Shade.shade50: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFF4E6), luminance: 0.9167453832165661),
+      Shade.shade100: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFE8CC), luminance: 0.833328588550404),
+      Shade.shade200: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFD8A8), luminance: 0.7319888683472663),
+      Shade.shade300: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFC078), luminance: 0.6031533976649064),
+      Shade.shade400: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFFA94D), luminance: 0.5017175606520151),
+      Shade.shade500: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFF922B), luminance: 0.41992186820507343),
+      Shade.shade600: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFFD7E14), luminance: 0.3585486251442282),
+      Shade.shade700: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFF76707), luminance: 0.29489992839750373),
+      Shade.shade800: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFE8590C), luminance: 0.243271064251615),
+      Shade.shade900: RayWithLuminance(ray: RayRgb.fromIntARGB(0xFFD9480F), luminance: 0.19420932883074934),
     },
   )),
 ;
@@ -249,22 +223,15 @@ enum OpenColorRgb implements PrismPalette {
 /// Oklch-based RayScheme enum for the OpenColor palette.
 enum OpenColorOklch implements PrismPalette {
   gray(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.7692442490031026,
       c: 0.014517726966557674,
       h: 248.01660539258867,
       opacity: 1.0,
     ),
-    baseLuminance: 0.45606106758087217,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.45606106758087217),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.981638943500685,
           c: 0.001707338086091281,
@@ -273,7 +240,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9460994970463299,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.96319685087696,
           c: 0.003431084471105476,
@@ -282,7 +249,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8939452857711131,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.9416542600281369,
           c: 0.005176007224283377,
@@ -291,7 +258,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8354653852615065,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.910874194544306,
           c: 0.006959108486152391,
@@ -300,7 +267,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7563547903789942,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.867074182471665,
           c: 0.010568189104739162,
@@ -309,7 +276,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6527073410862401,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.7692442490031026,
           c: 0.014517726966557674,
@@ -318,7 +285,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.45606106758087217,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.6427508449437156,
           c: 0.015182525160065574,
@@ -327,7 +294,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.26616342840087925,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.4275623275586311,
           c: 0.014702101766225315,
@@ -336,7 +303,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.07841908913532951,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.3451431362035424,
           c: 0.013291016599944087,
@@ -345,7 +312,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.04126341869813483,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.26209276037442,
           c: 0.009493457642723056,
@@ -357,22 +324,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   red(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.7116074706631338,
       c: 0.18122126992448143,
       h: 22.838885625987132,
       opacity: 1.0,
     ),
-    baseLuminance: 0.3283692696402063,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.3283692696402063),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9779169559895308,
           c: 0.010749906051194847,
@@ -381,7 +341,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9315738784221382,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9386581280014877,
           c: 0.030868399831746645,
@@ -390,7 +350,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.817442213342687,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8834119754179415,
           c: 0.06163334626139314,
@@ -399,7 +359,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6725033462475025,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.8168674530020812,
           c: 0.10315281931500675,
@@ -408,7 +368,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5209241689801322,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.7562838831880148,
           c: 0.14600146252800308,
@@ -417,7 +377,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.4033721558293779,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.7116074706631338,
           c: 0.18122126992448143,
@@ -426,7 +386,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3283692696402063,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.6706463222737784,
           c: 0.2044879574805725,
@@ -435,7 +395,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.269677763870661,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.632398773085886,
           c: 0.21442783590117556,
@@ -444,7 +404,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.22318314393791702,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.5927704548816536,
           c: 0.2106283053726486,
@@ -453,7 +413,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.18265670054364558,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.5457015583041827,
           c: 0.19492658907372626,
@@ -465,22 +425,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   pink(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.6923780660663754,
       c: 0.17650629970503368,
       h: 1.2501063710858498,
       opacity: 1.0,
     ),
-    baseLuminance: 0.30002551962743185,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.30002551962743185),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9686172222314178,
           c: 0.017924028592267636,
@@ -489,7 +442,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9023399736742004,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9315159207599278,
           c: 0.040024617182313926,
@@ -498,7 +451,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7950071064157509,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8717754151344503,
           c: 0.07123622137556455,
@@ -507,7 +460,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6418531655876709,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.808035932460158,
           c: 0.11035447518684771,
@@ -516,7 +469,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5001491001715227,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.7496437321523406,
           c: 0.14747594233021769,
@@ -525,7 +478,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3898531379185753,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.6923780660663754,
           c: 0.17650629970503368,
@@ -534,7 +487,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.30002551962743185,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.6396057946725793,
           c: 0.19683319570018876,
@@ -543,7 +496,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.23146594154096709,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.5881075547087458,
           c: 0.2010119861238106,
@@ -552,7 +505,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.17746504104502733,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.5388918871672943,
           c: 0.1928916317008431,
@@ -561,7 +514,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.13565176483482208,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.47974418660742973,
           c: 0.17178320544157497,
@@ -573,22 +526,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   grape(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.6695475670917609,
       c: 0.21886254996865603,
       h: 319.0744796920802,
       opacity: 1.0,
     ),
-    baseLuminance: 0.26492266079300447,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.26492266079300447),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9647904295727566,
           c: 0.017974048428916048,
@@ -597,7 +543,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8930490994878921,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9165144106763231,
           c: 0.05214274132002123,
@@ -606,7 +552,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7558252243079986,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8629503733686305,
           c: 0.09607106017678671,
@@ -615,7 +561,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6190618188690986,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.7904358839897562,
           c: 0.15155217159341483,
@@ -624,7 +570,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.4615587941682401,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.7252091233431952,
           c: 0.19634925909763848,
@@ -633,7 +579,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3450988274027435,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.6695475670917609,
           c: 0.21886254996865603,
@@ -642,7 +588,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.26492266079300447,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.623880401481742,
           c: 0.2250930403307169,
@@ -651,7 +597,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.21093776740943362,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.5783415500794007,
           c: 0.21861472093633277,
@@ -660,7 +606,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.16660965709785222,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.533252994995838,
           c: 0.20310939583606075,
@@ -669,7 +615,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.13042449092911268,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.47828479667748247,
           c: 0.18100940400088283,
@@ -681,22 +627,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   violet(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.602860017077914,
       c: 0.21753282323959275,
       h: 289.6918209147517,
       opacity: 1.0,
     ),
-    baseLuminance: 0.19626341067993713,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.19626341067993713),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9618059734824606,
           c: 0.020190206469710828,
@@ -705,7 +644,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8859486281783487,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9104976215884205,
           c: 0.04971566046480921,
@@ -714,7 +653,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7454104922570032,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8405294697548856,
           c: 0.08986853526888125,
@@ -723,7 +662,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.578915001142945,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.7398224299664193,
           c: 0.14436143817944241,
@@ -732,7 +671,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.38508603872442676,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.6577061935683114,
           c: 0.19051637376147887,
@@ -741,7 +680,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.2620401642070923,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.602860017077914,
           c: 0.21753282323959275,
@@ -750,7 +689,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.19626341067993713,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.5692112092926801,
           c: 0.22886426460301218,
@@ -759,7 +698,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.16213074235067795,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.542132503401064,
           c: 0.22677610465246767,
@@ -768,7 +707,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.13905669460336118,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.5119822129157774,
           c: 0.21767493796825657,
@@ -777,7 +716,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.11673912180095691,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.48121855981577805,
           c: 0.19790252757324767,
@@ -789,22 +728,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   indigo(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.627975473383132,
       c: 0.1906748534877489,
       h: 269.49628317270157,
       opacity: 1.0,
     ),
-    baseLuminance: 0.23592742051153093,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.23592742051153093),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9611593070241155,
           c: 0.018237918390765794,
@@ -813,7 +745,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8872878629281782,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9203553534435988,
           c: 0.0380570539868412,
@@ -822,7 +754,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7776687413455939,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8410775186435586,
           c: 0.07866879554114037,
@@ -831,7 +763,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.589676563672936,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.7473123819450156,
           c: 0.12961380724033705,
@@ -840,7 +772,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.4087717532599137,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.6799005852130251,
           c: 0.16326510429795807,
@@ -849,7 +781,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.30386200156952986,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.627975473383132,
           c: 0.1906748534877489,
@@ -858,7 +790,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.23592742051153093,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.5896054168992633,
           c: 0.20539411137082844,
@@ -867,7 +799,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.1928093249583837,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.5565980003333968,
           c: 0.2081819996081341,
@@ -876,7 +808,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.1608008957943851,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.5255567888882721,
           c: 0.19879310967335428,
@@ -885,7 +817,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.13526450795017003,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.48413292716394835,
           c: 0.18827514721129962,
@@ -897,22 +829,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   blue(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.6689061233604712,
       c: 0.15745406753960012,
       h: 248.31816006618072,
       opacity: 1.0,
     ),
-    baseLuminance: 0.3010628025367057,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.3010628025367057),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9626784926547919,
           c: 0.020045750323496505,
@@ -921,7 +846,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8951373978645168,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9265837608013705,
           c: 0.03946351228466906,
@@ -930,7 +855,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8004655830564238,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8601848332872425,
           c: 0.07593952752827733,
@@ -939,7 +864,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.643310662801603,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.7819818865489401,
           c: 0.1146570886694828,
@@ -948,7 +873,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.48440552588874025,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.7179890181170145,
           c: 0.14215654122120455,
@@ -957,7 +882,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3741900081644475,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.6689061233604712,
           c: 0.15745406753960012,
@@ -966,7 +891,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3010628025367057,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.6258898097383666,
           c: 0.1641496003697987,
@@ -975,7 +900,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.24518489967104856,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.5856248824197882,
           c: 0.1591423700961501,
@@ -984,7 +909,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.2002362487854455,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.542630761703395,
           c: 0.1485204987613457,
@@ -993,7 +918,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.15911969541654936,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.49717504634361864,
           c: 0.13337586257840883,
@@ -1005,22 +930,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   cyan(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.7200426406285031,
       c: 0.11928095519011142,
       h: 211.22375049130488,
       opacity: 1.0,
     ),
-    baseLuminance: 0.39126054720215914,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.39126054720215914),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9689471363048343,
           c: 0.02418350864909337,
@@ -1029,7 +947,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9173038261154748,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9405172058674572,
           c: 0.05018197891633555,
@@ -1038,7 +956,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.846839786550365,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8855583754492704,
           c: 0.07906865545618157,
@@ -1047,7 +965,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.714609362589428,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.8243488333657287,
           c: 0.10578499761024798,
@@ -1056,7 +974,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5827668418420928,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.7699568047536337,
           c: 0.11861679804719848,
@@ -1065,7 +983,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.47817568300397284,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.7200426406285031,
           c: 0.11928095519011142,
@@ -1074,7 +992,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.39126054720215914,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.6777433548809823,
           c: 0.11440468398601891,
@@ -1083,7 +1001,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.32670468273373066,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.6248813624204651,
           c: 0.10645385314263171,
@@ -1092,7 +1010,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.2558376203724658,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.5675439005965572,
           c: 0.09731186865917463,
@@ -1101,7 +1019,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.19153127919927504,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.5090263824007548,
           c: 0.08747185854670564,
@@ -1113,22 +1031,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   teal(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.7440902802096446,
       c: 0.14802219323496066,
       h: 166.3634111996037,
       opacity: 1.0,
     ),
-    baseLuminance: 0.4431473018517139,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.4431473018517139),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9730707315977505,
           c: 0.024750448922357463,
@@ -1137,7 +1048,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9303637364671467,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.942502165980312,
           c: 0.060820916051616214,
@@ -1146,7 +1057,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.857995115734911,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.8959289640968329,
           c: 0.09641280082617772,
@@ -1155,7 +1066,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7489458831879495,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.8407991390110336,
           c: 0.12981368035769603,
@@ -1164,7 +1075,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6296398307795401,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.7926170352261943,
           c: 0.14723642321947636,
@@ -1173,7 +1084,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5333103409542548,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.7440902802096446,
           c: 0.14802219323496066,
@@ -1182,7 +1093,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.4431473018517139,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.6946112407946862,
           c: 0.14348528471477268,
@@ -1191,7 +1102,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.36130808168361667,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.6432483927163071,
           c: 0.13380556942436286,
@@ -1200,7 +1111,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.287066648593747,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.5851220674507742,
           c: 0.1227323370008662,
@@ -1209,7 +1120,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.21615321827795672,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.5292422209789004,
           c: 0.10983222954371619,
@@ -1221,22 +1132,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   green(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.7602390939598339,
       c: 0.18316474134207184,
       h: 146.60663460540724,
       opacity: 1.0,
     ),
-    baseLuminance: 0.47334286847799867,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.47334286847799867),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9727002424190676,
           c: 0.024001921241076196,
@@ -1245,7 +1149,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9282957466029826,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.946336785175757,
           c: 0.05906109759624706,
@@ -1254,7 +1158,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8655811531448687,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.9038349776263952,
           c: 0.0987328332675947,
@@ -1263,7 +1167,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7655709501067272,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.8561898590405955,
           c: 0.14096745156318627,
@@ -1272,7 +1176,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.661863697937724,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.8020262642424978,
           c: 0.16839943541315439,
@@ -1281,7 +1185,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5512152949989115,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.7602390939598339,
           c: 0.18316474134207184,
@@ -1290,7 +1194,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.47334286847799867,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.7145918211849092,
           c: 0.18349916731305224,
@@ -1299,7 +1203,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3947738238458747,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.6740820259998644,
           c: 0.17745221818268747,
@@ -1308,7 +1212,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3318883633562236,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.6171612919114191,
           c: 0.1623714947317622,
@@ -1317,7 +1221,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.25475412475310916,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.5604032026317916,
           c: 0.142747017683854,
@@ -1329,22 +1233,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   lime(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.8070504596921555,
       c: 0.20209277315943788,
       h: 129.79576470356025,
       opacity: 1.0,
     ),
-    baseLuminance: 0.5559709480462673,
-    baseIsDark: false,
-    onBase: RayOklch(
-      l: 0.0,
-      c: 0.0,
-      h: 0.0,
-      opacity: 1.0,
-    ),
+    luminance: 0.5559709480462673),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9784579967591043,
           c: 0.03380641652398448,
@@ -1353,7 +1250,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.943999550199773,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9599951504517152,
           c: 0.06753818491573627,
@@ -1362,7 +1259,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8986498312960534,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.9298609143932319,
           c: 0.11077805075375903,
@@ -1371,7 +1268,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8251238026867704,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.884771650781431,
           c: 0.15351486672597908,
@@ -1380,7 +1277,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7190748352283068,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.8474272855603515,
           c: 0.1881259506478696,
@@ -1389,7 +1286,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6388118614729795,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.8070504596921555,
           c: 0.20209277315943788,
@@ -1398,7 +1295,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5559709480462673,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.7599537515265106,
           c: 0.19963507282864373,
@@ -1407,7 +1304,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.4661285231364189,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.7098870467621103,
           c: 0.18969103044484936,
@@ -1416,7 +1313,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.38051910750443346,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.6615789233457002,
           c: 0.18027799048984658,
@@ -1425,7 +1322,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3086453372902499,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.6043310409820983,
           c: 0.16246249656895118,
@@ -1437,22 +1334,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   yellow(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.8471224600588796,
       c: 0.16934356946111773,
       h: 87.12447328053877,
       opacity: 1.0,
     ),
-    baseLuminance: 0.6024548949906061,
-    baseIsDark: false,
-    onBase: RayOklch(
-      l: 0.0,
-      c: 0.0,
-      h: 0.0,
-      opacity: 1.0,
-    ),
+    luminance: 0.6024548949906061),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.979022253408079,
           c: 0.03956210666559462,
@@ -1461,7 +1351,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9412583663797642,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9610228056092736,
           c: 0.06790217651789875,
@@ -1470,7 +1360,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8912277219186296,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.940210587591346,
           c: 0.10486308817656063,
@@ -1479,7 +1369,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.8355081305776089,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.9096809369102667,
           c: 0.14400790021880613,
@@ -1488,7 +1378,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7553061834794708,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.8825888194299925,
           c: 0.1648482291234316,
@@ -1497,7 +1387,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6866273384306151,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.8471224600588796,
           c: 0.16934356946111773,
@@ -1506,7 +1396,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6024548949906061,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.8068818288454626,
           c: 0.16742985005800734,
@@ -1515,7 +1405,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5138561887340398,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.7701918706539059,
           c: 0.1658298757147107,
@@ -1524,7 +1414,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.44208751447639805,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.7310629999528868,
           c: 0.16731282075722453,
@@ -1533,7 +1423,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.37281431980690305,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.6834864324552457,
           c: 0.16930377623507,
@@ -1545,22 +1435,15 @@ enum OpenColorOklch implements PrismPalette {
     },
   )),
   orange(RayScheme<RayOklch>(
-    base: RayOklch(
+    source: RayWithLuminance(ray: RayOklch(
       l: 0.761585833656651,
       c: 0.16860311721681182,
       h: 57.801154247888604,
       opacity: 1.0,
     ),
-    baseLuminance: 0.41992186820507343,
-    baseIsDark: true,
-    onBase: RayOklch(
-      l: 0.9999999934735462,
-      c: 3.727399553519285e-8,
-      h: 89.87556309590244,
-      opacity: 1.0,
-    ),
+    luminance: 0.41992186820507343),
     shades: {
-      Shade.shade50: (
+      Shade.shade50: RayWithLuminance(
         ray: RayOklch(
           l: 0.9719903161261231,
           c: 0.021971639401550367,
@@ -1569,7 +1452,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.9167453832165661,
       ),
-      Shade.shade100: (
+      Shade.shade100: RayWithLuminance(
         ray: RayOklch(
           l: 0.9424055838994408,
           c: 0.0446047357168079,
@@ -1578,7 +1461,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.833328588550404,
       ),
-      Shade.shade200: (
+      Shade.shade200: RayWithLuminance(
         ray: RayOklch(
           l: 0.9038896706775871,
           c: 0.07583927071471311,
@@ -1587,7 +1470,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.7319888683472663,
       ),
-      Shade.shade300: (
+      Shade.shade300: RayWithLuminance(
         ray: RayOklch(
           l: 0.8503424693271847,
           c: 0.11490584512810989,
@@ -1596,7 +1479,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.6031533976649064,
       ),
-      Shade.shade400: (
+      Shade.shade400: RayWithLuminance(
         ray: RayOklch(
           l: 0.8033923292806998,
           c: 0.14614824014792901,
@@ -1605,7 +1488,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.5017175606520151,
       ),
-      Shade.shade500: (
+      Shade.shade500: RayWithLuminance(
         ray: RayOklch(
           l: 0.761585833656651,
           c: 0.16860311721681182,
@@ -1614,7 +1497,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.41992186820507343,
       ),
-      Shade.shade600: (
+      Shade.shade600: RayWithLuminance(
         ray: RayOklch(
           l: 0.7265361296261108,
           c: 0.183180722875073,
@@ -1623,7 +1506,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.3585486251442282,
       ),
-      Shade.shade700: (
+      Shade.shade700: RayWithLuminance(
         ray: RayOklch(
           l: 0.6850913690421115,
           c: 0.19539137079202373,
@@ -1632,7 +1515,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.29489992839750373,
       ),
-      Shade.shade800: (
+      Shade.shade800: RayWithLuminance(
         ray: RayOklch(
           l: 0.644161058053135,
           c: 0.1915916013393521,
@@ -1641,7 +1524,7 @@ enum OpenColorOklch implements PrismPalette {
         ),
         luminance: 0.243271064251615,
       ),
-      Shade.shade900: (
+      Shade.shade900: RayWithLuminance(
         ray: RayOklch(
           l: 0.5998964371649009,
           c: 0.19048072258073345,
@@ -1660,246 +1543,3 @@ enum OpenColorOklch implements PrismPalette {
   const OpenColorOklch(this.scheme);
 }
 
-/// An enhanced enum for the OpenColor palette.
-enum OpenColor {
-  gray(RayScheme(
-    base: RayRgb.fromIntARGB(0xFFADB5BD),
-    baseLuminance: 0.45606106758087217,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF8F9FA), luminance: 0.9460994970463299),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFF1F3F5), luminance: 0.8939452857711131),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFE9ECEF), luminance: 0.8354653852615065),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFDEE2E6), luminance: 0.7563547903789942),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFCED4DA), luminance: 0.6527073410862401),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFADB5BD), luminance: 0.45606106758087217),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF868E96), luminance: 0.26616342840087925),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF495057), luminance: 0.07841908913532951),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF343A40), luminance: 0.04126341869813483),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF212529), luminance: 0.01806564208421097),
-    },
-  )),
-  red(RayScheme(
-    base: RayRgb.fromIntARGB(0xFFFF6B6B),
-    baseLuminance: 0.3283692696402063,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF5F5), luminance: 0.9315738784221382),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFE3E3), luminance: 0.817442213342687),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFFC9C9), luminance: 0.6725033462475025),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFFA8A8), luminance: 0.5209241689801322),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFFF8787), luminance: 0.4033721558293779),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFFF6B6B), luminance: 0.3283692696402063),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFFA5252), luminance: 0.269677763870661),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFF03E3E), luminance: 0.22318314393791702),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFE03131), luminance: 0.18265670054364558),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFC92A2A), luminance: 0.14240603217230563),
-    },
-  )),
-  pink(RayScheme(
-    base: RayRgb.fromIntARGB(0xFFF06595),
-    baseLuminance: 0.30002551962743185,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF0F6), luminance: 0.9023399736742004),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFDEEB), luminance: 0.7950071064157509),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFCC2D7), luminance: 0.6418531655876709),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFAA2C1), luminance: 0.5001491001715227),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFF783AC), luminance: 0.3898531379185753),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFF06595), luminance: 0.30002551962743185),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFE64980), luminance: 0.23146594154096709),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFD6336C), luminance: 0.17746504104502733),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFC2255C), luminance: 0.13565176483482208),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFA61E4D), luminance: 0.09571359439872486),
-    },
-  )),
-  grape(RayScheme(
-    base: RayRgb.fromIntARGB(0xFFCC5DE8),
-    baseLuminance: 0.26492266079300447,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF8F0FC), luminance: 0.8930490994878921),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFF3D9FA), luminance: 0.7558252243079986),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFEEBEFA), luminance: 0.6190618188690986),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFE599F7), luminance: 0.4615587941682401),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFDA77F2), luminance: 0.3450988274027435),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFCC5DE8), luminance: 0.26492266079300447),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFBE4BDB), luminance: 0.21093776740943362),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFAE3EC9), luminance: 0.16660965709785222),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF9C36B5), luminance: 0.13042449092911268),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF862E9C), luminance: 0.09422622681694932),
-    },
-  )),
-  violet(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF845EF7),
-    baseLuminance: 0.19626341067993713,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF3F0FF), luminance: 0.8859486281783487),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFE5DBFF), luminance: 0.7454104922570032),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFD0BFFF), luminance: 0.578915001142945),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFB197FC), luminance: 0.38508603872442676),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF9775FA), luminance: 0.2620401642070923),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF845EF7), luminance: 0.19626341067993713),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF7950F2), luminance: 0.16213074235067795),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF7048E8), luminance: 0.13905669460336118),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF6741D9), luminance: 0.11673912180095691),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF5F3DC4), luminance: 0.09755905341291768),
-    },
-  )),
-  indigo(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF5C7CFA),
-    baseLuminance: 0.23592742051153093,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFEDF2FF), luminance: 0.8872878629281782),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFDBE4FF), luminance: 0.7776687413455939),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFBAC8FF), luminance: 0.589676563672936),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF91A7FF), luminance: 0.4087717532599137),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF748FFC), luminance: 0.30386200156952986),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF5C7CFA), luminance: 0.23592742051153093),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF4C6EF5), luminance: 0.1928093249583837),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF4263EB), luminance: 0.1608008957943851),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF3B5BDB), luminance: 0.13526450795017003),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF364FC7), luminance: 0.10499755391770696),
-    },
-  )),
-  blue(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF339AF0),
-    baseLuminance: 0.3010628025367057,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFE7F5FF), luminance: 0.8951373978645168),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFD0EBFF), luminance: 0.8004655830564238),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFA5D8FF), luminance: 0.643310662801603),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF74C0FC), luminance: 0.48440552588874025),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF4DABF7), luminance: 0.3741900081644475),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF339AF0), luminance: 0.3010628025367057),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF228BE6), luminance: 0.24518489967104856),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF1C7ED6), luminance: 0.2002362487854455),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF1971C2), luminance: 0.15911969541654936),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF1864AB), luminance: 0.12248807322697257),
-    },
-  )),
-  cyan(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF22B8CF),
-    baseLuminance: 0.39126054720215914,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFE3FAFC), luminance: 0.9173038261154748),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFC5F6FA), luminance: 0.846839786550365),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFF99E9F2), luminance: 0.714609362589428),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF66D9E8), luminance: 0.5827668418420928),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF3BC9DB), luminance: 0.47817568300397284),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF22B8CF), luminance: 0.39126054720215914),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF15AABF), luminance: 0.32670468273373066),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF1098AD), luminance: 0.2558376203724658),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF0C8599), luminance: 0.19153127919927504),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF0B7285), luminance: 0.13799230055109635),
-    },
-  )),
-  teal(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF20C997),
-    baseLuminance: 0.4431473018517139,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFE6FCF5), luminance: 0.9303637364671467),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFC3FAE8), luminance: 0.857995115734911),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFF96F2D7), luminance: 0.7489458831879495),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF63E6BE), luminance: 0.6296398307795401),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF38D9A9), luminance: 0.5333103409542548),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF20C997), luminance: 0.4431473018517139),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF12B886), luminance: 0.36130808168361667),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF0CA678), luminance: 0.287066648593747),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF099268), luminance: 0.21615321827795672),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF087F5B), luminance: 0.15985698654752986),
-    },
-  )),
-  green(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF51CF66),
-    baseLuminance: 0.47334286847799867,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFEBFBEE), luminance: 0.9282957466029826),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFD3F9D8), luminance: 0.8655811531448687),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFB2F2BB), luminance: 0.7655709501067272),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFF8CE99A), luminance: 0.661863697937724),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFF69DB7C), luminance: 0.5512152949989115),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF51CF66), luminance: 0.47334286847799867),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF40C057), luminance: 0.3947738238458747),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF37B24D), luminance: 0.3318883633562236),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF2F9E44), luminance: 0.25475412475310916),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF2B8A3E), luminance: 0.19038349623314083),
-    },
-  )),
-  lime(RayScheme(
-    base: RayRgb.fromIntARGB(0xFF94D82D),
-    baseLuminance: 0.5559709480462673,
-    baseIsDark: false,
-    onBase: RayRgb.fromIntARGB(0xFF000000),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFF4FCE3), luminance: 0.943999550199773),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFE9FAC8), luminance: 0.8986498312960534),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFD8F5A2), luminance: 0.8251238026867704),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFC0EB75), luminance: 0.7190748352283068),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFA9E34B), luminance: 0.6388118614729795),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFF94D82D), luminance: 0.5559709480462673),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFF82C91E), luminance: 0.4661285231364189),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFF74B816), luminance: 0.38051910750443346),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFF66A80F), luminance: 0.3086453372902499),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFF5C940D), luminance: 0.23484178753687437),
-    },
-  )),
-  yellow(RayScheme(
-    base: RayRgb.fromIntARGB(0xFFFCC419),
-    baseLuminance: 0.6024548949906061,
-    baseIsDark: false,
-    onBase: RayRgb.fromIntARGB(0xFF000000),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF9DB), luminance: 0.9412583663797642),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFF3BF), luminance: 0.8912277219186296),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFFEC99), luminance: 0.8355081305776089),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFFE066), luminance: 0.7553061834794708),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFFFD43B), luminance: 0.6866273384306151),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFFCC419), luminance: 0.6024548949906061),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFFAB005), luminance: 0.5138561887340398),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFF59F00), luminance: 0.44208751447639805),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFF08C00), luminance: 0.37281431980690305),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFE67700), luminance: 0.3001664581814326),
-    },
-  )),
-  orange(RayScheme(
-    base: RayRgb.fromIntARGB(0xFFFF922B),
-    baseLuminance: 0.41992186820507343,
-    baseIsDark: true,
-    onBase: RayRgb.fromIntARGB(0xFFFFFFFF),
-    shades: {
-      Shade.shade50: (ray: RayRgb.fromIntARGB(0xFFFFF4E6), luminance: 0.9167453832165661),
-      Shade.shade100: (ray: RayRgb.fromIntARGB(0xFFFFE8CC), luminance: 0.833328588550404),
-      Shade.shade200: (ray: RayRgb.fromIntARGB(0xFFFFD8A8), luminance: 0.7319888683472663),
-      Shade.shade300: (ray: RayRgb.fromIntARGB(0xFFFFC078), luminance: 0.6031533976649064),
-      Shade.shade400: (ray: RayRgb.fromIntARGB(0xFFFFA94D), luminance: 0.5017175606520151),
-      Shade.shade500: (ray: RayRgb.fromIntARGB(0xFFFF922B), luminance: 0.41992186820507343),
-      Shade.shade600: (ray: RayRgb.fromIntARGB(0xFFFD7E14), luminance: 0.3585486251442282),
-      Shade.shade700: (ray: RayRgb.fromIntARGB(0xFFF76707), luminance: 0.29489992839750373),
-      Shade.shade800: (ray: RayRgb.fromIntARGB(0xFFE8590C), luminance: 0.243271064251615),
-      Shade.shade900: (ray: RayRgb.fromIntARGB(0xFFD9480F), luminance: 0.19420932883074934),
-    },
-  )),
-;
-
-  /// The pre-computed profile for this color.
-  final RayScheme scheme;
-
-  const OpenColor(this.scheme);
-}

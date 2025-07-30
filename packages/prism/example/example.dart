@@ -117,12 +117,12 @@ void main() {
 
   for (final color in primaryColors) {
     final scheme = RayScheme.fromRay(color);
-    final theme = scheme.baseIsDark ? 'Dark' : 'Light';
+    final theme = scheme.source.isDark ? 'Dark' : 'Light';
     print('${color.toHexStr()} → $theme theme:');
-    print('  ├─ Text color: ${scheme.onBase.toRgb().toHexStr()}');
+    print('  ├─ Text color: ${scheme.source.onRay.toRgb().toHexStr()}');
     print('  ├─ Light surface: ${scheme.surfaceLight.toRgb().toHexStr()}');
     print('  ├─ Dark surface: ${scheme.surfaceDark.toRgb().toHexStr()}');
-    print('  └─ Luminance: ${scheme.baseLuminance.toStringAsFixed(3)}');
+    print('  └─ Luminance: ${scheme.source.luminance.toStringAsFixed(3)}');
   }
   print('');
 
@@ -139,7 +139,7 @@ void main() {
   ];
   for (final color in spectrumColors) {
     print(
-        '  ${color.name}: ${color.scheme.base.toRgb().toHexStr()} (${color.scheme.baseIsDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -148,7 +148,7 @@ void main() {
   final cssColors = [CssRgb.red, CssRgb.blue, CssRgb.green, CssRgb.gold];
   for (final color in cssColors) {
     print(
-        '  ${color.name}: ${color.scheme.base.toRgb().toHexStr()} (${color.scheme.baseIsDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -162,7 +162,7 @@ void main() {
   ];
   for (final color in materialColors) {
     print(
-        '  ${color.name}: ${color.scheme.base.toRgb().toHexStr()} (${color.scheme.baseIsDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -176,7 +176,7 @@ void main() {
   ];
   for (final color in openColors) {
     print(
-        '  ${color.name}: ${color.scheme.base.toRgb().toHexStr()} (${color.scheme.baseIsDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -185,26 +185,26 @@ void main() {
   final themeColor = SpectrumRgb.blue.scheme;
 
   print('Creating a blue theme using Spectrum palette:');
-  print('  Primary: ${themeColor.base.toRgb().toHexStr()}');
-  print('  On Primary: ${themeColor.onBase.toRgb().toHexStr()}');
+  print('  Primary: ${themeColor.source.ray.toRgb().toHexStr()}');
+  print('  On Primary: ${themeColor.source.onRay.toRgb().toHexStr()}');
   print('  Surface (Light): ${themeColor.surfaceLight.toRgb().toHexStr()}');
   print('  Surface (Dark): ${themeColor.surfaceDark.toRgb().toHexStr()}');
-  print('  Theme type: ${themeColor.baseIsDark ? 'Dark' : 'Light'}');
-  print('  Luminance: ${themeColor.baseLuminance.toStringAsFixed(3)}');
+  print('  Theme type: ${themeColor.source.isDark ? 'Dark' : 'Light'}');
+  print('  Luminance: ${themeColor.source.luminance.toStringAsFixed(3)}');
   print('');
 
   // === Advanced Palette Operations ===
   print('⚙️ Advanced Palette Operations:');
 
   // Create gradient using palette colors
-  final gradientStart = SpectrumRgb.purple.scheme.base;
-  final gradientEnd = SpectrumRgb.pink.scheme.base;
+  final gradientStart = SpectrumRgb.purple.scheme.source.ray;
+  final gradientEnd = SpectrumRgb.pink.scheme.source.ray;
   print('Spectrum Purple → Pink gradient:');
   for (int i = 0; i <= 4; i++) {
     final step = gradientStart.lerp(gradientEnd, i / 4.0);
     final stepScheme = RayScheme.fromRay(step);
     print(
-        '  Step $i: ${step.toRgb().toHexStr()} (contrast: ${stepScheme.onBase.toRgb().toHexStr()})');
+        '  Step $i: ${step.toRgb().toHexStr()} (contrast: ${stepScheme.source.onRay.toRgb().toHexStr()})');
   }
   print('');
 
@@ -217,7 +217,7 @@ void main() {
   ];
 
   for (final (name, scheme) in testColors) {
-    final contrast = scheme.base.maxContrast(
+    final contrast = scheme.source.ray.maxContrast(
       RayRgb.fromHex('#000000'), // Black
       RayRgb.fromHex('#FFFFFF'), // White
     );
@@ -335,11 +335,11 @@ void main() {
   for (final (name, hslColor) in testHslColors) {
     final luminance = hslColor.luminance;
     final scheme = RayScheme.fromRay(hslColor);
-    final contrastColor = scheme.onBase.toRgb();
+    final contrastColor = scheme.source.onRay.toRgb();
 
     print('  $name: $hslColor');
     print(
-        '    └─ Luminance: ${luminance.toStringAsFixed(3)}, Text: ${contrastColor.toHexStr()} (${scheme.baseIsDark ? 'Dark' : 'Light'} theme)');
+        '    └─ Luminance: ${luminance.toStringAsFixed(3)}, Text: ${contrastColor.toHexStr()} (${scheme.source.isDark ? 'Dark' : 'Light'} theme)');
   }
   print('');
 
@@ -456,12 +456,12 @@ void main() {
   for (final (name, oklabColor) in testOklabColors) {
     final luminance = oklabColor.luminance;
     final scheme = RayScheme.fromRay(oklabColor);
-    final contrastColor = scheme.onBase.toRgb();
+    final contrastColor = scheme.source.onRay.toRgb();
 
     print(
         '  $name: L=${oklabColor.l.toStringAsFixed(3)} → ${oklabColor.toRgb().toHexStr()}');
     print(
-        '    └─ Luminance: ${luminance.toStringAsFixed(3)}, Text: ${contrastColor.toHexStr()} (${scheme.baseIsDark ? 'Dark' : 'Light'} theme)');
+        '    └─ Luminance: ${luminance.toStringAsFixed(3)}, Text: ${contrastColor.toHexStr()} (${scheme.source.isDark ? 'Dark' : 'Light'} theme)');
   }
   print('');
 

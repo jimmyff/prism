@@ -40,13 +40,55 @@ enum Shade {
   double get lightness => lightnessModifier * 0.8 + 0.2;
 }
 
-typedef RayLuminance = ({Ray ray, double luminance});
+/// A color with precomputed luminance and convenient accessibility getters.
+///
+/// Combines a Ray color with its luminance value and provides convenient
+/// methods for accessibility calculations.
+class RayWithLuminance<T extends Ray> {
+  /// Luminance threshold for dark vs light classification
+  static const double _darkThreshold = 0.5;
+  
+  /// The color value
+  final T ray;
+  
+  /// The precomputed luminance value (0.0 to 1.0)
+  final double luminance;
+  
+  /// Creates a RayWithLuminance with the given ray and luminance
+  const RayWithLuminance({required this.ray, required this.luminance});
+  
+  /// Whether this color is considered dark (luminance < 0.5)
+  bool get isDark => luminance < _darkThreshold;
+  
+  /// Whether this color is considered light (luminance >= 0.5)
+  bool get isLight => !isDark;
+  
+  /// Returns appropriate contrast color (black/white) for text on this color
+  T get onRay {
+    final black = RayOklch(l: 0.0, c: 0.0, h: 0.0, opacity: 1.0);
+    final white = RayOklch(l: 1.0, c: 0.0, h: 0.0, opacity: 1.0);
+    return isDark ? white.toColorSpace<T>() : black.toColorSpace<T>();
+  }
+  
+  @override
+  bool operator ==(Object other) => 
+      identical(this, other) || 
+      (other is RayWithLuminance && 
+       other.ray == ray && 
+       other.luminance == luminance);
+       
+  @override
+  int get hashCode => Object.hash(ray, luminance);
+  
+  @override
+  String toString() => 'RayWithLuminance(ray: $ray, luminance: ${luminance.toStringAsFixed(3)})';
+}
 
 /// A color scheme that provides harmonious color relationships based on a primary color.
 ///
 /// Automatically generates:
 /// - Contrast text color (onRay) for accessibility
-/// - A complete tonal palette with 10 shades from darkest to lightest
+/// - A complete tonal palette with shades from darkest to lightest
 /// - Accessibility-compliant luminance calculations using W3C WCAG standards
 ///
 /// The scheme uses perceptual luminance to determine appropriate contrast colors
@@ -55,98 +97,68 @@ typedef RayLuminance = ({Ray ray, double luminance});
 /// Example:
 /// ```dart
 /// final scheme = RayScheme.fromRay(RayRgb.fromHex('#2196F3'));
-/// print(scheme.isDark); // false
-/// print(scheme.onRay.toHexStr()); // '#000000' (black text on blue)
-/// print(scheme.luminance); // 0.540 (computed luminance)
+/// print(scheme.source.isDark); // false
+/// print(scheme.source.onRay.toHexStr()); // '#000000' (black text on blue)
+/// print(scheme.source.luminance); // 0.540 (computed luminance)
 ///
 /// // Access different shades
-/// final darkest = scheme.shades[0];    // Darkest shade (lightness 0.0)
-/// final lightest = scheme.shades[10];  // Lightest shade (lightness 1.0)
-/// final midtone = scheme.shades[5];    // Mid-tone (lightness 0.5)
+/// final lightestShade = scheme.shade50;    // Lightest shade 
+/// final darkestShade = scheme.shade900;    // Darkest shade
+/// final midShade = scheme.shade500;        // Mid-tone shade
 /// ```
 class RayScheme<T extends Ray> {
   /// Luminance threshold for dark vs light classification
   static const double _darkThreshold = 0.5;
 
   /// The primary color this scheme is based on
-  final T base;
-
-  /// The appropriate contrast color for text on the primary color
-  ///
-  /// This is either black or white, chosen for optimal readability
-  /// based on the primary color's luminance.
-  final T onBase;
-
-  /// The computed luminance of the primary color (0.0 to 1.0)
-  ///
-  /// Uses W3C WCAG relative luminance calculation for perceptual accuracy.
-  final double baseLuminance;
-
-  /// Whether this color scheme is considered dark
-  ///
-  /// Based on luminance < 0.5 threshold for perceptual darkness.
-  final bool baseIsDark;
+  final RayWithLuminance source;
 
   /// A complete tonal palette along with their luminance values
   ///
   /// Contains shades from shade50 (lightest) to shade900 (darkest)
   /// following Material Design shade naming conventions.
-  /// Each shade maps to a RayLuminance record containing both the
+  /// Each shade maps to a RayWithLuminance object containing both the
   /// color and its cached luminance value.
-  final Map<Shade, RayLuminance> shades;
+  final Map<Shade, RayWithLuminance> shades;
 
   /// Access shades using Material Design naming convention
-  RayLuminance get shade50 => shades[Shade.shade50]!;
-  RayLuminance get shade100 => shades[Shade.shade100]!;
-  RayLuminance get shade200 => shades[Shade.shade200]!;
-  RayLuminance get shade300 => shades[Shade.shade300]!;
-  RayLuminance get shade400 => shades[Shade.shade400]!;
-  RayLuminance get shade500 => shades[Shade.shade500]!;
-  RayLuminance get shade600 => shades[Shade.shade600]!;
-  RayLuminance get shade700 => shades[Shade.shade700]!;
-  RayLuminance get shade800 => shades[Shade.shade800]!;
-  RayLuminance get shade900 => shades[Shade.shade900]!;
+  RayWithLuminance get shade50 => shades[Shade.shade50]!;
+  RayWithLuminance get shade100 => shades[Shade.shade100]!;
+  RayWithLuminance get shade200 => shades[Shade.shade200]!;
+  RayWithLuminance get shade300 => shades[Shade.shade300]!;
+  RayWithLuminance get shade400 => shades[Shade.shade400]!;
+  RayWithLuminance get shade500 => shades[Shade.shade500]!;
+  RayWithLuminance get shade600 => shades[Shade.shade600]!;
+  RayWithLuminance get shade700 => shades[Shade.shade700]!;
+  RayWithLuminance get shade800 => shades[Shade.shade800]!;
+  RayWithLuminance get shade900 => shades[Shade.shade900]!;
 
   /// Creates a color scheme with all properties explicitly specified.
   ///
   /// For most use cases, prefer [RayScheme.fromRay] which automatically
   /// computes all derived colors and properties.
   const RayScheme({
-    required this.base,
-    required this.onBase,
-    required this.baseLuminance,
-    required this.baseIsDark,
+    required this.source,
     required this.shades,
   });
 
   factory RayScheme.fromShades({
     T? base,
     required Map<Shade, T> shades,
-
-    // TODO: currently not used
-    List<T>? accents,
   }) {
-    // Convert map to RayLuminance values
-    final Map<Shade, RayLuminance> shadesMap = {};
+    // Convert map to RayWithLuminance values
+    final Map<Shade, RayWithLuminance<T>> shadesMap = {};
     for (final entry in shades.entries) {
       final shade = entry.value;
-      shadesMap[entry.key] = (ray: shade, luminance: shade.luminance);
+      shadesMap[entry.key] = RayWithLuminance(ray: shade, luminance: shade.luminance);
     }
 
     // Use shade500 (middle shade) as default base
     final ray = base ?? shades[Shade.shade500]!;
     final luminance = ray.luminance;
-    final isDark = luminance < _darkThreshold;
-    final black = RayOklch(l: 0.0, c: 0.0, h: 0.0, opacity: 1.0);
-    final white = RayOklch(l: 1.0, c: 0.0, h: 0.0, opacity: 1.0);
-    final onBase = isDark ? white : black;
-    final baseLuminance = luminance;
 
     return RayScheme(
-      base: ray,
-      onBase: onBase.toColorSpace<T>(),
-      baseLuminance: baseLuminance,
-      baseIsDark: isDark,
+      source: RayWithLuminance(ray: ray, luminance: luminance),
       shades: shadesMap,
     );
   }
@@ -156,7 +168,7 @@ class RayScheme<T extends Ray> {
   /// Automatically computes:
   /// - Luminance using W3C WCAG standards
   /// - Appropriate contrast color (onRay)
-  /// - Complete tonal palette with 10 shades
+  /// - Complete tonal palette with Material Design shades
   /// - Dark/light classification
   ///
   /// The tonal palette is generated by creating variations of the base color
@@ -184,16 +196,12 @@ class RayScheme<T extends Ray> {
   factory RayScheme.fromRay(T ray, {bool? generateAccents}) {
     final luminance = ray.luminance;
     final rayOklch = ray.toOklch();
-    final isDark = luminance < _darkThreshold;
-
-    final black = RayOklch(l: 0.0, c: 0.0, h: 0.0, opacity: 1.0);
-    final white = RayOklch(l: 1.0, c: 0.0, h: 0.0, opacity: 1.0);
 
     // only generate accents for colors with chroma > 0.1
     generateAccents ??= rayOklch.c > 0.1;
 
     // Generate tonal palette using Shade enum lightness values
-    final Map<Shade, RayLuminance> shadesMap = {};
+    final Map<Shade, RayWithLuminance<T>> shadesMap = {};
     for (final shade in Shade.values) {
       if (shade.type == ShadeType.accent && !generateAccents) continue;
 
@@ -201,27 +209,14 @@ class RayScheme<T extends Ray> {
           .withChroma(shade.fixedChroma ?? (rayOklch.c * shade.chromaModifier!))
           .withLightness(shade.lightness);
       final shadeRay = shadeOklch.toColorSpace<T>();
-      shadesMap[shade] = (ray: shadeRay, luminance: shadeRay.luminance);
+      shadesMap[shade] = RayWithLuminance(ray: shadeRay, luminance: shadeRay.luminance);
     }
 
     return RayScheme(
-      base: ray,
-      onBase: isDark ? white.toColorSpace<T>() : black.toColorSpace<T>(),
-      baseLuminance: luminance,
-      baseIsDark: isDark,
+      source: RayWithLuminance(ray: ray, luminance: luminance),
       shades: shadesMap,
     );
   }
-
-  /// Whether this color scheme is considered light
-  ///
-  /// Opposite of [baseIsDark] for convenience.
-  bool get isLight => !baseIsDark;
-
-  /// Returns the appropriate text color for this color scheme
-  ///
-  /// Alias for [onBase] for semantic clarity.
-  T get textColor => onBase;
 
   /// A darker surface variant of the primary color
   ///
@@ -237,40 +232,30 @@ class RayScheme<T extends Ray> {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     return other is RayScheme &&
-        other.base == base &&
-        other.onBase == onBase &&
-        other.baseLuminance == baseLuminance &&
-        other.baseIsDark == baseIsDark &&
+        other.source == source &&
         _mapEquals(other.shades, shades);
   }
 
   @override
   int get hashCode => Object.hash(
-        base,
-        onBase,
-        baseLuminance,
-        baseIsDark,
+        source,
         Object.hashAll(shades.entries
-            .map((e) => Object.hash(e.key, e.value.ray, e.value.luminance))),
+            .map((e) => Object.hash(e.key, e.value))),
       );
 
   @override
   String toString() => 'RayScheme('
-      'ray: ${base.colorSpace.name}(${base.toString()}), '
-      'luminance: ${baseLuminance.toStringAsFixed(3)}, '
-      'isDark: $baseIsDark, '
+      'source: ${source.ray.colorSpace.name}(${source.ray.toString()}), '
       'shades: ${shades.length}'
       ')';
 
   /// Helper function to compare two shade maps for equality
   static bool _mapEquals(
-      Map<Shade, RayLuminance> a, Map<Shade, RayLuminance> b) {
+      Map<Shade, RayWithLuminance> a, Map<Shade, RayWithLuminance> b) {
     if (a.length != b.length) return false;
     for (final entry in a.entries) {
       final bValue = b[entry.key];
-      if (bValue == null ||
-          bValue.ray != entry.value.ray ||
-          bValue.luminance != entry.value.luminance) {
+      if (bValue == null || bValue != entry.value) {
         return false;
       }
     }

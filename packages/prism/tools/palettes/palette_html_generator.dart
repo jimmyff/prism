@@ -204,10 +204,10 @@ class PaletteHtmlGenerator {
 
     buffer.writeln('<div class="color-card">');
 
-    // Main color header with onBase text
-    final rayRgb = schemeRgb.base.toRgb();
+    // Main color header with onRay text
+    final rayRgb = schemeRgb.source.ray.toRgb();
     buffer.writeln(
-        '<div class="color-header" style="background-color: ${rayRgb.toHexStr()}; color: ${schemeRgb.onBase.toRgb().toHexStr()};">');
+        '<div class="color-header" style="background-color: ${rayRgb.toHexStr()}; color: ${schemeRgb.source.onRay.toRgb().toHexStr()};">');
     if (hasAlias) {
       buffer.writeln('${alias?.key} / $name');
     } else {
@@ -218,7 +218,7 @@ class PaletteHtmlGenerator {
     buffer.writeln('<div class="color-info">');
     buffer.writeln('<div class="color-name">$name</div>');
     buffer.writeln(
-        '<div class="luminance">Luminance: ${schemeRgb.baseLuminance.toStringAsFixed(3)} (${schemeRgb.baseIsDark ? 'Dark' : 'Light'})</div>');
+        '<div class="luminance">Luminance: ${schemeRgb.source.luminance.toStringAsFixed(3)} (${schemeRgb.source.isDark ? 'Dark' : 'Light'})</div>');
 
     // Color space sections side by side
     buffer.writeln('<div class="color-spaces">');

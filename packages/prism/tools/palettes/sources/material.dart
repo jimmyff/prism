@@ -16,13 +16,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#D32F2F'),
       Shade.shade800: RayRgb.fromHex('#C62828'),
       Shade.shade900: RayRgb.fromHex('#B71C1C'),
+      Shade.accent100: RayRgb.fromHex('#FF8A80'),
+      Shade.accent200: RayRgb.fromHex('#FF5252'),
+      Shade.accent400: RayRgb.fromHex('#FF1744'),
+      Shade.accent700: RayRgb.fromHex('#D50000'),
     },
-    accents: [
-      RayRgb.fromHex('#FF8A80'),
-      RayRgb.fromHex('#FF5252'),
-      RayRgb.fromHex('#FF1744'),
-      RayRgb.fromHex('#D50000'),
-    ],
   ),
   'pink': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -36,13 +34,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#C2185B'),
       Shade.shade800: RayRgb.fromHex('#AD1457'),
       Shade.shade900: RayRgb.fromHex('#880E4F'),
+      Shade.accent100: RayRgb.fromHex('#FF80AB'),
+      Shade.accent200: RayRgb.fromHex('#FF4081'),
+      Shade.accent400: RayRgb.fromHex('#F50057'),
+      Shade.accent700: RayRgb.fromHex('#C51162'),
     },
-    accents: [
-      RayRgb.fromHex('#FF80AB'),
-      RayRgb.fromHex('#FF4081'),
-      RayRgb.fromHex('#F50057'),
-      RayRgb.fromHex('#C51162'),
-    ],
   ),
   'purple': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -56,13 +52,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#7B1FA2'),
       Shade.shade800: RayRgb.fromHex('#6A1B9A'),
       Shade.shade900: RayRgb.fromHex('#4A148C'),
+      Shade.accent100: RayRgb.fromHex('#EA80FC'),
+      Shade.accent200: RayRgb.fromHex('#E040FB'),
+      Shade.accent400: RayRgb.fromHex('#D500F9'),
+      Shade.accent700: RayRgb.fromHex('#AA00FF'),
     },
-    accents: [
-      RayRgb.fromHex('#EA80FC'),
-      RayRgb.fromHex('#E040FB'),
-      RayRgb.fromHex('#D500F9'),
-      RayRgb.fromHex('#AA00FF'),
-    ],
   ),
 
   'deepPurple': RayScheme<RayRgb>.fromShades(
@@ -77,13 +71,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#512DA8'),
       Shade.shade800: RayRgb.fromHex('#4527A0'),
       Shade.shade900: RayRgb.fromHex('#311B92'),
+      Shade.accent100: RayRgb.fromHex('#B388FF'),
+      Shade.accent200: RayRgb.fromHex('#7C4DFF'),
+      Shade.accent400: RayRgb.fromHex('#651FFF'),
+      Shade.accent700: RayRgb.fromHex('#6200EA'),
     },
-    accents: [
-      RayRgb.fromHex('#B388FF'),
-      RayRgb.fromHex('#7C4DFF'),
-      RayRgb.fromHex('#651FFF'),
-      RayRgb.fromHex('#6200EA'),
-    ],
   ),
   'indigo': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -97,13 +89,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#303F9F'),
       Shade.shade800: RayRgb.fromHex('#283593'),
       Shade.shade900: RayRgb.fromHex('#1A237E'),
+      Shade.accent100: RayRgb.fromHex('#8C9EFF'),
+      Shade.accent200: RayRgb.fromHex('#536DFE'),
+      Shade.accent400: RayRgb.fromHex('#3D5AFE'),
+      Shade.accent700: RayRgb.fromHex('#304FFE'),
     },
-    accents: [
-      RayRgb.fromHex('#8C9EFF'),
-      RayRgb.fromHex('#536DFE'),
-      RayRgb.fromHex('#3D5AFE'),
-      RayRgb.fromHex('#304FFE'),
-    ],
   ),
 
   'blue': RayScheme<RayRgb>.fromShades(
@@ -118,13 +108,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#1976D2'),
       Shade.shade800: RayRgb.fromHex('#1565C0'),
       Shade.shade900: RayRgb.fromHex('#0D47A1'),
+      Shade.accent100: RayRgb.fromHex('#82B1FF'),
+      Shade.accent200: RayRgb.fromHex('#448AFF'),
+      Shade.accent400: RayRgb.fromHex('#2979FF'),
+      Shade.accent700: RayRgb.fromHex('#2962FF'),
     },
-    accents: [
-      RayRgb.fromHex('#82B1FF'),
-      RayRgb.fromHex('#448AFF'),
-      RayRgb.fromHex('#2979FF'),
-      RayRgb.fromHex('#2962FF'),
-    ],
   ),
   'lightBlue': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -138,13 +126,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#0288D1'),
       Shade.shade800: RayRgb.fromHex('#0277BD'),
       Shade.shade900: RayRgb.fromHex('#01579B'),
+      Shade.accent100: RayRgb.fromHex('#80D8FF'),
+      Shade.accent200: RayRgb.fromHex('#40C4FF'),
+      Shade.accent400: RayRgb.fromHex('#00B0FF'),
+      Shade.accent700: RayRgb.fromHex('#0091EA'),
     },
-    accents: [
-      RayRgb.fromHex('#80D8FF'),
-      RayRgb.fromHex('#40C4FF'),
-      RayRgb.fromHex('#00B0FF'),
-      RayRgb.fromHex('#0091EA'),
-    ],
   ),
   'cyan': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -158,13 +144,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#0097A7'),
       Shade.shade800: RayRgb.fromHex('#008299'),
       Shade.shade900: RayRgb.fromHex('#006064'),
+      Shade.accent100: RayRgb.fromHex('#84FFFF'),
+      Shade.accent200: RayRgb.fromHex('#18FFFF'),
+      Shade.accent400: RayRgb.fromHex('#00E5FF'),
+      Shade.accent700: RayRgb.fromHex('#00B8D4'),
     },
-    accents: [
-      RayRgb.fromHex('#84FFFF'),
-      RayRgb.fromHex('#18FFFF'),
-      RayRgb.fromHex('#00E5FF'),
-      RayRgb.fromHex('#00B8D4'),
-    ],
   ),
 
   'teal': RayScheme<RayRgb>.fromShades(
@@ -179,13 +163,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#00796B'),
       Shade.shade800: RayRgb.fromHex('#00695C'),
       Shade.shade900: RayRgb.fromHex('#004D40'),
+      Shade.accent100: RayRgb.fromHex('#A7FFEB'),
+      Shade.accent200: RayRgb.fromHex('#64FFDA'),
+      Shade.accent400: RayRgb.fromHex('#1DE9B6'),
+      Shade.accent700: RayRgb.fromHex('#00BFA5'),
     },
-    accents: [
-      RayRgb.fromHex('#A7FFEB'),
-      RayRgb.fromHex('#64FFDA'),
-      RayRgb.fromHex('#1DE9B6'),
-      RayRgb.fromHex('#00BFA5'),
-    ],
   ),
   'green': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -199,13 +181,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#388E3C'),
       Shade.shade800: RayRgb.fromHex('#2E7D32'),
       Shade.shade900: RayRgb.fromHex('#1B5E20'),
+      Shade.accent100: RayRgb.fromHex('#B9F6CA'),
+      Shade.accent200: RayRgb.fromHex('#69F0AE'),
+      Shade.accent400: RayRgb.fromHex('#00E676'),
+      Shade.accent700: RayRgb.fromHex('#00C853'),
     },
-    accents: [
-      RayRgb.fromHex('#B9F6CA'),
-      RayRgb.fromHex('#69F0AE'),
-      RayRgb.fromHex('#00E676'),
-      RayRgb.fromHex('#00C853'),
-    ],
   ),
   'lightGreen': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -219,13 +199,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#689F38'),
       Shade.shade800: RayRgb.fromHex('#558B2F'),
       Shade.shade900: RayRgb.fromHex('#33691E'),
+      Shade.accent100: RayRgb.fromHex('#CCFF90'),
+      Shade.accent200: RayRgb.fromHex('#B2FF59'),
+      Shade.accent400: RayRgb.fromHex('#76FF03'),
+      Shade.accent700: RayRgb.fromHex('#64DD17'),
     },
-    accents: [
-      RayRgb.fromHex('#CCFF90'),
-      RayRgb.fromHex('#B2FF59'),
-      RayRgb.fromHex('#76FF03'),
-      RayRgb.fromHex('#64DD17'),
-    ],
   ),
   'lime': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -239,13 +217,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#AFB42B'),
       Shade.shade800: RayRgb.fromHex('#9E9D24'),
       Shade.shade900: RayRgb.fromHex('#827717'),
+      Shade.accent100: RayRgb.fromHex('#F4FF81'),
+      Shade.accent200: RayRgb.fromHex('#EEFF41'),
+      Shade.accent400: RayRgb.fromHex('#C6FF00'),
+      Shade.accent700: RayRgb.fromHex('#AEEA00'),
     },
-    accents: [
-      RayRgb.fromHex('#F4FF81'),
-      RayRgb.fromHex('#EEFF41'),
-      RayRgb.fromHex('#C6FF00'),
-      RayRgb.fromHex('#AEEA00'),
-    ],
   ),
   'yellow': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -259,13 +235,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#FBC02D'),
       Shade.shade800: RayRgb.fromHex('#F9A825'),
       Shade.shade900: RayRgb.fromHex('#F57F17'),
+      Shade.accent100: RayRgb.fromHex('#FFFF8D'),
+      Shade.accent200: RayRgb.fromHex('#FFFF00'),
+      Shade.accent400: RayRgb.fromHex('#FFEA00'),
+      Shade.accent700: RayRgb.fromHex('#FFD600'),
     },
-    accents: [
-      RayRgb.fromHex('#FFFF8D'),
-      RayRgb.fromHex('#FFFF00'),
-      RayRgb.fromHex('#FFEA00'),
-      RayRgb.fromHex('#FFD600'),
-    ],
   ),
   'amber': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -279,13 +253,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#FFA000'),
       Shade.shade800: RayRgb.fromHex('#FF8F00'),
       Shade.shade900: RayRgb.fromHex('#FF6F00'),
+      Shade.accent100: RayRgb.fromHex('#FFE57F'),
+      Shade.accent200: RayRgb.fromHex('#FFD740'),
+      Shade.accent400: RayRgb.fromHex('#FFC400'),
+      Shade.accent700: RayRgb.fromHex('#FFAB00'),
     },
-    accents: [
-      RayRgb.fromHex('#FFE57F'),
-      RayRgb.fromHex('#FFD740'),
-      RayRgb.fromHex('#FFC400'),
-      RayRgb.fromHex('#FFAB00'),
-    ],
   ),
   'orange': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -299,13 +271,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#F57C00'),
       Shade.shade800: RayRgb.fromHex('#EF6C00'),
       Shade.shade900: RayRgb.fromHex('#E65100'),
+      Shade.accent100: RayRgb.fromHex('#FFD180'),
+      Shade.accent200: RayRgb.fromHex('#FFAB40'),
+      Shade.accent400: RayRgb.fromHex('#FF9100'),
+      Shade.accent700: RayRgb.fromHex('#FF6D00'),
     },
-    accents: [
-      RayRgb.fromHex('#FFD180'),
-      RayRgb.fromHex('#FFAB40'),
-      RayRgb.fromHex('#FF9100'),
-      RayRgb.fromHex('#FF6D00'),
-    ],
   ),
   'deepOrange': RayScheme<RayRgb>.fromShades(
     shades: {
@@ -319,13 +289,11 @@ Map<String, RayScheme> materialColors = {
       Shade.shade700: RayRgb.fromHex('#E64A19'),
       Shade.shade800: RayRgb.fromHex('#D84315'),
       Shade.shade900: RayRgb.fromHex('#BF360C'),
+      Shade.accent100: RayRgb.fromHex('#FF9E80'),
+      Shade.accent200: RayRgb.fromHex('#FF6E40'),
+      Shade.accent400: RayRgb.fromHex('#FF3D00'),
+      Shade.accent700: RayRgb.fromHex('#DD2C00'),
     },
-    accents: [
-      RayRgb.fromHex('#FF9E80'),
-      RayRgb.fromHex('#FF6E40'),
-      RayRgb.fromHex('#FF3D00'),
-      RayRgb.fromHex('#DD2C00'),
-    ],
   ),
   'brown': RayScheme<RayRgb>.fromShades(
     shades: {

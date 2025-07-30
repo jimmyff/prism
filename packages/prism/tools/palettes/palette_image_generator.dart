@@ -33,7 +33,7 @@ class PaletteImageGenerator {
     for (final entry in schemes.entries) {
       final name = entry.key;
       final scheme = entry.value;
-      final ray = scheme.base;
+      final ray = scheme.source.ray;
 
       // Calculate position with border spacing and header offset
       final row = colorIndex ~/ columns;
@@ -83,7 +83,7 @@ class PaletteImageGenerator {
     // Draw project info
     img.drawString(
       image,
-      'Prism: An awesome color package for Dart & Flutter',
+      'Prism: A powerful color package for Dart & Flutter',
       font: img.arial14,
       rightJustify: true,
       x: imageWidth - 16,
@@ -128,7 +128,7 @@ class PaletteImageGenerator {
     );
 
     // Draw text on main color
-    final onRayRgb = scheme.onBase.toRgb();
+    final onRayRgb = scheme.source.onRay.toRgb();
     final onRayColor = img.ColorRgb8(
       onRayRgb.red,
       onRayRgb.green,
@@ -160,7 +160,7 @@ class PaletteImageGenerator {
     // luminance
     img.drawString(
       image,
-      "L${scheme.baseLuminance.toStringAsFixed(3).substring(1, 5)}",
+      "L${scheme.source.luminance.toStringAsFixed(2)}",
       font: img.arial14,
       x: x + width - 4,
       rightJustify: true,
@@ -220,7 +220,7 @@ class PaletteImageGenerator {
     }
 
     // Draw border around cell using shade 4 (darker shade)
-    final borderRgb = scheme.shade500.ray.toRgb();
+    final borderRgb = scheme.shade400.ray.toRgb();
     img.drawRect(
       image,
       x1: x,

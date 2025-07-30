@@ -137,9 +137,9 @@ void _generatePaletteCode({
   buffer.writeln('');
 
   // Extract rays from schemes for convenience
-  final Map<String, Ray> rays = {};
+  final Map<String, RayWithLuminance> rays = {};
   for (final entry in schemes.entries) {
-    rays[entry.key] = entry.value.base;
+    rays[entry.key] = entry.value.source;
   }
 
   // 2. Generate RGB scheme enum
@@ -149,15 +149,12 @@ void _generatePaletteCode({
   for (final entry in schemes.entries) {
     final name = entry.key;
     final scheme = entry.value;
-    final rgb = scheme.base.toRgb();
+    final rgb = scheme.source.ray.toRgb();
 
     buffer.writeln('  $name(RayScheme<RayRgb>(');
     buffer.writeln(
-        '    base: RayRgb.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}),');
-    buffer.writeln('    baseLuminance: ${scheme.baseLuminance},');
-    buffer.writeln('    baseIsDark: ${scheme.baseIsDark},');
-    buffer.writeln(
-        '    onBase: RayRgb.fromIntARGB(0x${scheme.onBase.toRgb().toArgbInt().toRadixString(16).toUpperCase()}),');
+        '    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}),');
+    buffer.writeln('    luminance: ${scheme.source.luminance}),');
     buffer.writeln('    shades: {');
 
     for (final shade in Shade.values) {
@@ -170,7 +167,7 @@ void _generatePaletteCode({
       final luminance = rayLuminance.luminance;
       final shadeRgb = ray.toRgb();
       buffer.writeln(
-          '      Shade.${shade.name}: (ray: RayRgb.fromIntARGB(0x${shadeRgb.toArgbInt().toRadixString(16).toUpperCase()}), luminance: $luminance),');
+          '      Shade.${shade.name}: RayWithLuminance(ray: RayRgb.fromIntARGB(0x${shadeRgb.toArgbInt().toRadixString(16).toUpperCase()}), luminance: $luminance),');
     }
     buffer.writeln('    },');
     buffer.writeln('  )),');
@@ -206,23 +203,16 @@ void _generatePaletteCode({
   for (final entry in schemes.entries) {
     final name = entry.key;
     final scheme = entry.value;
-    final oklch = scheme.base.toOklch();
+    final oklch = scheme.source.ray.toOklch();
 
     buffer.writeln('  $name(RayScheme<RayOklch>(');
-    buffer.writeln('    base: RayOklch(');
+    buffer.writeln('    source: RayWithLuminance(ray: RayOklch(');
     buffer.writeln('      l: ${oklch.l},');
     buffer.writeln('      c: ${oklch.c},');
     buffer.writeln('      h: ${oklch.h},');
     buffer.writeln('      opacity: ${oklch.opacity},');
     buffer.writeln('    ),');
-    buffer.writeln('    baseLuminance: ${scheme.baseLuminance},');
-    buffer.writeln('    baseIsDark: ${scheme.baseIsDark},');
-    buffer.writeln('    onBase: RayOklch(');
-    buffer.writeln('      l: ${scheme.onBase.toOklch().l},');
-    buffer.writeln('      c: ${scheme.onBase.toOklch().c},');
-    buffer.writeln('      h: ${scheme.onBase.toOklch().h},');
-    buffer.writeln('      opacity: ${scheme.onBase.toOklch().opacity},');
-    buffer.writeln('    ),');
+    buffer.writeln('    luminance: ${scheme.source.luminance}),');
     buffer.writeln('    shades: {');
 
     for (final shade in Shade.values) {
@@ -234,7 +224,7 @@ void _generatePaletteCode({
       final ray = rayLuminance.ray;
       final luminance = rayLuminance.luminance;
       final shadeOklch = ray.toOklch();
-      buffer.writeln('      Shade.${shade.name}: (');
+      buffer.writeln('      Shade.${shade.name}: RayWithLuminance(');
       buffer.writeln('        ray: RayOklch(');
       buffer.writeln('          l: ${shadeOklch.l},');
       buffer.writeln('          c: ${shadeOklch.c},');
@@ -271,66 +261,7 @@ void _generatePaletteCode({
   buffer.writeln('}');
   buffer.writeln('');
 
-  // 4. Generate original RayScheme enum for backward compatibility
-  buffer.writeln('/// An enhanced enum for the $className palette.');
-  buffer.writeln('enum $className {');
-
-  for (final entry in schemes.entries) {
-    final name = entry.key;
-    final profile = entry.value;
-    final ray = rays[name]!;
-
-    // Write the pre-computed const values directly into the code
-    buffer.writeln('  $name(RayScheme(');
-    buffer.writeln(
-        '    base: RayRgb.fromIntARGB(0x${ray.toRgb().toArgbInt().toRadixString(16).toUpperCase()}),');
-    buffer.writeln('    baseLuminance: ${profile.baseLuminance},');
-    buffer.writeln('    baseIsDark: ${profile.baseIsDark},');
-    buffer.writeln(
-        '    onBase: RayRgb.fromIntARGB(0x${profile.onBase.toRgb().toArgbInt().toRadixString(16).toUpperCase()}),');
-
-    // Generate all shades as map
-    buffer.writeln('    shades: {');
-
-    for (final shade in Shade.values) {
-      // check if this contains the shade
-      if (!profile.shades.containsKey(shade)) {
-        continue;
-      }
-      final rayLuminance = profile.shades[shade]!;
-      final ray = rayLuminance.ray;
-      final luminance = rayLuminance.luminance;
-      final shadeRgb = ray.toRgb();
-      buffer.writeln(
-          '      Shade.${shade.name}: (ray: RayRgb.fromIntARGB(0x${shadeRgb.toArgbInt().toRadixString(16).toUpperCase()}), luminance: $luminance),');
-    }
-    buffer.writeln('    },');
-    buffer.writeln('  )),');
-  }
-
-  buffer.writeln(';');
-  buffer.writeln('');
-  buffer.writeln('  /// The pre-computed profile for this color.');
-  buffer.writeln('  final RayScheme scheme;');
-  buffer.writeln('');
-  buffer.writeln('  const $className(this.scheme);');
-
-  // Add getter methods for aliases if they exist
-  if (aliases != null && aliases.isNotEmpty) {
-    buffer.writeln('');
-    buffer.writeln('  // Convenience getters for common color aliases');
-    for (final alias in aliases.entries) {
-      final aliasName = alias.key;
-      final targetName = alias.value;
-      buffer.writeln('  /// Getter for $aliasName (returns $targetName)');
-      buffer.writeln(
-          '  static RayScheme get $aliasName => $className.$targetName.scheme;');
-    }
-  }
-
-  buffer.writeln('}');
-
-  // 5. Write the file to the lib/palettes directory
+  // 4. Write the file to the lib/palettes directory
   final outputPath = p.join('lib', 'palettes', outputFileName);
   File(outputPath).writeAsStringSync(buffer.toString());
 }
