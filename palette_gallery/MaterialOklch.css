@@ -40,6 +40,22 @@
 .text-material-red-900 { color: oklch(50.2% 0.189 27.48); }
 .border-material-red-900 { border-color: oklch(50.2% 0.189 27.48); }
 
+.bg-material-red-accent100 { background-color: oklch(75.9% 0.144 26.08); }
+.text-material-red-accent100 { color: oklch(75.9% 0.144 26.08); }
+.border-material-red-accent100 { border-color: oklch(75.9% 0.144 26.08); }
+
+.bg-material-red-accent200 { background-color: oklch(67.9% 0.209 24.66); }
+.text-material-red-accent200 { color: oklch(67.9% 0.209 24.66); }
+.border-material-red-accent200 { border-color: oklch(67.9% 0.209 24.66); }
+
+.bg-material-red-accent400 { background-color: oklch(63.7% 0.249 20.73); }
+.text-material-red-accent400 { color: oklch(63.7% 0.249 20.73); }
+.border-material-red-accent400 { border-color: oklch(63.7% 0.249 20.73); }
+
+.bg-material-red-accent700 { background-color: oklch(54.8% 0.225 29.23); }
+.text-material-red-accent700 { color: oklch(54.8% 0.225 29.23); }
+.border-material-red-accent700 { border-color: oklch(54.8% 0.225 29.23); }
+
 .bg-material-pink-50 { background-color: oklch(94.1% 0.028 355.44); }
 .text-material-pink-50 { color: oklch(94.1% 0.028 355.44); }
 .border-material-pink-50 { border-color: oklch(94.1% 0.028 355.44); }
@@ -79,6 +95,22 @@
 .bg-material-pink-900 { background-color: oklch(41.5% 0.160 355.69); }
 .text-material-pink-900 { color: oklch(41.5% 0.160 355.69); }
 .border-material-pink-900 { border-color: oklch(41.5% 0.160 355.69); }
+
+.bg-material-pink-accent100 { background-color: oklch(75.5% 0.160 0.20); }
+.text-material-pink-accent100 { color: oklch(75.5% 0.160 0.20); }
+.border-material-pink-accent100 { border-color: oklch(75.5% 0.160 0.20); }
+
+.bg-material-pink-accent200 { background-color: oklch(67.2% 0.228 5.73); }
+.text-material-pink-accent200 { color: oklch(67.2% 0.228 5.73); }
+.border-material-pink-accent200 { border-color: oklch(67.2% 0.228 5.73); }
+
+.bg-material-pink-accent400 { background-color: oklch(61.7% 0.247 13.79); }
+.text-material-pink-accent400 { color: oklch(61.7% 0.247 13.79); }
+.border-material-pink-accent400 { border-color: oklch(61.7% 0.247 13.79); }
+
+.bg-material-pink-accent700 { background-color: oklch(53.6% 0.209 2.89); }
+.text-material-pink-accent700 { color: oklch(53.6% 0.209 2.89); }
+.border-material-pink-accent700 { border-color: oklch(53.6% 0.209 2.89); }
 
 .bg-material-purple-50 { background-color: oklch(93.8% 0.026 321.94); }
 .text-material-purple-50 { color: oklch(93.8% 0.026 321.94); }
@@ -120,6 +152,22 @@
 .text-material-purple-900 { color: oklch(36.0% 0.176 296.26); }
 .border-material-purple-900 { border-color: oklch(36.0% 0.176 296.26); }
 
+.bg-material-purple-accent100 { background-color: oklch(76.1% 0.200 321.64); }
+.text-material-purple-accent100 { color: oklch(76.1% 0.200 321.64); }
+.border-material-purple-accent100 { border-color: oklch(76.1% 0.200 321.64); }
+
+.bg-material-purple-accent200 { background-color: oklch(67.9% 0.277 321.37); }
+.text-material-purple-accent200 { color: oklch(67.9% 0.277 321.37); }
+.border-material-purple-accent200 { border-color: oklch(67.9% 0.277 321.37); }
+
+.bg-material-purple-accent400 { background-color: oklch(63.6% 0.305 319.95); }
+.text-material-purple-accent400 { color: oklch(63.6% 0.305 319.95); }
+.border-material-purple-accent400 { border-color: oklch(63.6% 0.305 319.95); }
+
+.bg-material-purple-accent700 { background-color: oklch(58.1% 0.299 307.03); }
+.text-material-purple-accent700 { color: oklch(58.1% 0.299 307.03); }
+.border-material-purple-accent700 { border-color: oklch(58.1% 0.299 307.03); }
+
 .bg-material-deeppurple-50 { background-color: oklch(93.7% 0.021 304.02); }
 .text-material-deeppurple-50 { color: oklch(93.7% 0.021 304.02); }
 .border-material-deeppurple-50 { border-color: oklch(93.7% 0.021 304.02); }
@@ -159,6 +207,22 @@
 .bg-material-deeppurple-900 { background-color: oklch(34.7% 0.179 280.11); }
 .text-material-deeppurple-900 { color: oklch(34.7% 0.179 280.11); }
 .border-material-deeppurple-900 { border-color: oklch(34.7% 0.179 280.11); }
+
+.bg-material-deeppurple-accent100 { background-color: oklch(71.7% 0.171 298.68); }
+.text-material-deeppurple-accent100 { color: oklch(71.7% 0.171 298.68); }
+.border-material-deeppurple-accent100 { border-color: oklch(71.7% 0.171 298.68); }
+
+.bg-material-deeppurple-accent200 { background-color: oklch(57.9% 0.247 288.24); }
+.text-material-deeppurple-accent200 { color: oklch(57.9% 0.247 288.24); }
+.border-material-deeppurple-accent200 { border-color: oklch(57.9% 0.247 288.24); }
+
+.bg-material-deeppurple-accent400 { background-color: oklch(51.4% 0.285 284.29); }
+.text-material-deeppurple-accent400 { color: oklch(51.4% 0.285 284.29); }
+.border-material-deeppurple-accent400 { border-color: oklch(51.4% 0.285 284.29); }
+
+.bg-material-deeppurple-accent700 { background-color: oklch(47.7% 0.275 287.18); }
+.text-material-deeppurple-accent700 { color: oklch(47.7% 0.275 287.18); }
+.border-material-deeppurple-accent700 { border-color: oklch(47.7% 0.275 287.18); }
 
 .bg-material-indigo-50 { background-color: oklch(93.9% 0.016 278.50); }
 .text-material-indigo-50 { color: oklch(93.9% 0.016 278.50); }
@@ -200,6 +264,22 @@
 .text-material-indigo-900 { color: oklch(32.1% 0.151 270.29); }
 .border-material-indigo-900 { border-color: oklch(32.1% 0.151 270.29); }
 
+.bg-material-indigo-accent100 { background-color: oklch(72.6% 0.142 274.36); }
+.text-material-indigo-accent100 { color: oklch(72.6% 0.142 274.36); }
+.border-material-indigo-accent100 { border-color: oklch(72.6% 0.142 274.36); }
+
+.bg-material-indigo-accent200 { background-color: oklch(59.8% 0.216 270.69); }
+.text-material-indigo-accent200 { color: oklch(59.8% 0.216 270.69); }
+.border-material-indigo-accent200 { border-color: oklch(59.8% 0.216 270.69); }
+
+.bg-material-indigo-accent400 { background-color: oklch(55.5% 0.243 268.78); }
+.text-material-indigo-accent400 { color: oklch(55.5% 0.243 268.78); }
+.border-material-indigo-accent400 { border-color: oklch(55.5% 0.243 268.78); }
+
+.bg-material-indigo-accent700 { background-color: oklch(53.2% 0.258 267.57); }
+.text-material-indigo-accent700 { color: oklch(53.2% 0.258 267.57); }
+.border-material-indigo-accent700 { border-color: oklch(53.2% 0.258 267.57); }
+
 .bg-material-blue-50 { background-color: oklch(95.3% 0.022 239.43); }
 .text-material-blue-50 { color: oklch(95.3% 0.022 239.43); }
 .border-material-blue-50 { border-color: oklch(95.3% 0.022 239.43); }
@@ -239,6 +319,22 @@
 .bg-material-blue-900 { background-color: oklch(42.2% 0.157 259.91); }
 .text-material-blue-900 { color: oklch(42.2% 0.157 259.91); }
 .border-material-blue-900 { border-color: oklch(42.2% 0.157 259.91); }
+
+.bg-material-blue-accent100 { background-color: oklch(75.9% 0.124 260.18); }
+.text-material-blue-accent100 { color: oklch(75.9% 0.124 260.18); }
+.border-material-blue-accent100 { border-color: oklch(75.9% 0.124 260.18); }
+
+.bg-material-blue-accent200 { background-color: oklch(64.9% 0.188 260.08); }
+.text-material-blue-accent200 { color: oklch(64.9% 0.188 260.08); }
+.border-material-blue-accent200 { border-color: oklch(64.9% 0.188 260.08); }
+
+.bg-material-blue-accent400 { background-color: oklch(60.6% 0.214 260.38); }
+.text-material-blue-accent400 { color: oklch(60.6% 0.214 260.38); }
+.border-material-blue-accent400 { border-color: oklch(60.6% 0.214 260.38); }
+
+.bg-material-blue-accent700 { background-color: oklch(56.2% 0.240 264.40); }
+.text-material-blue-accent700 { color: oklch(56.2% 0.240 264.40); }
+.border-material-blue-accent700 { border-color: oklch(56.2% 0.240 264.40); }
 
 .bg-material-lightblue-50 { background-color: oklch(95.8% 0.024 226.47); }
 .text-material-lightblue-50 { color: oklch(95.8% 0.024 226.47); }
@@ -280,6 +376,22 @@
 .text-material-lightblue-900 { color: oklch(45.2% 0.131 251.01); }
 .border-material-lightblue-900 { border-color: oklch(45.2% 0.131 251.01); }
 
+.bg-material-lightblue-accent100 { background-color: oklch(84.1% 0.101 228.42); }
+.text-material-lightblue-accent100 { color: oklch(84.1% 0.101 228.42); }
+.border-material-lightblue-accent100 { border-color: oklch(84.1% 0.101 228.42); }
+
+.bg-material-lightblue-accent200 { background-color: oklch(77.5% 0.139 232.35); }
+.text-material-lightblue-accent200 { color: oklch(77.5% 0.139 232.35); }
+.border-material-lightblue-accent200 { border-color: oklch(77.5% 0.139 232.35); }
+
+.bg-material-lightblue-accent400 { background-color: oklch(72.1% 0.163 239.29); }
+.text-material-lightblue-accent400 { color: oklch(72.1% 0.163 239.29); }
+.border-material-lightblue-accent400 { border-color: oklch(72.1% 0.163 239.29); }
+
+.bg-material-lightblue-accent700 { background-color: oklch(63.8% 0.167 246.80); }
+.text-material-lightblue-accent700 { color: oklch(63.8% 0.167 246.80); }
+.border-material-lightblue-accent700 { border-color: oklch(63.8% 0.167 246.80); }
+
 .bg-material-cyan-50 { background-color: oklch(96.0% 0.024 206.20); }
 .text-material-cyan-50 { color: oklch(96.0% 0.024 206.20); }
 .border-material-cyan-50 { border-color: oklch(96.0% 0.024 206.20); }
@@ -319,6 +431,22 @@
 .bg-material-cyan-900 { background-color: oklch(44.4% 0.076 199.77); }
 .text-material-cyan-900 { color: oklch(44.4% 0.076 199.77); }
 .border-material-cyan-900 { border-color: oklch(44.4% 0.076 199.77); }
+
+.bg-material-cyan-accent100 { background-color: oklch(92.9% 0.111 195.42); }
+.text-material-cyan-accent100 { color: oklch(92.9% 0.111 195.42); }
+.border-material-cyan-accent100 { border-color: oklch(92.9% 0.111 195.42); }
+
+.bg-material-cyan-accent200 { background-color: oklch(90.6% 0.153 194.80); }
+.text-material-cyan-accent200 { color: oklch(90.6% 0.153 194.80); }
+.border-material-cyan-accent200 { border-color: oklch(90.6% 0.153 194.80); }
+
+.bg-material-cyan-accent400 { background-color: oklch(84.4% 0.146 209.29); }
+.text-material-cyan-accent400 { color: oklch(84.4% 0.146 209.29); }
+.border-material-cyan-accent400 { border-color: oklch(84.4% 0.146 209.29); }
+
+.bg-material-cyan-accent700 { background-color: oklch(71.9% 0.126 213.68); }
+.text-material-cyan-accent700 { color: oklch(71.9% 0.126 213.68); }
+.border-material-cyan-accent700 { border-color: oklch(71.9% 0.126 213.68); }
 
 .bg-material-teal-50 { background-color: oklch(94.8% 0.019 192.81); }
 .text-material-teal-50 { color: oklch(94.8% 0.019 192.81); }
@@ -360,6 +488,22 @@
 .text-material-teal-900 { color: oklch(37.6% 0.070 176.40); }
 .border-material-teal-900 { border-color: oklch(37.6% 0.070 176.40); }
 
+.bg-material-teal-accent100 { background-color: oklch(93.9% 0.089 178.30); }
+.text-material-teal-accent100 { color: oklch(93.9% 0.089 178.30); }
+.border-material-teal-accent100 { border-color: oklch(93.9% 0.089 178.30); }
+
+.bg-material-teal-accent200 { background-color: oklch(90.8% 0.141 174.34); }
+.text-material-teal-accent200 { color: oklch(90.8% 0.141 174.34); }
+.border-material-teal-accent200 { border-color: oklch(90.8% 0.141 174.34); }
+
+.bg-material-teal-accent400 { background-color: oklch(83.2% 0.162 169.17); }
+.text-material-teal-accent400 { color: oklch(83.2% 0.162 169.17); }
+.border-material-teal-accent400 { border-color: oklch(83.2% 0.162 169.17); }
+
+.bg-material-teal-accent700 { background-color: oklch(72.0% 0.132 178.27); }
+.text-material-teal-accent700 { color: oklch(72.0% 0.132 178.27); }
+.border-material-teal-accent700 { border-color: oklch(72.0% 0.132 178.27); }
+
 .bg-material-green-50 { background-color: oklch(95.7% 0.021 147.64); }
 .text-material-green-50 { color: oklch(95.7% 0.021 147.64); }
 .border-material-green-50 { border-color: oklch(95.7% 0.021 147.64); }
@@ -399,6 +543,22 @@
 .bg-material-green-900 { background-color: oklch(42.5% 0.116 144.31); }
 .text-material-green-900 { color: oklch(42.5% 0.116 144.31); }
 .border-material-green-900 { border-color: oklch(42.5% 0.116 144.31); }
+
+.bg-material-green-accent100 { background-color: oklch(92.0% 0.086 153.17); }
+.text-material-green-accent100 { color: oklch(92.0% 0.086 153.17); }
+.border-material-green-accent100 { border-color: oklch(92.0% 0.086 153.17); }
+
+.bg-material-green-accent200 { background-color: oklch(86.3% 0.152 159.40); }
+.text-material-green-accent200 { color: oklch(86.3% 0.152 159.40); }
+.border-material-green-accent200 { border-color: oklch(86.3% 0.152 159.40); }
+
+.bg-material-green-accent400 { background-color: oklch(81.0% 0.214 151.77); }
+.text-material-green-accent400 { color: oklch(81.0% 0.214 151.77); }
+.border-material-green-accent400 { border-color: oklch(81.0% 0.214 151.77); }
+
+.bg-material-green-accent700 { background-color: oklch(72.7% 0.208 148.34); }
+.text-material-green-accent700 { color: oklch(72.7% 0.208 148.34); }
+.border-material-green-accent700 { border-color: oklch(72.7% 0.208 148.34); }
 
 .bg-material-lightgreen-50 { background-color: oklch(97.0% 0.021 127.38); }
 .text-material-lightgreen-50 { color: oklch(97.0% 0.021 127.38); }
@@ -440,6 +600,22 @@
 .text-material-lightgreen-900 { color: oklch(46.7% 0.121 138.27); }
 .border-material-lightgreen-900 { border-color: oklch(46.7% 0.121 138.27); }
 
+.bg-material-lightgreen-accent100 { background-color: oklch(94.0% 0.149 129.10); }
+.text-material-lightgreen-accent100 { color: oklch(94.0% 0.149 129.10); }
+.border-material-lightgreen-accent100 { border-color: oklch(94.0% 0.149 129.10); }
+
+.bg-material-lightgreen-accent200 { background-color: oklch(91.8% 0.209 130.88); }
+.text-material-lightgreen-accent200 { color: oklch(91.8% 0.209 130.88); }
+.border-material-lightgreen-accent200 { border-color: oklch(91.8% 0.209 130.88); }
+
+.bg-material-lightgreen-accent400 { background-color: oklch(88.7% 0.268 137.01); }
+.text-material-lightgreen-accent400 { color: oklch(88.7% 0.268 137.01); }
+.border-material-lightgreen-accent400 { border-color: oklch(88.7% 0.268 137.01); }
+
+.bg-material-lightgreen-accent700 { background-color: oklch(79.6% 0.238 137.52); }
+.text-material-lightgreen-accent700 { color: oklch(79.6% 0.238 137.52); }
+.border-material-lightgreen-accent700 { border-color: oklch(79.6% 0.238 137.52); }
+
 .bg-material-lime-50 { background-color: oklch(98.1% 0.026 111.51); }
 .text-material-lime-50 { color: oklch(98.1% 0.026 111.51); }
 .border-material-lime-50 { border-color: oklch(98.1% 0.026 111.51); }
@@ -479,6 +655,22 @@
 .bg-material-lime-900 { background-color: oklch(56.2% 0.110 102.38); }
 .text-material-lime-900 { color: oklch(56.2% 0.110 102.38); }
 .border-material-lime-900 { border-color: oklch(56.2% 0.110 102.38); }
+
+.bg-material-lime-accent100 { background-color: oklch(96.7% 0.150 113.32); }
+.text-material-lime-accent100 { color: oklch(96.7% 0.150 113.32); }
+.border-material-lime-accent100 { border-color: oklch(96.7% 0.150 113.32); }
+
+.bg-material-lime-accent200 { background-color: oklch(95.6% 0.199 114.76); }
+.text-material-lime-accent200 { color: oklch(95.6% 0.199 114.76); }
+.border-material-lime-accent200 { border-color: oklch(95.6% 0.199 114.76); }
+
+.bg-material-lime-accent400 { background-color: oklch(92.7% 0.231 124.41); }
+.text-material-lime-accent400 { color: oklch(92.7% 0.231 124.41); }
+.border-material-lime-accent400 { border-color: oklch(92.7% 0.231 124.41); }
+
+.bg-material-lime-accent700 { background-color: oklch(86.4% 0.220 126.11); }
+.text-material-lime-accent700 { color: oklch(86.4% 0.220 126.11); }
+.border-material-lime-accent700 { border-color: oklch(86.4% 0.220 126.11); }
 
 .bg-material-yellow-50 { background-color: oklch(99.0% 0.029 102.67); }
 .text-material-yellow-50 { color: oklch(99.0% 0.029 102.67); }
@@ -520,6 +712,22 @@
 .text-material-yellow-900 { color: oklch(71.7% 0.175 53.47); }
 .border-material-yellow-900 { border-color: oklch(71.7% 0.175 53.47); }
 
+.bg-material-yellow-accent100 { background-color: oklch(97.7% 0.137 108.69); }
+.text-material-yellow-accent100 { color: oklch(97.7% 0.137 108.69); }
+.border-material-yellow-accent100 { border-color: oklch(97.7% 0.137 108.69); }
+
+.bg-material-yellow-accent200 { background-color: oklch(96.8% 0.211 109.77); }
+.text-material-yellow-accent200 { color: oklch(96.8% 0.211 109.77); }
+.border-material-yellow-accent200 { border-color: oklch(96.8% 0.211 109.77); }
+
+.bg-material-yellow-accent400 { background-color: oklch(92.5% 0.194 102.89); }
+.text-material-yellow-accent400 { color: oklch(92.5% 0.194 102.89); }
+.border-material-yellow-accent400 { border-color: oklch(92.5% 0.194 102.89); }
+
+.bg-material-yellow-accent700 { background-color: oklch(88.5% 0.182 94.90); }
+.text-material-yellow-accent700 { color: oklch(88.5% 0.182 94.90); }
+.border-material-yellow-accent700 { border-color: oklch(88.5% 0.182 94.90); }
+
 .bg-material-amber-50 { background-color: oklch(97.9% 0.031 92.94); }
 .text-material-amber-50 { color: oklch(97.9% 0.031 92.94); }
 .border-material-amber-50 { border-color: oklch(97.9% 0.031 92.94); }
@@ -559,6 +767,22 @@
 .bg-material-amber-900 { background-color: oklch(70.8% 0.197 46.46); }
 .text-material-amber-900 { color: oklch(70.8% 0.197 46.46); }
 .border-material-amber-900 { border-color: oklch(70.8% 0.197 46.46); }
+
+.bg-material-amber-accent100 { background-color: oklch(92.3% 0.126 95.41); }
+.text-material-amber-accent100 { color: oklch(92.3% 0.126 95.41); }
+.border-material-amber-accent100 { border-color: oklch(92.3% 0.126 95.41); }
+
+.bg-material-amber-accent200 { background-color: oklch(88.9% 0.164 93.40); }
+.text-material-amber-accent200 { color: oklch(88.9% 0.164 93.40); }
+.border-material-amber-accent200 { border-color: oklch(88.9% 0.164 93.40); }
+
+.bg-material-amber-accent400 { background-color: oklch(85.0% 0.174 86.55); }
+.text-material-amber-accent400 { color: oklch(85.0% 0.174 86.55); }
+.border-material-amber-accent400 { border-color: oklch(85.0% 0.174 86.55); }
+
+.bg-material-amber-accent700 { background-color: oklch(80.3% 0.170 73.79); }
+.text-material-amber-accent700 { color: oklch(80.3% 0.170 73.79); }
+.border-material-amber-accent700 { border-color: oklch(80.3% 0.170 73.79); }
 
 .bg-material-orange-50 { background-color: oklch(96.9% 0.028 79.48); }
 .text-material-orange-50 { color: oklch(96.9% 0.028 79.48); }
@@ -600,6 +824,22 @@
 .text-material-orange-900 { color: oklch(63.1% 0.197 40.25); }
 .border-material-orange-900 { border-color: oklch(63.1% 0.197 40.25); }
 
+.bg-material-orange-accent100 { background-color: oklch(88.4% 0.112 80.66); }
+.text-material-orange-accent100 { color: oklch(88.4% 0.112 80.66); }
+.border-material-orange-accent100 { border-color: oklch(88.4% 0.112 80.66); }
+
+.bg-material-orange-accent200 { background-color: oklch(80.6% 0.153 68.43); }
+.text-material-orange-accent200 { color: oklch(80.6% 0.153 68.43); }
+.border-material-orange-accent200 { border-color: oklch(80.6% 0.153 68.43); }
+
+.bg-material-orange-accent400 { background-color: oklch(75.9% 0.177 60.64); }
+.text-material-orange-accent400 { color: oklch(75.9% 0.177 60.64); }
+.border-material-orange-accent400 { border-color: oklch(75.9% 0.177 60.64); }
+
+.bg-material-orange-accent700 { background-color: oklch(70.5% 0.199 45.77); }
+.text-material-orange-accent700 { color: oklch(70.5% 0.199 45.77); }
+.border-material-orange-accent700 { border-color: oklch(70.5% 0.199 45.77); }
+
 .bg-material-deeporange-50 { background-color: oklch(94.8% 0.020 25.17); }
 .text-material-deeporange-50 { color: oklch(94.8% 0.020 25.17); }
 .border-material-deeporange-50 { border-color: oklch(94.8% 0.020 25.17); }
@@ -639,6 +879,22 @@
 .bg-material-deeporange-900 { background-color: oklch(53.6% 0.180 35.37); }
 .text-material-deeporange-900 { color: oklch(53.6% 0.180 35.37); }
 .border-material-deeporange-900 { border-color: oklch(53.6% 0.180 35.37); }
+
+.bg-material-deeporange-accent100 { background-color: oklch(79.1% 0.124 37.95); }
+.text-material-deeporange-accent100 { color: oklch(79.1% 0.124 37.95); }
+.border-material-deeporange-accent100 { border-color: oklch(79.1% 0.124 37.95); }
+
+.bg-material-deeporange-accent200 { background-color: oklch(70.9% 0.187 37.80); }
+.text-material-deeporange-accent200 { color: oklch(70.9% 0.187 37.80); }
+.border-material-deeporange-accent200 { border-color: oklch(70.9% 0.187 37.80); }
+
+.bg-material-deeporange-accent400 { background-color: oklch(65.4% 0.235 34.04); }
+.text-material-deeporange-accent400 { color: oklch(65.4% 0.235 34.04); }
+.border-material-deeporange-accent400 { border-color: oklch(65.4% 0.235 34.04); }
+
+.bg-material-deeporange-accent700 { background-color: oklch(58.1% 0.216 32.80); }
+.text-material-deeporange-accent700 { color: oklch(58.1% 0.216 32.80); }
+.border-material-deeporange-accent700 { border-color: oklch(58.1% 0.216 32.80); }
 
 .bg-material-brown-50 { background-color: oklch(94.3% 0.005 48.68); }
 .text-material-brown-50 { color: oklch(94.3% 0.005 48.68); }

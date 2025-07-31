@@ -68,9 +68,9 @@ void main() {
   final darkSurface = scheme.surfaceDark; // Dark theme surface
   final isLight = scheme.isLight;         // Theme classification
   
-  // Use pre-built color palettes
-  final materialBlue = MaterialRgb.blue500.scheme.ray;
-  final cssNavy = CssRgb.navy.scheme.ray;
+  // Use pre-built color palettes with direct access
+  final materialBlue = MaterialRgb.blue.shade500;
+  final cssNavy = CssRgb.navy.source;
   
   // Access components and calculations
   print('Red: ${red.red}, Alpha: ${red.alpha}');

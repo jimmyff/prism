@@ -27,6 +27,7 @@ void main() {
     className: 'Spectrum',
     rgbEnum: SpectrumRgb.values,
     oklchEnum: SpectrumOklch.values,
+    preferredEnum: SpectrumOklch.values,
     cssClassName: 'spectrum',
   );
 
@@ -34,6 +35,7 @@ void main() {
     className: 'Css',
     rgbEnum: CssRgb.values,
     oklchEnum: CssOklch.values,
+    preferredEnum: CssRgb.values,
     cssClassName: 'css',
   );
 
@@ -41,6 +43,7 @@ void main() {
     className: 'Material',
     rgbEnum: MaterialRgb.values,
     oklchEnum: MaterialOklch.values,
+    preferredEnum: MaterialRgb.values,
     cssClassName: 'material',
   );
 
@@ -48,6 +51,7 @@ void main() {
     className: 'OpenColor',
     rgbEnum: OpenColorRgb.values,
     oklchEnum: OpenColorOklch.values,
+    preferredEnum: OpenColorRgb.values,
     cssClassName: 'oc',
   );
 
@@ -93,21 +97,22 @@ void _generateGallery<T extends PrismPalette, Q extends PrismPalette>({
   required String className,
   required List<T> rgbEnum,
   required List<Q> oklchEnum,
+  required List<PrismPalette> preferredEnum,
   required String cssClassName,
   Map<String, String>? aliases,
 }) {
   // Convert enum values to scheme maps
-  final Map<String, RayScheme<RayRgb>> schemesRgb = {};
-  final Map<String, RayScheme<RayOklch>> schemesOklch = {};
+  final Map<String, RayScheme<RayWithLuminanceBase>> schemesRgb = {};
+  final Map<String, RayScheme<RayWithLuminanceBase>> schemesOklch = {};
 
   for (final enumValue in rgbEnum) {
     final name = (enumValue as Enum).name;
-    schemesRgb[name] = enumValue.scheme as RayScheme<RayRgb>;
+    schemesRgb[name] = enumValue;
   }
 
   for (final enumValue in oklchEnum) {
     final name = (enumValue as Enum).name;
-    schemesOklch[name] = enumValue.scheme as RayScheme<RayOklch>;
+    schemesOklch[name] = enumValue;
   }
 
   final scriptDir = Directory(Platform.script.toFilePath()).parent;
@@ -128,7 +133,7 @@ void _generateGallery<T extends PrismPalette, Q extends PrismPalette>({
   final imageOutputPath = p.join(galleryDir, '$className.png');
   PaletteImageGenerator.generatePaletteImage(
     className: className,
-    schemes: schemesRgb,
+    schemes: schemesOklch,
     outputPath: imageOutputPath,
     aliases: aliases,
   );

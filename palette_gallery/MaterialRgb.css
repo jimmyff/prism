@@ -40,6 +40,22 @@
 .text-material-red-900 { color: rgb(183, 28, 28); }
 .border-material-red-900 { border-color: rgb(183, 28, 28); }
 
+.bg-material-red-accent100 { background-color: rgb(255, 138, 128); }
+.text-material-red-accent100 { color: rgb(255, 138, 128); }
+.border-material-red-accent100 { border-color: rgb(255, 138, 128); }
+
+.bg-material-red-accent200 { background-color: rgb(255, 82, 82); }
+.text-material-red-accent200 { color: rgb(255, 82, 82); }
+.border-material-red-accent200 { border-color: rgb(255, 82, 82); }
+
+.bg-material-red-accent400 { background-color: rgb(255, 23, 68); }
+.text-material-red-accent400 { color: rgb(255, 23, 68); }
+.border-material-red-accent400 { border-color: rgb(255, 23, 68); }
+
+.bg-material-red-accent700 { background-color: rgb(213, 0, 0); }
+.text-material-red-accent700 { color: rgb(213, 0, 0); }
+.border-material-red-accent700 { border-color: rgb(213, 0, 0); }
+
 .bg-material-pink-50 { background-color: rgb(252, 228, 236); }
 .text-material-pink-50 { color: rgb(252, 228, 236); }
 .border-material-pink-50 { border-color: rgb(252, 228, 236); }
@@ -79,6 +95,22 @@
 .bg-material-pink-900 { background-color: rgb(136, 14, 79); }
 .text-material-pink-900 { color: rgb(136, 14, 79); }
 .border-material-pink-900 { border-color: rgb(136, 14, 79); }
+
+.bg-material-pink-accent100 { background-color: rgb(255, 128, 171); }
+.text-material-pink-accent100 { color: rgb(255, 128, 171); }
+.border-material-pink-accent100 { border-color: rgb(255, 128, 171); }
+
+.bg-material-pink-accent200 { background-color: rgb(255, 64, 129); }
+.text-material-pink-accent200 { color: rgb(255, 64, 129); }
+.border-material-pink-accent200 { border-color: rgb(255, 64, 129); }
+
+.bg-material-pink-accent400 { background-color: rgb(245, 0, 87); }
+.text-material-pink-accent400 { color: rgb(245, 0, 87); }
+.border-material-pink-accent400 { border-color: rgb(245, 0, 87); }
+
+.bg-material-pink-accent700 { background-color: rgb(197, 17, 98); }
+.text-material-pink-accent700 { color: rgb(197, 17, 98); }
+.border-material-pink-accent700 { border-color: rgb(197, 17, 98); }
 
 .bg-material-purple-50 { background-color: rgb(243, 229, 245); }
 .text-material-purple-50 { color: rgb(243, 229, 245); }
@@ -120,6 +152,22 @@
 .text-material-purple-900 { color: rgb(74, 20, 140); }
 .border-material-purple-900 { border-color: rgb(74, 20, 140); }
 
+.bg-material-purple-accent100 { background-color: rgb(234, 128, 252); }
+.text-material-purple-accent100 { color: rgb(234, 128, 252); }
+.border-material-purple-accent100 { border-color: rgb(234, 128, 252); }
+
+.bg-material-purple-accent200 { background-color: rgb(224, 64, 251); }
+.text-material-purple-accent200 { color: rgb(224, 64, 251); }
+.border-material-purple-accent200 { border-color: rgb(224, 64, 251); }
+
+.bg-material-purple-accent400 { background-color: rgb(213, 0, 249); }
+.text-material-purple-accent400 { color: rgb(213, 0, 249); }
+.border-material-purple-accent400 { border-color: rgb(213, 0, 249); }
+
+.bg-material-purple-accent700 { background-color: rgb(170, 0, 255); }
+.text-material-purple-accent700 { color: rgb(170, 0, 255); }
+.border-material-purple-accent700 { border-color: rgb(170, 0, 255); }
+
 .bg-material-deeppurple-50 { background-color: rgb(237, 231, 246); }
 .text-material-deeppurple-50 { color: rgb(237, 231, 246); }
 .border-material-deeppurple-50 { border-color: rgb(237, 231, 246); }
@@ -159,6 +207,22 @@
 .bg-material-deeppurple-900 { background-color: rgb(49, 27, 146); }
 .text-material-deeppurple-900 { color: rgb(49, 27, 146); }
 .border-material-deeppurple-900 { border-color: rgb(49, 27, 146); }
+
+.bg-material-deeppurple-accent100 { background-color: rgb(179, 136, 255); }
+.text-material-deeppurple-accent100 { color: rgb(179, 136, 255); }
+.border-material-deeppurple-accent100 { border-color: rgb(179, 136, 255); }
+
+.bg-material-deeppurple-accent200 { background-color: rgb(124, 77, 255); }
+.text-material-deeppurple-accent200 { color: rgb(124, 77, 255); }
+.border-material-deeppurple-accent200 { border-color: rgb(124, 77, 255); }
+
+.bg-material-deeppurple-accent400 { background-color: rgb(101, 31, 255); }
+.text-material-deeppurple-accent400 { color: rgb(101, 31, 255); }
+.border-material-deeppurple-accent400 { border-color: rgb(101, 31, 255); }
+
+.bg-material-deeppurple-accent700 { background-color: rgb(98, 0, 234); }
+.text-material-deeppurple-accent700 { color: rgb(98, 0, 234); }
+.border-material-deeppurple-accent700 { border-color: rgb(98, 0, 234); }
 
 .bg-material-indigo-50 { background-color: rgb(232, 234, 246); }
 .text-material-indigo-50 { color: rgb(232, 234, 246); }
@@ -200,6 +264,22 @@
 .text-material-indigo-900 { color: rgb(26, 35, 126); }
 .border-material-indigo-900 { border-color: rgb(26, 35, 126); }
 
+.bg-material-indigo-accent100 { background-color: rgb(140, 158, 255); }
+.text-material-indigo-accent100 { color: rgb(140, 158, 255); }
+.border-material-indigo-accent100 { border-color: rgb(140, 158, 255); }
+
+.bg-material-indigo-accent200 { background-color: rgb(83, 109, 254); }
+.text-material-indigo-accent200 { color: rgb(83, 109, 254); }
+.border-material-indigo-accent200 { border-color: rgb(83, 109, 254); }
+
+.bg-material-indigo-accent400 { background-color: rgb(61, 90, 254); }
+.text-material-indigo-accent400 { color: rgb(61, 90, 254); }
+.border-material-indigo-accent400 { border-color: rgb(61, 90, 254); }
+
+.bg-material-indigo-accent700 { background-color: rgb(48, 79, 254); }
+.text-material-indigo-accent700 { color: rgb(48, 79, 254); }
+.border-material-indigo-accent700 { border-color: rgb(48, 79, 254); }
+
 .bg-material-blue-50 { background-color: rgb(227, 242, 253); }
 .text-material-blue-50 { color: rgb(227, 242, 253); }
 .border-material-blue-50 { border-color: rgb(227, 242, 253); }
@@ -239,6 +319,22 @@
 .bg-material-blue-900 { background-color: rgb(13, 71, 161); }
 .text-material-blue-900 { color: rgb(13, 71, 161); }
 .border-material-blue-900 { border-color: rgb(13, 71, 161); }
+
+.bg-material-blue-accent100 { background-color: rgb(130, 177, 255); }
+.text-material-blue-accent100 { color: rgb(130, 177, 255); }
+.border-material-blue-accent100 { border-color: rgb(130, 177, 255); }
+
+.bg-material-blue-accent200 { background-color: rgb(68, 138, 255); }
+.text-material-blue-accent200 { color: rgb(68, 138, 255); }
+.border-material-blue-accent200 { border-color: rgb(68, 138, 255); }
+
+.bg-material-blue-accent400 { background-color: rgb(41, 121, 255); }
+.text-material-blue-accent400 { color: rgb(41, 121, 255); }
+.border-material-blue-accent400 { border-color: rgb(41, 121, 255); }
+
+.bg-material-blue-accent700 { background-color: rgb(41, 98, 255); }
+.text-material-blue-accent700 { color: rgb(41, 98, 255); }
+.border-material-blue-accent700 { border-color: rgb(41, 98, 255); }
 
 .bg-material-lightblue-50 { background-color: rgb(225, 245, 254); }
 .text-material-lightblue-50 { color: rgb(225, 245, 254); }
@@ -280,6 +376,22 @@
 .text-material-lightblue-900 { color: rgb(1, 87, 155); }
 .border-material-lightblue-900 { border-color: rgb(1, 87, 155); }
 
+.bg-material-lightblue-accent100 { background-color: rgb(128, 216, 255); }
+.text-material-lightblue-accent100 { color: rgb(128, 216, 255); }
+.border-material-lightblue-accent100 { border-color: rgb(128, 216, 255); }
+
+.bg-material-lightblue-accent200 { background-color: rgb(64, 196, 255); }
+.text-material-lightblue-accent200 { color: rgb(64, 196, 255); }
+.border-material-lightblue-accent200 { border-color: rgb(64, 196, 255); }
+
+.bg-material-lightblue-accent400 { background-color: rgb(0, 176, 255); }
+.text-material-lightblue-accent400 { color: rgb(0, 176, 255); }
+.border-material-lightblue-accent400 { border-color: rgb(0, 176, 255); }
+
+.bg-material-lightblue-accent700 { background-color: rgb(0, 145, 234); }
+.text-material-lightblue-accent700 { color: rgb(0, 145, 234); }
+.border-material-lightblue-accent700 { border-color: rgb(0, 145, 234); }
+
 .bg-material-cyan-50 { background-color: rgb(224, 247, 250); }
 .text-material-cyan-50 { color: rgb(224, 247, 250); }
 .border-material-cyan-50 { border-color: rgb(224, 247, 250); }
@@ -319,6 +431,22 @@
 .bg-material-cyan-900 { background-color: rgb(0, 96, 100); }
 .text-material-cyan-900 { color: rgb(0, 96, 100); }
 .border-material-cyan-900 { border-color: rgb(0, 96, 100); }
+
+.bg-material-cyan-accent100 { background-color: rgb(132, 255, 255); }
+.text-material-cyan-accent100 { color: rgb(132, 255, 255); }
+.border-material-cyan-accent100 { border-color: rgb(132, 255, 255); }
+
+.bg-material-cyan-accent200 { background-color: rgb(24, 255, 255); }
+.text-material-cyan-accent200 { color: rgb(24, 255, 255); }
+.border-material-cyan-accent200 { border-color: rgb(24, 255, 255); }
+
+.bg-material-cyan-accent400 { background-color: rgb(0, 229, 255); }
+.text-material-cyan-accent400 { color: rgb(0, 229, 255); }
+.border-material-cyan-accent400 { border-color: rgb(0, 229, 255); }
+
+.bg-material-cyan-accent700 { background-color: rgb(0, 184, 212); }
+.text-material-cyan-accent700 { color: rgb(0, 184, 212); }
+.border-material-cyan-accent700 { border-color: rgb(0, 184, 212); }
 
 .bg-material-teal-50 { background-color: rgb(224, 242, 241); }
 .text-material-teal-50 { color: rgb(224, 242, 241); }
@@ -360,6 +488,22 @@
 .text-material-teal-900 { color: rgb(0, 77, 64); }
 .border-material-teal-900 { border-color: rgb(0, 77, 64); }
 
+.bg-material-teal-accent100 { background-color: rgb(167, 255, 235); }
+.text-material-teal-accent100 { color: rgb(167, 255, 235); }
+.border-material-teal-accent100 { border-color: rgb(167, 255, 235); }
+
+.bg-material-teal-accent200 { background-color: rgb(100, 255, 218); }
+.text-material-teal-accent200 { color: rgb(100, 255, 218); }
+.border-material-teal-accent200 { border-color: rgb(100, 255, 218); }
+
+.bg-material-teal-accent400 { background-color: rgb(29, 233, 182); }
+.text-material-teal-accent400 { color: rgb(29, 233, 182); }
+.border-material-teal-accent400 { border-color: rgb(29, 233, 182); }
+
+.bg-material-teal-accent700 { background-color: rgb(0, 191, 165); }
+.text-material-teal-accent700 { color: rgb(0, 191, 165); }
+.border-material-teal-accent700 { border-color: rgb(0, 191, 165); }
+
 .bg-material-green-50 { background-color: rgb(232, 245, 233); }
 .text-material-green-50 { color: rgb(232, 245, 233); }
 .border-material-green-50 { border-color: rgb(232, 245, 233); }
@@ -399,6 +543,22 @@
 .bg-material-green-900 { background-color: rgb(27, 94, 32); }
 .text-material-green-900 { color: rgb(27, 94, 32); }
 .border-material-green-900 { border-color: rgb(27, 94, 32); }
+
+.bg-material-green-accent100 { background-color: rgb(185, 246, 202); }
+.text-material-green-accent100 { color: rgb(185, 246, 202); }
+.border-material-green-accent100 { border-color: rgb(185, 246, 202); }
+
+.bg-material-green-accent200 { background-color: rgb(105, 240, 174); }
+.text-material-green-accent200 { color: rgb(105, 240, 174); }
+.border-material-green-accent200 { border-color: rgb(105, 240, 174); }
+
+.bg-material-green-accent400 { background-color: rgb(0, 230, 118); }
+.text-material-green-accent400 { color: rgb(0, 230, 118); }
+.border-material-green-accent400 { border-color: rgb(0, 230, 118); }
+
+.bg-material-green-accent700 { background-color: rgb(0, 200, 83); }
+.text-material-green-accent700 { color: rgb(0, 200, 83); }
+.border-material-green-accent700 { border-color: rgb(0, 200, 83); }
 
 .bg-material-lightgreen-50 { background-color: rgb(241, 248, 233); }
 .text-material-lightgreen-50 { color: rgb(241, 248, 233); }
@@ -440,6 +600,22 @@
 .text-material-lightgreen-900 { color: rgb(51, 105, 30); }
 .border-material-lightgreen-900 { border-color: rgb(51, 105, 30); }
 
+.bg-material-lightgreen-accent100 { background-color: rgb(204, 255, 144); }
+.text-material-lightgreen-accent100 { color: rgb(204, 255, 144); }
+.border-material-lightgreen-accent100 { border-color: rgb(204, 255, 144); }
+
+.bg-material-lightgreen-accent200 { background-color: rgb(178, 255, 89); }
+.text-material-lightgreen-accent200 { color: rgb(178, 255, 89); }
+.border-material-lightgreen-accent200 { border-color: rgb(178, 255, 89); }
+
+.bg-material-lightgreen-accent400 { background-color: rgb(118, 255, 3); }
+.text-material-lightgreen-accent400 { color: rgb(118, 255, 3); }
+.border-material-lightgreen-accent400 { border-color: rgb(118, 255, 3); }
+
+.bg-material-lightgreen-accent700 { background-color: rgb(100, 221, 23); }
+.text-material-lightgreen-accent700 { color: rgb(100, 221, 23); }
+.border-material-lightgreen-accent700 { border-color: rgb(100, 221, 23); }
+
 .bg-material-lime-50 { background-color: rgb(249, 251, 231); }
 .text-material-lime-50 { color: rgb(249, 251, 231); }
 .border-material-lime-50 { border-color: rgb(249, 251, 231); }
@@ -479,6 +655,22 @@
 .bg-material-lime-900 { background-color: rgb(130, 119, 23); }
 .text-material-lime-900 { color: rgb(130, 119, 23); }
 .border-material-lime-900 { border-color: rgb(130, 119, 23); }
+
+.bg-material-lime-accent100 { background-color: rgb(244, 255, 129); }
+.text-material-lime-accent100 { color: rgb(244, 255, 129); }
+.border-material-lime-accent100 { border-color: rgb(244, 255, 129); }
+
+.bg-material-lime-accent200 { background-color: rgb(238, 255, 65); }
+.text-material-lime-accent200 { color: rgb(238, 255, 65); }
+.border-material-lime-accent200 { border-color: rgb(238, 255, 65); }
+
+.bg-material-lime-accent400 { background-color: rgb(198, 255, 0); }
+.text-material-lime-accent400 { color: rgb(198, 255, 0); }
+.border-material-lime-accent400 { border-color: rgb(198, 255, 0); }
+
+.bg-material-lime-accent700 { background-color: rgb(174, 234, 0); }
+.text-material-lime-accent700 { color: rgb(174, 234, 0); }
+.border-material-lime-accent700 { border-color: rgb(174, 234, 0); }
 
 .bg-material-yellow-50 { background-color: rgb(255, 253, 231); }
 .text-material-yellow-50 { color: rgb(255, 253, 231); }
@@ -520,6 +712,22 @@
 .text-material-yellow-900 { color: rgb(245, 127, 23); }
 .border-material-yellow-900 { border-color: rgb(245, 127, 23); }
 
+.bg-material-yellow-accent100 { background-color: rgb(255, 255, 141); }
+.text-material-yellow-accent100 { color: rgb(255, 255, 141); }
+.border-material-yellow-accent100 { border-color: rgb(255, 255, 141); }
+
+.bg-material-yellow-accent200 { background-color: rgb(255, 255, 0); }
+.text-material-yellow-accent200 { color: rgb(255, 255, 0); }
+.border-material-yellow-accent200 { border-color: rgb(255, 255, 0); }
+
+.bg-material-yellow-accent400 { background-color: rgb(255, 234, 0); }
+.text-material-yellow-accent400 { color: rgb(255, 234, 0); }
+.border-material-yellow-accent400 { border-color: rgb(255, 234, 0); }
+
+.bg-material-yellow-accent700 { background-color: rgb(255, 214, 0); }
+.text-material-yellow-accent700 { color: rgb(255, 214, 0); }
+.border-material-yellow-accent700 { border-color: rgb(255, 214, 0); }
+
 .bg-material-amber-50 { background-color: rgb(255, 248, 225); }
 .text-material-amber-50 { color: rgb(255, 248, 225); }
 .border-material-amber-50 { border-color: rgb(255, 248, 225); }
@@ -559,6 +767,22 @@
 .bg-material-amber-900 { background-color: rgb(255, 111, 0); }
 .text-material-amber-900 { color: rgb(255, 111, 0); }
 .border-material-amber-900 { border-color: rgb(255, 111, 0); }
+
+.bg-material-amber-accent100 { background-color: rgb(255, 229, 127); }
+.text-material-amber-accent100 { color: rgb(255, 229, 127); }
+.border-material-amber-accent100 { border-color: rgb(255, 229, 127); }
+
+.bg-material-amber-accent200 { background-color: rgb(255, 215, 64); }
+.text-material-amber-accent200 { color: rgb(255, 215, 64); }
+.border-material-amber-accent200 { border-color: rgb(255, 215, 64); }
+
+.bg-material-amber-accent400 { background-color: rgb(255, 196, 0); }
+.text-material-amber-accent400 { color: rgb(255, 196, 0); }
+.border-material-amber-accent400 { border-color: rgb(255, 196, 0); }
+
+.bg-material-amber-accent700 { background-color: rgb(255, 171, 0); }
+.text-material-amber-accent700 { color: rgb(255, 171, 0); }
+.border-material-amber-accent700 { border-color: rgb(255, 171, 0); }
 
 .bg-material-orange-50 { background-color: rgb(255, 243, 224); }
 .text-material-orange-50 { color: rgb(255, 243, 224); }
@@ -600,6 +824,22 @@
 .text-material-orange-900 { color: rgb(230, 81, 0); }
 .border-material-orange-900 { border-color: rgb(230, 81, 0); }
 
+.bg-material-orange-accent100 { background-color: rgb(255, 209, 128); }
+.text-material-orange-accent100 { color: rgb(255, 209, 128); }
+.border-material-orange-accent100 { border-color: rgb(255, 209, 128); }
+
+.bg-material-orange-accent200 { background-color: rgb(255, 171, 64); }
+.text-material-orange-accent200 { color: rgb(255, 171, 64); }
+.border-material-orange-accent200 { border-color: rgb(255, 171, 64); }
+
+.bg-material-orange-accent400 { background-color: rgb(255, 145, 0); }
+.text-material-orange-accent400 { color: rgb(255, 145, 0); }
+.border-material-orange-accent400 { border-color: rgb(255, 145, 0); }
+
+.bg-material-orange-accent700 { background-color: rgb(255, 109, 0); }
+.text-material-orange-accent700 { color: rgb(255, 109, 0); }
+.border-material-orange-accent700 { border-color: rgb(255, 109, 0); }
+
 .bg-material-deeporange-50 { background-color: rgb(251, 233, 231); }
 .text-material-deeporange-50 { color: rgb(251, 233, 231); }
 .border-material-deeporange-50 { border-color: rgb(251, 233, 231); }
@@ -639,6 +879,22 @@
 .bg-material-deeporange-900 { background-color: rgb(191, 54, 12); }
 .text-material-deeporange-900 { color: rgb(191, 54, 12); }
 .border-material-deeporange-900 { border-color: rgb(191, 54, 12); }
+
+.bg-material-deeporange-accent100 { background-color: rgb(255, 158, 128); }
+.text-material-deeporange-accent100 { color: rgb(255, 158, 128); }
+.border-material-deeporange-accent100 { border-color: rgb(255, 158, 128); }
+
+.bg-material-deeporange-accent200 { background-color: rgb(255, 110, 64); }
+.text-material-deeporange-accent200 { color: rgb(255, 110, 64); }
+.border-material-deeporange-accent200 { border-color: rgb(255, 110, 64); }
+
+.bg-material-deeporange-accent400 { background-color: rgb(255, 61, 0); }
+.text-material-deeporange-accent400 { color: rgb(255, 61, 0); }
+.border-material-deeporange-accent400 { border-color: rgb(255, 61, 0); }
+
+.bg-material-deeporange-accent700 { background-color: rgb(221, 44, 0); }
+.text-material-deeporange-accent700 { color: rgb(221, 44, 0); }
+.border-material-deeporange-accent700 { border-color: rgb(221, 44, 0); }
 
 .bg-material-brown-50 { background-color: rgb(239, 235, 233); }
 .text-material-brown-50 { color: rgb(239, 235, 233); }

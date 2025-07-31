@@ -5,7 +5,7 @@ repository: https://github.com/jimmyff/prism
 website: https://github.com/jimmyff/prism/packages/prism
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.3.0 <4.0.0'
 
 # dependencies:
 

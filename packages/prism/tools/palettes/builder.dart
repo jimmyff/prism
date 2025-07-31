@@ -137,131 +137,187 @@ void _generatePaletteCode({
   buffer.writeln('');
 
   // Extract rays from schemes for convenience
-  final Map<String, RayWithLuminance> rays = {};
+  final Map<String, RayWithLuminanceBase> rays = {};
   for (final entry in schemes.entries) {
     rays[entry.key] = entry.value.source;
   }
 
-  // 2. Generate RGB scheme enum
+  // 2. Generate RGB scheme enum that implements RayScheme directly
   buffer.writeln('/// RGB-based RayScheme enum for the ${baseName} palette.');
+  buffer.writeln(
+      '/// Each enum value implements RayScheme directly for clean API access.');
   buffer.writeln('enum ${baseName}Rgb implements PrismPalette {');
 
   for (final entry in schemes.entries) {
     final name = entry.key;
     final scheme = entry.value;
-    final rgb = scheme.source.ray.toRgb();
+    final rgb = scheme.source.toRgb();
 
-    buffer.writeln('  $name(RayScheme<RayRgb>(');
+    buffer.writeln('  $name(');
     buffer.writeln(
-        '    source: RayWithLuminance(ray: RayRgb.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}),');
-    buffer.writeln('    luminance: ${scheme.source.luminance}),');
-    buffer.writeln('    shades: {');
+        '    RayWithLuminanceRgb.fromRay(RayRgb.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
+    buffer.writeln('    const {');
 
-    for (final shade in Shade.values) {
-      // check if this contains the shade
-      if (!scheme.shades.containsKey(shade)) {
+    for (final tone in RayTone.values) {
+      // check if this contains the tone
+      if (!scheme.tones.containsKey(tone)) {
         continue;
       }
-      final rayLuminance = scheme.shades[shade]!;
-      final ray = rayLuminance.ray;
+      final rayLuminance = scheme.tones[tone]!;
       final luminance = rayLuminance.luminance;
-      final shadeRgb = ray.toRgb();
+      final toneRgb = rayLuminance.toRgb();
       buffer.writeln(
-          '      Shade.${shade.name}: RayWithLuminance(ray: RayRgb.fromIntARGB(0x${shadeRgb.toArgbInt().toRadixString(16).toUpperCase()}), luminance: $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminanceRgb.fromRay(RayRgb.fromIntARGB(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
     }
-    buffer.writeln('    },');
-    buffer.writeln('  )),');
+    buffer.writeln('    }, // tones');
+    buffer.writeln('  ),');
   }
 
   buffer.writeln(';');
   buffer.writeln('');
-  buffer.writeln('  /// The RGB-based RayScheme.');
-  buffer.writeln('  final RayScheme<RayRgb> scheme;');
+  buffer.writeln('  /// The source color with precomputed luminance');
+  buffer.writeln('  final RayWithLuminanceRgb source;');
   buffer.writeln('');
-  buffer.writeln('  const ${baseName}Rgb(this.scheme);');
+  buffer.writeln('  /// The complete tonal palette');
+  buffer.writeln('  final Map<RayTone, RayWithLuminanceRgb> tones;');
+  buffer.writeln('');
+  buffer.writeln('  const ${baseName}Rgb(this.source, this.tones);');
+  buffer.writeln('');
+
+  // Add direct tone access getters
+  buffer.writeln('  // Direct tone access getters');
+  for (final tone in RayTone.values) {
+    buffer.writeln('  @override');
+    buffer.writeln(
+        '  RayWithLuminanceRgb? get ${tone.name} => tones[RayTone.${tone.name}];');
+  }
+  buffer.writeln('');
+
+  // Add convenience methods
+  buffer.writeln('  /// Access specific tone by RayTone enum');
+  buffer.writeln('  @override');
+  buffer.writeln('  RayWithLuminanceRgb? tone(RayTone tone) => tones[tone];');
+  buffer.writeln('');
+  buffer.writeln('  /// A lighter surface variant of the primary color');
+  buffer.writeln('  @override');
+  buffer.writeln('  RayWithLuminanceRgb get surfaceLight => shade100!;');
+  buffer.writeln('');
+  buffer.writeln('  /// A darker surface variant of the primary color');
+  buffer.writeln('  @override');
+  buffer.writeln('  RayWithLuminanceRgb get surfaceDark => shade700!;');
+  buffer.writeln('');
 
   // Add RGB aliases if they exist
   if (aliases != null && aliases.isNotEmpty) {
-    buffer.writeln('');
     buffer.writeln('  // Convenience getters for common color aliases');
     for (final alias in aliases.entries) {
       final aliasName = alias.key;
       final targetName = alias.value;
       buffer.writeln('  /// Getter for $aliasName (returns $targetName)');
       buffer.writeln(
-          '  static RayScheme get $aliasName => ${baseName}Rgb.$targetName.scheme;');
+          '  static ${baseName}Rgb get $aliasName => ${baseName}Rgb.$targetName;');
     }
+    buffer.writeln('');
   }
 
   buffer.writeln('}');
   buffer.writeln('');
 
-  // 3. Generate Oklch scheme enum
+  // 3. Generate Oklch scheme enum that implements RayScheme directly
   buffer.writeln('/// Oklch-based RayScheme enum for the ${baseName} palette.');
+  buffer.writeln(
+      '/// Each enum value implements RayScheme directly for clean API access.');
   buffer.writeln('enum ${baseName}Oklch implements PrismPalette {');
 
   for (final entry in schemes.entries) {
     final name = entry.key;
     final scheme = entry.value;
-    final oklch = scheme.source.ray.toOklch();
+    final oklch = scheme.source.toOklch();
 
-    buffer.writeln('  $name(RayScheme<RayOklch>(');
-    buffer.writeln('    source: RayWithLuminance(ray: RayOklch(');
-    buffer.writeln('      l: ${oklch.l},');
-    buffer.writeln('      c: ${oklch.c},');
-    buffer.writeln('      h: ${oklch.h},');
-    buffer.writeln('      opacity: ${oklch.opacity},');
-    buffer.writeln('    ),');
-    buffer.writeln('    luminance: ${scheme.source.luminance}),');
-    buffer.writeln('    shades: {');
+    buffer.writeln('  $name(');
+    buffer.writeln('    RayWithLuminanceOklch.fromComponents(');
+    buffer.writeln('      ${oklch.l},');
+    buffer.writeln('      ${oklch.c},');
+    buffer.writeln('      ${oklch.h},');
+    buffer.writeln('      ${oklch.opacity},');
+    buffer.writeln('      ${oklch.luminance}), // source');
+    buffer.writeln('    const {');
 
-    for (final shade in Shade.values) {
-      // check if this contains the shade
-      if (!scheme.shades.containsKey(shade)) {
+    for (final tone in RayTone.values) {
+      // check if this contains the tone
+      if (!scheme.tones.containsKey(tone)) {
         continue;
       }
-      final rayLuminance = scheme.shades[shade]!;
-      final ray = rayLuminance.ray;
+      final rayLuminance = scheme.tones[tone]!;
       final luminance = rayLuminance.luminance;
-      final shadeOklch = ray.toOklch();
-      buffer.writeln('      Shade.${shade.name}: RayWithLuminance(');
-      buffer.writeln('        ray: RayOklch(');
-      buffer.writeln('          l: ${shadeOklch.l},');
-      buffer.writeln('          c: ${shadeOklch.c},');
-      buffer.writeln('          h: ${shadeOklch.h},');
-      buffer.writeln('          opacity: ${shadeOklch.opacity},');
-      buffer.writeln('        ),');
-      buffer.writeln('        luminance: $luminance,');
-      buffer.writeln('      ),');
+      final toneOklch = rayLuminance.toOklch();
+      buffer.writeln(
+          '      RayTone.${tone.name}: RayWithLuminanceOklch.fromComponents(');
+      buffer.writeln('        ${toneOklch.l},');
+      buffer.writeln('        ${toneOklch.c},');
+      buffer.writeln('        ${toneOklch.h},');
+      buffer.writeln('        ${toneOklch.opacity},');
+      buffer.writeln('        $luminance),');
     }
-    buffer.writeln('    },');
-    buffer.writeln('  )),');
+    buffer.writeln('    }, // tones');
+    buffer.writeln('  ),');
   }
 
   buffer.writeln(';');
   buffer.writeln('');
-  buffer.writeln('  /// The Oklch-based RayScheme.');
-  buffer.writeln('  final RayScheme scheme;');
+  buffer.writeln('  /// The source color with precomputed luminance');
+  buffer.writeln('  final RayWithLuminanceOklch source;');
   buffer.writeln('');
-  buffer.writeln('  const ${baseName}Oklch(this.scheme);');
+  buffer.writeln('  /// The complete tonal palette');
+  buffer.writeln('  final Map<RayTone, RayWithLuminanceOklch> tones;');
+  buffer.writeln('');
+  buffer.writeln('  const ${baseName}Oklch(this.source, this.tones);');
+  buffer.writeln('');
+
+  // Add direct tone access getters
+  buffer.writeln('  // Direct tone access getters');
+  for (final tone in RayTone.values) {
+    buffer.writeln('  @override');
+    buffer.writeln(
+        '  RayWithLuminanceOklch? get ${tone.name} => tones[RayTone.${tone.name}];');
+  }
+  buffer.writeln('');
+
+  // Add convenience methods
+  buffer.writeln('  /// Access specific tone by RayTone enum');
+  buffer.writeln('  @override');
+  buffer.writeln('  RayWithLuminanceOklch? tone(RayTone tone) => tones[tone];');
+  buffer.writeln('');
+  buffer.writeln('  /// A lighter surface variant of the primary color');
+  buffer.writeln('  @override');
+  buffer.writeln('  RayWithLuminanceOklch get surfaceLight => shade100!;');
+  buffer.writeln('');
+  buffer.writeln('  /// A darker surface variant of the primary color');
+  buffer.writeln('  @override');
+  buffer.writeln('  RayWithLuminanceOklch get surfaceDark => shade700!;');
+  buffer.writeln('');
 
   // Add Oklch aliases if they exist
   if (aliases != null && aliases.isNotEmpty) {
-    buffer.writeln('');
     buffer.writeln('  // Convenience getters for common color aliases');
     for (final alias in aliases.entries) {
       final aliasName = alias.key;
       final targetName = alias.value;
       buffer.writeln('  /// Getter for $aliasName (returns $targetName)');
       buffer.writeln(
-          '  static RayScheme get $aliasName => ${baseName}Oklch.$targetName.scheme;');
+          '  static ${baseName}Oklch get $aliasName => ${baseName}Oklch.$targetName;');
     }
+    buffer.writeln('');
   }
 
   buffer.writeln('}');
   buffer.writeln('');
 
   // 4. Write the file to the lib/palettes directory
-  final outputPath = p.join('lib', 'palettes', outputFileName);
+
+  final scriptDir = Directory(Platform.script.toFilePath()).parent;
+  final projectRoot = scriptDir.parent.parent; // Go up 2 levels
+  final outputPath =
+      p.join(projectRoot.path, 'lib', 'palettes', outputFileName);
   File(outputPath).writeAsStringSync(buffer.toString());
 }

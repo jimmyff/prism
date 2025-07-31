@@ -11,7 +11,7 @@ class PaletteImageGenerator {
 
   static void generatePaletteImage({
     required String className,
-    required Map<String, RayScheme> schemes,
+    required Map<String, RayScheme<RayWithLuminanceBase>> schemes,
     required String outputPath,
     Map<String, String>? aliases,
   }) {
@@ -33,7 +33,7 @@ class PaletteImageGenerator {
     for (final entry in schemes.entries) {
       final name = entry.key;
       final scheme = entry.value;
-      final ray = scheme.source.ray;
+      final ray = scheme.source;
 
       // Calculate position with border spacing and header offset
       final row = colorIndex ~/ columns;
@@ -55,7 +55,7 @@ class PaletteImageGenerator {
         y: y,
         width: cellWidth,
         height: colorHeight,
-        ray: ray.toRgb(),
+        ray: ray,
         scheme: scheme,
         name: name,
         alias: aliasName,
@@ -108,8 +108,8 @@ class PaletteImageGenerator {
     required int y,
     required int width,
     required int height,
-    required RayRgb ray,
-    required RayScheme scheme,
+    required Ray ray,
+    required RayScheme<RayWithLuminanceBase> scheme,
     required String name,
     String? alias,
   }) {
@@ -117,7 +117,8 @@ class PaletteImageGenerator {
     final mainHeight = (height * 0.625).round(); // ~40px of 64px
 
     // Fill main color background
-    final mainColor = img.ColorRgb8(ray.red, ray.green, ray.blue);
+    final rayRgb = ray.toRgb();
+    final mainColor = img.ColorRgb8(rayRgb.red, rayRgb.green, rayRgb.blue);
     img.fillRect(
       image,
       x1: x,
@@ -168,17 +169,16 @@ class PaletteImageGenerator {
       color: onRayColor,
     );
 
-    // Only show present shades along the bottom
-    final shades = scheme.shades;
-    final presentShades = shades.keys.toList();
+    // Only show present tones along the bottom
+    final tones = scheme.tones;
+    final presentShades = tones.keys.toList();
     final shadeWidth =
         presentShades.isNotEmpty ? width ~/ presentShades.length : width;
 
     int i = 0;
     for (final shade in presentShades) {
-      final rayLuminance = shades[shade]!;
-      final ray = rayLuminance.ray;
-      final shadeRgb = ray.toRgb();
+      final rayLuminance = tones[shade]!;
+      final shadeRgb = rayLuminance.toRgb();
       final shadeColor = img.ColorRgb8(
         shadeRgb.red,
         shadeRgb.green,
@@ -220,7 +220,7 @@ class PaletteImageGenerator {
     }
 
     // Draw border around cell using shade 4 (darker shade)
-    final borderRgb = scheme.shade400.ray.toRgb();
+    final borderRgb = scheme.shade400!.toRgb();
     img.drawRect(
       image,
       x1: x,

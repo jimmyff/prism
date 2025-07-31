@@ -5,8 +5,8 @@ import 'package:prism/prism.dart';
 class PaletteHtmlGenerator {
   static void generateGalleryHtml({
     required String className,
-    required Map<String, RayScheme> schemesRgb,
-    required Map<String, RayScheme> schemesOklch,
+    required Map<String, RayScheme<RayWithLuminanceBase>> schemesRgb,
+    required Map<String, RayScheme<RayWithLuminanceBase>> schemesOklch,
     required String cssClassName,
     Map<String, String>? aliases,
     required String outputPath,
@@ -40,8 +40,8 @@ class PaletteHtmlGenerator {
   static void _generateCssFiles(
     String className,
     String cssClassName,
-    Map<String, RayScheme> schemesRgb,
-    Map<String, RayScheme> schemesOklch,
+    Map<String, RayScheme<RayWithLuminanceBase>> schemesRgb,
+    Map<String, RayScheme<RayWithLuminanceBase>> schemesOklch,
     String outputPath,
   ) {
     // Generate RGB CSS file
@@ -53,18 +53,18 @@ class PaletteHtmlGenerator {
       final name = entry.key.toLowerCase();
       final scheme = entry.value;
 
-      for (final shadeEntry in scheme.shades.entries) {
-        final shadeName = shadeEntry.key.name.replaceAll('shade', '');
-        final ray = shadeEntry.value.ray.toRgb();
+      for (final toneEntry in scheme.tones.entries) {
+        final toneName = toneEntry.key.name.replaceAll('shade', '');
+        final ray = toneEntry.value.toRgb();
         final colorValue = 'rgb(${ray.red}, ${ray.green}, ${ray.blue})';
 
         // Generate bg-, text-, and border- classes
         rgbCssBuffer.writeln(
-            '.bg-$cssClassName-$name-$shadeName { background-color: $colorValue; }');
+            '.bg-$cssClassName-$name-$toneName { background-color: $colorValue; }');
         rgbCssBuffer.writeln(
-            '.text-$cssClassName-$name-$shadeName { color: $colorValue; }');
+            '.text-$cssClassName-$name-$toneName { color: $colorValue; }');
         rgbCssBuffer.writeln(
-            '.border-$cssClassName-$name-$shadeName { border-color: $colorValue; }');
+            '.border-$cssClassName-$name-$toneName { border-color: $colorValue; }');
         rgbCssBuffer.writeln('');
       }
     }
@@ -78,19 +78,19 @@ class PaletteHtmlGenerator {
       final name = entry.key.toLowerCase();
       final scheme = entry.value;
 
-      for (final shadeEntry in scheme.shades.entries) {
-        final shadeName = shadeEntry.key.name.replaceAll('shade', '');
-        final ray = shadeEntry.value.ray.toOklch();
+      for (final toneEntry in scheme.tones.entries) {
+        final toneName = toneEntry.key.name.replaceAll('shade', '');
+        final ray = toneEntry.value.toOklch();
         final colorValue =
             'oklch(${(ray.l * 100).toStringAsFixed(1)}% ${ray.c.toStringAsFixed(3)} ${ray.h.toStringAsFixed(2)})';
 
         // Generate bg-, text-, and border- classes
         oklchCssBuffer.writeln(
-            '.bg-$cssClassName-$name-$shadeName { background-color: $colorValue; }');
+            '.bg-$cssClassName-$name-$toneName { background-color: $colorValue; }');
         oklchCssBuffer.writeln(
-            '.text-$cssClassName-$name-$shadeName { color: $colorValue; }');
+            '.text-$cssClassName-$name-$toneName { color: $colorValue; }');
         oklchCssBuffer.writeln(
-            '.border-$cssClassName-$name-$shadeName { border-color: $colorValue; }');
+            '.border-$cssClassName-$name-$toneName { border-color: $colorValue; }');
         oklchCssBuffer.writeln('');
       }
     }
@@ -190,8 +190,8 @@ class PaletteHtmlGenerator {
   static void _writeColorCard(
     StringBuffer buffer,
     String name,
-    RayScheme schemeRgb,
-    RayScheme schemeOklch,
+    RayScheme<RayWithLuminanceBase> schemeRgb,
+    RayScheme<RayWithLuminanceBase> schemeOklch,
     String cssClassName,
     Map<String, String>? aliases,
   ) {
@@ -205,9 +205,9 @@ class PaletteHtmlGenerator {
     buffer.writeln('<div class="color-card">');
 
     // Main color header with onRay text
-    final rayRgb = schemeRgb.source.ray.toRgb();
+    final rayRgb = schemeRgb.source.toRgb();
     buffer.writeln(
-        '<div class="color-header" style="background-color: ${rayRgb.toHexStr()}; color: ${schemeRgb.source.onRay.toRgb().toHexStr()};">');
+        '<div class="color-header" style="background-color: ${rayRgb.toHexStr()}; color: ${schemeRgb.source.onRay.toHexStr()};">');
     if (hasAlias) {
       buffer.writeln('${alias?.key} / $name');
     } else {
@@ -240,27 +240,30 @@ class PaletteHtmlGenerator {
     buffer.writeln('</div>'); // Close color-card
   }
 
-  static void _writeShadesSection(StringBuffer buffer, RayScheme scheme,
-      String colorSpace, String cssClassName, String schemeName) {
+  static void _writeShadesSection(
+      StringBuffer buffer,
+      RayScheme<RayWithLuminanceBase> scheme,
+      String colorSpace,
+      String cssClassName,
+      String schemeName) {
     buffer.writeln('<div class="shades-column">');
 
-    for (final shade in Shade.values) {
-      if (!scheme.shades.containsKey(shade)) {
+    for (final tone in RayTone.values) {
+      if (!scheme.tones.containsKey(tone)) {
         continue;
       }
-      final rayLuminance = scheme.shades[shade]!;
-      final ray = rayLuminance.ray;
+      final rayLuminance = scheme.tones[tone]!;
       final luminance = rayLuminance.luminance;
       final textColor = luminance > 0.6 ? '#000' : '#fff';
-      final shadeName = shade.name.replaceAll('shade', '');
+      final toneName = tone.name.replaceAll('shade', '');
       final lowerSchemeName = schemeName.toLowerCase();
 
       // Use CSS classes instead of inline styles
-      final bgClass = 'bg-$cssClassName-$lowerSchemeName-$shadeName';
+      final bgClass = 'bg-$cssClassName-$lowerSchemeName-$toneName';
 
       buffer.writeln(
           '<div class="shade-item $bgClass" style="color: $textColor;">');
-      buffer.writeln('<span class="shade-name">$shadeName</span>');
+      buffer.writeln('<span class="shade-name">$toneName</span>');
       buffer.writeln(
           '<span class="shade-luminance">L: ${luminance.toStringAsFixed(2)}</span>');
       buffer.writeln('</div>');

@@ -119,9 +119,9 @@ void main() {
     final scheme = RayScheme.fromRay(color);
     final theme = scheme.source.isDark ? 'Dark' : 'Light';
     print('${color.toHexStr()} → $theme theme:');
-    print('  ├─ Text color: ${scheme.source.onRay.toRgb().toHexStr()}');
-    print('  ├─ Light surface: ${scheme.surfaceLight.toRgb().toHexStr()}');
-    print('  ├─ Dark surface: ${scheme.surfaceDark.toRgb().toHexStr()}');
+    print('  ├─ Text color: ${scheme.source.onRay.toHexStr()}');
+    print('  ├─ Light surface: ${scheme.surfaceLight.toHexStr()}');
+    print('  ├─ Dark surface: ${scheme.surfaceDark.toHexStr()}');
     print('  └─ Luminance: ${scheme.source.luminance.toStringAsFixed(3)}');
   }
   print('');
@@ -139,7 +139,7 @@ void main() {
   ];
   for (final color in spectrumColors) {
     print(
-        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.source.toHexStr()} (${color.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -148,7 +148,7 @@ void main() {
   final cssColors = [CssRgb.red, CssRgb.blue, CssRgb.green, CssRgb.gold];
   for (final color in cssColors) {
     print(
-        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.source.toHexStr()} (${color.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -162,7 +162,7 @@ void main() {
   ];
   for (final color in materialColors) {
     print(
-        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.source.toHexStr()} (${color.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
@@ -176,19 +176,19 @@ void main() {
   ];
   for (final color in openColors) {
     print(
-        '  ${color.name}: ${color.scheme.source.ray.toRgb().toHexStr()} (${color.scheme.source.isDark ? 'Dark' : 'Light'})');
+        '  ${color.name}: ${color.source.toHexStr()} (${color.source.isDark ? 'Dark' : 'Light'})');
   }
   print('');
 
   // === Palette Theme Generation ===
   print('🌙 Theme Generation Example:');
-  final themeColor = SpectrumRgb.blue.scheme;
+  final themeColor = SpectrumRgb.blue; // Direct palette access!
 
   print('Creating a blue theme using Spectrum palette:');
-  print('  Primary: ${themeColor.source.ray.toRgb().toHexStr()}');
-  print('  On Primary: ${themeColor.source.onRay.toRgb().toHexStr()}');
-  print('  Surface (Light): ${themeColor.surfaceLight.toRgb().toHexStr()}');
-  print('  Surface (Dark): ${themeColor.surfaceDark.toRgb().toHexStr()}');
+  print('  Primary: ${themeColor.source.toHexStr()}');
+  print('  On Primary: ${themeColor.source.onRay.toHexStr()}');
+  print('  Surface (Light): ${themeColor.surfaceLight.toHexStr()}');
+  print('  Surface (Dark): ${themeColor.surfaceDark.toHexStr()}');
   print('  Theme type: ${themeColor.source.isDark ? 'Dark' : 'Light'}');
   print('  Luminance: ${themeColor.source.luminance.toStringAsFixed(3)}');
   print('');
@@ -196,34 +196,71 @@ void main() {
   // === Advanced Palette Operations ===
   print('⚙️ Advanced Palette Operations:');
 
-  // Create gradient using palette colors
-  final gradientStart = SpectrumRgb.purple.scheme.source.ray;
-  final gradientEnd = SpectrumRgb.pink.scheme.source.ray;
+  // Create gradient using palette colors - now with direct access!
+  final gradientStart = SpectrumRgb.purple.source.toRgb();
+  final gradientEnd = SpectrumRgb.pink.source.toRgb();
   print('Spectrum Purple → Pink gradient:');
   for (int i = 0; i <= 4; i++) {
     final step = gradientStart.lerp(gradientEnd, i / 4.0);
     final stepScheme = RayScheme.fromRay(step);
     print(
-        '  Step $i: ${step.toRgb().toHexStr()} (contrast: ${stepScheme.source.onRay.toRgb().toHexStr()})');
+        '  Step $i: ${step.toRgb().toHexStr()} (contrast: ${stepScheme.source.onRay.toHexStr()})');
   }
   print('');
 
   // Palette accessibility analysis
   print('♿ Palette Accessibility Analysis:');
-  final testColors = [
-    ('Spectrum Red', SpectrumRgb.red.scheme),
-    ('CSS Red', CssRgb.red.scheme),
-    ('Material Blue', MaterialRgb.blue.scheme),
+  final testColors = <(String, RayScheme<RayWithLuminanceBase>)>[
+    ('Spectrum Red', SpectrumRgb.red), // Direct access!
+    ('CSS Red', CssRgb.red), // No .scheme needed!
+    ('Material Blue', MaterialRgb.blue), // Clean API!
   ];
 
-  for (final (name, scheme) in testColors) {
-    final contrast = scheme.source.ray.maxContrast(
+  for (final entry in testColors) {
+    final name = entry.$1;
+    final scheme = entry.$2;
+    final contrast = scheme.source.maxContrast(
       RayRgb.fromHex('#000000'), // Black
       RayRgb.fromHex('#FFFFFF'), // White
     );
     print('  $name:');
     print(
         '    └─ Best contrast: ${contrast.toRgb().toHexStr()} (${contrast == RayRgb.fromHex('#000000') ? 'Black' : 'White'})');
+  }
+  print('');
+
+  // === New Direct Palette API Demo ===
+  print('🎯 New Direct Palette API Demo:');
+  print('Clean, direct access to palette colors without .scheme nesting!');
+  print('');
+
+  // Direct tone access
+  final materialBlue = MaterialRgb.blue;
+  print('Material Blue Direct Access:');
+  print('  Primary: ${materialBlue.source.toHexStr()}');
+  print('  Light shade: ${materialBlue.shade100?.toHexStr() ?? "Not available"}');
+  print('  Dark shade: ${materialBlue.shade700?.toHexStr() ?? "Not available"}');
+  print('  Accent: ${materialBlue.accent200?.toHexStr() ?? "Not available"}');
+  print('  Surface light: ${materialBlue.surfaceLight.toHexStr()}');
+  print('  Surface dark: ${materialBlue.surfaceDark.toHexStr()}');
+  print('');
+
+  // Alternative tone access
+  print('Alternative tone access methods:');
+  print('  Via method: ${materialBlue.tone(RayTone.shade300)?.toHexStr() ?? "Not available"}');
+  print('  Direct getter: ${materialBlue.shade300?.toHexStr() ?? "Not available"}');
+  print('  Same result: ${materialBlue.tone(RayTone.shade300) == materialBlue.shade300}');
+  print('');
+
+  // Direct color operations work since RayWithLuminance extends base classes
+  print('Direct color operations (no .ray needed):');
+  final semiTransparent = materialBlue.shade500?.withOpacity(0.5);
+  final shade100 = materialBlue.shade100;
+  final shade900 = materialBlue.shade900;
+  if (shade100 != null && shade900 != null) {
+    final interpolated = shade100.lerp(shade900, 0.5);
+    print('  Semi-transparent: ${semiTransparent?.toHexStr(8) ?? "Not available"}');
+    print('  Interpolated: ${interpolated.toRgb().toHexStr()}');
   }
   print('');
 
@@ -335,7 +372,7 @@ void main() {
   for (final (name, hslColor) in testHslColors) {
     final luminance = hslColor.luminance;
     final scheme = RayScheme.fromRay(hslColor);
-    final contrastColor = scheme.source.onRay.toRgb();
+    final contrastColor = scheme.source.onRay;
 
     print('  $name: $hslColor');
     print(
@@ -456,7 +493,7 @@ void main() {
   for (final (name, oklabColor) in testOklabColors) {
     final luminance = oklabColor.luminance;
     final scheme = RayScheme.fromRay(oklabColor);
-    final contrastColor = scheme.source.onRay.toRgb();
+    final contrastColor = scheme.source.onRay;
 
     print(
         '  $name: L=${oklabColor.l.toStringAsFixed(3)} → ${oklabColor.toRgb().toHexStr()}');

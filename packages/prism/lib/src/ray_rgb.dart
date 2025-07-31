@@ -267,9 +267,7 @@ base class RayRgb extends Ray {
 
   @override
   RayRgb lerp(Ray other, double t) {
-    // Convert other to RGB if needed
-    final otherRgb =
-        other.colorSpace == ColorSpace.rgb ? other as RayRgb : other.toRgb();
+    final otherRgb = other.toRgb();
 
     final clampedT = t.clamp(0.0, 1.0);
     return RayRgb(
