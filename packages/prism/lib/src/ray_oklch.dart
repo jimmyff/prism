@@ -2,31 +2,9 @@ import 'dart:math' as math;
 
 import 'package:prism/prism.dart';
 
-/// A color in the Oklch color space.
-///
-/// Oklch is the cylindrical form of the Oklab color space, providing more
-/// intuitive control over color properties:
-/// - L: Lightness (0.0 to 1.0, with 0.0 being black and 1.0 being white)
-/// - C: Chroma (saturation, 0.0 to approximately 0.4, with 0.0 being gray)
-/// - H: Hue (0.0 to 360.0 degrees, with 0° being red-purple)
-///
-/// This representation is particularly useful for color manipulation tasks
-/// where you want to adjust saturation (chroma) or rotate hue while
-/// maintaining perceptual uniformity from the underlying Oklab space.
-///
-/// Example:
-/// ```dart
-/// // Create an Oklch color
-/// final color = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 1.0);
-///
-/// // Convert from RGB
-/// final red = RayRgb.fromARGB(255, 255, 0, 0);
-/// final redOklch = red.toOklch();
-///
-/// // Manipulate chroma and hue
-/// final desaturated = redOklch.withChroma(0.05);  // Less saturated
-/// final rotated = redOklch.withHue(redOklch.h + 30); // Rotate hue
-/// ```
+/// Oklch color space implementation with intuitive lightness, chroma, and hue controls.
+/// 
+/// Cylindrical form of Oklab: L (lightness 0-1), C (chroma/saturation), H (hue 0-360°).
 base class RayOklch extends Ray {
   /// The lightness component (0.0 to 1.0).
   final double l;
@@ -40,16 +18,7 @@ base class RayOklch extends Ray {
   /// The opacity component (0.0 to 1.0).
   final double _opacity;
 
-  /// Creates a constant Oklch color with the specified components.
-  ///
-  /// It is the responsibility of the caller to ensure that the provided
-  /// values are within the valid range for Oklch.
-  ///
-  /// Parameters:
-  /// - [l]: Lightness (0.0 to 1.0)
-  /// - [c]: Chroma (0.0 to approximately 0.4)
-  /// - [h]: Hue in degrees (0.0 to 360.0)
-  /// - [opacity]: Opacity (0.0 to 1.0, defaults to 1.0)
+  /// Creates an Oklch color with the specified components.
   const RayOklch({
     required this.l,
     required this.c,
@@ -58,17 +27,6 @@ base class RayOklch extends Ray {
   }) : _opacity = opacity;
 
   /// Creates an Oklch color with validation and normalization.
-  ///
-  /// This factory constructor validates and normalizes the input values:
-  /// - Lightness and opacity must be between 0.0 and 1.0
-  /// - Hue is normalized to the range [0.0, 360.0)
-  /// - Chroma is clamped to a minimum of 0.0
-  ///
-  /// Parameters:
-  /// - [l]: Lightness (0.0 to 1.0)
-  /// - [c]: Chroma (0.0 to approximately 0.4)
-  /// - [h]: Hue in degrees (normalized to 0.0-360.0 range)
-  /// - [opacity]: Opacity (0.0 to 1.0, defaults to 1.0)
   factory RayOklch.validated({
     required double l,
     required double c,
@@ -93,9 +51,6 @@ base class RayOklch extends Ray {
   }
 
   /// Creates a constant Oklch color from individual LCH components.
-  ///
-  /// It is the responsibility of the caller to ensure that the provided
-  /// values are within the valid range for Oklch.
   const RayOklch.fromLch(this.l, this.c, this.h, [this._opacity = 1.0]);
 
   /// Creates a transparent black Oklch color.
@@ -147,10 +102,7 @@ base class RayOklch extends Ray {
     return RayOklch(l: l, c: c, h: h, opacity: opacity);
   }
 
-  /// Creates a new color with the same lightness and hue but different chroma.
-  ///
-  /// The [chroma] value will be clamped to a minimum of 0.0 and a maximum
-  /// that stays within the RGB gamut for the current lightness and hue.
+  /// Creates a new color with different chroma (clamped to valid gamut range).
   RayOklch withChroma(double chroma) {
     // Clamp to minimum 0.0
     final clampedChroma = math.max(0.0, chroma);
@@ -169,9 +121,7 @@ base class RayOklch extends Ray {
     );
   }
 
-  /// Creates a new color with the same lightness and chroma but different hue.
-  ///
-  /// The [hue] value will be normalized to the range [0.0, 360.0).
+  /// Creates a new color with different hue (normalized to 0-360°).
   RayOklch withHue(double hue) {
     return RayOklch.validated(
       l: l,
@@ -181,11 +131,7 @@ base class RayOklch extends Ray {
     );
   }
 
-  /// Creates a new color with the same chroma and hue but different lightness.
-  ///
-  /// The [lightness] value must be between 0.0 and 1.0.
-  /// The chroma will be clamped to the maximum valid value for the new lightness and current hue
-  /// to ensure the resulting color stays within the RGB gamut.
+  /// Creates a new color with different lightness (0.0-1.0), adjusting chroma to stay in gamut.
   RayOklch withLightness(double lightness) {
     if (lightness < 0.0 || lightness > 1.0) {
       throw ArgumentError.value(

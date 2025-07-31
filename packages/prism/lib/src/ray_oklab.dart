@@ -2,30 +2,9 @@ import 'dart:math' as math;
 
 import 'package:prism/prism.dart';
 
-/// A color in the Oklab color space.
-///
-/// Oklab is a perceptually uniform color space designed to be more intuitive
-/// for color manipulation tasks. It provides better perceptual uniformity
-/// compared to RGB or HSL, making it ideal for color interpolation, gradient
-/// generation, and other color operations.
-///
-/// The Oklab color space consists of:
-/// - L: Lightness (0.0 to 1.0, with 0.0 being black and 1.0 being white)
-/// - a: Green-red axis (negative values are more green, positive more red)
-/// - b: Blue-yellow axis (negative values are more blue, positive more yellow)
-///
-/// Example:
-/// ```dart
-/// // Create an Oklab color
-/// final color = RayOklab(l: 0.7, a: 0.1, b: -0.1, opacity: 1.0);
-///
-/// // Convert from RGB
-/// final red = RayRgb.fromARGB(255, 255, 0, 0);
-/// final redOklab = red.toOklab();
-///
-/// // Interpolate between colors (perceptually uniform)
-/// final midpoint = color.lerp(redOklab, 0.5);
-/// ```
+/// Oklab color space implementation for perceptually uniform color manipulation.
+/// 
+/// Components: L (lightness 0-1), a (green-red axis), b (blue-yellow axis).
 base class RayOklab extends Ray {
   /// The lightness component (0.0 to 1.0).
   final double l;
@@ -40,12 +19,6 @@ base class RayOklab extends Ray {
   final double _opacity;
 
   /// Creates an Oklab color with the specified components.
-  ///
-  /// Parameters:
-  /// - [l]: Lightness (0.0 to 1.0)
-  /// - [a]: Green-red axis
-  /// - [b]: Blue-yellow axis
-  /// - [opacity]: Opacity (0.0 to 1.0, defaults to 1.0)
   const RayOklab({
     required this.l,
     required this.a,
@@ -64,8 +37,6 @@ base class RayOklab extends Ray {
         _opacity = 0.0;
 
   /// Creates an Oklab color from a JSON value.
-  ///
-  /// The JSON should be a Map with 'l', 'a', 'b', and 'o' keys.
   factory RayOklab.fromJson(Map<String, dynamic> json) {
     return RayOklab(
       l: (json['l'] as num).toDouble(),
@@ -193,9 +164,7 @@ base class RayOklab extends Ray {
     return math.pow((component + 0.055) / 1.055, 2.4) as double;
   }
 
-  /// Creates an Oklab color from RGB values.
-  ///
-  /// Takes RGB values (0-255) and opacity (0.0-1.0) and returns an Oklab color.
+  /// Creates an Oklab color from RGB values (0-255) and opacity (0.0-1.0).
   factory RayOklab.fromRgb(int r, int g, int b, [double opacity = 1.0]) {
     return _fromLinearRgb(r / 255.0, g / 255.0, b / 255.0, opacity);
   }

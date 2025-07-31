@@ -41,9 +41,6 @@ enum RayTone {
 }
 
 /// Base class for colors with precomputed luminance values.
-///
-/// Provides common accessibility functionality for all color-space-specific
-/// RayWithLuminance implementations.
 abstract base class RayWithLuminanceBase extends Ray {
   /// The precomputed luminance value (0.0 to 1.0)
   final double _precomputedLuminance;
@@ -65,29 +62,25 @@ abstract base class RayWithLuminanceBase extends Ray {
 
   ColorSpace get colorSpace;
 
-  /// Whether this color is considered light (luminance >= 0.5)
+  /// Whether this color is considered light.
   bool get isLight => !isDark;
 
-  /// Returns appropriate contrast color (black/white) for text on this color
-  /// This method must be implemented by subclasses to return the correct type
+  /// Returns appropriate contrast color (black/white) for text on this color.
   RayWithLuminanceBase get onRay;
 
-  /// Returns hex string representation - must be implemented by subclasses
+  /// Returns hex string representation.
   String toHexStr([int length = 6, HexFormat format = HexFormat.rgba]);
 }
 
 /// RGB color with precomputed luminance for optimal performance.
-///
-/// Extends RayRgb to provide all RGB-specific methods (toHexStr, toRgbStr, etc.)
-/// while caching the luminance value to avoid expensive recalculations.
 final class RayWithLuminanceRgb extends RayWithLuminanceBase {
   /// The RayRgb instance this luminance-cached color wraps
   final RayRgb _ray;
 
-  /// Creates an RGB color with precomputed luminance from a RayRgb instance
+  /// Creates an RGB color with precomputed luminance.
   const RayWithLuminanceRgb._(this._ray, double luminance) : super(luminance);
 
-  /// Creates from a RayRgb instance with precomputed luminance
+  /// Creates from a RayRgb instance with precomputed luminance.
   factory RayWithLuminanceRgb(RayRgb ray, double luminance) {
     return RayWithLuminanceRgb._(ray, luminance);
   }
@@ -292,28 +285,9 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
       toRgb().toHexStr(length, format);
 }
 
-/// A color scheme that provides harmonious color relationships based on a primary color.
-///
-/// Automatically generates:
-/// - Contrast text color (onRay) for accessibility
-/// - A complete tonal palette with shades from darkest to lightest
-/// - Accessibility-compliant luminance calculations using W3C WCAG standards
-///
-/// The scheme uses perceptual luminance to determine appropriate contrast colors
-/// and generates a full range of tonal variations by adjusting lightness in Oklch space.
-///
-/// Example:
-/// ```dart
-/// final scheme = RayScheme.fromRay(RayRgb.fromHex('#2196F3'));
-/// print(scheme.source.isDark); // false
-/// print(scheme.source.onRay.toHexStr()); // '#000000' (black text on blue)
-/// print(scheme.source.luminance); // 0.540 (computed luminance)
-///
-/// // Access different shades
-/// final lightestShade = scheme.shade50;    // Lightest shade
-/// final darkestShade = scheme.shade900;    // Darkest shade
-/// final midShade = scheme.shade500;        // Mid-tone shade
-/// ```
+/// Color scheme that provides harmonious relationships and accessibility features.
+/// 
+/// Generates contrast text colors and complete tonal palette from a primary color.
 class RayScheme<T extends RayWithLuminanceBase> {
   /// Luminance threshold for dark vs light classification
   static const double _darkThreshold = 0.5;
@@ -321,12 +295,7 @@ class RayScheme<T extends RayWithLuminanceBase> {
   /// The primary color this scheme is based on
   final T source;
 
-  /// A complete tonal palette along with their luminance values
-  ///
-  /// Contains tones from shade50 (lightest) to shade900 (darkest)
-  /// following Material Design naming conventions, plus accent tones.
-  /// Each tone maps to a RayWithLuminanceBase object containing both the
-  /// color and its cached luminance value.
+  /// Complete tonal palette with cached luminance values.
   final Map<RayTone, RayWithLuminanceBase> tones;
 
   /// Access tones using Material Design naming convention

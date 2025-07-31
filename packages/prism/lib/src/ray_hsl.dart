@@ -4,32 +4,9 @@ import 'ray_rgb.dart';
 import 'ray_oklab.dart';
 import 'ray_oklch.dart';
 
-/// HSL color implementation of the Ray color system.
-///
-/// The [RayHsl] class provides HSL (Hue, Saturation, Lightness) color manipulation
-/// with high precision double-based storage for optimal color accuracy.
-///
-/// Colors are stored as doubles for precision:
-/// - Hue: 0.0-360.0 degrees
-/// - Saturation: 0.0-1.0 (0% to 100%)
-/// - Lightness: 0.0-1.0 (0% to 100%)
-/// - Opacity: 0.0-1.0 (0% to 100%)
-///
-/// Example usage:
-/// ```dart
-/// // Create HSL colors
-/// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-/// final semiBrightBlue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.75);
-/// final pastelGreen = RayHsl(hue: 120, saturation: 0.3, lightness: 0.8, opacity: 0.8);
-///
-/// // Convert between color spaces
-/// final rgbEquivalent = red.toRgb() as RayRgb;
-/// print(rgbEquivalent.toHexStr()); // #FF0000
-///
-/// // Work with HSL-specific operations
-/// final complementary = red.withHue(red.hue + 180);
-/// final desaturated = red.withSaturation(0.3);
-/// ```
+/// HSL color implementation with intuitive hue, saturation, and lightness controls.
+/// 
+/// Stored as high-precision doubles for optimal color accuracy.
 base class RayHsl extends Ray {
   /// The hue component in degrees (0.0-360.0)
   final double _hue;
@@ -46,19 +23,9 @@ base class RayHsl extends Ray {
   @override
   ColorSpace get colorSpace => ColorSpace.hsl;
 
-  /// Creates a [RayHsl] from HSL components with named parameters.
-  ///
-  /// Parameters:
-  /// - [hue]: Hue in degrees (0.0-360.0, values outside this range are normalized)
-  /// - [saturation]: Saturation (0.0-1.0, clamped to valid range)
-  /// - [lightness]: Lightness (0.0-1.0, clamped to valid range)
-  /// - [opacity]: Opacity (0.0-1.0, clamped to valid range, default: 1.0)
-  ///
-  /// Example:
-  /// ```dart
-  /// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-  /// final semiBlue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5, opacity: 0.7);
-  /// ```
+  /// Creates a [RayHsl] from HSL components.
+  /// 
+  /// Hue is normalized to 0-360°, other components are clamped to 0.0-1.0.
   RayHsl({
     required double hue,
     required double saturation,
@@ -71,28 +38,12 @@ base class RayHsl extends Ray {
         super();
 
   /// Creates a [RayHsl] from an RGB color by converting RGB to HSL.
-  ///
-  /// Performs high-precision RGB to HSL conversion preserving color fidelity.
-  ///
-  /// Example:
-  /// ```dart
-  /// final rgbRed = RayRgb(red: 255, green: 0, blue: 0);
-  /// final hslRed = RayHsl.fromRgb(rgbRed);
-  /// print('${hslRed.hue}, ${hslRed.saturation}, ${hslRed.lightness}'); // 0.0, 1.0, 0.5
-  /// ```
   factory RayHsl.fromRgb(RayRgb rgb) {
     return _rgbToHsl(
         rgb.red / 255.0, rgb.green / 255.0, rgb.blue / 255.0, rgb.opacity);
   }
 
   /// Creates a [RayHsl] for JSON deserialization.
-  ///
-  /// Expects a Map with 'h', 's', 'l', and optionally 'o' (opacity) keys.
-  ///
-  /// Example:
-  /// ```dart
-  /// final hsl = RayHsl.fromJson({'h': 240.0, 's': 1.0, 'l': 0.5, 'o': 0.8});
-  /// ```
   factory RayHsl.fromJson(Map<String, dynamic> json) {
     return RayHsl(
       hue: (json['h'] as num).toDouble(),
@@ -103,52 +54,21 @@ base class RayHsl extends Ray {
   }
 
   /// Creates a transparent black HSL color.
-  ///
-  /// This is equivalent to `RayHsl(hue: 0, saturation: 0, lightness: 0, opacity: 0)`.
-  ///
-  /// Example:
-  /// ```dart
-  /// final transparent = RayHsl.empty();
-  /// print(transparent.opacity); // 0.0
-  /// ```
   RayHsl.empty() : this(hue: 0, saturation: 0, lightness: 0, opacity: 0);
 
   /// The hue component in degrees (0.0-360.0).
-  ///
-  /// Represents the color position on the color wheel:
-  /// - 0° = Red
-  /// - 120° = Green
-  /// - 240° = Blue
-  /// - 360° = Red (full circle)
   double get hue => _hue;
 
   /// The saturation component (0.0-1.0).
-  ///
-  /// Represents the color intensity:
-  /// - 0.0 = Grayscale (no color)
-  /// - 1.0 = Fully saturated (vivid color)
   double get saturation => _saturation;
 
   /// The lightness component (0.0-1.0).
-  ///
-  /// Represents the color brightness:
-  /// - 0.0 = Black
-  /// - 0.5 = Pure color
-  /// - 1.0 = White
   double get lightness => _lightness;
 
   @override
   double get opacity => _opacity;
 
-  /// Creates a new [RayHsl] with the same SL values but different hue.
-  ///
-  /// The [hue] value will be normalized to the 0.0-360.0 range.
-  ///
-  /// Example:
-  /// ```dart
-  /// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-  /// final blue = red.withHue(240); // Same saturation/lightness, different hue
-  /// ```
+  /// Creates a new [RayHsl] with different hue (normalized to 0.0-360.0).
   RayHsl withHue(double hue) => RayHsl(
         hue: hue, // Will be normalized in constructor
         saturation: saturation,
@@ -225,15 +145,8 @@ base class RayHsl extends Ray {
       );
 
   /// Returns the relative luminance of this HSL color.
-  ///
-  /// ⚠️ **Performance Warning**: Calculating luminance from HSL values requires
-  /// conversion to RGB and is computationally expensive. This should be avoided
-  /// if possible. Consider using:
-  /// - Pre-calculated luminance values from [RayScheme]
-  /// - Alternative color spaces like [RayOklab] or [RayOklch] where luminance
-  ///   is directly available as the L component
-  ///
-  /// This method converts to RGB first, then computes luminance in RGB space.
+  /// 
+  /// Note: Requires RGB conversion. Consider using RayScheme for pre-calculated values.
   @override
   double get luminance {
     // Convert to RGB first, then compute luminance in RGB space
@@ -293,111 +206,32 @@ base class RayHsl extends Ray {
 
   // === HSL Difference and Distance Functions ===
 
-  /// Calculates the hue difference between this HSL color and another.
-  ///
-  /// Returns the signed difference in hue degrees, taking into account the
-  /// circular nature of the color wheel. The result is in the range [-180, 180].
-  /// Positive values indicate the other color has a higher hue (clockwise),
-  /// negative values indicate lower hue (counter-clockwise).
-  ///
-  /// Example:
-  /// ```dart
-  /// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-  /// final blue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
-  /// final green = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-  ///
-  /// print(red.hueDifference(blue)); // -120.0 (blue is 120° counter-clockwise from red)
-  /// print(red.hueDifference(green)); // 120.0 (green is 120° clockwise from red)
-  /// ```
+  /// Calculates the signed hue difference (-180° to 180°) considering color wheel circularity.
   double hueDifference(RayHsl other) {
     return _shortestHueDistance(hue, other.hue);
   }
 
-  /// Calculates the saturation difference between this HSL color and another.
-  ///
-  /// Returns the signed difference in saturation (0.0-1.0 range).
-  /// Positive values indicate the other color is more saturated,
-  /// negative values indicate less saturated.
-  ///
-  /// Example:
-  /// ```dart
-  /// final vivid = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-  /// final pastel = RayHsl(hue: 120, saturation: 0.3, lightness: 0.5);
-  ///
-  /// print(vivid.saturationDifference(pastel)); // -0.7 (pastel is less saturated)
-  /// print(pastel.saturationDifference(vivid)); // 0.7 (vivid is more saturated)
-  /// ```
+  /// Calculates the signed saturation difference (other - this).
   double saturationDifference(RayHsl other) {
     return other.saturation - saturation;
   }
 
-  /// Calculates the lightness difference between this HSL color and another.
-  ///
-  /// Returns the signed difference in lightness (0.0-1.0 range).
-  /// Positive values indicate the other color is lighter,
-  /// negative values indicate darker.
-  ///
-  /// Example:
-  /// ```dart
-  /// final dark = RayHsl(hue: 240, saturation: 1.0, lightness: 0.2);
-  /// final bright = RayHsl(hue: 240, saturation: 1.0, lightness: 0.8);
-  ///
-  /// print(dark.lightnessDifference(bright)); // 0.6 (bright is lighter)
-  /// print(bright.lightnessDifference(dark)); // -0.6 (dark is darker)
-  /// ```
+  /// Calculates the signed lightness difference (other - this).
   double lightnessDifference(RayHsl other) {
     return other.lightness - lightness;
   }
 
-  /// Calculates the absolute hue distance between this HSL color and another.
-  ///
-  /// Returns the shortest distance between two hues on the color wheel,
-  /// always positive and in the range [0, 180]. This is the absolute value
-  /// of [hueDifference].
-  ///
-  /// Example:
-  /// ```dart
-  /// final red = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-  /// final blue = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
-  /// final yellow = RayHsl(hue: 60, saturation: 1.0, lightness: 0.5);
-  ///
-  /// print(red.hueDistance(blue)); // 120.0 (shortest path on color wheel)
-  /// print(red.hueDistance(yellow)); // 60.0
-  /// ```
+  /// Calculates the absolute hue distance (0-180°) using shortest path on color wheel.
   double hueDistance(RayHsl other) {
     return hueDifference(other).abs();
   }
 
-  /// Calculates the absolute saturation distance between this HSL color and another.
-  ///
-  /// Returns the absolute difference in saturation values (0.0-1.0 range).
-  /// This is the absolute value of [saturationDifference].
-  ///
-  /// Example:
-  /// ```dart
-  /// final vivid = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-  /// final pastel = RayHsl(hue: 120, saturation: 0.3, lightness: 0.5);
-  ///
-  /// print(vivid.saturationDistance(pastel)); // 0.7
-  /// print(pastel.saturationDistance(vivid)); // 0.7
-  /// ```
+  /// Calculates the absolute saturation distance.
   double saturationDistance(RayHsl other) {
     return saturationDifference(other).abs();
   }
 
-  /// Calculates the absolute lightness distance between this HSL color and another.
-  ///
-  /// Returns the absolute difference in lightness values (0.0-1.0 range).
-  /// This is the absolute value of [lightnessDifference].
-  ///
-  /// Example:
-  /// ```dart
-  /// final dark = RayHsl(hue: 240, saturation: 1.0, lightness: 0.2);
-  /// final bright = RayHsl(hue: 240, saturation: 1.0, lightness: 0.8);
-  ///
-  /// print(dark.lightnessDistance(bright)); // 0.6
-  /// print(bright.lightnessDistance(dark)); // 0.6
-  /// ```
+  /// Calculates the absolute lightness distance.
   double lightnessDistance(RayHsl other) {
     return lightnessDifference(other).abs();
   }
