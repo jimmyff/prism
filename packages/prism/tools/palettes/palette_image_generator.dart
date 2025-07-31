@@ -118,6 +118,7 @@ class PaletteImageGenerator {
 
     // Fill main color background
     final rayRgb = ray.toRgb();
+
     final mainColor = img.ColorRgb8(rayRgb.red, rayRgb.green, rayRgb.blue);
     img.fillRect(
       image,

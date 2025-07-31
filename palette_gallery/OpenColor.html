@@ -3,27 +3,22 @@
 <head>
 <title>Prism Palette Gallery - OpenColor</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="OpenColorRgb.css">
 <link rel="stylesheet" href="OpenColorOklch.css">
 <style>
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 20px; background: #f5f5f5; }
 h1 { color: #333; margin-bottom: 30px; }
 h1 a { color: #2196F3; text-decoration: none; transition: all 0.2s ease; }
 h1 a:hover { color: #1976D2; text-decoration: underline; }
-.palette-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.palette-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .color-card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
 .color-header { height: 60px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
-.color-info { padding: 15px; }
-.color-name { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
-.luminance { font-size: 14px; color: #666; margin-bottom: 15px; }
-.color-spaces { display: flex; border-radius: 4px; overflow: hidden; }
-.color-space-section { flex: 1; }
-.color-space-section h3 { margin: 0; padding: 8px; background: #f8f9fa; color: #333; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; text-align: center; border-bottom: 1px solid #dee2e6; }
-.shades-column { display: flex; flex-direction: column; }
+.color-info {  }
+.luminance-value { font-weight: 300; opacity: 0.8; padding-left:4px; }
+.shades-column { display: flex; flex-direction: column; border-radius: 4px; overflow: hidden; }
 .shade-item { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; position: relative; }
 .shade-name { font-size: 9px; font-weight: 600; margin-right: 4px; }
 .shade-luminance { font-size: 8px; opacity: 0.8; }
-.hex-value { font-family: monospace; font-size: 12px; color: #888; }
+.luminance-value { font-weight: 300; opacity: 0.8; }
 .package-info { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 30px; }
 .package-info h2 { margin-top: 0; color: #333; }
 .package-info p { margin: 10px 0; color: #666; }
@@ -35,10 +30,10 @@ h1 a:hover { color: #1976D2; text-decoration: underline; }
 </style>
 </head>
 <body>
-<h1><a href="https://github.com/jimmyff/prism/tree/main/packages/prism/tools/palettes/gallery/">Palettes</a> → OpenColor</h1>
+<h1><a href="https://github.com/jimmyff/prism/tree/main/palette_gallery">Palettes</a> → OpenColor</h1>
 <div class="package-info">
 <h2>About Prism 🌈</h2>
-<p>This palette is part of the <strong>Prism</strong> color manipulation library for Dart and Flutter. Prism provides comprehensive color operations, accessibility-focused color schemes, and extensive pre-built palettes.</p>
+<p>Comprehensive color library for Dart and Flutter with accessibility-focused schemes and pre-built palettes.</p>
 <div class="package-links">
 <div class="package-link">
 <strong>📦 Dart Package:</strong><br>
@@ -52,1314 +47,508 @@ h1 a:hover { color: #1976D2; text-decoration: underline; }
 </div>
 <div class="palette-container">
 <div class="color-card">
-<div class="color-header" style="background-color: #ADB5BD; color: #FFFFFF;">
-gray
+<div class="color-header" style="background-color: #ADB5BD; color: #000000;">
+gray <span class="luminance-value">(L:0.77)</span>
 </div>
 <div class="color-info">
-<div class="color-name">gray</div>
-<div class="luminance">Luminance: 0.456 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-gray-50" style="color: #000;">
+<div class="shade-item bg-gray-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.95</span>
 </div>
-<div class="shade-item bg-oc-gray-100" style="color: #000;">
+<div class="shade-item bg-gray-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.89</span>
 </div>
-<div class="shade-item bg-oc-gray-200" style="color: #000;">
+<div class="shade-item bg-gray-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.84</span>
 </div>
-<div class="shade-item bg-oc-gray-300" style="color: #000;">
+<div class="shade-item bg-gray-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-oc-gray-400" style="color: #000;">
+<div class="shade-item bg-gray-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.65</span>
 </div>
-<div class="shade-item bg-oc-gray-500" style="color: #fff;">
+<div class="shade-item bg-gray-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.46</span>
 </div>
-<div class="shade-item bg-oc-gray-600" style="color: #fff;">
+<div class="shade-item bg-gray-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.27</span>
 </div>
-<div class="shade-item bg-oc-gray-700" style="color: #fff;">
+<div class="shade-item bg-gray-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.08</span>
 </div>
-<div class="shade-item bg-oc-gray-800" style="color: #fff;">
+<div class="shade-item bg-gray-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.04</span>
 </div>
-<div class="shade-item bg-oc-gray-900" style="color: #fff;">
+<div class="shade-item bg-gray-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.02</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-gray-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.95</span>
-</div>
-<div class="shade-item bg-oc-gray-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.89</span>
-</div>
-<div class="shade-item bg-oc-gray-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.84</span>
-</div>
-<div class="shade-item bg-oc-gray-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-oc-gray-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.65</span>
-</div>
-<div class="shade-item bg-oc-gray-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.46</span>
-</div>
-<div class="shade-item bg-oc-gray-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.27</span>
-</div>
-<div class="shade-item bg-oc-gray-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.08</span>
-</div>
-<div class="shade-item bg-oc-gray-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.04</span>
-</div>
-<div class="shade-item bg-oc-gray-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.02</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #FF6B6B; color: #FFFFFF;">
-red
+<div class="color-header" style="background-color: #FF6B6B; color: #000000;">
+red <span class="luminance-value">(L:0.71)</span>
 </div>
 <div class="color-info">
-<div class="color-name">red</div>
-<div class="luminance">Luminance: 0.328 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-red-50" style="color: #000;">
+<div class="shade-item bg-red-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.93</span>
 </div>
-<div class="shade-item bg-oc-red-100" style="color: #000;">
+<div class="shade-item bg-red-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.82</span>
 </div>
-<div class="shade-item bg-oc-red-200" style="color: #000;">
+<div class="shade-item bg-red-200" style="color: #fff;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.67</span>
 </div>
-<div class="shade-item bg-oc-red-300" style="color: #fff;">
+<div class="shade-item bg-red-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.52</span>
 </div>
-<div class="shade-item bg-oc-red-400" style="color: #fff;">
+<div class="shade-item bg-red-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-oc-red-500" style="color: #fff;">
+<div class="shade-item bg-red-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.33</span>
 </div>
-<div class="shade-item bg-oc-red-600" style="color: #fff;">
+<div class="shade-item bg-red-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.27</span>
 </div>
-<div class="shade-item bg-oc-red-700" style="color: #fff;">
+<div class="shade-item bg-red-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.22</span>
 </div>
-<div class="shade-item bg-oc-red-800" style="color: #fff;">
+<div class="shade-item bg-red-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.18</span>
 </div>
-<div class="shade-item bg-oc-red-900" style="color: #fff;">
+<div class="shade-item bg-red-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-red-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.93</span>
-</div>
-<div class="shade-item bg-oc-red-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.82</span>
-</div>
-<div class="shade-item bg-oc-red-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.67</span>
-</div>
-<div class="shade-item bg-oc-red-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.52</span>
-</div>
-<div class="shade-item bg-oc-red-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-oc-red-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.33</span>
-</div>
-<div class="shade-item bg-oc-red-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.27</span>
-</div>
-<div class="shade-item bg-oc-red-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.22</span>
-</div>
-<div class="shade-item bg-oc-red-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.18</span>
-</div>
-<div class="shade-item bg-oc-red-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #F06595; color: #FFFFFF;">
-pink
+pink <span class="luminance-value">(L:0.69)</span>
 </div>
 <div class="color-info">
-<div class="color-name">pink</div>
-<div class="luminance">Luminance: 0.300 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-pink-50" style="color: #000;">
+<div class="shade-item bg-pink-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.90</span>
 </div>
-<div class="shade-item bg-oc-pink-100" style="color: #000;">
+<div class="shade-item bg-pink-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-oc-pink-200" style="color: #000;">
+<div class="shade-item bg-pink-200" style="color: #fff;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-oc-pink-300" style="color: #fff;">
+<div class="shade-item bg-pink-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.50</span>
 </div>
-<div class="shade-item bg-oc-pink-400" style="color: #fff;">
+<div class="shade-item bg-pink-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.39</span>
 </div>
-<div class="shade-item bg-oc-pink-500" style="color: #fff;">
+<div class="shade-item bg-pink-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.30</span>
 </div>
-<div class="shade-item bg-oc-pink-600" style="color: #fff;">
+<div class="shade-item bg-pink-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.23</span>
 </div>
-<div class="shade-item bg-oc-pink-700" style="color: #fff;">
+<div class="shade-item bg-pink-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.18</span>
 </div>
-<div class="shade-item bg-oc-pink-800" style="color: #fff;">
+<div class="shade-item bg-pink-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.14</span>
 </div>
-<div class="shade-item bg-oc-pink-900" style="color: #fff;">
+<div class="shade-item bg-pink-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.10</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-pink-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.90</span>
-</div>
-<div class="shade-item bg-oc-pink-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-oc-pink-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-oc-pink-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.50</span>
-</div>
-<div class="shade-item bg-oc-pink-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.39</span>
-</div>
-<div class="shade-item bg-oc-pink-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.30</span>
-</div>
-<div class="shade-item bg-oc-pink-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.23</span>
-</div>
-<div class="shade-item bg-oc-pink-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.18</span>
-</div>
-<div class="shade-item bg-oc-pink-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-<div class="shade-item bg-oc-pink-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.10</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #CC5DE8; color: #FFFFFF;">
-grape
+grape <span class="luminance-value">(L:0.67)</span>
 </div>
 <div class="color-info">
-<div class="color-name">grape</div>
-<div class="luminance">Luminance: 0.265 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-grape-50" style="color: #000;">
+<div class="shade-item bg-grape-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.89</span>
 </div>
-<div class="shade-item bg-oc-grape-100" style="color: #000;">
+<div class="shade-item bg-grape-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-oc-grape-200" style="color: #000;">
+<div class="shade-item bg-grape-200" style="color: #fff;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.62</span>
 </div>
-<div class="shade-item bg-oc-grape-300" style="color: #fff;">
+<div class="shade-item bg-grape-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.46</span>
 </div>
-<div class="shade-item bg-oc-grape-400" style="color: #fff;">
+<div class="shade-item bg-grape-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.35</span>
 </div>
-<div class="shade-item bg-oc-grape-500" style="color: #fff;">
+<div class="shade-item bg-grape-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.26</span>
 </div>
-<div class="shade-item bg-oc-grape-600" style="color: #fff;">
+<div class="shade-item bg-grape-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-oc-grape-700" style="color: #fff;">
+<div class="shade-item bg-grape-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.17</span>
 </div>
-<div class="shade-item bg-oc-grape-800" style="color: #fff;">
+<div class="shade-item bg-grape-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.13</span>
 </div>
-<div class="shade-item bg-oc-grape-900" style="color: #fff;">
+<div class="shade-item bg-grape-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.09</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-grape-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.89</span>
-</div>
-<div class="shade-item bg-oc-grape-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-oc-grape-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.62</span>
-</div>
-<div class="shade-item bg-oc-grape-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.46</span>
-</div>
-<div class="shade-item bg-oc-grape-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.35</span>
-</div>
-<div class="shade-item bg-oc-grape-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.26</span>
-</div>
-<div class="shade-item bg-oc-grape-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-oc-grape-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.17</span>
-</div>
-<div class="shade-item bg-oc-grape-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.13</span>
-</div>
-<div class="shade-item bg-oc-grape-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.09</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #845EF7; color: #FFFFFF;">
-violet
+violet <span class="luminance-value">(L:0.60)</span>
 </div>
 <div class="color-info">
-<div class="color-name">violet</div>
-<div class="luminance">Luminance: 0.196 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-violet-50" style="color: #000;">
+<div class="shade-item bg-violet-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.89</span>
 </div>
-<div class="shade-item bg-oc-violet-100" style="color: #000;">
+<div class="shade-item bg-violet-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.75</span>
 </div>
-<div class="shade-item bg-oc-violet-200" style="color: #fff;">
+<div class="shade-item bg-violet-200" style="color: #fff;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.58</span>
 </div>
-<div class="shade-item bg-oc-violet-300" style="color: #fff;">
+<div class="shade-item bg-violet-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.39</span>
 </div>
-<div class="shade-item bg-oc-violet-400" style="color: #fff;">
+<div class="shade-item bg-violet-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.26</span>
 </div>
-<div class="shade-item bg-oc-violet-500" style="color: #fff;">
+<div class="shade-item bg-violet-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.20</span>
 </div>
-<div class="shade-item bg-oc-violet-600" style="color: #fff;">
+<div class="shade-item bg-violet-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.16</span>
 </div>
-<div class="shade-item bg-oc-violet-700" style="color: #fff;">
+<div class="shade-item bg-violet-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.14</span>
 </div>
-<div class="shade-item bg-oc-violet-800" style="color: #fff;">
+<div class="shade-item bg-violet-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.12</span>
 </div>
-<div class="shade-item bg-oc-violet-900" style="color: #fff;">
+<div class="shade-item bg-violet-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.10</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-violet-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.89</span>
-</div>
-<div class="shade-item bg-oc-violet-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.75</span>
-</div>
-<div class="shade-item bg-oc-violet-200" style="color: #fff;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.58</span>
-</div>
-<div class="shade-item bg-oc-violet-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.39</span>
-</div>
-<div class="shade-item bg-oc-violet-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.26</span>
-</div>
-<div class="shade-item bg-oc-violet-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.20</span>
-</div>
-<div class="shade-item bg-oc-violet-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.16</span>
-</div>
-<div class="shade-item bg-oc-violet-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-<div class="shade-item bg-oc-violet-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.12</span>
-</div>
-<div class="shade-item bg-oc-violet-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.10</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #5C7CFA; color: #FFFFFF;">
-indigo
+indigo <span class="luminance-value">(L:0.63)</span>
 </div>
 <div class="color-info">
-<div class="color-name">indigo</div>
-<div class="luminance">Luminance: 0.236 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-indigo-50" style="color: #000;">
+<div class="shade-item bg-indigo-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.89</span>
 </div>
-<div class="shade-item bg-oc-indigo-100" style="color: #000;">
+<div class="shade-item bg-indigo-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.78</span>
 </div>
-<div class="shade-item bg-oc-indigo-200" style="color: #fff;">
+<div class="shade-item bg-indigo-200" style="color: #fff;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.59</span>
 </div>
-<div class="shade-item bg-oc-indigo-300" style="color: #fff;">
+<div class="shade-item bg-indigo-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.41</span>
 </div>
-<div class="shade-item bg-oc-indigo-400" style="color: #fff;">
+<div class="shade-item bg-indigo-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.30</span>
 </div>
-<div class="shade-item bg-oc-indigo-500" style="color: #fff;">
+<div class="shade-item bg-indigo-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.24</span>
 </div>
-<div class="shade-item bg-oc-indigo-600" style="color: #fff;">
+<div class="shade-item bg-indigo-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.19</span>
 </div>
-<div class="shade-item bg-oc-indigo-700" style="color: #fff;">
+<div class="shade-item bg-indigo-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.16</span>
 </div>
-<div class="shade-item bg-oc-indigo-800" style="color: #fff;">
+<div class="shade-item bg-indigo-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.14</span>
 </div>
-<div class="shade-item bg-oc-indigo-900" style="color: #fff;">
+<div class="shade-item bg-indigo-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.10</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-indigo-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.89</span>
-</div>
-<div class="shade-item bg-oc-indigo-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.78</span>
-</div>
-<div class="shade-item bg-oc-indigo-200" style="color: #fff;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.59</span>
-</div>
-<div class="shade-item bg-oc-indigo-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.41</span>
-</div>
-<div class="shade-item bg-oc-indigo-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.30</span>
-</div>
-<div class="shade-item bg-oc-indigo-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.24</span>
-</div>
-<div class="shade-item bg-oc-indigo-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.19</span>
-</div>
-<div class="shade-item bg-oc-indigo-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.16</span>
-</div>
-<div class="shade-item bg-oc-indigo-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-<div class="shade-item bg-oc-indigo-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.10</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #339AF0; color: #FFFFFF;">
-blue
+blue <span class="luminance-value">(L:0.67)</span>
 </div>
 <div class="color-info">
-<div class="color-name">blue</div>
-<div class="luminance">Luminance: 0.301 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-blue-50" style="color: #000;">
+<div class="shade-item bg-blue-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.90</span>
 </div>
-<div class="shade-item bg-oc-blue-100" style="color: #000;">
+<div class="shade-item bg-blue-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-oc-blue-200" style="color: #000;">
+<div class="shade-item bg-blue-200" style="color: #fff;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-oc-blue-300" style="color: #fff;">
+<div class="shade-item bg-blue-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-oc-blue-400" style="color: #fff;">
+<div class="shade-item bg-blue-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.37</span>
 </div>
-<div class="shade-item bg-oc-blue-500" style="color: #fff;">
+<div class="shade-item bg-blue-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.30</span>
 </div>
-<div class="shade-item bg-oc-blue-600" style="color: #fff;">
+<div class="shade-item bg-blue-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.25</span>
 </div>
-<div class="shade-item bg-oc-blue-700" style="color: #fff;">
+<div class="shade-item bg-blue-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.20</span>
 </div>
-<div class="shade-item bg-oc-blue-800" style="color: #fff;">
+<div class="shade-item bg-blue-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.16</span>
 </div>
-<div class="shade-item bg-oc-blue-900" style="color: #fff;">
+<div class="shade-item bg-blue-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.12</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-blue-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.90</span>
-</div>
-<div class="shade-item bg-oc-blue-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-oc-blue-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-oc-blue-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-oc-blue-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.37</span>
-</div>
-<div class="shade-item bg-oc-blue-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.30</span>
-</div>
-<div class="shade-item bg-oc-blue-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.25</span>
-</div>
-<div class="shade-item bg-oc-blue-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.20</span>
-</div>
-<div class="shade-item bg-oc-blue-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.16</span>
-</div>
-<div class="shade-item bg-oc-blue-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.12</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #22B8CF; color: #FFFFFF;">
-cyan
+<div class="color-header" style="background-color: #22B8CF; color: #000000;">
+cyan <span class="luminance-value">(L:0.72)</span>
 </div>
 <div class="color-info">
-<div class="color-name">cyan</div>
-<div class="luminance">Luminance: 0.391 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-cyan-50" style="color: #000;">
+<div class="shade-item bg-cyan-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-oc-cyan-100" style="color: #000;">
+<div class="shade-item bg-cyan-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.85</span>
 </div>
-<div class="shade-item bg-oc-cyan-200" style="color: #000;">
+<div class="shade-item bg-cyan-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.71</span>
 </div>
-<div class="shade-item bg-oc-cyan-300" style="color: #fff;">
+<div class="shade-item bg-cyan-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.58</span>
 </div>
-<div class="shade-item bg-oc-cyan-400" style="color: #fff;">
+<div class="shade-item bg-cyan-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-oc-cyan-500" style="color: #fff;">
+<div class="shade-item bg-cyan-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.39</span>
 </div>
-<div class="shade-item bg-oc-cyan-600" style="color: #fff;">
+<div class="shade-item bg-cyan-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.33</span>
 </div>
-<div class="shade-item bg-oc-cyan-700" style="color: #fff;">
+<div class="shade-item bg-cyan-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.26</span>
 </div>
-<div class="shade-item bg-oc-cyan-800" style="color: #fff;">
+<div class="shade-item bg-cyan-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.19</span>
 </div>
-<div class="shade-item bg-oc-cyan-900" style="color: #fff;">
+<div class="shade-item bg-cyan-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-cyan-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-oc-cyan-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.85</span>
-</div>
-<div class="shade-item bg-oc-cyan-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.71</span>
-</div>
-<div class="shade-item bg-oc-cyan-300" style="color: #fff;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.58</span>
-</div>
-<div class="shade-item bg-oc-cyan-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-oc-cyan-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.39</span>
-</div>
-<div class="shade-item bg-oc-cyan-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.33</span>
-</div>
-<div class="shade-item bg-oc-cyan-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.26</span>
-</div>
-<div class="shade-item bg-oc-cyan-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.19</span>
-</div>
-<div class="shade-item bg-oc-cyan-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.14</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #20C997; color: #FFFFFF;">
-teal
+<div class="color-header" style="background-color: #20C997; color: #000000;">
+teal <span class="luminance-value">(L:0.74)</span>
 </div>
 <div class="color-info">
-<div class="color-name">teal</div>
-<div class="luminance">Luminance: 0.443 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-teal-50" style="color: #000;">
+<div class="shade-item bg-teal-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.93</span>
 </div>
-<div class="shade-item bg-oc-teal-100" style="color: #000;">
+<div class="shade-item bg-teal-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.86</span>
 </div>
-<div class="shade-item bg-oc-teal-200" style="color: #000;">
+<div class="shade-item bg-teal-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.75</span>
 </div>
-<div class="shade-item bg-oc-teal-300" style="color: #000;">
+<div class="shade-item bg-teal-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.63</span>
 </div>
-<div class="shade-item bg-oc-teal-400" style="color: #fff;">
+<div class="shade-item bg-teal-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.53</span>
 </div>
-<div class="shade-item bg-oc-teal-500" style="color: #fff;">
+<div class="shade-item bg-teal-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.44</span>
 </div>
-<div class="shade-item bg-oc-teal-600" style="color: #fff;">
+<div class="shade-item bg-teal-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.36</span>
 </div>
-<div class="shade-item bg-oc-teal-700" style="color: #fff;">
+<div class="shade-item bg-teal-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.29</span>
 </div>
-<div class="shade-item bg-oc-teal-800" style="color: #fff;">
+<div class="shade-item bg-teal-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.22</span>
 </div>
-<div class="shade-item bg-oc-teal-900" style="color: #fff;">
+<div class="shade-item bg-teal-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.16</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-teal-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.93</span>
-</div>
-<div class="shade-item bg-oc-teal-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.86</span>
-</div>
-<div class="shade-item bg-oc-teal-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.75</span>
-</div>
-<div class="shade-item bg-oc-teal-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.63</span>
-</div>
-<div class="shade-item bg-oc-teal-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.53</span>
-</div>
-<div class="shade-item bg-oc-teal-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.44</span>
-</div>
-<div class="shade-item bg-oc-teal-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.36</span>
-</div>
-<div class="shade-item bg-oc-teal-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.29</span>
-</div>
-<div class="shade-item bg-oc-teal-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.22</span>
-</div>
-<div class="shade-item bg-oc-teal-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.16</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #51CF66; color: #FFFFFF;">
-green
+<div class="color-header" style="background-color: #51CF66; color: #000000;">
+green <span class="luminance-value">(L:0.76)</span>
 </div>
 <div class="color-info">
-<div class="color-name">green</div>
-<div class="luminance">Luminance: 0.473 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-green-50" style="color: #000;">
+<div class="shade-item bg-green-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.93</span>
 </div>
-<div class="shade-item bg-oc-green-100" style="color: #000;">
+<div class="shade-item bg-green-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.87</span>
 </div>
-<div class="shade-item bg-oc-green-200" style="color: #000;">
+<div class="shade-item bg-green-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.77</span>
 </div>
-<div class="shade-item bg-oc-green-300" style="color: #000;">
+<div class="shade-item bg-green-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.66</span>
 </div>
-<div class="shade-item bg-oc-green-400" style="color: #fff;">
+<div class="shade-item bg-green-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.55</span>
 </div>
-<div class="shade-item bg-oc-green-500" style="color: #fff;">
+<div class="shade-item bg-green-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.47</span>
 </div>
-<div class="shade-item bg-oc-green-600" style="color: #fff;">
+<div class="shade-item bg-green-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.39</span>
 </div>
-<div class="shade-item bg-oc-green-700" style="color: #fff;">
+<div class="shade-item bg-green-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.33</span>
 </div>
-<div class="shade-item bg-oc-green-800" style="color: #fff;">
+<div class="shade-item bg-green-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.25</span>
 </div>
-<div class="shade-item bg-oc-green-900" style="color: #fff;">
+<div class="shade-item bg-green-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.19</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-green-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.93</span>
-</div>
-<div class="shade-item bg-oc-green-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.87</span>
-</div>
-<div class="shade-item bg-oc-green-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.77</span>
-</div>
-<div class="shade-item bg-oc-green-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.66</span>
-</div>
-<div class="shade-item bg-oc-green-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.55</span>
-</div>
-<div class="shade-item bg-oc-green-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.47</span>
-</div>
-<div class="shade-item bg-oc-green-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.39</span>
-</div>
-<div class="shade-item bg-oc-green-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.33</span>
-</div>
-<div class="shade-item bg-oc-green-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.25</span>
-</div>
-<div class="shade-item bg-oc-green-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.19</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #94D82D; color: #000000;">
-lime
+lime <span class="luminance-value">(L:0.81)</span>
 </div>
 <div class="color-info">
-<div class="color-name">lime</div>
-<div class="luminance">Luminance: 0.556 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-lime-50" style="color: #000;">
+<div class="shade-item bg-lime-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.94</span>
 </div>
-<div class="shade-item bg-oc-lime-100" style="color: #000;">
+<div class="shade-item bg-lime-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.90</span>
 </div>
-<div class="shade-item bg-oc-lime-200" style="color: #000;">
+<div class="shade-item bg-lime-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-oc-lime-300" style="color: #000;">
+<div class="shade-item bg-lime-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.72</span>
 </div>
-<div class="shade-item bg-oc-lime-400" style="color: #000;">
+<div class="shade-item bg-lime-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-oc-lime-500" style="color: #fff;">
+<div class="shade-item bg-lime-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.56</span>
 </div>
-<div class="shade-item bg-oc-lime-600" style="color: #fff;">
+<div class="shade-item bg-lime-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.47</span>
 </div>
-<div class="shade-item bg-oc-lime-700" style="color: #fff;">
+<div class="shade-item bg-lime-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.38</span>
 </div>
-<div class="shade-item bg-oc-lime-800" style="color: #fff;">
+<div class="shade-item bg-lime-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.31</span>
 </div>
-<div class="shade-item bg-oc-lime-900" style="color: #fff;">
+<div class="shade-item bg-lime-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.23</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-lime-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.94</span>
-</div>
-<div class="shade-item bg-oc-lime-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.90</span>
-</div>
-<div class="shade-item bg-oc-lime-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-oc-lime-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.72</span>
-</div>
-<div class="shade-item bg-oc-lime-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-oc-lime-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.56</span>
-</div>
-<div class="shade-item bg-oc-lime-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.47</span>
-</div>
-<div class="shade-item bg-oc-lime-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.38</span>
-</div>
-<div class="shade-item bg-oc-lime-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.31</span>
-</div>
-<div class="shade-item bg-oc-lime-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.23</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #FCC419; color: #000000;">
-yellow
+yellow <span class="luminance-value">(L:0.85)</span>
 </div>
 <div class="color-info">
-<div class="color-name">yellow</div>
-<div class="luminance">Luminance: 0.602 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-yellow-50" style="color: #000;">
+<div class="shade-item bg-yellow-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.94</span>
 </div>
-<div class="shade-item bg-oc-yellow-100" style="color: #000;">
+<div class="shade-item bg-yellow-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.89</span>
 </div>
-<div class="shade-item bg-oc-yellow-200" style="color: #000;">
+<div class="shade-item bg-yellow-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.84</span>
 </div>
-<div class="shade-item bg-oc-yellow-300" style="color: #000;">
+<div class="shade-item bg-yellow-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-oc-yellow-400" style="color: #000;">
+<div class="shade-item bg-yellow-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.69</span>
 </div>
-<div class="shade-item bg-oc-yellow-500" style="color: #000;">
+<div class="shade-item bg-yellow-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-oc-yellow-600" style="color: #fff;">
+<div class="shade-item bg-yellow-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.51</span>
 </div>
-<div class="shade-item bg-oc-yellow-700" style="color: #fff;">
+<div class="shade-item bg-yellow-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.44</span>
 </div>
-<div class="shade-item bg-oc-yellow-800" style="color: #fff;">
+<div class="shade-item bg-yellow-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.37</span>
 </div>
-<div class="shade-item bg-oc-yellow-900" style="color: #fff;">
+<div class="shade-item bg-yellow-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.30</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-yellow-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.94</span>
-</div>
-<div class="shade-item bg-oc-yellow-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.89</span>
-</div>
-<div class="shade-item bg-oc-yellow-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.84</span>
-</div>
-<div class="shade-item bg-oc-yellow-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-oc-yellow-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.69</span>
-</div>
-<div class="shade-item bg-oc-yellow-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-oc-yellow-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.51</span>
-</div>
-<div class="shade-item bg-oc-yellow-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.44</span>
-</div>
-<div class="shade-item bg-oc-yellow-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.37</span>
-</div>
-<div class="shade-item bg-oc-yellow-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.30</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #FF922B; color: #FFFFFF;">
-orange
+<div class="color-header" style="background-color: #FF922B; color: #000000;">
+orange <span class="luminance-value">(L:0.76)</span>
 </div>
 <div class="color-info">
-<div class="color-name">orange</div>
-<div class="luminance">Luminance: 0.420 (Dark)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-oc-orange-50" style="color: #000;">
+<div class="shade-item bg-orange-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-oc-orange-100" style="color: #000;">
+<div class="shade-item bg-orange-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-oc-orange-200" style="color: #000;">
+<div class="shade-item bg-orange-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.73</span>
 </div>
-<div class="shade-item bg-oc-orange-300" style="color: #000;">
+<div class="shade-item bg-orange-300" style="color: #fff;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-oc-orange-400" style="color: #fff;">
+<div class="shade-item bg-orange-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.50</span>
 </div>
-<div class="shade-item bg-oc-orange-500" style="color: #fff;">
+<div class="shade-item bg-orange-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.42</span>
 </div>
-<div class="shade-item bg-oc-orange-600" style="color: #fff;">
+<div class="shade-item bg-orange-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.36</span>
 </div>
-<div class="shade-item bg-oc-orange-700" style="color: #fff;">
+<div class="shade-item bg-orange-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.29</span>
 </div>
-<div class="shade-item bg-oc-orange-800" style="color: #fff;">
+<div class="shade-item bg-orange-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.24</span>
 </div>
-<div class="shade-item bg-oc-orange-900" style="color: #fff;">
+<div class="shade-item bg-orange-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.19</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-oc-orange-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-oc-orange-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-oc-orange-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.73</span>
-</div>
-<div class="shade-item bg-oc-orange-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-oc-orange-400" style="color: #fff;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.50</span>
-</div>
-<div class="shade-item bg-oc-orange-500" style="color: #fff;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.42</span>
-</div>
-<div class="shade-item bg-oc-orange-600" style="color: #fff;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.36</span>
-</div>
-<div class="shade-item bg-oc-orange-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.29</span>
-</div>
-<div class="shade-item bg-oc-orange-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.24</span>
-</div>
-<div class="shade-item bg-oc-orange-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.19</span>
-</div>
-</div>
 </div>
 </div>
 </div>

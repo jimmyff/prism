@@ -6,10 +6,14 @@ import 'package:path/path.dart' as p;
 import 'package:prism/prism.dart';
 
 // Import the generated palette enums
-import 'package:prism/palettes/spectrum.dart';
-import 'package:prism/palettes/css.dart';
-import 'package:prism/palettes/material.dart';
-import 'package:prism/palettes/open_color.dart';
+import 'package:prism/palettes/rgb/spectrum.dart';
+import 'package:prism/palettes/oklch/spectrum.dart';
+import 'package:prism/palettes/rgb/css.dart';
+import 'package:prism/palettes/oklch/css.dart';
+import 'package:prism/palettes/rgb/material.dart';
+import 'package:prism/palettes/oklch/material.dart';
+import 'package:prism/palettes/rgb/open_color.dart';
+import 'package:prism/palettes/oklch/open_color.dart';
 // import '../lib/palettes/catppuccin_latte.dart';
 // import '../lib/palettes/catppuccin_frappe.dart';
 // import '../lib/palettes/catppuccin_macchiato.dart';

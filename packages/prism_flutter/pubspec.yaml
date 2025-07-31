@@ -1,6 +1,6 @@
 name: prism_flutter
-description: Flutter extensions for the Prism color manipulation library. Seamless conversion between Ray and Flutter Color objects with RayScheme and palette support.
-version: 2.0.0-alpha.4
+description: Flutter extensions for the Prism color library. Conversion between Ray and Flutter Color objects with palette support.
+version: 2.0.0-beta.1
 repository: https://github.com/jimmyff/prism
 website: https://github.com/jimmyff/prism/packages/prism_flutter
 

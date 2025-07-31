@@ -123,6 +123,29 @@ void _generatePaletteCode({
   required String outputFileName,
   Map<String, String>? aliases,
 }) {
+  // Generate both RGB and Oklch versions
+  _generateRgbPalette(
+    className: className,
+    schemes: schemes,
+    outputFileName: outputFileName,
+    aliases: aliases,
+  );
+  
+  _generateOklchPalette(
+    className: className,
+    schemes: schemes,
+    outputFileName: outputFileName,
+    aliases: aliases,
+  );
+}
+
+/// Generates RGB palette file.
+void _generateRgbPalette({
+  required String className,
+  required Map<String, RayScheme> schemes,
+  required String outputFileName,
+  Map<String, String>? aliases,
+}) {
   final buffer = StringBuffer();
 
   // Extract base name without 'Palette' suffix for the color space enums
@@ -223,7 +246,48 @@ void _generatePaletteCode({
   buffer.writeln('}');
   buffer.writeln('');
 
-  // 3. Generate Oklch scheme enum that implements RayScheme directly
+  // 4. Write the RGB file to the lib/palettes/rgb directory
+  final scriptDir = Directory(Platform.script.toFilePath()).parent;
+  final projectRoot = scriptDir.parent.parent; // Go up 2 levels
+  final outputPath =
+      p.join(projectRoot.path, 'lib', 'palettes', 'rgb', outputFileName);
+  
+  // Ensure the rgb directory exists
+  final rgbDir = Directory(p.join(projectRoot.path, 'lib', 'palettes', 'rgb'));
+  if (!rgbDir.existsSync()) {
+    rgbDir.createSync(recursive: true);
+  }
+  
+  File(outputPath).writeAsStringSync(buffer.toString());
+}
+
+/// Generates Oklch palette file.
+void _generateOklchPalette({
+  required String className,
+  required Map<String, RayScheme> schemes,
+  required String outputFileName,
+  Map<String, String>? aliases,
+}) {
+  final buffer = StringBuffer();
+
+  // Extract base name without 'Palette' suffix for the color space enums
+  final baseName = className.endsWith('Palette')
+      ? className.substring(0, className.length - 7)
+      : className;
+
+  // 1. Write the file header
+  buffer.writeln('// GENERATED CODE - DO NOT EDIT BY HAND');
+  buffer.writeln('// ignore_for_file: public_member_api_docs');
+  buffer.writeln("import 'package:prism/prism.dart';");
+  buffer.writeln('');
+
+  // Extract rays from schemes for convenience
+  final Map<String, RayWithLuminanceBase> rays = {};
+  for (final entry in schemes.entries) {
+    rays[entry.key] = entry.value.source;
+  }
+
+  // 2. Generate Oklch scheme enum that implements RayScheme directly
   buffer.writeln('/// Oklch-based RayScheme enum for the ${baseName} palette.');
   buffer.writeln(
       '/// Each enum value implements RayScheme directly for clean API access.');
@@ -313,11 +377,17 @@ void _generatePaletteCode({
   buffer.writeln('}');
   buffer.writeln('');
 
-  // 4. Write the file to the lib/palettes directory
-
+  // 3. Write the Oklch file to the lib/palettes/oklch directory
   final scriptDir = Directory(Platform.script.toFilePath()).parent;
   final projectRoot = scriptDir.parent.parent; // Go up 2 levels
   final outputPath =
-      p.join(projectRoot.path, 'lib', 'palettes', outputFileName);
+      p.join(projectRoot.path, 'lib', 'palettes', 'oklch', outputFileName);
+  
+  // Ensure the oklch directory exists
+  final oklchDir = Directory(p.join(projectRoot.path, 'lib', 'palettes', 'oklch'));
+  if (!oklchDir.existsSync()) {
+    oklchDir.createSync(recursive: true);
+  }
+  
   File(outputPath).writeAsStringSync(buffer.toString());
 }

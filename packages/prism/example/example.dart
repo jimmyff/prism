@@ -1,6 +1,6 @@
 import 'package:prism/prism.dart';
-import 'package:prism/palettes/css.dart';
-import 'package:prism/palettes/material.dart';
+import 'package:prism/palettes/rgb/css.dart';
+import 'package:prism/palettes/rgb/material.dart';
 
 void main() {
   print('🌈 Prism Library Demo\n');

@@ -3,27 +3,22 @@
 <head>
 <title>Prism Palette Gallery - Spectrum</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="SpectrumRgb.css">
 <link rel="stylesheet" href="SpectrumOklch.css">
 <style>
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 20px; background: #f5f5f5; }
 h1 { color: #333; margin-bottom: 30px; }
 h1 a { color: #2196F3; text-decoration: none; transition: all 0.2s ease; }
 h1 a:hover { color: #1976D2; text-decoration: underline; }
-.palette-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.palette-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .color-card { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }
 .color-header { height: 60px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
-.color-info { padding: 15px; }
-.color-name { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
-.luminance { font-size: 14px; color: #666; margin-bottom: 15px; }
-.color-spaces { display: flex; border-radius: 4px; overflow: hidden; }
-.color-space-section { flex: 1; }
-.color-space-section h3 { margin: 0; padding: 8px; background: #f8f9fa; color: #333; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; text-align: center; border-bottom: 1px solid #dee2e6; }
-.shades-column { display: flex; flex-direction: column; }
+.color-info {  }
+.luminance-value { font-weight: 300; opacity: 0.8; padding-left:4px; }
+.shades-column { display: flex; flex-direction: column; border-radius: 4px; overflow: hidden; }
 .shade-item { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 500; position: relative; }
 .shade-name { font-size: 9px; font-weight: 600; margin-right: 4px; }
 .shade-luminance { font-size: 8px; opacity: 0.8; }
-.hex-value { font-family: monospace; font-size: 12px; color: #888; }
+.luminance-value { font-weight: 300; opacity: 0.8; }
 .package-info { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 30px; }
 .package-info h2 { margin-top: 0; color: #333; }
 .package-info p { margin: 10px 0; color: #666; }
@@ -35,10 +30,10 @@ h1 a:hover { color: #1976D2; text-decoration: underline; }
 </style>
 </head>
 <body>
-<h1><a href="https://github.com/jimmyff/prism/tree/main/packages/prism/tools/palettes/gallery/">Palettes</a> → Spectrum</h1>
+<h1><a href="https://github.com/jimmyff/prism/tree/main/palette_gallery">Palettes</a> → Spectrum</h1>
 <div class="package-info">
 <h2>About Prism 🌈</h2>
-<p>This palette is part of the <strong>Prism</strong> color manipulation library for Dart and Flutter. Prism provides comprehensive color operations, accessibility-focused color schemes, and extensive pre-built palettes.</p>
+<p>Comprehensive color library for Dart and Flutter with accessibility-focused schemes and pre-built palettes.</p>
 <div class="package-links">
 <div class="package-link">
 <strong>📦 Dart Package:</strong><br>
@@ -52,4144 +47,1585 @@ h1 a:hover { color: #1976D2; text-decoration: underline; }
 </div>
 <div class="palette-container">
 <div class="color-card">
-<div class="color-header" style="background-color: #EB0074; color: #000000;">
-pink
+<div class="color-header" style="background-color: #EB0074; color: #FFFFFF;">
+pink <span class="luminance-value">(L:0.60)</span>
 </div>
 <div class="color-info">
-<div class="color-name">pink</div>
-<div class="luminance">Luminance: 0.600 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-pink-0" style="color: #000;">
+<div class="shade-item bg-pink-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-pink-50" style="color: #000;">
+<div class="shade-item bg-pink-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-pink-100" style="color: #000;">
+<div class="shade-item bg-pink-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-pink-200" style="color: #000;">
+<div class="shade-item bg-pink-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-pink-300" style="color: #000;">
+<div class="shade-item bg-pink-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-pink-400" style="color: #000;">
+<div class="shade-item bg-pink-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-pink-500" style="color: #000;">
+<div class="shade-item bg-pink-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-pink-600" style="color: #000;">
+<div class="shade-item bg-pink-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-pink-700" style="color: #fff;">
+<div class="shade-item bg-pink-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-pink-800" style="color: #fff;">
+<div class="shade-item bg-pink-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-pink-900" style="color: #fff;">
+<div class="shade-item bg-pink-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-pink-950" style="color: #fff;">
+<div class="shade-item bg-pink-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-pink-1000" style="color: #fff;">
+<div class="shade-item bg-pink-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-pink-accent100" style="color: #000;">
+<div class="shade-item bg-pink-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-pink-accent200" style="color: #000;">
+<div class="shade-item bg-pink-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-pink-accent400" style="color: #000;">
+<div class="shade-item bg-pink-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-pink-accent700" style="color: #fff;">
+<div class="shade-item bg-pink-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-pink-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-pink-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-pink-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-pink-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-pink-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-pink-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-pink-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-pink-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-pink-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-pink-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-pink-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-pink-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-pink-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-pink-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-pink-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-pink-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-pink-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #F10046; color: #000000;">
-crimson
+<div class="color-header" style="background-color: #F10046; color: #FFFFFF;">
+crimson <span class="luminance-value">(L:0.60)</span>
 </div>
 <div class="color-info">
-<div class="color-name">crimson</div>
-<div class="luminance">Luminance: 0.600 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-crimson-0" style="color: #000;">
+<div class="shade-item bg-crimson-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-50" style="color: #000;">
+<div class="shade-item bg-crimson-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-100" style="color: #000;">
+<div class="shade-item bg-crimson-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-200" style="color: #000;">
+<div class="shade-item bg-crimson-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-300" style="color: #000;">
+<div class="shade-item bg-crimson-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-400" style="color: #000;">
+<div class="shade-item bg-crimson-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-500" style="color: #000;">
+<div class="shade-item bg-crimson-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-600" style="color: #000;">
+<div class="shade-item bg-crimson-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-700" style="color: #fff;">
+<div class="shade-item bg-crimson-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-800" style="color: #fff;">
+<div class="shade-item bg-crimson-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-900" style="color: #fff;">
+<div class="shade-item bg-crimson-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-950" style="color: #fff;">
+<div class="shade-item bg-crimson-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-1000" style="color: #fff;">
+<div class="shade-item bg-crimson-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-accent100" style="color: #000;">
+<div class="shade-item bg-crimson-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-accent200" style="color: #000;">
+<div class="shade-item bg-crimson-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-accent400" style="color: #000;">
+<div class="shade-item bg-crimson-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-crimson-accent700" style="color: #fff;">
+<div class="shade-item bg-crimson-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-crimson-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-crimson-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #FD0000; color: #000000;">
-red
+<div class="color-header" style="background-color: #FD0000; color: #FFFFFF;">
+red <span class="luminance-value">(L:0.62)</span>
 </div>
 <div class="color-info">
-<div class="color-name">red</div>
-<div class="luminance">Luminance: 0.620 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-red-0" style="color: #000;">
+<div class="shade-item bg-red-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-red-50" style="color: #000;">
+<div class="shade-item bg-red-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-red-100" style="color: #000;">
+<div class="shade-item bg-red-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-red-200" style="color: #000;">
+<div class="shade-item bg-red-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-red-300" style="color: #000;">
+<div class="shade-item bg-red-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-red-400" style="color: #000;">
+<div class="shade-item bg-red-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-red-500" style="color: #000;">
+<div class="shade-item bg-red-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-red-600" style="color: #000;">
+<div class="shade-item bg-red-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-red-700" style="color: #fff;">
+<div class="shade-item bg-red-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-red-800" style="color: #fff;">
+<div class="shade-item bg-red-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-red-900" style="color: #fff;">
+<div class="shade-item bg-red-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-red-950" style="color: #fff;">
+<div class="shade-item bg-red-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-red-1000" style="color: #fff;">
+<div class="shade-item bg-red-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-red-accent100" style="color: #000;">
+<div class="shade-item bg-red-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-red-accent200" style="color: #000;">
+<div class="shade-item bg-red-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-red-accent400" style="color: #000;">
+<div class="shade-item bg-red-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-red-accent700" style="color: #fff;">
+<div class="shade-item bg-red-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-red-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-red-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-red-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-red-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-red-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-red-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-red-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-red-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-red-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-red-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-red-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-red-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-red-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-red-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-red-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-red-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-red-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #FA4700; color: #000000;">
-rust
+<div class="color-header" style="background-color: #FA4700; color: #FFFFFF;">
+rust <span class="luminance-value">(L:0.65)</span>
 </div>
 <div class="color-info">
-<div class="color-name">rust</div>
-<div class="luminance">Luminance: 0.650 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-rust-0" style="color: #000;">
+<div class="shade-item bg-rust-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-rust-50" style="color: #000;">
+<div class="shade-item bg-rust-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-rust-100" style="color: #000;">
+<div class="shade-item bg-rust-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-rust-200" style="color: #000;">
+<div class="shade-item bg-rust-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-rust-300" style="color: #000;">
+<div class="shade-item bg-rust-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-rust-400" style="color: #000;">
+<div class="shade-item bg-rust-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-rust-500" style="color: #000;">
+<div class="shade-item bg-rust-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-rust-600" style="color: #000;">
+<div class="shade-item bg-rust-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-rust-700" style="color: #fff;">
+<div class="shade-item bg-rust-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-rust-800" style="color: #fff;">
+<div class="shade-item bg-rust-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-rust-900" style="color: #fff;">
+<div class="shade-item bg-rust-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-rust-950" style="color: #fff;">
+<div class="shade-item bg-rust-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-rust-1000" style="color: #fff;">
+<div class="shade-item bg-rust-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-rust-accent100" style="color: #000;">
+<div class="shade-item bg-rust-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-rust-accent200" style="color: #000;">
+<div class="shade-item bg-rust-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-rust-accent400" style="color: #000;">
+<div class="shade-item bg-rust-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-rust-accent700" style="color: #fff;">
+<div class="shade-item bg-rust-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-rust-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-rust-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-rust-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-rust-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-rust-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-rust-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-rust-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-rust-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-rust-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-rust-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-rust-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-rust-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-rust-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-rust-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-rust-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-rust-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-rust-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #F68200; color: #000000;">
-orange
+orange <span class="luminance-value">(L:0.72)</span>
 </div>
 <div class="color-info">
-<div class="color-name">orange</div>
-<div class="luminance">Luminance: 0.720 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-orange-0" style="color: #000;">
+<div class="shade-item bg-orange-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-orange-50" style="color: #000;">
+<div class="shade-item bg-orange-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-orange-100" style="color: #000;">
+<div class="shade-item bg-orange-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-orange-200" style="color: #000;">
+<div class="shade-item bg-orange-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-orange-300" style="color: #000;">
+<div class="shade-item bg-orange-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-orange-400" style="color: #000;">
+<div class="shade-item bg-orange-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-orange-500" style="color: #000;">
+<div class="shade-item bg-orange-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-orange-600" style="color: #000;">
+<div class="shade-item bg-orange-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-orange-700" style="color: #fff;">
+<div class="shade-item bg-orange-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-orange-800" style="color: #fff;">
+<div class="shade-item bg-orange-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-orange-900" style="color: #fff;">
+<div class="shade-item bg-orange-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-orange-950" style="color: #fff;">
+<div class="shade-item bg-orange-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-orange-1000" style="color: #fff;">
+<div class="shade-item bg-orange-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-orange-accent100" style="color: #000;">
+<div class="shade-item bg-orange-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-orange-accent200" style="color: #000;">
+<div class="shade-item bg-orange-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-orange-accent400" style="color: #000;">
+<div class="shade-item bg-orange-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-orange-accent700" style="color: #fff;">
+<div class="shade-item bg-orange-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-orange-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-orange-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-orange-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-orange-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-orange-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-orange-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-orange-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-orange-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-orange-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-orange-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-orange-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-orange-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-orange-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-orange-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-orange-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-orange-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-orange-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #FFB400; color: #000000;">
-amber
+amber <span class="luminance-value">(L:0.84)</span>
 </div>
 <div class="color-info">
-<div class="color-name">amber</div>
-<div class="luminance">Luminance: 0.840 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-amber-0" style="color: #000;">
+<div class="shade-item bg-amber-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-amber-50" style="color: #000;">
+<div class="shade-item bg-amber-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-amber-100" style="color: #000;">
+<div class="shade-item bg-amber-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-amber-200" style="color: #000;">
+<div class="shade-item bg-amber-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-amber-300" style="color: #000;">
+<div class="shade-item bg-amber-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-amber-400" style="color: #000;">
+<div class="shade-item bg-amber-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-amber-500" style="color: #000;">
+<div class="shade-item bg-amber-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-amber-600" style="color: #000;">
+<div class="shade-item bg-amber-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-amber-700" style="color: #fff;">
+<div class="shade-item bg-amber-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-amber-800" style="color: #fff;">
+<div class="shade-item bg-amber-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-amber-900" style="color: #fff;">
+<div class="shade-item bg-amber-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-amber-950" style="color: #fff;">
+<div class="shade-item bg-amber-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-amber-1000" style="color: #fff;">
+<div class="shade-item bg-amber-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-amber-accent100" style="color: #000;">
+<div class="shade-item bg-amber-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-amber-accent200" style="color: #000;">
+<div class="shade-item bg-amber-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-amber-accent400" style="color: #000;">
+<div class="shade-item bg-amber-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-amber-accent700" style="color: #fff;">
+<div class="shade-item bg-amber-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-amber-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-amber-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-amber-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-amber-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-amber-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-amber-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-amber-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-amber-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-amber-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-amber-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-amber-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-amber-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-amber-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-amber-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-amber-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-amber-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-amber-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #FFE000; color: #000000;">
-yellow
+yellow <span class="luminance-value">(L:0.93)</span>
 </div>
 <div class="color-info">
-<div class="color-name">yellow</div>
-<div class="luminance">Luminance: 0.930 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-yellow-0" style="color: #000;">
+<div class="shade-item bg-yellow-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-50" style="color: #000;">
+<div class="shade-item bg-yellow-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-100" style="color: #000;">
+<div class="shade-item bg-yellow-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-200" style="color: #000;">
+<div class="shade-item bg-yellow-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-300" style="color: #000;">
+<div class="shade-item bg-yellow-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-400" style="color: #000;">
+<div class="shade-item bg-yellow-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-500" style="color: #000;">
+<div class="shade-item bg-yellow-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-600" style="color: #000;">
+<div class="shade-item bg-yellow-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-700" style="color: #fff;">
+<div class="shade-item bg-yellow-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-800" style="color: #fff;">
+<div class="shade-item bg-yellow-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-900" style="color: #fff;">
+<div class="shade-item bg-yellow-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-950" style="color: #fff;">
+<div class="shade-item bg-yellow-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-1000" style="color: #fff;">
+<div class="shade-item bg-yellow-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-accent100" style="color: #000;">
+<div class="shade-item bg-yellow-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-accent200" style="color: #000;">
+<div class="shade-item bg-yellow-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-accent400" style="color: #000;">
+<div class="shade-item bg-yellow-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-yellow-accent700" style="color: #fff;">
+<div class="shade-item bg-yellow-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-yellow-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-yellow-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #F1E200; color: #000000;">
-lemon
+lemon <span class="luminance-value">(L:0.89)</span>
 </div>
 <div class="color-info">
-<div class="color-name">lemon</div>
-<div class="luminance">Luminance: 0.890 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-lemon-0" style="color: #000;">
+<div class="shade-item bg-lemon-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-50" style="color: #000;">
+<div class="shade-item bg-lemon-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-100" style="color: #000;">
+<div class="shade-item bg-lemon-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-200" style="color: #000;">
+<div class="shade-item bg-lemon-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-300" style="color: #000;">
+<div class="shade-item bg-lemon-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-400" style="color: #000;">
+<div class="shade-item bg-lemon-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-500" style="color: #000;">
+<div class="shade-item bg-lemon-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-600" style="color: #000;">
+<div class="shade-item bg-lemon-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-700" style="color: #fff;">
+<div class="shade-item bg-lemon-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-800" style="color: #fff;">
+<div class="shade-item bg-lemon-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-900" style="color: #fff;">
+<div class="shade-item bg-lemon-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-950" style="color: #fff;">
+<div class="shade-item bg-lemon-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-1000" style="color: #fff;">
+<div class="shade-item bg-lemon-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-accent100" style="color: #000;">
+<div class="shade-item bg-lemon-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-accent200" style="color: #000;">
+<div class="shade-item bg-lemon-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-accent400" style="color: #000;">
+<div class="shade-item bg-lemon-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-lemon-accent700" style="color: #fff;">
+<div class="shade-item bg-lemon-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-lemon-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-lemon-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #9ECC00; color: #000000;">
-lime
+lime <span class="luminance-value">(L:0.78)</span>
 </div>
 <div class="color-info">
-<div class="color-name">lime</div>
-<div class="luminance">Luminance: 0.780 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-lime-0" style="color: #000;">
+<div class="shade-item bg-lime-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-lime-50" style="color: #000;">
+<div class="shade-item bg-lime-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-lime-100" style="color: #000;">
+<div class="shade-item bg-lime-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-lime-200" style="color: #000;">
+<div class="shade-item bg-lime-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-lime-300" style="color: #000;">
+<div class="shade-item bg-lime-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-lime-400" style="color: #000;">
+<div class="shade-item bg-lime-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-lime-500" style="color: #000;">
+<div class="shade-item bg-lime-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-lime-600" style="color: #000;">
+<div class="shade-item bg-lime-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-lime-700" style="color: #fff;">
+<div class="shade-item bg-lime-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-lime-800" style="color: #fff;">
+<div class="shade-item bg-lime-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-lime-900" style="color: #fff;">
+<div class="shade-item bg-lime-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-lime-950" style="color: #fff;">
+<div class="shade-item bg-lime-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-lime-1000" style="color: #fff;">
+<div class="shade-item bg-lime-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-lime-accent100" style="color: #000;">
+<div class="shade-item bg-lime-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-lime-accent200" style="color: #000;">
+<div class="shade-item bg-lime-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-lime-accent400" style="color: #000;">
+<div class="shade-item bg-lime-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-lime-accent700" style="color: #fff;">
+<div class="shade-item bg-lime-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-lime-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-lime-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-lime-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-lime-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-lime-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-lime-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-lime-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-lime-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-lime-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-lime-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-lime-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-lime-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-lime-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-lime-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-lime-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-lime-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-lime-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #4AB400; color: #000000;">
-green
+<div class="color-header" style="background-color: #4AB400; color: #FFFFFF;">
+green <span class="luminance-value">(L:0.68)</span>
 </div>
 <div class="color-info">
-<div class="color-name">green</div>
-<div class="luminance">Luminance: 0.680 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-green-0" style="color: #000;">
+<div class="shade-item bg-green-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-green-50" style="color: #000;">
+<div class="shade-item bg-green-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-green-100" style="color: #000;">
+<div class="shade-item bg-green-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-green-200" style="color: #000;">
+<div class="shade-item bg-green-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-green-300" style="color: #000;">
+<div class="shade-item bg-green-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-green-400" style="color: #000;">
+<div class="shade-item bg-green-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-green-500" style="color: #000;">
+<div class="shade-item bg-green-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-green-600" style="color: #000;">
+<div class="shade-item bg-green-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-green-700" style="color: #fff;">
+<div class="shade-item bg-green-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-green-800" style="color: #fff;">
+<div class="shade-item bg-green-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-green-900" style="color: #fff;">
+<div class="shade-item bg-green-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-green-950" style="color: #fff;">
+<div class="shade-item bg-green-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-green-1000" style="color: #fff;">
+<div class="shade-item bg-green-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-green-accent100" style="color: #000;">
+<div class="shade-item bg-green-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-green-accent200" style="color: #000;">
+<div class="shade-item bg-green-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-green-accent400" style="color: #000;">
+<div class="shade-item bg-green-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-green-accent700" style="color: #fff;">
+<div class="shade-item bg-green-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-green-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-green-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-green-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-green-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-green-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-green-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-green-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-green-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-green-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-green-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-green-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-green-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-green-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-green-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-green-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-green-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-green-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #00B436; color: #000000;">
-forrest
+<div class="color-header" style="background-color: #00B436; color: #FFFFFF;">
+forrest <span class="luminance-value">(L:0.65)</span>
 </div>
 <div class="color-info">
-<div class="color-name">forrest</div>
-<div class="luminance">Luminance: 0.650 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-forrest-0" style="color: #000;">
+<div class="shade-item bg-forrest-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-50" style="color: #000;">
+<div class="shade-item bg-forrest-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-100" style="color: #000;">
+<div class="shade-item bg-forrest-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-200" style="color: #000;">
+<div class="shade-item bg-forrest-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-300" style="color: #000;">
+<div class="shade-item bg-forrest-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-400" style="color: #000;">
+<div class="shade-item bg-forrest-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-500" style="color: #000;">
+<div class="shade-item bg-forrest-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-600" style="color: #000;">
+<div class="shade-item bg-forrest-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-700" style="color: #fff;">
+<div class="shade-item bg-forrest-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-800" style="color: #fff;">
+<div class="shade-item bg-forrest-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-900" style="color: #fff;">
+<div class="shade-item bg-forrest-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-950" style="color: #fff;">
+<div class="shade-item bg-forrest-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-1000" style="color: #fff;">
+<div class="shade-item bg-forrest-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-accent100" style="color: #000;">
+<div class="shade-item bg-forrest-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-accent200" style="color: #000;">
+<div class="shade-item bg-forrest-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-accent400" style="color: #000;">
+<div class="shade-item bg-forrest-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-forrest-accent700" style="color: #fff;">
+<div class="shade-item bg-forrest-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-forrest-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-forrest-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #009E57; color: #000000;">
-emerald
+<div class="color-header" style="background-color: #009E57; color: #FFFFFF;">
+emerald <span class="luminance-value">(L:0.57)</span>
 </div>
 <div class="color-info">
-<div class="color-name">emerald</div>
-<div class="luminance">Luminance: 0.570 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-emerald-0" style="color: #000;">
+<div class="shade-item bg-emerald-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-50" style="color: #000;">
+<div class="shade-item bg-emerald-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-100" style="color: #000;">
+<div class="shade-item bg-emerald-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-200" style="color: #000;">
+<div class="shade-item bg-emerald-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-300" style="color: #000;">
+<div class="shade-item bg-emerald-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-400" style="color: #000;">
+<div class="shade-item bg-emerald-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-500" style="color: #000;">
+<div class="shade-item bg-emerald-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-600" style="color: #000;">
+<div class="shade-item bg-emerald-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-700" style="color: #fff;">
+<div class="shade-item bg-emerald-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-800" style="color: #fff;">
+<div class="shade-item bg-emerald-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-900" style="color: #fff;">
+<div class="shade-item bg-emerald-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-950" style="color: #fff;">
+<div class="shade-item bg-emerald-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-1000" style="color: #fff;">
+<div class="shade-item bg-emerald-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-accent100" style="color: #000;">
+<div class="shade-item bg-emerald-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-accent200" style="color: #000;">
+<div class="shade-item bg-emerald-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-accent400" style="color: #000;">
+<div class="shade-item bg-emerald-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-emerald-accent700" style="color: #fff;">
+<div class="shade-item bg-emerald-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-emerald-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-emerald-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #19C1AE; color: #000000;">
-turquoise
+turquoise <span class="luminance-value">(L:0.73)</span>
 </div>
 <div class="color-info">
-<div class="color-name">turquoise</div>
-<div class="luminance">Luminance: 0.730 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-turquoise-0" style="color: #000;">
+<div class="shade-item bg-turquoise-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-50" style="color: #000;">
+<div class="shade-item bg-turquoise-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-100" style="color: #000;">
+<div class="shade-item bg-turquoise-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-200" style="color: #000;">
+<div class="shade-item bg-turquoise-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-300" style="color: #000;">
+<div class="shade-item bg-turquoise-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-400" style="color: #000;">
+<div class="shade-item bg-turquoise-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-500" style="color: #000;">
+<div class="shade-item bg-turquoise-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-600" style="color: #000;">
+<div class="shade-item bg-turquoise-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-700" style="color: #fff;">
+<div class="shade-item bg-turquoise-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-800" style="color: #fff;">
+<div class="shade-item bg-turquoise-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-900" style="color: #fff;">
+<div class="shade-item bg-turquoise-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-950" style="color: #fff;">
+<div class="shade-item bg-turquoise-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-1000" style="color: #fff;">
+<div class="shade-item bg-turquoise-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-accent100" style="color: #000;">
+<div class="shade-item bg-turquoise-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-accent200" style="color: #000;">
+<div class="shade-item bg-turquoise-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-accent400" style="color: #000;">
+<div class="shade-item bg-turquoise-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-turquoise-accent700" style="color: #fff;">
+<div class="shade-item bg-turquoise-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-turquoise-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-turquoise-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
 <div class="color-header" style="background-color: #00DBDF; color: #000000;">
-cyan
+cyan <span class="luminance-value">(L:0.80)</span>
 </div>
 <div class="color-info">
-<div class="color-name">cyan</div>
-<div class="luminance">Luminance: 0.800 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-cyan-0" style="color: #000;">
+<div class="shade-item bg-cyan-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-50" style="color: #000;">
+<div class="shade-item bg-cyan-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-100" style="color: #000;">
+<div class="shade-item bg-cyan-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-200" style="color: #000;">
+<div class="shade-item bg-cyan-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-300" style="color: #000;">
+<div class="shade-item bg-cyan-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-400" style="color: #000;">
+<div class="shade-item bg-cyan-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-500" style="color: #000;">
+<div class="shade-item bg-cyan-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-600" style="color: #000;">
+<div class="shade-item bg-cyan-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-700" style="color: #fff;">
+<div class="shade-item bg-cyan-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-800" style="color: #fff;">
+<div class="shade-item bg-cyan-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-900" style="color: #fff;">
+<div class="shade-item bg-cyan-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-950" style="color: #fff;">
+<div class="shade-item bg-cyan-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-1000" style="color: #fff;">
+<div class="shade-item bg-cyan-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-accent100" style="color: #000;">
+<div class="shade-item bg-cyan-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-accent200" style="color: #000;">
+<div class="shade-item bg-cyan-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-accent400" style="color: #000;">
+<div class="shade-item bg-cyan-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-cyan-accent700" style="color: #fff;">
+<div class="shade-item bg-cyan-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-cyan-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-cyan-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #00B0E3; color: #000000;">
-cerulean
+<div class="color-header" style="background-color: #00B0E3; color: #FFFFFF;">
+cerulean <span class="luminance-value">(L:0.66)</span>
 </div>
 <div class="color-info">
-<div class="color-name">cerulean</div>
-<div class="luminance">Luminance: 0.660 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-cerulean-0" style="color: #000;">
+<div class="shade-item bg-cerulean-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-50" style="color: #000;">
+<div class="shade-item bg-cerulean-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-100" style="color: #000;">
+<div class="shade-item bg-cerulean-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-200" style="color: #000;">
+<div class="shade-item bg-cerulean-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-300" style="color: #000;">
+<div class="shade-item bg-cerulean-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-400" style="color: #000;">
+<div class="shade-item bg-cerulean-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-500" style="color: #000;">
+<div class="shade-item bg-cerulean-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-600" style="color: #000;">
+<div class="shade-item bg-cerulean-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-700" style="color: #fff;">
+<div class="shade-item bg-cerulean-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-800" style="color: #fff;">
+<div class="shade-item bg-cerulean-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-900" style="color: #fff;">
+<div class="shade-item bg-cerulean-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-950" style="color: #fff;">
+<div class="shade-item bg-cerulean-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-1000" style="color: #fff;">
+<div class="shade-item bg-cerulean-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-accent100" style="color: #000;">
+<div class="shade-item bg-cerulean-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-accent200" style="color: #000;">
+<div class="shade-item bg-cerulean-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-accent400" style="color: #000;">
+<div class="shade-item bg-cerulean-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-cerulean-accent700" style="color: #fff;">
+<div class="shade-item bg-cerulean-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-cerulean-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-cerulean-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #00A3FE; color: #000000;">
-azure
+<div class="color-header" style="background-color: #00A3FE; color: #FFFFFF;">
+azure <span class="luminance-value">(L:0.65)</span>
 </div>
 <div class="color-info">
-<div class="color-name">azure</div>
-<div class="luminance">Luminance: 0.650 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-azure-0" style="color: #000;">
+<div class="shade-item bg-azure-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-azure-50" style="color: #000;">
+<div class="shade-item bg-azure-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-azure-100" style="color: #000;">
+<div class="shade-item bg-azure-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-azure-200" style="color: #000;">
+<div class="shade-item bg-azure-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-azure-300" style="color: #000;">
+<div class="shade-item bg-azure-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-azure-400" style="color: #000;">
+<div class="shade-item bg-azure-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-azure-500" style="color: #000;">
+<div class="shade-item bg-azure-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-azure-600" style="color: #000;">
+<div class="shade-item bg-azure-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-azure-700" style="color: #fff;">
+<div class="shade-item bg-azure-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-azure-800" style="color: #fff;">
+<div class="shade-item bg-azure-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-azure-900" style="color: #fff;">
+<div class="shade-item bg-azure-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-azure-950" style="color: #fff;">
+<div class="shade-item bg-azure-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-azure-1000" style="color: #fff;">
+<div class="shade-item bg-azure-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-azure-accent100" style="color: #000;">
+<div class="shade-item bg-azure-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-azure-accent200" style="color: #000;">
+<div class="shade-item bg-azure-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-azure-accent400" style="color: #000;">
+<div class="shade-item bg-azure-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-azure-accent700" style="color: #fff;">
+<div class="shade-item bg-azure-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-azure-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-azure-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-azure-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-azure-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-azure-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-azure-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-azure-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-azure-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-azure-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-azure-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-azure-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-azure-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-azure-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-azure-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-azure-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-azure-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-azure-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #008EFF; color: #000000;">
-sky
+<div class="color-header" style="background-color: #008EFF; color: #FFFFFF;">
+sky <span class="luminance-value">(L:0.63)</span>
 </div>
 <div class="color-info">
-<div class="color-name">sky</div>
-<div class="luminance">Luminance: 0.630 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-sky-0" style="color: #000;">
+<div class="shade-item bg-sky-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-sky-50" style="color: #000;">
+<div class="shade-item bg-sky-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-sky-100" style="color: #000;">
+<div class="shade-item bg-sky-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-sky-200" style="color: #000;">
+<div class="shade-item bg-sky-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-sky-300" style="color: #000;">
+<div class="shade-item bg-sky-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-sky-400" style="color: #000;">
+<div class="shade-item bg-sky-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-sky-500" style="color: #000;">
+<div class="shade-item bg-sky-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-sky-600" style="color: #000;">
+<div class="shade-item bg-sky-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-sky-700" style="color: #fff;">
+<div class="shade-item bg-sky-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-sky-800" style="color: #fff;">
+<div class="shade-item bg-sky-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-sky-900" style="color: #fff;">
+<div class="shade-item bg-sky-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-sky-950" style="color: #fff;">
+<div class="shade-item bg-sky-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-sky-1000" style="color: #fff;">
+<div class="shade-item bg-sky-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-sky-accent100" style="color: #000;">
+<div class="shade-item bg-sky-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-sky-accent200" style="color: #000;">
+<div class="shade-item bg-sky-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-sky-accent400" style="color: #000;">
+<div class="shade-item bg-sky-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-sky-accent700" style="color: #fff;">
+<div class="shade-item bg-sky-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-sky-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-sky-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-sky-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-sky-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-sky-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-sky-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-sky-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-sky-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-sky-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-sky-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-sky-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-sky-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-sky-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-sky-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-sky-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-sky-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-sky-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #0077FF; color: #000000;">
-blue
+<div class="color-header" style="background-color: #0077FF; color: #FFFFFF;">
+blue <span class="luminance-value">(L:0.61)</span>
 </div>
 <div class="color-info">
-<div class="color-name">blue</div>
-<div class="luminance">Luminance: 0.610 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-blue-0" style="color: #000;">
+<div class="shade-item bg-blue-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-blue-50" style="color: #000;">
+<div class="shade-item bg-blue-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-blue-100" style="color: #000;">
+<div class="shade-item bg-blue-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-blue-200" style="color: #000;">
+<div class="shade-item bg-blue-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-blue-300" style="color: #000;">
+<div class="shade-item bg-blue-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-blue-400" style="color: #000;">
+<div class="shade-item bg-blue-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-blue-500" style="color: #000;">
+<div class="shade-item bg-blue-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-blue-600" style="color: #000;">
+<div class="shade-item bg-blue-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-blue-700" style="color: #fff;">
+<div class="shade-item bg-blue-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-blue-800" style="color: #fff;">
+<div class="shade-item bg-blue-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-blue-900" style="color: #fff;">
+<div class="shade-item bg-blue-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-blue-950" style="color: #fff;">
+<div class="shade-item bg-blue-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-blue-1000" style="color: #fff;">
+<div class="shade-item bg-blue-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-blue-accent100" style="color: #000;">
+<div class="shade-item bg-blue-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-blue-accent200" style="color: #000;">
+<div class="shade-item bg-blue-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-blue-accent400" style="color: #000;">
+<div class="shade-item bg-blue-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-blue-accent700" style="color: #fff;">
+<div class="shade-item bg-blue-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-blue-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-blue-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-blue-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-blue-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-blue-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-blue-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-blue-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-blue-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-blue-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-blue-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-blue-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-blue-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-blue-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-blue-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-blue-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-blue-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-blue-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #4958F5; color: #000000;">
-indigo
+<div class="color-header" style="background-color: #4958F5; color: #FFFFFF;">
+indigo <span class="luminance-value">(L:0.55)</span>
 </div>
 <div class="color-info">
-<div class="color-name">indigo</div>
-<div class="luminance">Luminance: 0.550 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-indigo-0" style="color: #000;">
+<div class="shade-item bg-indigo-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-50" style="color: #000;">
+<div class="shade-item bg-indigo-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-100" style="color: #000;">
+<div class="shade-item bg-indigo-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-200" style="color: #000;">
+<div class="shade-item bg-indigo-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-300" style="color: #000;">
+<div class="shade-item bg-indigo-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-400" style="color: #000;">
+<div class="shade-item bg-indigo-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-500" style="color: #000;">
+<div class="shade-item bg-indigo-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-600" style="color: #000;">
+<div class="shade-item bg-indigo-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-700" style="color: #fff;">
+<div class="shade-item bg-indigo-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-800" style="color: #fff;">
+<div class="shade-item bg-indigo-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-900" style="color: #fff;">
+<div class="shade-item bg-indigo-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-950" style="color: #fff;">
+<div class="shade-item bg-indigo-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-1000" style="color: #fff;">
+<div class="shade-item bg-indigo-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-accent100" style="color: #000;">
+<div class="shade-item bg-indigo-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-accent200" style="color: #000;">
+<div class="shade-item bg-indigo-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-accent400" style="color: #000;">
+<div class="shade-item bg-indigo-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-indigo-accent700" style="color: #fff;">
+<div class="shade-item bg-indigo-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-indigo-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-indigo-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #714AED; color: #000000;">
-berry
+<div class="color-header" style="background-color: #714AED; color: #FFFFFF;">
+berry <span class="luminance-value">(L:0.55)</span>
 </div>
 <div class="color-info">
-<div class="color-name">berry</div>
-<div class="luminance">Luminance: 0.550 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-berry-0" style="color: #000;">
+<div class="shade-item bg-berry-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-berry-50" style="color: #000;">
+<div class="shade-item bg-berry-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-berry-100" style="color: #000;">
+<div class="shade-item bg-berry-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-berry-200" style="color: #000;">
+<div class="shade-item bg-berry-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-berry-300" style="color: #000;">
+<div class="shade-item bg-berry-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-berry-400" style="color: #000;">
+<div class="shade-item bg-berry-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-berry-500" style="color: #000;">
+<div class="shade-item bg-berry-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-berry-600" style="color: #000;">
+<div class="shade-item bg-berry-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-berry-700" style="color: #fff;">
+<div class="shade-item bg-berry-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-berry-800" style="color: #fff;">
+<div class="shade-item bg-berry-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-berry-900" style="color: #fff;">
+<div class="shade-item bg-berry-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-berry-950" style="color: #fff;">
+<div class="shade-item bg-berry-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-berry-1000" style="color: #fff;">
+<div class="shade-item bg-berry-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-berry-accent100" style="color: #000;">
+<div class="shade-item bg-berry-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-berry-accent200" style="color: #000;">
+<div class="shade-item bg-berry-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-berry-accent400" style="color: #000;">
+<div class="shade-item bg-berry-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-berry-accent700" style="color: #fff;">
+<div class="shade-item bg-berry-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-berry-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-berry-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-berry-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-berry-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-berry-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-berry-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-berry-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-berry-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-berry-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-berry-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-berry-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-berry-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-berry-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-berry-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-berry-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-berry-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-berry-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #913EE3; color: #000000;">
-violet
+<div class="color-header" style="background-color: #913EE3; color: #FFFFFF;">
+violet <span class="luminance-value">(L:0.56)</span>
 </div>
 <div class="color-info">
-<div class="color-name">violet</div>
-<div class="luminance">Luminance: 0.560 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-violet-0" style="color: #000;">
+<div class="shade-item bg-violet-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-violet-50" style="color: #000;">
+<div class="shade-item bg-violet-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-violet-100" style="color: #000;">
+<div class="shade-item bg-violet-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-violet-200" style="color: #000;">
+<div class="shade-item bg-violet-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-violet-300" style="color: #000;">
+<div class="shade-item bg-violet-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-violet-400" style="color: #000;">
+<div class="shade-item bg-violet-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-violet-500" style="color: #000;">
+<div class="shade-item bg-violet-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-violet-600" style="color: #000;">
+<div class="shade-item bg-violet-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-violet-700" style="color: #fff;">
+<div class="shade-item bg-violet-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-violet-800" style="color: #fff;">
+<div class="shade-item bg-violet-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-violet-900" style="color: #fff;">
+<div class="shade-item bg-violet-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-violet-950" style="color: #fff;">
+<div class="shade-item bg-violet-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-violet-1000" style="color: #fff;">
+<div class="shade-item bg-violet-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-violet-accent100" style="color: #000;">
+<div class="shade-item bg-violet-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-violet-accent200" style="color: #000;">
+<div class="shade-item bg-violet-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-violet-accent400" style="color: #000;">
+<div class="shade-item bg-violet-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-violet-accent700" style="color: #fff;">
+<div class="shade-item bg-violet-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-violet-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-violet-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-violet-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-violet-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-violet-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-violet-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-violet-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-violet-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-violet-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-violet-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-violet-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-violet-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-violet-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-violet-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-violet-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-violet-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-violet-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #A42EC7; color: #000000;">
-purple
+<div class="color-header" style="background-color: #A42EC7; color: #FFFFFF;">
+purple <span class="luminance-value">(L:0.55)</span>
 </div>
 <div class="color-info">
-<div class="color-name">purple</div>
-<div class="luminance">Luminance: 0.550 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-purple-0" style="color: #000;">
+<div class="shade-item bg-purple-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-purple-50" style="color: #000;">
+<div class="shade-item bg-purple-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-purple-100" style="color: #000;">
+<div class="shade-item bg-purple-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-purple-200" style="color: #000;">
+<div class="shade-item bg-purple-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-purple-300" style="color: #000;">
+<div class="shade-item bg-purple-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-purple-400" style="color: #000;">
+<div class="shade-item bg-purple-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-purple-500" style="color: #000;">
+<div class="shade-item bg-purple-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-purple-600" style="color: #000;">
+<div class="shade-item bg-purple-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-purple-700" style="color: #fff;">
+<div class="shade-item bg-purple-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-purple-800" style="color: #fff;">
+<div class="shade-item bg-purple-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-purple-900" style="color: #fff;">
+<div class="shade-item bg-purple-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-purple-950" style="color: #fff;">
+<div class="shade-item bg-purple-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-purple-1000" style="color: #fff;">
+<div class="shade-item bg-purple-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-purple-accent100" style="color: #000;">
+<div class="shade-item bg-purple-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-purple-accent200" style="color: #000;">
+<div class="shade-item bg-purple-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-purple-accent400" style="color: #000;">
+<div class="shade-item bg-purple-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-purple-accent700" style="color: #fff;">
+<div class="shade-item bg-purple-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-purple-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-purple-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-purple-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-purple-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-purple-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-purple-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-purple-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-purple-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-purple-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-purple-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-purple-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-purple-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-purple-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-purple-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-purple-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-purple-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-purple-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #DE00CF; color: #000000;">
-fuchsia
+<div class="color-header" style="background-color: #DE00CF; color: #FFFFFF;">
+fuchsia <span class="luminance-value">(L:0.62)</span>
 </div>
 <div class="color-info">
-<div class="color-name">fuchsia</div>
-<div class="luminance">Luminance: 0.620 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-fuchsia-0" style="color: #000;">
+<div class="shade-item bg-fuchsia-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-50" style="color: #000;">
+<div class="shade-item bg-fuchsia-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-100" style="color: #000;">
+<div class="shade-item bg-fuchsia-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-200" style="color: #000;">
+<div class="shade-item bg-fuchsia-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-300" style="color: #000;">
+<div class="shade-item bg-fuchsia-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-400" style="color: #000;">
+<div class="shade-item bg-fuchsia-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-500" style="color: #000;">
+<div class="shade-item bg-fuchsia-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-600" style="color: #000;">
+<div class="shade-item bg-fuchsia-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-700" style="color: #fff;">
+<div class="shade-item bg-fuchsia-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-800" style="color: #fff;">
+<div class="shade-item bg-fuchsia-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-900" style="color: #fff;">
+<div class="shade-item bg-fuchsia-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-950" style="color: #fff;">
+<div class="shade-item bg-fuchsia-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-1000" style="color: #fff;">
+<div class="shade-item bg-fuchsia-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-accent100" style="color: #000;">
+<div class="shade-item bg-fuchsia-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-accent200" style="color: #000;">
+<div class="shade-item bg-fuchsia-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-accent400" style="color: #000;">
+<div class="shade-item bg-fuchsia-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-fuchsia-accent700" style="color: #fff;">
+<div class="shade-item bg-fuchsia-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-fuchsia-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-fuchsia-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #EC00A5; color: #000000;">
-magenta
+<div class="color-header" style="background-color: #EC00A5; color: #FFFFFF;">
+magenta <span class="luminance-value">(L:0.62)</span>
 </div>
 <div class="color-info">
-<div class="color-name">magenta</div>
-<div class="luminance">Luminance: 0.620 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-magenta-0" style="color: #000;">
+<div class="shade-item bg-magenta-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-50" style="color: #000;">
+<div class="shade-item bg-magenta-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-100" style="color: #000;">
+<div class="shade-item bg-magenta-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-200" style="color: #000;">
+<div class="shade-item bg-magenta-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-300" style="color: #000;">
+<div class="shade-item bg-magenta-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-400" style="color: #000;">
+<div class="shade-item bg-magenta-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-500" style="color: #000;">
+<div class="shade-item bg-magenta-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-600" style="color: #000;">
+<div class="shade-item bg-magenta-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-700" style="color: #fff;">
+<div class="shade-item bg-magenta-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-800" style="color: #fff;">
+<div class="shade-item bg-magenta-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-900" style="color: #fff;">
+<div class="shade-item bg-magenta-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-950" style="color: #fff;">
+<div class="shade-item bg-magenta-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-1000" style="color: #fff;">
+<div class="shade-item bg-magenta-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-accent100" style="color: #000;">
+<div class="shade-item bg-magenta-accent100" style="color: #000;">
 <span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-accent200" style="color: #000;">
+<div class="shade-item bg-magenta-accent200" style="color: #000;">
 <span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-accent400" style="color: #000;">
+<div class="shade-item bg-magenta-accent400" style="color: #fff;">
 <span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-magenta-accent700" style="color: #fff;">
+<div class="shade-item bg-magenta-accent700" style="color: #fff;">
 <span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-magenta-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-accent100" style="color: #000;">
-<span class="shade-name">accent100</span>
-<span class="shade-luminance">L: 0.80</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-accent200" style="color: #000;">
-<span class="shade-name">accent200</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-accent400" style="color: #000;">
-<span class="shade-name">accent400</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-magenta-accent700" style="color: #fff;">
-<span class="shade-name">accent700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #68737F; color: #000000;">
-neutralCool
+<div class="color-header" style="background-color: #68737F; color: #FFFFFF;">
+neutralCool <span class="luminance-value">(L:0.55)</span>
 </div>
 <div class="color-info">
-<div class="color-name">neutralCool</div>
-<div class="luminance">Luminance: 0.550 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-neutralcool-0" style="color: #000;">
+<div class="shade-item bg-neutralcool-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-50" style="color: #000;">
+<div class="shade-item bg-neutralcool-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-100" style="color: #000;">
+<div class="shade-item bg-neutralcool-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-200" style="color: #000;">
+<div class="shade-item bg-neutralcool-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-300" style="color: #000;">
+<div class="shade-item bg-neutralcool-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-400" style="color: #000;">
+<div class="shade-item bg-neutralcool-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-500" style="color: #000;">
+<div class="shade-item bg-neutralcool-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-600" style="color: #000;">
+<div class="shade-item bg-neutralcool-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-700" style="color: #fff;">
+<div class="shade-item bg-neutralcool-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-800" style="color: #fff;">
+<div class="shade-item bg-neutralcool-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-900" style="color: #fff;">
+<div class="shade-item bg-neutralcool-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-950" style="color: #fff;">
+<div class="shade-item bg-neutralcool-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-neutralcool-1000" style="color: #fff;">
+<div class="shade-item bg-neutralcool-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-neutralcool-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-neutralcool-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #717171; color: #000000;">
-neutral
+<div class="color-header" style="background-color: #717171; color: #FFFFFF;">
+neutral <span class="luminance-value">(L:0.55)</span>
 </div>
 <div class="color-info">
-<div class="color-name">neutral</div>
-<div class="luminance">Luminance: 0.550 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-neutral-0" style="color: #000;">
+<div class="shade-item bg-neutral-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-50" style="color: #000;">
+<div class="shade-item bg-neutral-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-100" style="color: #000;">
+<div class="shade-item bg-neutral-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-200" style="color: #000;">
+<div class="shade-item bg-neutral-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-300" style="color: #000;">
+<div class="shade-item bg-neutral-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-400" style="color: #000;">
+<div class="shade-item bg-neutral-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-500" style="color: #000;">
+<div class="shade-item bg-neutral-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-600" style="color: #000;">
+<div class="shade-item bg-neutral-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-700" style="color: #fff;">
+<div class="shade-item bg-neutral-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-800" style="color: #fff;">
+<div class="shade-item bg-neutral-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-900" style="color: #fff;">
+<div class="shade-item bg-neutral-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-950" style="color: #fff;">
+<div class="shade-item bg-neutral-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-neutral-1000" style="color: #fff;">
+<div class="shade-item bg-neutral-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-neutral-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-neutral-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="color-card">
-<div class="color-header" style="background-color: #7B6E6A; color: #000000;">
-neutralWarm
+<div class="color-header" style="background-color: #7B6E6A; color: #FFFFFF;">
+neutralWarm <span class="luminance-value">(L:0.55)</span>
 </div>
 <div class="color-info">
-<div class="color-name">neutralWarm</div>
-<div class="luminance">Luminance: 0.550 (Light)</div>
-<div class="color-spaces">
-<div class="color-space-section">
-<h3>RGB</h3>
 <div class="shades-column">
-<div class="shade-item bg-spectrum-neutralwarm-0" style="color: #000;">
+<div class="shade-item bg-neutralwarm-0" style="color: #000;">
 <span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-50" style="color: #000;">
+<div class="shade-item bg-neutralwarm-50" style="color: #000;">
 <span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-100" style="color: #000;">
+<div class="shade-item bg-neutralwarm-100" style="color: #000;">
 <span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-200" style="color: #000;">
+<div class="shade-item bg-neutralwarm-200" style="color: #000;">
 <span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-300" style="color: #000;">
+<div class="shade-item bg-neutralwarm-300" style="color: #000;">
 <span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-400" style="color: #000;">
+<div class="shade-item bg-neutralwarm-400" style="color: #fff;">
 <span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-500" style="color: #000;">
+<div class="shade-item bg-neutralwarm-500" style="color: #fff;">
 <span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-600" style="color: #000;">
+<div class="shade-item bg-neutralwarm-600" style="color: #fff;">
 <span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-700" style="color: #fff;">
+<div class="shade-item bg-neutralwarm-700" style="color: #fff;">
 <span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-800" style="color: #fff;">
+<div class="shade-item bg-neutralwarm-800" style="color: #fff;">
 <span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-900" style="color: #fff;">
+<div class="shade-item bg-neutralwarm-900" style="color: #fff;">
 <span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-950" style="color: #fff;">
+<div class="shade-item bg-neutralwarm-950" style="color: #fff;">
 <span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
 </div>
-<div class="shade-item bg-spectrum-neutralwarm-1000" style="color: #fff;">
+<div class="shade-item bg-neutralwarm-1000" style="color: #fff;">
 <span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-</div>
-</div>
-<div class="color-space-section">
-<h3>Oklch</h3>
-<div class="shades-column">
-<div class="shade-item bg-spectrum-neutralwarm-0" style="color: #000;">
-<span class="shade-name">0</span>
-<span class="shade-luminance">L: 0.98</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-50" style="color: #000;">
-<span class="shade-name">50</span>
-<span class="shade-luminance">L: 0.97</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-100" style="color: #000;">
-<span class="shade-name">100</span>
-<span class="shade-luminance">L: 0.92</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-200" style="color: #000;">
-<span class="shade-name">200</span>
-<span class="shade-luminance">L: 0.83</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-300" style="color: #000;">
-<span class="shade-name">300</span>
-<span class="shade-luminance">L: 0.76</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-400" style="color: #000;">
-<span class="shade-name">400</span>
-<span class="shade-luminance">L: 0.70</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-500" style="color: #000;">
-<span class="shade-name">500</span>
-<span class="shade-luminance">L: 0.64</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-600" style="color: #000;">
-<span class="shade-name">600</span>
-<span class="shade-luminance">L: 0.60</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-700" style="color: #fff;">
-<span class="shade-name">700</span>
-<span class="shade-luminance">L: 0.54</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-800" style="color: #fff;">
-<span class="shade-name">800</span>
-<span class="shade-luminance">L: 0.48</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-900" style="color: #fff;">
-<span class="shade-name">900</span>
-<span class="shade-luminance">L: 0.40</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-950" style="color: #fff;">
-<span class="shade-name">950</span>
-<span class="shade-luminance">L: 0.32</span>
-</div>
-<div class="shade-item bg-spectrum-neutralwarm-1000" style="color: #fff;">
-<span class="shade-name">1000</span>
-<span class="shade-luminance">L: 0.21</span>
-</div>
-</div>
 </div>
 </div>
 </div>

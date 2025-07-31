@@ -109,7 +109,7 @@ CSS versions of all palettes are also available in the [palette_gallery/](https:
 ### Usage
 
 ```dart
-import 'package:prism/palettes/css.dart';
+import 'package:prism/palettes/rgb/css.dart';
 final primaryBlue = CssRgb.blue.source;
 final blueScheme = CssRgb.blue.shade700;
 ```
