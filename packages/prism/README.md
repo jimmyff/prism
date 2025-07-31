@@ -268,14 +268,14 @@ Prism includes extensive pre-built color palettes with accessibility-focused sch
 
 ### Available Palettes
 
+#### Spectrum (Prim's own color palette)
+![Spectrum Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Spectrum.png)
+
 #### Material Colors
 ![Material Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Material.png)
 
 #### Open Color
 ![Open Color Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/OpenColor.png)
-
-#### Spectrum (Prim's own color palette)
-![Spectrum Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Spectrum.png)
 
 #### CSS Colors  
 ![CSS Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Css.png)
