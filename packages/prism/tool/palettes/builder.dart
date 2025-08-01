@@ -102,9 +102,7 @@ void _generatePaletteFromRays({
   // Create schemes map by converting Ray objects to RayScheme
   final Map<String, RayScheme> schemes = {};
   for (final entry in data.entries) {
-    final ray = entry.value is Ray
-        ? entry.value
-        : RayRgb8.fromHex(entry.value.toString());
+    final ray = entry.value as Ray? ?? RayRgb8.fromHex(entry.value.toString());
     schemes[entry.key] = RayScheme.fromRay(ray);
   }
 

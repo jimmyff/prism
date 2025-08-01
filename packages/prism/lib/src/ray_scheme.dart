@@ -289,8 +289,6 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
 ///
 /// Generates contrast text colors and complete tonal palette from a primary color.
 class RayScheme<T extends RayWithLuminanceBase> {
-  /// Luminance threshold for dark vs light classification
-  static const double _darkThreshold = 0.5;
 
   /// The primary color this scheme is based on
   final T source;

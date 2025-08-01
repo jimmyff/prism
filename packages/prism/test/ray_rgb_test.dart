@@ -73,39 +73,6 @@ void main() {
     },
   };
 
-  // Test data for 16-bit colors
-  const testColors16 = {
-    'red': {
-      'r': 65535,
-      'g': 0,
-      'b': 0,
-      'a': 65535,
-    },
-    'green': {
-      'r': 0,
-      'g': 65535,
-      'b': 0,
-      'a': 65535,
-    },
-    'blue': {
-      'r': 0,
-      'g': 0,
-      'b': 65535,
-      'a': 65535,
-    },
-    'semiTransparent': {
-      'r': 65535,
-      'g': 32768,
-      'b': 16384,
-      'a': 32768,
-    },
-    'complexColor': {
-      'r': 12345,
-      'g': 54321,
-      'b': 23456,
-      'a': 45678,
-    },
-  };
 
   // Helper method to validate complete RayRgb8 state
   void validateRgb8(RayRgb8 ray, Map<String, dynamic> expected, {String? description}) {
@@ -125,14 +92,6 @@ void main() {
     expect(ray.toRgbaStr(), expected['rgba'], reason: '$desc: RGBA string');
   }
 
-  // Helper method to validate RayRgb16 state
-  void validateRgb16(RayRgb16 ray, Map<String, dynamic> expected, {String? description}) {
-    final desc = description ?? 'RayRgb16 validation';
-    expect(ray.redInt, expected['r'], reason: '$desc: red component');
-    expect(ray.greenInt, expected['g'], reason: '$desc: green component');
-    expect(ray.blueInt, expected['b'], reason: '$desc: blue component');
-    expect(ray.alphaInt, expected['a'], reason: '$desc: alpha component');
-  }
 
   group('RayRgb8 Core Functionality', () {
     group('Constructors', () {

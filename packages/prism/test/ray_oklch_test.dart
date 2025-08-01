@@ -404,7 +404,6 @@ void main() {
         final saturatedTangerine = tangerine.withChroma(1.0);
 
         // Convert to RGB to verify the result
-        final originalRgb = tangerine.toRgb();
         final saturatedRgb = saturatedTangerine.toRgb();
 
         // After fix: The RGB conversion should maintain the orange/tangerine character

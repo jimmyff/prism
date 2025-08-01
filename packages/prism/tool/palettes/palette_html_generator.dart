@@ -77,7 +77,7 @@ class PaletteHtmlGenerator {
     buffer.writeln(' * ');
     buffer.writeln(' * This file is auto-generated. Do not edit manually.');
     buffer.writeln(
-        ' * To regenerate: dart run packages/prism/tools/palettes/build_gallery.dart');
+        ' * To regenerate: dart run packages/prism/tool/palettes/build_gallery.dart');
     buffer.writeln(' * ');
     buffer.writeln(' * Usage:');
     buffer.writeln(' * - Background: .bg-red-500');
@@ -277,11 +277,10 @@ class PaletteHtmlGenerator {
     buffer.writeln('<div class="color-card">');
 
     // Main color header with onRay text and luminance
-    final RayRgb8 = scheme.source.toRgb();
+    final rayRgb8 = scheme.source.toRgb();
     final luminanceValue = scheme.source.luminance.toStringAsFixed(2);
-    final isDark = scheme.source.isDark ? 'Dark' : 'Light';
     buffer.writeln(
-        '<div class="color-header" style="background-color: ${RayRgb8.toHexStr()}; color: ${scheme.source.onRay.toHexStr()};">');
+        '<div class="color-header" style="background-color: ${rayRgb8.toHexStr()}; color: ${scheme.source.onRay.toHexStr()};">');
     if (hasAlias) {
       buffer.writeln(
           '${alias?.key} / $name<span class="luminance-value">(L:$luminanceValue</span>');
@@ -312,7 +311,6 @@ class PaletteHtmlGenerator {
         continue;
       }
       final rayLuminance = scheme.tones[tone]!;
-      final luminance = rayLuminance.luminance;
       final textColor = rayLuminance.isLight ? '#000' : '#fff';
       final toneName = tone.name.replaceAll('shade', '');
       final lowerSchemeName = schemeName.toLowerCase();
