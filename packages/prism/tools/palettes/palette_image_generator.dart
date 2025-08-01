@@ -14,6 +14,8 @@ final text = RayRgb8(red: 100, green: 100, blue: 100).toRgb16();
 final link = RayRgb8(red: 33, green: 150, blue: 243).toRgb16();
 final bg = RayRgb8(red: 255, green: 255, blue: 255).toRgb16();
 
+final border = RayRgb8(red: 220, green: 220, blue: 220).toRgb16();
+
 class PaletteImageGenerator {
   static const int imageWidth = 720;
   static const int columns = 4;
@@ -40,9 +42,8 @@ class PaletteImageGenerator {
         height: imageHeight,
         numChannels: 4,
         format: img.Format.uint16,
-        backgroundColor: colorFromRay(bg),
+        // backgroundColor: colorFromRay(bg),
         paletteFormat: img.Format.uint16);
-    img.fill(image, color: colorFromRay(bg));
 
     // Draw header
     _drawHeader(image, className);
@@ -88,13 +89,32 @@ class PaletteImageGenerator {
   }
 
   static void _drawHeader(img.Image image, String className) {
+    // header background color
+    img.fillRect(
+      image,
+      x1: 4,
+      y1: 4,
+      x2: imageWidth - 4,
+      y2: headerHeight - 2,
+      color: colorFromRay(bg),
+    );
+    img.drawRect(
+      image,
+      x1: 4,
+      y1: 4,
+      x2: imageWidth - 4,
+      y2: headerHeight - 2,
+      color: colorFromRay(border),
+      thickness: 1.5,
+    );
+
     // Draw palette name
     img.drawString(
       image,
       className,
       font: img.arial24,
-      x: 16,
-      y: 16,
+      x: 12,
+      y: 12,
       color: colorFromRay(title),
     );
 
@@ -104,8 +124,8 @@ class PaletteImageGenerator {
       'Prism: A powerful color package for Dart & Flutter',
       font: img.arial14,
       rightJustify: true,
-      x: imageWidth - 16,
-      y: 44,
+      x: imageWidth - 12,
+      y: 42,
       color: colorFromRay(text),
     );
 
@@ -114,8 +134,8 @@ class PaletteImageGenerator {
       image,
       'https://github.com/jimmyff/prism/',
       font: img.arial14,
-      x: 16,
-      y: 44,
+      x: 12,
+      y: 42,
       color: colorFromRay(link),
     );
   }
