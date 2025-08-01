@@ -19,7 +19,6 @@ Seamlessly convert between `RayRgb8`/`RayRgb16` and Flutter `Color` objects with
 - 🔧 **Enhanced manipulation**: Access RayRgb8's powerful color operations from Flutter Colors
 - 🎯 **Type safe**: Comprehensive API with proper error handling
 
-
 ## Usage
 
 ### RayRgb8 to Flutter Color
@@ -102,7 +101,6 @@ assert(backToColor == originalColor); // ✅ Always true
 
 - `toRayRgb8()` - Convert Flutter Color to RayRgb8
 
-
 All conversions preserve complete ARGB color information with perfect fidelity.
 
 ## Related Packages
@@ -112,3 +110,5 @@ All conversions preserve complete ARGB color information with perfect fidelity.
 ## License
 
 MIT License © 2025 [Jimmy Forrester-Fellowes](https://github.com/jimmyff) - see LICENSE file for details.
+
+For an introduction to Prsim see [Jimmy's blog post](https://www.jimmyff.co.uk/blog/prism-dart-flutter-color-package/).

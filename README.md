@@ -13,7 +13,7 @@ Please see the `README.md` in each package's directory for more information.
 
 ## Repository Structure
 
-```
+```text
 .
 ├── packages/
 │   ├── prism/
@@ -30,4 +30,4 @@ The color palettes can be previewed as PNG images or HTML files in the `palette_
 
 This project is licensed under the MIT License.
 
-**Author:** [Jimmy Forrester-Fellowes](https://github.com/jimmyff) 
+**Author:** [Jimmy Forrester-Fellowes](https://github.com/jimmyff). For an introduction to Prsim see [Jimmy's blog post](https://www.jimmyff.co.uk/blog/prism-dart-flutter-color-package/)
