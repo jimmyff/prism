@@ -1,6 +1,6 @@
 # Prism Flutter 🌈
 
-Flutter extensions for the [Prism](https://pub.dev/packages/prism), an optimized, zero zero-dependency color manipulation library for Dart & Flutter with multiple color models, accessibility tools, and pre-built palettes.
+Flutter extensions for the [Prism](https://pub.dev/packages/prism), an optimized, zero-dependency color manipulation library for Dart & Flutter with multiple color models, accessibility tools, and pre-built palettes.
 
 Seamlessly convert between `RayRgb8`/`RayRgb16` and Flutter `Color` objects with intuitive extension methods.
 

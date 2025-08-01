@@ -1,6 +1,6 @@
 # Prism 🌈
 
-An optimized, zero zero-dependency color manipulation library for Dart & Flutter with multiple color models, accessibility tools, and pre-built palettes.
+An optimized, zero-dependency color manipulation library for Dart & Flutter with multiple color models, accessibility tools, and pre-built palettes.
 
 See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter specific extensions.
 
