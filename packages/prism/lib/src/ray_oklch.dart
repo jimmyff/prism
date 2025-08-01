@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:prism/prism.dart';
 
 /// Oklch color space implementation with intuitive lightness, chroma, and hue controls.
-/// 
+///
 /// Cylindrical form of Oklab: L (lightness 0-1), C (chroma/saturation), H (hue 0-360°).
 base class RayOklch extends Ray {
   /// The lightness component (0.0 to 1.0).
@@ -194,7 +194,7 @@ base class RayOklch extends Ray {
   }
 
   @override
-  RayRgb toRgb() {
+  RayRgb8 toRgb() {
     return toOklab().toRgb();
   }
 
@@ -236,7 +236,6 @@ base class RayOklch extends Ray {
     hue = hue % 360.0;
     return hue < 0.0 ? hue + 360.0 : hue;
   }
-
 
   /// Calculates the shortest distance between two hue values.
   ///

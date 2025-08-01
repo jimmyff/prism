@@ -73,40 +73,40 @@ abstract base class RayWithLuminanceBase extends Ray {
 }
 
 /// RGB color with precomputed luminance for optimal performance.
-final class RayWithLuminanceRgb extends RayWithLuminanceBase {
-  /// The RayRgb instance this luminance-cached color wraps
-  final RayRgb _ray;
+final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
+  /// The RayRgb8 instance this luminance-cached color wraps
+  final RayRgb8 _ray;
 
   /// Creates an RGB color with precomputed luminance.
-  const RayWithLuminanceRgb._(this._ray, double luminance) : super(luminance);
+  const RayWithLuminanceRgb8._(this._ray, double luminance) : super(luminance);
 
-  /// Creates from a RayRgb instance with precomputed luminance.
-  factory RayWithLuminanceRgb(RayRgb ray, double luminance) {
-    return RayWithLuminanceRgb._(ray, luminance);
+  /// Creates from a RayRgb8 instance with precomputed luminance.
+  factory RayWithLuminanceRgb8(RayRgb8 ray, double luminance) {
+    return RayWithLuminanceRgb8._(ray, luminance);
   }
 
   /// Creates a const RGB color with precomputed luminance from ARGB int
-  const RayWithLuminanceRgb.fromRay(RayRgb ray, double luminance)
+  const RayWithLuminanceRgb8.fromRay(RayRgb8 ray, double luminance)
       : _ray = ray,
         super(luminance);
 
   /// Creates a const RGB color with precomputed luminance from ARGB int
-  factory RayWithLuminanceRgb.fromArgbIntFactory(int value, double luminance) {
-    return RayWithLuminanceRgb._(RayRgb.fromIntARGB(value), luminance);
+  factory RayWithLuminanceRgb8.fromArgbIntFactory(int value, double luminance) {
+    return RayWithLuminanceRgb8._(RayRgb8.fromIntARGB(value), luminance);
   }
 
   /// Returns appropriate contrast color (black/white) for text on this color
   @override
-  RayWithLuminanceRgb get onRay {
+  RayWithLuminanceRgb8 get onRay {
     return isDark
-        ? const RayWithLuminanceRgb.fromRay(
-            RayRgb.fromIntARGB(0xFFFFFFFF), 1.0) // White
-        : const RayWithLuminanceRgb.fromRay(
-            RayRgb.fromIntARGB(0xFF000000), 0.0); // Black
+        ? const RayWithLuminanceRgb8.fromRay(
+            RayRgb8.fromIntARGB(0xFFFFFFFF), 1.0) // White
+        : const RayWithLuminanceRgb8.fromRay(
+            RayRgb8.fromIntARGB(0xFF000000), 0.0); // Black
   }
 
   @override
-  ColorSpace get colorSpace => ColorSpace.rgb;
+  ColorSpace get colorSpace => ColorSpace.rgb8;
 
   // RGB-specific component getters
   int get red => _ray.red;
@@ -131,9 +131,9 @@ final class RayWithLuminanceRgb extends RayWithLuminanceBase {
 
   // Ray interface implementation
   @override
-  RayWithLuminanceRgb withOpacity(double opacity) {
+  RayWithLuminanceRgb8 withOpacity(double opacity) {
     final ray = _ray.withOpacity(opacity);
-    return RayWithLuminanceRgb.fromRay(ray, ray.luminance);
+    return RayWithLuminanceRgb8.fromRay(ray, ray.luminance);
   }
 
   @override
@@ -145,7 +145,7 @@ final class RayWithLuminanceRgb extends RayWithLuminanceBase {
   Ray get inverse => _ray.inverse;
 
   @override
-  RayRgb toRgb() => _ray;
+  RayRgb8 toRgb() => _ray;
 
   @override
   RayHsl toHsl() => _ray.toHsl();
@@ -162,7 +162,7 @@ final class RayWithLuminanceRgb extends RayWithLuminanceBase {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is RayWithLuminanceRgb && other._ray == _ray);
+      (other is RayWithLuminanceRgb8 && other._ray == _ray);
 
   @override
   int get hashCode => _ray.hashCode;
@@ -249,7 +249,7 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
   Ray get inverse => RayOklch(l: _l, c: _c, h: _h, opacity: _opacity).inverse;
 
   @override
-  RayRgb toRgb() => RayOklch(l: _l, c: _c, h: _h, opacity: _opacity).toRgb();
+  RayRgb8 toRgb() => RayOklch(l: _l, c: _c, h: _h, opacity: _opacity).toRgb();
 
   @override
   RayHsl toHsl() => RayOklch(l: _l, c: _c, h: _h, opacity: _opacity).toHsl();
@@ -286,7 +286,7 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
 }
 
 /// Color scheme that provides harmonious relationships and accessibility features.
-/// 
+///
 /// Generates contrast text colors and complete tonal palette from a primary color.
 class RayScheme<T extends RayWithLuminanceBase> {
   /// Luminance threshold for dark vs light classification
@@ -332,11 +332,11 @@ class RayScheme<T extends RayWithLuminanceBase> {
   });
 
   /// Creates a RGB-based scheme from tone map
-  static RayScheme<RayWithLuminanceRgb> fromRgbTones({
+  static RayScheme<RayWithLuminanceRgb8> fromRgbTones({
     Ray? base,
     required Map<RayTone, Ray> tones,
   }) {
-    return _createSchemeFromTones<RayWithLuminanceRgb>(
+    return _createSchemeFromTones<RayWithLuminanceRgb8>(
         base: base, tones: tones);
   }
 
@@ -361,8 +361,8 @@ class RayScheme<T extends RayWithLuminanceBase> {
 
       // Create appropriate concrete type based on T
       tonesMap[entry.key] = switch (T) {
-        const (RayWithLuminanceRgb) =>
-          RayWithLuminanceRgb(tone.toRgb(), luminance),
+        const (RayWithLuminanceRgb8) =>
+          RayWithLuminanceRgb8(tone.toRgb(), luminance),
         const (RayWithLuminanceOklch) =>
           RayWithLuminanceOklch(tone.toOklch(), luminance),
         _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
@@ -375,8 +375,8 @@ class RayScheme<T extends RayWithLuminanceBase> {
 
     // Create appropriate source type based on T
     final T source = switch (T) {
-      const (RayWithLuminanceRgb) =>
-        RayWithLuminanceRgb(ray.toRgb(), luminance) as T,
+      const (RayWithLuminanceRgb8) =>
+        RayWithLuminanceRgb8(ray.toRgb(), luminance) as T,
       const (RayWithLuminanceOklch) =>
         RayWithLuminanceOklch(ray.toOklch(), luminance) as T,
       _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
@@ -411,17 +411,17 @@ class RayScheme<T extends RayWithLuminanceBase> {
   ///
   /// Example:
   /// ```dart
-  /// final blueScheme = RayScheme.fromRay(RayRgb.fromHex('#2196F3'));
+  /// final blueScheme = RayScheme.fromRay(RayRgb8.fromHex('#2196F3'));
   /// final redScheme = RayScheme.fromRay(
-  ///   RayRgb.fromHex('#F44336'),
+  ///   RayRgb8.fromHex('#F44336'),
   ///   hueTransform: (hue, delta) => hue + (delta * 20), // Rotate hue based on lightness
   ///   chromaTransform: (chroma, delta) => chroma - delta.abs() * 0.1,
   /// );
   /// ```
   /// Creates a scheme with RGB-based colors
-  static RayScheme<RayWithLuminanceRgb> fromRgb(RayRgb ray,
+  static RayScheme<RayWithLuminanceRgb8> fromRgb(RayRgb8 ray,
       {bool? generateAccents}) {
-    return _createScheme<RayWithLuminanceRgb>(ray, generateAccents);
+    return _createScheme<RayWithLuminanceRgb8>(ray, generateAccents);
   }
 
   /// Creates a scheme with Oklch-based colors
@@ -462,8 +462,8 @@ class RayScheme<T extends RayWithLuminanceBase> {
 
       // Create appropriate concrete type based on T
       tonesMap[tone] = switch (T) {
-        const (RayWithLuminanceRgb) =>
-          RayWithLuminanceRgb(toneOklch.toRgb(), toneLuminance),
+        const (RayWithLuminanceRgb8) =>
+          RayWithLuminanceRgb8(toneOklch.toRgb(), toneLuminance),
         const (RayWithLuminanceOklch) =>
           RayWithLuminanceOklch(toneOklch, toneLuminance),
         _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
@@ -472,8 +472,8 @@ class RayScheme<T extends RayWithLuminanceBase> {
 
     // Create appropriate source type based on T
     final T source = switch (T) {
-      const (RayWithLuminanceRgb) =>
-        RayWithLuminanceRgb(ray.toRgb(), luminance) as T,
+      const (RayWithLuminanceRgb8) =>
+        RayWithLuminanceRgb8(ray.toRgb(), luminance) as T,
       const (RayWithLuminanceOklch) =>
         RayWithLuminanceOklch(ray.toOklch(), luminance) as T,
       _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),

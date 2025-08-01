@@ -104,7 +104,7 @@ void _generatePaletteFromRays({
   for (final entry in data.entries) {
     final ray = entry.value is Ray
         ? entry.value
-        : RayRgb.fromHex(entry.value.toString());
+        : RayRgb8.fromHex(entry.value.toString());
     schemes[entry.key] = RayScheme.fromRay(ray);
   }
 
@@ -130,7 +130,7 @@ void _generatePaletteCode({
     outputFileName: outputFileName,
     aliases: aliases,
   );
-  
+
   _generateOklchPalette(
     className: className,
     schemes: schemes,
@@ -178,7 +178,7 @@ void _generateRgbPalette({
 
     buffer.writeln('  $name(');
     buffer.writeln(
-        '    RayWithLuminanceRgb.fromRay(RayRgb.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
+        '    RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
     buffer.writeln('    const {');
 
     for (final tone in RayTone.values) {
@@ -190,7 +190,7 @@ void _generateRgbPalette({
       final luminance = rayLuminance.luminance;
       final toneRgb = rayLuminance.toRgb();
       buffer.writeln(
-          '      RayTone.${tone.name}: RayWithLuminanceRgb.fromRay(RayRgb.fromIntARGB(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
     }
     buffer.writeln('    }, // tones');
     buffer.writeln('  ),');
@@ -199,10 +199,10 @@ void _generateRgbPalette({
   buffer.writeln(';');
   buffer.writeln('');
   buffer.writeln('  /// The source color with precomputed luminance');
-  buffer.writeln('  final RayWithLuminanceRgb source;');
+  buffer.writeln('  final RayWithLuminanceRgb8 source;');
   buffer.writeln('');
   buffer.writeln('  /// The complete tonal palette');
-  buffer.writeln('  final Map<RayTone, RayWithLuminanceRgb> tones;');
+  buffer.writeln('  final Map<RayTone, RayWithLuminanceRgb8> tones;');
   buffer.writeln('');
   buffer.writeln('  const ${baseName}Rgb(this.source, this.tones);');
   buffer.writeln('');
@@ -212,22 +212,22 @@ void _generateRgbPalette({
   for (final tone in RayTone.values) {
     buffer.writeln('  @override');
     buffer.writeln(
-        '  RayWithLuminanceRgb? get ${tone.name} => tones[RayTone.${tone.name}];');
+        '  RayWithLuminanceRgb8? get ${tone.name} => tones[RayTone.${tone.name}];');
   }
   buffer.writeln('');
 
   // Add convenience methods
   buffer.writeln('  /// Access specific tone by RayTone enum');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceRgb? tone(RayTone tone) => tones[tone];');
+  buffer.writeln('  RayWithLuminanceRgb8? tone(RayTone tone) => tones[tone];');
   buffer.writeln('');
   buffer.writeln('  /// A lighter surface variant of the primary color');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceRgb get surfaceLight => shade100!;');
+  buffer.writeln('  RayWithLuminanceRgb8 get surfaceLight => shade100!;');
   buffer.writeln('');
   buffer.writeln('  /// A darker surface variant of the primary color');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceRgb get surfaceDark => shade700!;');
+  buffer.writeln('  RayWithLuminanceRgb8 get surfaceDark => shade700!;');
   buffer.writeln('');
 
   // Add RGB aliases if they exist
@@ -251,13 +251,13 @@ void _generateRgbPalette({
   final projectRoot = scriptDir.parent.parent; // Go up 2 levels
   final outputPath =
       p.join(projectRoot.path, 'lib', 'palettes', 'rgb', outputFileName);
-  
+
   // Ensure the rgb directory exists
   final rgbDir = Directory(p.join(projectRoot.path, 'lib', 'palettes', 'rgb'));
   if (!rgbDir.existsSync()) {
     rgbDir.createSync(recursive: true);
   }
-  
+
   File(outputPath).writeAsStringSync(buffer.toString());
 }
 
@@ -382,12 +382,13 @@ void _generateOklchPalette({
   final projectRoot = scriptDir.parent.parent; // Go up 2 levels
   final outputPath =
       p.join(projectRoot.path, 'lib', 'palettes', 'oklch', outputFileName);
-  
+
   // Ensure the oklch directory exists
-  final oklchDir = Directory(p.join(projectRoot.path, 'lib', 'palettes', 'oklch'));
+  final oklchDir =
+      Directory(p.join(projectRoot.path, 'lib', 'palettes', 'oklch'));
   if (!oklchDir.existsSync()) {
     oklchDir.createSync(recursive: true);
   }
-  
+
   File(outputPath).writeAsStringSync(buffer.toString());
 }

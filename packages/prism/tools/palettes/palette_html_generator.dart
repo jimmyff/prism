@@ -277,11 +277,11 @@ class PaletteHtmlGenerator {
     buffer.writeln('<div class="color-card">');
 
     // Main color header with onRay text and luminance
-    final rayRgb = scheme.source.toRgb();
+    final RayRgb8 = scheme.source.toRgb();
     final luminanceValue = scheme.source.luminance.toStringAsFixed(2);
     final isDark = scheme.source.isDark ? 'Dark' : 'Light';
     buffer.writeln(
-        '<div class="color-header" style="background-color: ${rayRgb.toHexStr()}; color: ${scheme.source.onRay.toHexStr()};">');
+        '<div class="color-header" style="background-color: ${RayRgb8.toHexStr()}; color: ${scheme.source.onRay.toHexStr()};">');
     if (hasAlias) {
       buffer.writeln(
           '${alias?.key} / $name<span class="luminance-value">(L:$luminanceValue</span>');

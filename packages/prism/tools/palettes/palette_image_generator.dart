@@ -2,6 +2,18 @@ import 'dart:io';
 import 'package:image/image.dart' as img;
 import 'package:prism/prism.dart';
 
+img.ColorUint16 colorFromRay(RayRgb16 ray) => img.ColorUint16.rgba(
+      ray.redInt,
+      ray.greenInt,
+      ray.blueInt,
+      ray.alphaInt,
+    );
+
+final title = RayRgb8(red: 33, green: 33, blue: 33).toRgb16();
+final text = RayRgb8(red: 100, green: 100, blue: 100).toRgb16();
+final link = RayRgb8(red: 33, green: 150, blue: 243).toRgb16();
+final bg = RayRgb8(red: 255, green: 255, blue: 255).toRgb16();
+
 class PaletteImageGenerator {
   static const int imageWidth = 720;
   static const int columns = 4;
@@ -23,8 +35,14 @@ class PaletteImageGenerator {
     final imageHeight = headerHeight + colorsHeight;
 
     // Create image
-    final image = img.Image(width: imageWidth, height: imageHeight);
-    img.fill(image, color: img.ColorRgb8(255, 255, 255));
+    final image = img.Image(
+        width: imageWidth,
+        height: imageHeight,
+        numChannels: 4,
+        format: img.Format.uint16,
+        backgroundColor: colorFromRay(bg),
+        paletteFormat: img.Format.uint16);
+    img.fill(image, color: colorFromRay(bg));
 
     // Draw header
     _drawHeader(image, className);
@@ -77,7 +95,7 @@ class PaletteImageGenerator {
       font: img.arial24,
       x: 16,
       y: 16,
-      color: img.ColorRgb8(33, 33, 33),
+      color: colorFromRay(title),
     );
 
     // Draw project info
@@ -88,7 +106,7 @@ class PaletteImageGenerator {
       rightJustify: true,
       x: imageWidth - 16,
       y: 44,
-      color: img.ColorRgb8(100, 100, 100),
+      color: colorFromRay(text),
     );
 
     // Draw project URL
@@ -98,7 +116,7 @@ class PaletteImageGenerator {
       font: img.arial14,
       x: 16,
       y: 44,
-      color: img.ColorRgb8(33, 150, 243),
+      color: colorFromRay(link),
     );
   }
 
@@ -116,10 +134,9 @@ class PaletteImageGenerator {
     // Main color section (top 40px)
     final mainHeight = (height * 0.625).round(); // ~40px of 64px
 
-    // Fill main color background
-    final rayRgb = ray.toRgb();
+    final rayRgb16 = ray.toRgb16();
+    final mainColor = colorFromRay(rayRgb16);
 
-    final mainColor = img.ColorRgb8(rayRgb.red, rayRgb.green, rayRgb.blue);
     img.fillRect(
       image,
       x1: x,
@@ -130,12 +147,8 @@ class PaletteImageGenerator {
     );
 
     // Draw text on main color
-    final onRayRgb = scheme.source.onRay.toRgb();
-    final onRayColor = img.ColorRgb8(
-      onRayRgb.red,
-      onRayRgb.green,
-      onRayRgb.blue,
-    );
+    final onRayRgb = scheme.source.onRay.toRgb16();
+    final onRayColor = colorFromRay(onRayRgb);
 
     // Draw name (always the correct color name)
     img.drawString(
@@ -179,12 +192,9 @@ class PaletteImageGenerator {
     int i = 0;
     for (final shade in presentShades) {
       final rayLuminance = tones[shade]!;
-      final shadeRgb = rayLuminance.toRgb();
-      final shadeColor = img.ColorRgb8(
-        shadeRgb.red,
-        shadeRgb.green,
-        shadeRgb.blue,
-      );
+      final shadeRgb8 = rayLuminance.toRgb16();
+      final shadeColor = img.ColorUint16.rgba(shadeRgb8.redInt,
+          shadeRgb8.greenInt, shadeRgb8.blueInt, shadeRgb8.alphaInt);
 
       final shadeX = x + (i * shadeWidth);
       final shadeWidthActual = (i == presentShades.length - 1)
@@ -200,39 +210,17 @@ class PaletteImageGenerator {
         color: shadeColor,
       );
 
-      // Currently not used
-      // Choose text color based on shade luminance
-      // final luminance = rayLuminance.luminance;
-      // final textColor = luminance < 0.4
-      //     ? img.ColorRgb8(255, 255, 255) // White on dark shades
-      //     : img.ColorRgb8(0, 0, 0); // Black on light shades
-
-      // // Draw simple asterisk to save space
-      // img.drawString(
-      //   image,
-      //   '*',
-      //   font: img.arial14,
-      //   x: shadeX + (shadeWidthActual ~/ 2) - 4, // Center the asterisk
-      //   y: y + mainHeight + 4,
-      //   color: textColor,
-      // );
-
       i++;
     }
 
     // Draw border around cell using shade 4 (darker shade)
-    final borderRgb = scheme.shade400!.toRgb();
-    img.drawRect(
-      image,
-      x1: x,
-      y1: y,
-      x2: x + width - 1,
-      y2: y + height - 1,
-      color: img.ColorRgb8(
-        borderRgb.red,
-        borderRgb.green,
-        borderRgb.blue,
-      ),
-    );
+    final borderColor = scheme.shade400!.toRgb16();
+    img.drawRect(image,
+        x1: x,
+        y1: y,
+        x2: x + width - 1,
+        y2: y + height - 1,
+        color: colorFromRay(borderColor),
+        thickness: 1.5);
   }
 }

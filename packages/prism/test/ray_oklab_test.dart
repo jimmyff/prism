@@ -138,7 +138,7 @@ void main() {
 
       test('interpolates with RGB color by converting to Oklab', () {
         final oklabColor = RayOklab(l: 0.5, a: 0.0, b: 0.0);
-        final rgbColor = RayRgb(red: 255, green: 0, blue: 0);
+        final rgbColor = RayRgb8(red: 255, green: 0, blue: 0);
 
         final result = oklabColor.lerp(rgbColor, 0.5);
 
@@ -210,7 +210,7 @@ void main() {
       });
 
       test('round-trip RGB conversion preserves approximate color', () {
-        final originalRgb = RayRgb(red: 128, green: 64, blue: 192, alpha: 200);
+        final originalRgb = RayRgb8(red: 128, green: 64, blue: 192, alpha: 200);
         final oklab = originalRgb.toOklab();
         final backToRgb = oklab.toRgb();
 

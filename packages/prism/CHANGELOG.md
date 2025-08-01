@@ -1,7 +1,7 @@
 ## 2.0.0-beta.1
 
 **Major Changes:**
-- **Multi-color space support**: Added RayHsl, RayOklab, and RayOklch alongside RayRgb
+- **Multi-color space support**: Added RayHsl, RayOklab, and RayOklch alongside RayRgb8/RayRgb16
 - **Perceptually uniform color operations**: via Oklab color space
 - **RayScheme system**: Intelligent color schemes with accessibility and tonal palettes
 - **Pre-built palettes**: CSS, Material, OpenColor, and Spectrum with pre-computed luminance
@@ -9,9 +9,10 @@
 - **Enhanced gallery**: Compact Oklch-focused HTML previews with luminance data
 
 **Breaking Changes:**
-- Renamed `Ray` class to `RayRgb` for clarity
-- Updated API structure to support multiple color spaces (RayRgb, RayHsl, RayOklab, RayOklch)
-- New palette system
+- **RayRgb split**: Separated `RayRgb` into `RayRgb8` (8-bit) and `RayRgb16` (16-bit)
+- **Multi-precision RGB**: Support for both 8-bit (0-255) and 16-bit (0-65535) color channels
+- **API structure**: Updated to support multiple color spaces (RayRgb8, RayRgb16, RayHsl, RayOklab, RayOklch)
+- **New palette system**: Enhanced palette generation with pre-computed schemes
 
 ## 1.0.0
 

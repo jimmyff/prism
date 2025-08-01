@@ -10,7 +10,7 @@ import 'dart:ui';
 import 'package:prism/prism.dart';
 
 /// Extension methods for [RayRgb] to convert to Flutter [Color] objects.
-extension RayToFlutterColor on RayRgb {
+extension RayToFlutterColor on RayRgb8 {
   /// Converts this [RayRgb] to a Flutter [Color].
   ///
   /// The conversion preserves all ARGB color information, providing
@@ -18,7 +18,7 @@ extension RayToFlutterColor on RayRgb {
   ///
   /// Example:
   /// ```dart
-  /// final ray = RayRgb.fromHex('#FF0000');
+  /// final ray = RayRgb8.fromHex('#FF0000');
   /// final flutterColor = ray.toColor();
   /// ```
   Color toColor() => Color(toArgbInt());
@@ -31,7 +31,7 @@ extension RayToFlutterColor on RayRgb {
   ///
   /// Example:
   /// ```dart
-  /// final ray = RayRgb.fromHex('#FF0000');
+  /// final ray = RayRgb8.fromHex('#FF0000');
   /// final semiTransparent = ray.toColorWithOpacity(0.5);
   /// ```
   Color toColorWithOpacity(double opacity) =>
@@ -50,5 +50,5 @@ extension FlutterColorToRay on Color {
   /// final flutterColor = Colors.red;
   /// final ray = flutterColor.toRay();
   /// ```
-  RayRgb toRay() => RayRgb.fromIntARGB(toARGB32());
+  RayRgb8 toRay() => RayRgb8.fromIntARGB(toARGB32());
 }

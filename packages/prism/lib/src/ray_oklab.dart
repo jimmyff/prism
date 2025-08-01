@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:prism/prism.dart';
 
 /// Oklab color space implementation for perceptually uniform color manipulation.
-/// 
+///
 /// Components: L (lightness 0-1), a (green-red axis), b (blue-yellow axis).
 base class RayOklab extends Ray {
   /// The lightness component (0.0 to 1.0).
@@ -98,7 +98,7 @@ base class RayOklab extends Ray {
   }
 
   @override
-  RayRgb toRgb() {
+  RayRgb8 toRgb() {
     // Convert Oklab to linear sRGB using the inverse transformation
     final lCubed = math.pow(l + 0.3963377774 * a + 0.2158037573 * b, 3.0);
     final mCubed = math.pow(l - 0.1055613458 * a - 0.0638541728 * b, 3.0);
@@ -122,7 +122,7 @@ base class RayOklab extends Ray {
     final blueInt = (srgbB.clamp(0.0, 1.0) * 255).round();
     final alphaInt = (opacity * 255).round();
 
-    return RayRgb.fromARGB(alphaInt, redInt, greenInt, blueInt);
+    return RayRgb8.fromARGB(alphaInt, redInt, greenInt, blueInt);
   }
 
   @override
@@ -246,8 +246,8 @@ base class RayOklab extends Ray {
 
   /// Finds the point of maximum chroma for a given hue direction in Oklab space.
   ///
-  /// The maximum chroma point (cusp) represents the point of maximum colorfulness 
-  /// for a given hue direction in the sRGB gamut. This is fundamental for 
+  /// The maximum chroma point (cusp) represents the point of maximum colorfulness
+  /// for a given hue direction in the sRGB gamut. This is fundamental for
   /// determining valid color boundaries.
   ///
   /// Based on Björn Ottosson's gamut clipping algorithm.
@@ -380,32 +380,44 @@ base class RayOklab extends Ray {
       // Red to yellow
       final t = normalizedHue / 60.0;
       maxChromaPoint = _interpolateChromaPoints(
-          approximateMaxChromaPoints['red']!, approximateMaxChromaPoints['yellow']!, t);
+          approximateMaxChromaPoints['red']!,
+          approximateMaxChromaPoints['yellow']!,
+          t);
     } else if (normalizedHue < 130) {
       // Yellow to green
       final t = (normalizedHue - 60) / 70.0;
       maxChromaPoint = _interpolateChromaPoints(
-          approximateMaxChromaPoints['yellow']!, approximateMaxChromaPoints['green']!, t);
+          approximateMaxChromaPoints['yellow']!,
+          approximateMaxChromaPoints['green']!,
+          t);
     } else if (normalizedHue < 180) {
       // Green to cyan
       final t = (normalizedHue - 130) / 50.0;
       maxChromaPoint = _interpolateChromaPoints(
-          approximateMaxChromaPoints['green']!, approximateMaxChromaPoints['cyan']!, t);
+          approximateMaxChromaPoints['green']!,
+          approximateMaxChromaPoints['cyan']!,
+          t);
     } else if (normalizedHue < 240) {
       // Cyan to blue
       final t = (normalizedHue - 180) / 60.0;
       maxChromaPoint = _interpolateChromaPoints(
-          approximateMaxChromaPoints['cyan']!, approximateMaxChromaPoints['blue']!, t);
+          approximateMaxChromaPoints['cyan']!,
+          approximateMaxChromaPoints['blue']!,
+          t);
     } else if (normalizedHue < 300) {
       // Blue to magenta
       final t = (normalizedHue - 240) / 60.0;
       maxChromaPoint = _interpolateChromaPoints(
-          approximateMaxChromaPoints['blue']!, approximateMaxChromaPoints['magenta']!, t);
+          approximateMaxChromaPoints['blue']!,
+          approximateMaxChromaPoints['magenta']!,
+          t);
     } else {
       // Magenta to red
       final t = (normalizedHue - 300) / 60.0;
       maxChromaPoint = _interpolateChromaPoints(
-          approximateMaxChromaPoints['magenta']!, approximateMaxChromaPoints['red']!, t);
+          approximateMaxChromaPoints['magenta']!,
+          approximateMaxChromaPoints['red']!,
+          t);
     }
 
     return maxChromaPoint;

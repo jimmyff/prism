@@ -15,9 +15,12 @@ void main() {
       });
 
       test('normalizes hue to [0, 360) range', () {
-        expect(RayOklch.validated(l: 0.5, c: 0.1, h: 380.0).h, closeTo(20.0, 1e-6));
-        expect(RayOklch.validated(l: 0.5, c: 0.1, h: -20.0).h, closeTo(340.0, 1e-6));
-        expect(RayOklch.validated(l: 0.5, c: 0.1, h: 720.0).h, closeTo(0.0, 1e-6));
+        expect(RayOklch.validated(l: 0.5, c: 0.1, h: 380.0).h,
+            closeTo(20.0, 1e-6));
+        expect(RayOklch.validated(l: 0.5, c: 0.1, h: -20.0).h,
+            closeTo(340.0, 1e-6));
+        expect(
+            RayOklch.validated(l: 0.5, c: 0.1, h: 720.0).h, closeTo(0.0, 1e-6));
       });
 
       test('clamps chroma to minimum 0.0', () {
@@ -26,12 +29,15 @@ void main() {
       });
 
       test('throws on invalid lightness', () {
-        expect(() => RayOklch.validated(l: -0.1, c: 0.1, h: 180.0), throwsArgumentError);
-        expect(() => RayOklch.validated(l: 1.1, c: 0.1, h: 180.0), throwsArgumentError);
+        expect(() => RayOklch.validated(l: -0.1, c: 0.1, h: 180.0),
+            throwsArgumentError);
+        expect(() => RayOklch.validated(l: 1.1, c: 0.1, h: 180.0),
+            throwsArgumentError);
       });
 
       test('throws on invalid opacity', () {
-        expect(() => RayOklch.validated(l: 0.5, c: 0.1, h: 180.0, opacity: -0.1),
+        expect(
+            () => RayOklch.validated(l: 0.5, c: 0.1, h: 180.0, opacity: -0.1),
             throwsArgumentError);
         expect(() => RayOklch.validated(l: 0.5, c: 0.1, h: 180.0, opacity: 1.1),
             throwsArgumentError);
@@ -185,7 +191,7 @@ void main() {
       });
 
       test('works with different color types', () {
-        final rgb = RayRgb.fromARGB(255, 255, 0, 0);
+        final rgb = RayRgb8.fromARGB(255, 255, 0, 0);
         final result = color1.lerp(rgb, 0.5);
         expect(result, isA<RayOklch>());
       });
@@ -393,19 +399,19 @@ void main() {
       test('withChroma preserves hue for tangerine color', () {
         // Start with a tangerine color
         final tangerine = RayOklch(l: 0.7941, c: 0.1914, h: 64.05);
-        
+
         // Apply maximum chroma - this should give us the most saturated tangerine
         final saturatedTangerine = tangerine.withChroma(1.0);
-        
+
         // Convert to RGB to verify the result
         final originalRgb = tangerine.toRgb();
         final saturatedRgb = saturatedTangerine.toRgb();
-        
+
         // After fix: The RGB conversion should maintain the orange/tangerine character
         // A red color (#FF0000) has hue around 0°, not 64°
         expect(saturatedRgb.toHexStr(), isNot(equals('#FF0000')),
             reason: 'High chroma tangerine should not become pure red');
-        
+
         // The final color should still be recognizably tangerine/orange
         // Convert back to verify hue is preserved
         final finalOklch = saturatedRgb.toOklch();
@@ -416,58 +422,60 @@ void main() {
       test('withChroma handles out-of-gamut values gracefully', () {
         // Test various hues with extreme chroma values
         final testColors = [
-          RayOklch(l: 0.5, c: 0.1, h: 0),    // Red
-          RayOklch(l: 0.5, c: 0.1, h: 30),   // Orange
-          RayOklch(l: 0.5, c: 0.1, h: 60),   // Yellow
-          RayOklch(l: 0.5, c: 0.1, h: 120),  // Green
-          RayOklch(l: 0.5, c: 0.1, h: 240),  // Blue
-          RayOklch(l: 0.5, c: 0.1, h: 300),  // Purple
+          RayOklch(l: 0.5, c: 0.1, h: 0), // Red
+          RayOklch(l: 0.5, c: 0.1, h: 30), // Orange
+          RayOklch(l: 0.5, c: 0.1, h: 60), // Yellow
+          RayOklch(l: 0.5, c: 0.1, h: 120), // Green
+          RayOklch(l: 0.5, c: 0.1, h: 240), // Blue
+          RayOklch(l: 0.5, c: 0.1, h: 300), // Purple
         ];
 
         for (final color in testColors) {
           final saturated = color.withChroma(2.0); // Extreme chroma
-          
+
           // Hue should be preserved
           expect(saturated.h, closeTo(color.h, 1.0),
               reason: 'Hue should be preserved for h=${color.h}');
-          
-          // Lightness should be preserved  
+
+          // Lightness should be preserved
           expect(saturated.l, closeTo(color.l, 1e-6),
               reason: 'Lightness should be preserved for h=${color.h}');
-          
+
           // Chroma should be valid (not exceed reasonable bounds)
           expect(saturated.c, lessThanOrEqualTo(0.5),
-              reason: 'Chroma should be clamped to reasonable bounds for h=${color.h}');
+              reason:
+                  'Chroma should be clamped to reasonable bounds for h=${color.h}');
         }
       });
 
       test('withLightness clamps chroma to valid gamut - reported issue', () {
         // Reported issue: (98.4% 0.492 24.87°) shows as bright red instead of near-white
-        final problemColor = RayOklch(l: 0.5, c: 0.492, h: 24.87); // Start with lower lightness
-        
+        final problemColor =
+            RayOklch(l: 0.5, c: 0.492, h: 24.87); // Start with lower lightness
+
         // When we increase lightness to 98.4%, chroma should be clamped to valid range
         final highLightnessColor = problemColor.withLightness(0.984);
-        
+
         // Convert to RGB to check the result
         final rgb = highLightnessColor.toRgb();
-        
+
         // At 98.4% lightness, the color should be very light (near-white)
         // All RGB components should be high (> 200), not showing as bright red
-        expect(rgb.red, greaterThan(200), 
+        expect(rgb.red, greaterThan(200),
             reason: 'High lightness should produce high red component');
-        expect(rgb.green, greaterThan(200), 
+        expect(rgb.green, greaterThan(200),
             reason: 'High lightness should produce high green component');
-        expect(rgb.blue, greaterThan(200), 
+        expect(rgb.blue, greaterThan(200),
             reason: 'High lightness should produce high blue component');
-        
+
         // The color should not be pure red (#FF0000)
         expect(rgb.toHexStr(), isNot(equals('#FF0000')),
             reason: 'High lightness color should not be pure red');
-        
+
         // Chroma should have been clamped to a much lower value
         expect(highLightnessColor.c, lessThan(0.1),
             reason: 'Chroma should be significantly reduced at high lightness');
-        
+
         // Hue should be preserved
         expect(highLightnessColor.h, closeTo(24.87, 1.0),
             reason: 'Hue should be preserved when adjusting lightness');

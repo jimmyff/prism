@@ -13,7 +13,7 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 
 ## Features
 
-- 🎨 **Multiple color models**: RGB, HSL, Oklab, and Oklch with seamless conversion
+- 🎨 **Multiple color models**: RGB (8-bit & 16-bit), HSL, Oklab, and Oklch with seamless conversion
 - 🎭 **Accessibility schemes**: WCAG-compliant color schemes with optimal contrast
 - 🎨 **Pre-built palettes**: Material, CSS, Spectrum, and OpenColor palettes
 - 📱 **Flutter compatible**: Perfect conversion to/from Flutter's Color class
@@ -27,10 +27,10 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 import 'package:prism/prism.dart';
 
 // Create and convert colors
-final red = RayRgb.fromHex('#FF0000');
+final red = RayRgb8.fromHex('#FF0000');
 final redInOklch = red.toOklch();                 // Convert to perceptual color space
 final darkRed = redInOklch.withLightness(0.3);    // Darken perceptually 
-print(darkRed.toRgb().toHexStr());                // #521711
+print(darkRed.toRgb8().toHexStr());               // #521711
 
 // Generate accessibility schemes
 final scheme = RayScheme.fromRay(red);
@@ -43,12 +43,13 @@ final textColor = darkSurface.onRay;              // Optimal contrast color
 
 Prism supports multiple color models with seamless conversion:
 
-### RayRgb (Red, Green, Blue)
+### RayRgb8 & RayRgb16 (Red, Green, Blue)
 ```dart
-final red = RayRgb.fromHex('#FF0000');                 // From hex
-final transparent = red.withOpacity(0.5);                // With transparency
-final webHex = red.toHexStr();                           // Web standard: #FF0000
-final flutterHex = red.toHexStr(format: HexFormat.argb); // Flutter: #FFFF0000
+final red8 = RayRgb8.fromHex('#FF0000');                 // 8-bit channels (0-255)
+final red16 = RayRgb16.fromHex('#FF0000');               // 16-bit channels (0-65535)
+final transparent = red8.withOpacity(0.5);               // With transparency
+final webHex = red8.toHexStr();                          // Web standard: #FF0000
+final flutterHex = red8.toHexStr(format: HexFormat.argb); // Flutter: #FFFF0000
 ```
 
 ### RayHsl (Hue, Saturation, Lightness)
@@ -61,8 +62,8 @@ print('Hue distance: ${orange.hueDistance(green)}°'); // Color analysis: 90.0°
 
 ### RayOklab (Perceptually Uniform Color Space)
 ```dart
-final rgbBlue = RayRgb.fromHex('#0000FF').toOklab(); // Direct LAB values
-final rgbRed = RayRgb.fromHex('#FF0000').toOklab();  // Convert from RGB
+final rgbBlue = RayRgb8.fromHex('#0000FF').toOklab(); // Convert from RGB
+final rgbRed = RayRgb8.fromHex('#FF0000').toOklab();  // Convert from RGB
 final midpoint = rgbBlue.lerp(rgbRed, 0.5);            // Perceptually uniform interpolation
 ```
 
@@ -75,10 +76,10 @@ final complementary = baseColor.withHue(baseColor.h + 180); // Complementary col
 
 ### Seamless Conversion
 ```dart
-final rgbRed = RayRgb.fromHex('#FF0000');
+final rgbRed = RayRgb8.fromHex('#FF0000');
 final hslRed = rgbRed.toHsl();              // RGB → HSL
 final oklchRed = rgbRed.toOklch();          // RGB → Oklch  
-final backToRgb = hslRed.toRgb();           // HSL → RGB
+final backToRgb = hslRed.toRgb8();          // HSL → RGB
 ```
 
 

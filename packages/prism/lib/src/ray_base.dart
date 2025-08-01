@@ -2,8 +2,11 @@ import 'package:prism/prism.dart';
 
 /// Enumeration of supported color spaces.
 enum ColorSpace {
-  /// RGB (Red, Green, Blue) color space
-  rgb,
+  /// RGB (Red, Green, Blue) color space stored as an 32 bit int
+  rgb8,
+
+  /// RGB (Red, Green, Blue) color space stored as a 64 bit int
+  rgb16,
 
   /// HSL (Hue, Saturation, Lightness) color space
   hsl,
@@ -53,7 +56,8 @@ abstract base class Ray {
 
   /// Converts this color to a different color space.
   T toColorSpace<T extends Ray>() {
-    if (T == RayRgb) return toRgb() as T;
+    if (T == RayRgb8) return toRgb8() as T;
+    if (T == RayRgb16) return toRgb8() as T;
     if (T == RayHsl) return toHsl() as T;
     if (T == RayOklab) return toOklab() as T;
     if (T == RayOklch) return toOklch() as T;
@@ -62,7 +66,13 @@ abstract base class Ray {
   }
 
   /// Converts this color to RGB representation.
-  RayRgb toRgb();
+  RayRgb8 toRgb();
+
+  /// Converts this color to 8-bit RGB representation.
+  RayRgb8 toRgb8() => toRgb();
+
+  /// Converts this color to 16-bit RGB representation.
+  RayRgb16 toRgb16() => toRgb8().toRgb16();
 
   /// Converts this color to HSL representation.
   RayHsl toHsl();

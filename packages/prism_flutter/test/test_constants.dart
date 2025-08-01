@@ -2,7 +2,7 @@
 ///
 /// This file contains standardized tolerance values used across all test files
 /// to ensure consistency and maintainability in test assertions, particularly
-/// for Flutter Color ↔ RayRgb conversions where floating-point precision
+/// for Flutter Color ↔ RayRgb8 conversions where floating-point precision
 /// and rounding can introduce small variations.
 library test_constants;
 
@@ -25,7 +25,7 @@ const double componentTolerance = 0.01;
 /// Tolerance for RGB component values (0-255 integer range).
 ///
 /// Used when comparing RGB color components that have been converted through
-/// Flutter Color ↔ RayRgb transformations, accounting for rounding in integer conversion.
+/// Flutter Color ↔ RayRgb8 transformations, accounting for rounding in integer conversion.
 /// This is particularly important when converting between Flutter's double-based
 /// color representation and RayRgb's integer-based representation.
 const double rgbTolerance = 1.0;
@@ -45,6 +45,6 @@ const double opacityTolerance = 0.01;
 
 /// Tolerance for round-trip conversions with cumulative precision loss.
 ///
-/// Used for testing round-trip conversions (e.g., RayRgb → Color → RayRgb)
+/// Used for testing round-trip conversions (e.g., RayRgb8 → Color → RayRgb)
 /// where multiple transformations can accumulate small precision errors.
 const double roundTripTolerance = 2.0;

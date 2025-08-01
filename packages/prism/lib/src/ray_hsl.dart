@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 import 'ray_base.dart';
-import 'ray_rgb.dart';
+import 'ray_rgb8.dart';
 import 'ray_oklab.dart';
 import 'ray_oklch.dart';
 
 /// HSL color implementation with intuitive hue, saturation, and lightness controls.
-/// 
+///
 /// Stored as high-precision doubles for optimal color accuracy.
 base class RayHsl extends Ray {
   /// The hue component in degrees (0.0-360.0)
@@ -24,7 +24,7 @@ base class RayHsl extends Ray {
   ColorSpace get colorSpace => ColorSpace.hsl;
 
   /// Creates a [RayHsl] from HSL components.
-  /// 
+  ///
   /// Hue is normalized to 0-360°, other components are clamped to 0.0-1.0.
   RayHsl({
     required double hue,
@@ -38,7 +38,7 @@ base class RayHsl extends Ray {
         super();
 
   /// Creates a [RayHsl] from an RGB color by converting RGB to HSL.
-  factory RayHsl.fromRgb(RayRgb rgb) {
+  factory RayHsl.fromRgb8(RayRgb8 rgb) {
     return _rgbToHsl(
         rgb.red / 255.0, rgb.green / 255.0, rgb.blue / 255.0, rgb.opacity);
   }
@@ -145,7 +145,7 @@ base class RayHsl extends Ray {
       );
 
   /// Returns the relative luminance of this HSL color.
-  /// 
+  ///
   /// Note: Requires RGB conversion. Consider using RayScheme for pre-calculated values.
   @override
   double get luminance {
@@ -155,9 +155,9 @@ base class RayHsl extends Ray {
   }
 
   @override
-  RayRgb toRgb() {
+  RayRgb8 toRgb() {
     final rgbValues = _hslToRgb(hue, saturation, lightness);
-    return RayRgb(
+    return RayRgb8(
       red: (rgbValues.r * 255).round(),
       green: (rgbValues.g * 255).round(),
       blue: (rgbValues.b * 255).round(),
