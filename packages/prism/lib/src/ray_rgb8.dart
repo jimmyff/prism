@@ -6,7 +6,6 @@ import 'ray_oklab.dart';
 import 'ray_rgb_base.dart';
 import 'ray_rgb16.dart';
 
-
 /// 8-bit RGB color implementation with support for multiple input/output formats.
 ///
 /// Stored internally as ARGB integer for Flutter compatibility and performance.
@@ -45,17 +44,12 @@ base class RayRgb8 extends RayRgbBase<int> {
         super();
 
   /// Creates a [RayRgb8] from a 32-bit ARGB integer value.
-  const RayRgb8.fromInt(int value)
-      : _value = value & _fullMask,
-        super();
-
-  /// Creates a [RayRgb8] from a 32-bit ARGB integer value.
-  const RayRgb8.fromIntARGB(int value)
+  const RayRgb8.fromArgbInt(int value)
       : _value = value & _fullMask,
         super();
 
   /// Creates a [RayRgb8] from a 32-bit RGBA integer value.
-  const RayRgb8.fromIntRGBA(int value)
+  const RayRgb8.fromRgbaInt(int value)
       : _value =
             ((value & 0xFFFFFF00) >> 8) | ((value & 0x000000FF) << _alphaShift),
         super();
@@ -85,7 +79,56 @@ base class RayRgb8 extends RayRgbBase<int> {
       );
 
   /// Creates a [RayRgb8] for JSON deserialization.
-  factory RayRgb8.fromJson(int json) => RayRgb8.fromInt(json);
+  factory RayRgb8.fromJson(int json) => RayRgb8.fromArgbInt(json);
+
+  /// Creates a [RayRgb8] from individual RGBA component values (0-255).
+  factory RayRgb8.fromComponents(num red, num green, num blue,
+          [num alpha = 255]) =>
+      RayRgb8(
+        red: red.round().clamp(0, 255),
+        green: green.round().clamp(0, 255),
+        blue: blue.round().clamp(0, 255),
+        alpha: alpha.round().clamp(0, 255),
+      );
+
+  /// Creates a [RayRgb8] from individual RGBA component values (0-255) with native precision.
+  const RayRgb8.fromComponentsNative(int red, int green, int blue,
+      [int alpha = 255])
+      : _value = ((alpha & 0xff) << _alphaShift) |
+            ((red & 0xff) << _redShift) |
+            ((green & 0xff) << _greenShift) |
+            ((blue & 0xff) << _blueShift),
+        super();
+
+  /// Creates a [RayRgb8] from a list of component values.
+  ///
+  /// Accepts [red, green, blue] or [red, green, blue, alpha] in 0-255 range.
+  factory RayRgb8.fromList(List<num> values) {
+    if (values.length < 3 || values.length > 4) {
+      throw ArgumentError('RGB color list must have 3 or 4 components (RGBA)');
+    }
+    return RayRgb8.fromComponents(
+      values[0],
+      values[1],
+      values[2],
+      values.length > 3 ? values[3] : 255,
+    );
+  }
+
+  /// Creates a [RayRgb8] from a list of native component values (0-255).
+  ///
+  /// Accepts [red, green, blue] or [red, green, blue, alpha] as integers.
+  RayRgb8.fromListNative(List<int> values)
+      : _value = values.length == 3
+            ? ((255 & 0xff) << _alphaShift) |
+                ((values[0] & 0xff) << _redShift) |
+                ((values[1] & 0xff) << _greenShift) |
+                ((values[2] & 0xff) << _blueShift)
+            : ((values[3] & 0xff) << _alphaShift) |
+                ((values[0] & 0xff) << _redShift) |
+                ((values[1] & 0xff) << _greenShift) |
+                ((values[2] & 0xff) << _blueShift),
+        super();
 
   /// Creates a transparent black color.
   const RayRgb8.empty()
@@ -136,8 +179,8 @@ base class RayRgb8 extends RayRgbBase<int> {
   /// final red = RayRgb8(red: 255, green: 0, blue: 0);
   /// final semiRed = red.withAlpha(128);  // Semi-transparent red
   /// ```
-  RayRgb8 withAlpha(int alpha) =>
-      RayRgb8(red: redNative, green: greenNative, blue: blueNative, alpha: alpha);
+  RayRgb8 withAlpha(int alpha) => RayRgb8(
+      red: redNative, green: greenNative, blue: blueNative, alpha: alpha);
 
   @override
   RayRgb8 withOpacity(double opacity) => RayRgb8(
@@ -149,10 +192,11 @@ base class RayRgb8 extends RayRgbBase<int> {
   @override
   RayRgb8 lerp(Ray other, double t) {
     // Use the precise lerp helper and round to integers for 8-bit precision
-    final (interpRed, interpGreen, interpBlue, interpAlpha) = lerpPrecise(other, t);
+    final (interpRed, interpGreen, interpBlue, interpAlpha) =
+        lerpPrecise(other, t);
     return RayRgb8(
       red: interpRed.round(),
-      green: interpGreen.round(), 
+      green: interpGreen.round(),
       blue: interpBlue.round(),
       alpha: interpAlpha.round(),
     );
@@ -165,31 +209,32 @@ base class RayRgb8 extends RayRgbBase<int> {
     return RayRgb8(
       red: invRed.round(),
       green: invGreen.round(),
-      blue: invBlue.round(), 
+      blue: invBlue.round(),
       alpha: invAlpha.round(),
     );
   }
 
   // luminance, toOklch methods are provided by RayRgbBase
-  
+
   @override
   RayHsl toHsl() {
     // Direct conversion from RGB to HSL to avoid circular reference
     final r = red / 255.0;
     final g = green / 255.0;
     final b = blue / 255.0;
-    
+
     final max = math.max(r, math.max(g, b));
     final min = math.min(r, math.min(g, b));
     final delta = max - min;
-    
+
     final lightness = (max + min) / 2.0;
     double saturation = 0.0;
     double hue = 0.0;
-    
+
     if (delta != 0.0) {
-      saturation = lightness > 0.5 ? delta / (2.0 - max - min) : delta / (max + min);
-      
+      saturation =
+          lightness > 0.5 ? delta / (2.0 - max - min) : delta / (max + min);
+
       if (max == r) {
         hue = ((g - b) / delta + (g < b ? 6 : 0)) * 60;
       } else if (max == g) {
@@ -198,17 +243,21 @@ base class RayRgb8 extends RayRgbBase<int> {
         hue = ((r - g) / delta + 4) * 60;
       }
     }
-    
-    return RayHsl(hue: hue, saturation: saturation, lightness: lightness, opacity: opacity);
+
+    return RayHsl(
+        hue: hue,
+        saturation: saturation,
+        lightness: lightness,
+        opacity: opacity);
   }
-  
+
   @override
   RayOklab toOklab() {
     // Direct conversion from RGB to Oklab to avoid circular reference
     final rNorm = red / 255.0;
     final gNorm = green / 255.0;
     final bNorm = blue / 255.0;
-    
+
     // Convert to linear RGB first
     final linearR = _srgbToLinear(rNorm);
     final linearG = _srgbToLinear(gNorm);
@@ -241,7 +290,8 @@ base class RayRgb8 extends RayRgbBase<int> {
         0.7827717662 * lmsCbrt2 -
         0.8086757660 * lmsCbrt3;
 
-    return RayOklab(l: lComponent, a: aComponent, b: bComponent, opacity: opacity);
+    return RayOklab(
+        l: lComponent, a: aComponent, b: bComponent, opacity: opacity);
   }
 
   /// Converts sRGB component to linear RGB
@@ -264,7 +314,6 @@ base class RayRgb8 extends RayRgbBase<int> {
   @override
   RayRgb8 toRgb8() => this; // Already 8-bit RGB, return self
 
-
   // toRgbStr and toRgbaStr methods are provided by RayRgbBase
 
   /// Optimized bit-depth conversion methods
@@ -278,7 +327,7 @@ base class RayRgb8 extends RayRgbBase<int> {
       );
 
   /// Converts the color to an sRGB hexadecimal string (6 or 8 characters).
-  /// 
+  ///
   /// Note: Hex colors are limited to the sRGB gamut (24-bit color space).
   /// For extended precision colors, use direct constructor values instead.
   String toHex([int? length, HexFormat format = HexFormat.rgba]) {
@@ -292,6 +341,9 @@ base class RayRgb8 extends RayRgbBase<int> {
           "Invalid sRGB hex length: $actualLength. Expected 6 or 8 characters for standard web hex colors.")
     };
   }
+
+  @override
+  List<num> toList() => [red, green, blue, alpha];
 
   @override
   int toJson() => _value;

@@ -46,54 +46,14 @@ base class RayRgb16 extends RayRgbBase<int> {
         _blue = blue & 0xFFFF,
         super();
 
-  /// Creates a [RayRgb16] from 0-255 range values (main API).
-  factory RayRgb16.fromRgb(num r, num g, num b, [num a = 255]) => RayRgb16(
-        red: (r.clamp(0, 255) * 257).round(),
-        green: (g.clamp(0, 255) * 257).round(),
-        blue: (b.clamp(0, 255) * 257).round(),
-        alpha: (a.clamp(0, 255) * 257).round(),
-      );
-
-  /// Creates a [RayRgb16] from 0-1 normalized values.
-  factory RayRgb16.fromRgbNormalized(num r, num g, num b, [num a = 1.0]) =>
+  /// Creates a [RayRgb16] from 0.0-1.0 normalized values.
+  factory RayRgb16.fromComponentsNormalized(num red, num green, num blue, [num alpha = 1.0]) =>
       RayRgb16(
-        red: (r.clamp(0.0, 1.0) * 65535).round(),
-        green: (g.clamp(0.0, 1.0) * 65535).round(),
-        blue: (b.clamp(0.0, 1.0) * 65535).round(),
-        alpha: (a.clamp(0.0, 1.0) * 65535).round(),
+        red: (red.clamp(0.0, 1.0) * 65535).round(),
+        green: (green.clamp(0.0, 1.0) * 65535).round(),
+        blue: (blue.clamp(0.0, 1.0) * 65535).round(),
+        alpha: (alpha.clamp(0.0, 1.0) * 65535).round(),
       );
-
-  /// Creates a [RayRgb16] from native 16-bit values (0-65535).
-  const RayRgb16.fromRgbNative(int r, int g, int b, [int a = 65535])
-      : _red = r & 0xFFFF,
-        _green = g & 0xFFFF,
-        _blue = b & 0xFFFF,
-        _alpha = a & 0xFFFF,
-        super();
-
-  /// Creates a [RayRgb16] from ARGB format with 0-255 range values.
-  factory RayRgb16.fromArgb(num a, num r, num g, num b) => RayRgb16(
-        alpha: (a.clamp(0, 255) * 257).round(),
-        red: (r.clamp(0, 255) * 257).round(),
-        green: (g.clamp(0, 255) * 257).round(),
-        blue: (b.clamp(0, 255) * 257).round(),
-      );
-
-  /// Creates a [RayRgb16] from ARGB format with 0-1 normalized values.
-  factory RayRgb16.fromArgbNormalized(num a, num r, num g, num b) => RayRgb16(
-        alpha: (a.clamp(0.0, 1.0) * 65535).round(),
-        red: (r.clamp(0.0, 1.0) * 65535).round(),
-        green: (g.clamp(0.0, 1.0) * 65535).round(),
-        blue: (b.clamp(0.0, 1.0) * 65535).round(),
-      );
-
-  /// Creates a [RayRgb16] from ARGB format with native 16-bit values (0-65535).
-  const RayRgb16.fromArgbNative(int a, int r, int g, int b)
-      : _alpha = a & 0xFFFF,
-        _red = r & 0xFFFF,
-        _green = g & 0xFFFF,
-        _blue = b & 0xFFFF,
-        super();
 
   /// Creates a [RayRgb16] from an 8-bit RGB color, upscaling to 16-bit.
   factory RayRgb16.fromRgb8(dynamic rgb8Color) => RayRgb16(
@@ -110,6 +70,49 @@ base class RayRgb16 extends RayRgbBase<int> {
         green: json[2],
         blue: json[3],
       );
+
+  /// Creates a [RayRgb16] from individual RGBA component values (0-255).
+  factory RayRgb16.fromComponents(num red, num green, num blue, [num alpha = 255]) => 
+      RayRgb16(
+        red: (red.clamp(0, 255) * 257).round(),
+        green: (green.clamp(0, 255) * 257).round(),
+        blue: (blue.clamp(0, 255) * 257).round(),
+        alpha: (alpha.clamp(0, 255) * 257).round(),
+      );
+
+  /// Creates a [RayRgb16] from individual RGBA component values with native 16-bit precision.
+  const RayRgb16.fromComponentsNative(int red, int green, int blue,
+      [int alpha = 65535])
+      : _red = red & 0xFFFF,
+        _green = green & 0xFFFF,
+        _blue = blue & 0xFFFF,
+        _alpha = alpha & 0xFFFF,
+        super();
+
+  /// Creates a [RayRgb16] from a list of component values.
+  ///
+  /// Accepts [red, green, blue] or [red, green, blue, alpha] in 0-255 range.
+  factory RayRgb16.fromList(List<num> values) {
+    if (values.length < 3 || values.length > 4) {
+      throw ArgumentError('RGB color list must have 3 or 4 components (RGBA)');
+    }
+    return RayRgb16.fromComponents(
+      values[0],
+      values[1],
+      values[2],
+      values.length > 3 ? values[3] : 255,
+    );
+  }
+
+  /// Creates a [RayRgb16] from a list of native 16-bit component values (0-65535).
+  ///
+  /// Accepts [red, green, blue] or [red, green, blue, alpha] as integers.
+  RayRgb16.fromListNative(List<int> values)
+      : _red = values[0] & 0xFFFF,
+        _green = values[1] & 0xFFFF,
+        _blue = values[2] & 0xFFFF,
+        _alpha = values.length > 3 ? values[3] & 0xFFFF : 65535,
+        super();
 
   /// Creates a transparent black color.
   const RayRgb16.empty()
@@ -180,17 +183,18 @@ base class RayRgb16 extends RayRgbBase<int> {
   @override
   RayRgb16 lerp(Ray other, double t) {
     // Use the precise lerp helper to preserve fractional precision
-    final (interpRed, interpGreen, interpBlue, interpAlpha) = lerpPrecise(other, t);
-    
-    // Create RayRgb16 using fromRgb which preserves fractional precision
-    return RayRgb16.fromRgb(interpRed, interpGreen, interpBlue, interpAlpha);
+    final (interpRed, interpGreen, interpBlue, interpAlpha) =
+        lerpPrecise(other, t);
+
+    // Create RayRgb16 using fromComponents which preserves fractional precision
+    return RayRgb16.fromComponents(interpRed, interpGreen, interpBlue, interpAlpha);
   }
 
   @override
   RayRgb16 get inverse {
     // Use the precise inverse helper to preserve fractional precision
     final (invRed, invGreen, invBlue, invAlpha) = inversePrecise;
-    return RayRgb16.fromRgb(invRed, invGreen, invBlue, invAlpha);
+    return RayRgb16.fromComponents(invRed, invGreen, invBlue, invAlpha);
   }
 
   // luminance, toOklch methods are provided by RayRgbBase
@@ -312,8 +316,10 @@ base class RayRgb16 extends RayRgbBase<int> {
   RayRgb16 toRgb16() => this; // Already 16-bit, return self
 
   @override
-  List<int> toJson() => [_alpha, _red, _green, _blue];
+  List<num> toList() => [red, green, blue, alpha];
 
+  @override
+  List<int> toJson() => [_alpha, _red, _green, _blue];
 
   @override
   String toString() => 'RayRgb16(a: $_alpha, r: $_red, g: $_green, b: $_blue)';

@@ -8,13 +8,14 @@ void main() {
   // === Color Creation ===
   print('🎨 Creating Colors:');
   final rgbRed = RayRgb8.fromHex('#FF0000');
-  final rgb16Color = RayRgb16.fromRgb(220.5, 137.2, 180.8, 127);
+  final rgb16Color = RayRgb16.fromComponents(220.5, 137.2, 180.8, 127);
   final hslGreen = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
   final oklabBlue = RayOklab(l: 0.452, a: -0.032, b: -0.312);
   final oklchPurple = RayOklch(l: 0.6, c: 0.2, h: 300);
 
   print('RGB8: ${rgbRed.toHex()} (R:${rgbRed.red}, G:${rgbRed.green})');
-  print('RGB16: (R:${rgb16Color.red}, G:${rgb16Color.green}, Native R:${rgb16Color.redNative})');
+  print(
+      'RGB16: (R:${rgb16Color.red}, G:${rgb16Color.green}, Native R:${rgb16Color.redNative})');
   print('HSL Green: ${hslGreen.toRgb8().toHex()}');
   print('Oklab Blue: ${oklabBlue.toRgb8().toHex()}');
   print('Oklch Purple: ${oklchPurple.toRgb8().toHex()}\n');

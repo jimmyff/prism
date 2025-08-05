@@ -129,7 +129,7 @@ void main() {
       });
 
       test('creates color from ARGB integer', () {
-        final color = RayRgb8.fromInt(0xFFFF0000); // Red with full alpha
+        final color = RayRgb8.fromArgbInt(0xFFFF0000); // Red with full alpha
         expect(color.alpha, equals(255));
         expect(color.red, equals(255));
         expect(color.green, equals(0));
@@ -143,7 +143,7 @@ void main() {
 
       test('fromInt constructor creates correct color', () {
         final ray =
-            RayRgb8.fromInt(testColors8['complexColor']!['argb'] as int);
+            RayRgb8.fromArgbInt(testColors8['complexColor']!['argb'] as int);
         validateRgb8(ray, testColors8['complexColor']!,
             description: 'fromInt constructor');
       });
@@ -176,7 +176,7 @@ void main() {
       });
 
       test('const fromInt constructor', () {
-        const ray = RayRgb8.fromInt(0xFFFF0000); // Opaque red
+        const ray = RayRgb8.fromArgbInt(0xFFFF0000); // Opaque red
         expect(ray.red, equals(255));
         expect(ray.green, equals(0));
         expect(ray.blue, equals(0));
@@ -184,7 +184,7 @@ void main() {
       });
 
       test('const fromIntARGB constructor', () {
-        const ray = RayRgb8.fromIntARGB(0x8000FF00); // Semi-transparent green
+        const ray = RayRgb8.fromArgbInt(0x8000FF00); // Semi-transparent green
         expect(ray.red, equals(0));
         expect(ray.green, equals(255));
         expect(ray.blue, equals(0));
@@ -192,7 +192,7 @@ void main() {
       });
 
       test('const fromIntRGBA constructor', () {
-        const ray = RayRgb8.fromIntRGBA(0x0000FF80); // Semi-transparent blue
+        const ray = RayRgb8.fromRgbaInt(0x0000FF80); // Semi-transparent blue
         expect(ray.red, equals(0));
         expect(ray.green, equals(0));
         expect(ray.blue, equals(255));
@@ -220,7 +220,7 @@ void main() {
         // These should be compile-time constants
         const red = RayRgb8(red: 255, green: 0, blue: 0);
         const green = RayRgb8.fromArgb(255, 0, 255, 0);
-        const blue = RayRgb8.fromInt(0xFF0000FF);
+        const blue = RayRgb8.fromArgbInt(0xFF0000FF);
         const transparent = RayRgb8.empty();
 
         // Test that they have expected values
@@ -506,7 +506,7 @@ void main() {
 
       test('creates color from native ARGB values', () {
         // Test with native 16-bit values
-        final color = RayRgb16.fromArgbNative(65535, 65535, 0, 0);
+        final color = RayRgb16.fromComponentsNative(65535, 0, 0, 65535);
 
         expect(color.alphaNative, equals(65535),
             reason: 'Alpha extraction from 64-bit integer failed');
@@ -516,7 +516,7 @@ void main() {
       });
 
       test('creates color from ARGB components', () {
-        final color = RayRgb16.fromArgbNative(32768, 65535, 40000, 20000);
+        final color = RayRgb16.fromComponentsNative(65535, 40000, 20000, 32768);
 
         expect(color.alphaNative, equals(32768),
             reason: 'Alpha from ARGB constructor failed');
@@ -552,24 +552,24 @@ void main() {
         expect(ray.alphaNative, equals(20000));
       });
 
-      test('const fromRgbNative constructor', () {
-        const ray = RayRgb16.fromRgbNative(65535, 32768, 16384);
+      test('const fromComponentsNative constructor', () {
+        const ray = RayRgb16.fromComponentsNative(65535, 32768, 16384);
         expect(ray.redNative, equals(65535));
         expect(ray.greenNative, equals(32768));
         expect(ray.blueNative, equals(16384));
         expect(ray.alphaNative, equals(65535)); // Default alpha
       });
 
-      test('const fromRgbNative constructor with alpha', () {
-        const ray = RayRgb16.fromRgbNative(40000, 50000, 30000, 25000);
+      test('const fromComponentsNative constructor with alpha', () {
+        const ray = RayRgb16.fromComponentsNative(40000, 50000, 30000, 25000);
         expect(ray.redNative, equals(40000));
         expect(ray.greenNative, equals(50000));
         expect(ray.blueNative, equals(30000));
         expect(ray.alphaNative, equals(25000));
       });
 
-      test('const fromArgbNative constructor', () {
-        const ray = RayRgb16.fromArgbNative(45000, 65535, 32768, 16384);
+      test('const fromComponentsNative constructor RGBA order', () {
+        const ray = RayRgb16.fromComponentsNative(65535, 32768, 16384, 45000);
         expect(ray.alphaNative, equals(45000));
         expect(ray.redNative, equals(65535));
         expect(ray.greenNative, equals(32768));
@@ -587,8 +587,8 @@ void main() {
       test('const constructors compile-time evaluation', () {
         // These should be compile-time constants
         const red = RayRgb16(red: 65535, green: 0, blue: 0);
-        const green = RayRgb16.fromArgbNative(65535, 0, 65535, 0);
-        const blue = RayRgb16.fromRgbNative(0, 0, 65535);
+        const green = RayRgb16.fromComponentsNative(0, 65535, 0, 65535);
+        const blue = RayRgb16.fromComponentsNative(0, 0, 65535);
         const transparent = RayRgb16.empty();
 
         // Test that they have expected values

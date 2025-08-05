@@ -53,6 +53,33 @@ base class RayOklch extends Ray {
   /// Creates a constant Oklch color from individual LCH components.
   const RayOklch.fromLch(this.l, this.c, this.h, [this._opacity = 1.0]);
 
+  /// Creates a [RayOklch] from individual LCHO component values.
+  ///
+  /// [l] is lightness (0-1), [c] is chroma (0+), [h] is hue (0-360°), [opacity] is 0-1.
+  factory RayOklch.fromComponents(num l, num c, num h, [num opacity = 1.0]) =>
+      RayOklch.validated(
+        l: l.toDouble(),
+        c: c.toDouble(),
+        h: h.toDouble(),
+        opacity: opacity.toDouble(),
+      );
+
+  /// Creates a [RayOklch] from a list of component values.
+  ///
+  /// Accepts [l, c, h] or [l, c, h, opacity].
+  /// L is 0-1, C is 0+, H is 0-360°, opacity is 0-1.
+  factory RayOklch.fromList(List<num> values) {
+    if (values.length < 3 || values.length > 4) {
+      throw ArgumentError('Oklch color list must have 3 or 4 components (LCHO)');
+    }
+    return RayOklch.fromComponents(
+      values[0],
+      values[1], 
+      values[2],
+      values.length > 3 ? values[3] : 1.0,
+    );
+  }
+
   /// Creates a transparent black Oklch color.
   const RayOklch.empty()
       : l = 0.0,
@@ -217,6 +244,9 @@ base class RayOklch extends Ray {
   RayOklch toOklch() {
     return this;
   }
+
+  @override
+  List<num> toList() => [l, c, h, opacity];
 
   @override
   Map<String, dynamic> toJson() {

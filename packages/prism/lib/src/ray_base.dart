@@ -83,6 +83,26 @@ abstract base class Ray {
   /// Returns the color as a JSON-serializable value.
   dynamic toJson();
 
+  /// Creates a color from a list of component values.
+  ///
+  /// The expected format depends on the color space:
+  /// - RGB: [red, green, blue] or [red, green, blue, alpha] (0-255 range)
+  /// - HSL: [hue, saturation, lightness] or [hue, saturation, lightness, opacity] (hue: 0-360°, others: 0-1)
+  /// - Oklab: [l, a, b] or [l, a, b, opacity] (standard Oklab ranges)
+  /// - Oklch: [l, c, h] or [l, c, h, opacity] (l: 0-1, c: 0+, h: 0-360°)
+  static Ray fromList(List<num> values) {
+    throw UnimplementedError('fromList must be implemented by subclasses');
+  }
+
+  /// Returns the color components as a list.
+  ///
+  /// The format matches what fromList expects:
+  /// - RGB: [red, green, blue, alpha] (0-255 range)
+  /// - HSL: [hue, saturation, lightness, opacity]
+  /// - Oklab: [l, a, b, opacity]
+  /// - Oklch: [l, c, h, opacity]
+  List<num> toList();
+
   /// Creates a color from a JSON value.
   static Ray fromJson(dynamic json) {
     throw UnimplementedError('fromJson must be implemented by subclasses');

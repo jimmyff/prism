@@ -92,7 +92,7 @@ final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
 
   /// Creates a const RGB color with precomputed luminance from ARGB int
   factory RayWithLuminanceRgb8.fromArgbIntFactory(int value, double luminance) {
-    return RayWithLuminanceRgb8._(RayRgb8.fromIntARGB(value), luminance);
+    return RayWithLuminanceRgb8._(RayRgb8.fromArgbInt(value), luminance);
   }
 
   /// Returns appropriate contrast color (black/white) for text on this color
@@ -100,9 +100,9 @@ final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
   RayWithLuminanceRgb8 get onRay {
     return isDark
         ? const RayWithLuminanceRgb8.fromRay(
-            RayRgb8.fromIntARGB(0xFFFFFFFF), 1.0) // White
+            RayRgb8.fromArgbInt(0xFFFFFFFF), 1.0) // White
         : const RayWithLuminanceRgb8.fromRay(
-            RayRgb8.fromIntARGB(0xFF000000), 0.0); // Black
+            RayRgb8.fromArgbInt(0xFF000000), 0.0); // Black
   }
 
   @override
@@ -163,6 +163,9 @@ final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
   dynamic toJson() => _ray.toJson();
 
   @override
+  List<num> toList() => _ray.toList();
+
+  @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is RayWithLuminanceRgb8 && other._ray == _ray);
@@ -193,7 +196,6 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
   const RayWithLuminanceOklch.fromRay(RayOklch ray, double luminance)
       : _ray = ray,
         super(luminance);
-
 
   /// Returns appropriate contrast color (black/white) for text on this color
   @override
@@ -264,6 +266,9 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
 
   @override
   dynamic toJson() => _ray.toJson();
+
+  @override
+  List<num> toList() => _ray.toList();
 
   @override
   bool operator ==(Object other) =>

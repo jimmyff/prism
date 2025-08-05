@@ -48,6 +48,33 @@ base class RayHsl extends Ray {
     );
   }
 
+  /// Creates a [RayHsl] from individual HSLO component values.
+  ///
+  /// [hue] in degrees (0-360), [saturation], [lightness], and [opacity] in range 0-1.
+  factory RayHsl.fromComponents(num hue, num saturation, num lightness, [num opacity = 1.0]) =>
+      RayHsl(
+        hue: hue.toDouble(),
+        saturation: saturation.toDouble(),
+        lightness: lightness.toDouble(),
+        opacity: opacity.toDouble(),
+      );
+
+  /// Creates a [RayHsl] from a list of component values.
+  ///
+  /// Accepts [hue, saturation, lightness] or [hue, saturation, lightness, opacity].
+  /// Hue is in degrees (0-360), others are in range 0-1.
+  factory RayHsl.fromList(List<num> values) {
+    if (values.length < 3 || values.length > 4) {
+      throw ArgumentError('HSL color list must have 3 or 4 components (HSLO)');
+    }
+    return RayHsl.fromComponents(
+      values[0],
+      values[1], 
+      values[2],
+      values.length > 3 ? values[3] : 1.0,
+    );
+  }
+
   /// Creates a transparent black HSL color.
   RayHsl.empty() : this(hue: 0, saturation: 0, lightness: 0, opacity: 0);
 
@@ -219,6 +246,9 @@ base class RayHsl extends Ray {
 
   @override
   RayOklch toOklch() => toRgb16().toOklch();
+
+  @override
+  List<num> toList() => [hue, saturation, lightness, opacity];
 
   @override
   Map<String, dynamic> toJson() => {

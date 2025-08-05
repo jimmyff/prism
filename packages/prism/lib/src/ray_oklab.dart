@@ -29,6 +29,32 @@ base class RayOklab extends Ray {
   /// Creates an Oklab color from individual LAB components.
   const RayOklab.fromLab(this.l, this.a, this.b, [this._opacity = 1.0]);
 
+  /// Creates a [RayOklab] from individual LABO component values.
+  ///
+  /// [l] is lightness (0-1), [a] and [b] are color axes, [opacity] is 0-1.
+  factory RayOklab.fromComponents(num l, num a, num b, [num opacity = 1.0]) =>
+      RayOklab(
+        l: l.toDouble(),
+        a: a.toDouble(),
+        b: b.toDouble(),
+        opacity: opacity.toDouble(),
+      );
+
+  /// Creates a [RayOklab] from a list of component values.
+  ///
+  /// Accepts [l, a, b] or [l, a, b, opacity] in standard Oklab ranges.
+  factory RayOklab.fromList(List<num> values) {
+    if (values.length < 3 || values.length > 4) {
+      throw ArgumentError('Oklab color list must have 3 or 4 components (LABO)');
+    }
+    return RayOklab.fromComponents(
+      values[0],
+      values[1], 
+      values[2],
+      values.length > 3 ? values[3] : 1.0,
+    );
+  }
+
   /// Creates a transparent black Oklab color.
   const RayOklab.empty()
       : l = 0.0,
@@ -122,7 +148,7 @@ base class RayOklab extends Ray {
     final blueNative = (srgbB.clamp(0.0, 1.0) * 65535).round();
     final alphaNative = (opacity * 65535).round();
 
-    return RayRgb16.fromArgbNative(alphaNative, redNative, greenNative, blueNative);
+    return RayRgb16.fromComponentsNative(redNative, greenNative, blueNative, alphaNative);
   }
 
   @override
@@ -137,6 +163,9 @@ base class RayOklab extends Ray {
 
   @override
   RayOklch toOklch() => RayOklch.fromOklab(this);
+
+  @override
+  List<num> toList() => [l, a, b, opacity];
 
   @override
   Map<String, dynamic> toJson() {
