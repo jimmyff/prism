@@ -1,6 +1,6 @@
 name: prism_flutter
 description: Flutter extensions for the Prism color library. Prism is an optimized, zero-dependency color manipulation library for Dart & Flutter with multiple color models, accessibility tools, and pre-built palettes.
-version: 2.0.0-beta.1
+version: 2.0.0-beta.2
 repository: https://github.com/jimmyff/prism
 website: https://github.com/jimmyff/prism/packages/prism_flutter
 

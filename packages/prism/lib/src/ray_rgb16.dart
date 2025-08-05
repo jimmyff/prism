@@ -1,27 +1,35 @@
+import 'dart:math' as math;
+
 import 'ray_base.dart';
+import 'ray_hsl.dart';
+import 'ray_oklab.dart';
 import 'ray_rgb_base.dart';
 import 'ray_rgb8.dart';
 
 /// 16-bit RGB color implementation with support for high precision color operations.
 ///
-/// Stored internally as 64-bit integer with four 16-bit components (ARGB).
+/// Stored internally as four separate 16-bit integer components (ARGB).
 /// Each color channel uses 16 bits (0-65535 range) for professional imaging applications.
+///
+/// ## Constructor Options:
+///
+/// **Const constructors (compile-time constants):**
+/// - `RayRgb16()` - Native 16-bit values (0-65535)
+/// - `RayRgb16.fromRgbNative()` - Native 16-bit RGB values
+/// - `RayRgb16.fromArgbNative()` - Native 16-bit ARGB values
+/// - `RayRgb16.empty()` - Transparent black
+///
+/// **Factory constructors (runtime flexibility):**
+/// - `RayRgb16.fromRgb()` - 0-255 range with `num` support
+/// - `RayRgb16.fromRgbNormalized()` - 0.0-1.0 normalized values
+/// - `RayRgb16.fromArgb()` - ARGB format with `num` support
+/// - `RayRgb16.fromArgbNormalized()` - ARGB format with 0.0-1.0 values
 base class RayRgb16 extends RayRgbBase<int> {
-  /// Bit mask constants for efficient color component extraction (16-bit)
-  static const int _alphaMask = 0xFFFF000000000000;
-  static const int _redMask = 0x0000FFFF00000000;
-  static const int _greenMask = 0x00000000FFFF0000;
-  static const int _blueMask = 0x000000000000FFFF;
-  static const int _fullMask = 0xFFFFFFFFFFFFFFFF;
-
-  /// Component bit shift amounts for 16-bit channels
-  static const int _alphaShift = 48;
-  static const int _redShift = 32;
-  static const int _greenShift = 16;
-  static const int _blueShift = 0;
-
-  /// An ARGB color value stored as a 64-bit integer
-  final int _value;
+  /// Individual 16-bit color components
+  final int _alpha;
+  final int _red;
+  final int _green;
+  final int _blue;
 
   @override
   ColorSpace get colorSpace => ColorSpace.rgb16;
@@ -32,64 +40,123 @@ base class RayRgb16 extends RayRgbBase<int> {
       required int green,
       required int blue,
       int alpha = 65535})
-      : _value = ((alpha & 0xffff) << _alphaShift) |
-            ((red & 0xffff) << _redShift) |
-            ((green & 0xffff) << _greenShift) |
-            ((blue & 0xffff) << _blueShift),
+      : _alpha = alpha & 0xFFFF,
+        _red = red & 0xFFFF,
+        _green = green & 0xFFFF,
+        _blue = blue & 0xFFFF,
         super();
 
-  /// Creates a [RayRgb16] from a 64-bit ARGB integer value.
-  const RayRgb16.fromInt(int value)
-      : _value = value & _fullMask,
+  /// Creates a [RayRgb16] from 0-255 range values (main API).
+  factory RayRgb16.fromRgb(num r, num g, num b, [num a = 255]) => RayRgb16(
+        red: (r.clamp(0, 255) * 257).round(),
+        green: (g.clamp(0, 255) * 257).round(),
+        blue: (b.clamp(0, 255) * 257).round(),
+        alpha: (a.clamp(0, 255) * 257).round(),
+      );
+
+  /// Creates a [RayRgb16] from 0-1 normalized values.
+  factory RayRgb16.fromRgbNormalized(num r, num g, num b, [num a = 1.0]) =>
+      RayRgb16(
+        red: (r.clamp(0.0, 1.0) * 65535).round(),
+        green: (g.clamp(0.0, 1.0) * 65535).round(),
+        blue: (b.clamp(0.0, 1.0) * 65535).round(),
+        alpha: (a.clamp(0.0, 1.0) * 65535).round(),
+      );
+
+  /// Creates a [RayRgb16] from native 16-bit values (0-65535).
+  const RayRgb16.fromRgbNative(int r, int g, int b, [int a = 65535])
+      : _red = r & 0xFFFF,
+        _green = g & 0xFFFF,
+        _blue = b & 0xFFFF,
+        _alpha = a & 0xFFFF,
         super();
 
-  /// Creates a [RayRgb16] from a 64-bit ARGB integer value.
-  const RayRgb16.fromIntARGB(int value)
-      : _value = value & _fullMask,
-        super();
+  /// Creates a [RayRgb16] from ARGB format with 0-255 range values.
+  factory RayRgb16.fromArgb(num a, num r, num g, num b) => RayRgb16(
+        alpha: (a.clamp(0, 255) * 257).round(),
+        red: (r.clamp(0, 255) * 257).round(),
+        green: (g.clamp(0, 255) * 257).round(),
+        blue: (b.clamp(0, 255) * 257).round(),
+      );
 
-  /// Creates a [RayRgb16] from individual ARGB component values (0-65535).
-  const RayRgb16.fromARGB(int a, int r, int g, int b)
-      : _value = ((a & 0xffff) << _alphaShift) |
-            ((r & 0xffff) << _redShift) |
-            ((g & 0xffff) << _greenShift) |
-            ((b & 0xffff) << _blueShift),
+  /// Creates a [RayRgb16] from ARGB format with 0-1 normalized values.
+  factory RayRgb16.fromArgbNormalized(num a, num r, num g, num b) => RayRgb16(
+        alpha: (a.clamp(0.0, 1.0) * 65535).round(),
+        red: (r.clamp(0.0, 1.0) * 65535).round(),
+        green: (g.clamp(0.0, 1.0) * 65535).round(),
+        blue: (b.clamp(0.0, 1.0) * 65535).round(),
+      );
+
+  /// Creates a [RayRgb16] from ARGB format with native 16-bit values (0-65535).
+  const RayRgb16.fromArgbNative(int a, int r, int g, int b)
+      : _alpha = a & 0xFFFF,
+        _red = r & 0xFFFF,
+        _green = g & 0xFFFF,
+        _blue = b & 0xFFFF,
         super();
 
   /// Creates a [RayRgb16] from an 8-bit RGB color, upscaling to 16-bit.
   factory RayRgb16.fromRgb8(dynamic rgb8Color) => RayRgb16(
-        red: rgb8Color.red * 257, // 8-bit to 16-bit conversion
-        green: rgb8Color.green * 257,
-        blue: rgb8Color.blue * 257,
-        alpha: rgb8Color.alpha * 257,
+        red: rgb8Color.redNative * 257, // 8-bit to 16-bit conversion
+        green: rgb8Color.greenNative * 257,
+        blue: rgb8Color.blueNative * 257,
+        alpha: rgb8Color.alphaNative * 257,
       );
 
   /// Creates a [RayRgb16] for JSON deserialization.
-  factory RayRgb16.fromJson(int json) => RayRgb16.fromInt(json);
+  factory RayRgb16.fromJson(List<dynamic> json) => RayRgb16(
+        alpha: json[0],
+        red: json[1],
+        green: json[2],
+        blue: json[3],
+      );
 
   /// Creates a transparent black color.
   const RayRgb16.empty()
-      : _value = 0x0000000000000000,
+      : _alpha = 0,
+        _red = 0,
+        _green = 0,
+        _blue = 0,
         super();
 
-  /// The alpha channel of this color in a 16-bit value.
+  /// The alpha channel of this color as a normalized 8-bit value (0-255).
   ///
   /// A value of 0 means this color is fully transparent.
-  /// A value of 65535 means this color is fully opaque.
+  /// A value of 255 means this color is fully opaque.
+  /// Returns precise fractional values for 16-bit colors.
   @override
-  int get alphaInt => ((_alphaMask & _value) >> _alphaShift) & 0xFFFF;
+  num get alpha => _alpha / 65535 * 255;
 
-  /// The red channel of this color in a 16-bit value.
+  /// The red channel of this color as a normalized 8-bit value (0-255).
+  /// Returns precise fractional values for 16-bit colors.
   @override
-  int get redInt => ((_redMask & _value) >> _redShift) & 0xFFFF;
+  num get red => _red / 65535 * 255;
 
-  /// The green channel of this color in a 16-bit value.
+  /// The green channel of this color as a normalized 8-bit value (0-255).
+  /// Returns precise fractional values for 16-bit colors.
   @override
-  int get greenInt => ((_greenMask & _value) >> _greenShift) & 0xFFFF;
+  num get green => _green / 65535 * 255;
 
-  /// The blue channel of this color in a 16-bit value.
+  /// The blue channel of this color as a normalized 8-bit value (0-255).
+  /// Returns precise fractional values for 16-bit colors.
   @override
-  int get blueInt => (_blueMask & _value) & 0xFFFF;
+  num get blue => _blue / 65535 * 255;
+
+  /// The alpha channel of this color in native 16-bit value (0-65535).
+  @override
+  int get alphaNative => _alpha;
+
+  /// The red channel of this color in native 16-bit value (0-65535).
+  @override
+  int get redNative => _red;
+
+  /// The green channel of this color in native 16-bit value (0-65535).
+  @override
+  int get greenNative => _green;
+
+  /// The blue channel of this color in native 16-bit value (0-65535).
+  @override
+  int get blueNative => _blue;
 
   /// Creates a new [RayRgb16] with the same RGB values but a different alpha.
   ///
@@ -101,56 +168,130 @@ base class RayRgb16 extends RayRgbBase<int> {
   /// final semiRed = red.withAlpha(32768);  // Semi-transparent red
   /// ```
   RayRgb16 withAlpha(int alpha) =>
-      RayRgb16(red: redInt, green: greenInt, blue: blueInt, alpha: alpha);
+      RayRgb16(red: _red, green: _green, blue: _blue, alpha: alpha);
 
   @override
   RayRgb16 withOpacity(double opacity) => RayRgb16(
-      red: redInt,
-      green: greenInt,
-      blue: blueInt,
+      red: _red,
+      green: _green,
+      blue: _blue,
       alpha: (opacity.clamp(0.0, 1.0) * 65535).round());
 
   @override
   RayRgb16 lerp(Ray other, double t) {
-    final (red, green, blue, alpha) = lerpComponents(other, t);
-    // Convert 8-bit back to 16-bit for our result
-    return RayRgb16(
-        red: red * 257,
-        green: green * 257,
-        blue: blue * 257,
-        alpha: alpha * 257);
+    // Use the precise lerp helper to preserve fractional precision
+    final (interpRed, interpGreen, interpBlue, interpAlpha) = lerpPrecise(other, t);
+    
+    // Create RayRgb16 using fromRgb which preserves fractional precision
+    return RayRgb16.fromRgb(interpRed, interpGreen, interpBlue, interpAlpha);
   }
 
   @override
   RayRgb16 get inverse {
-    final (red, green, blue, alpha) = inverseComponents;
-    // Convert 8-bit back to 16-bit for our result
-    return RayRgb16(
-        red: red * 257,
-        green: green * 257,
-        blue: blue * 257,
-        alpha: alpha * 257);
+    // Use the precise inverse helper to preserve fractional precision
+    final (invRed, invGreen, invBlue, invAlpha) = inversePrecise;
+    return RayRgb16.fromRgb(invRed, invGreen, invBlue, invAlpha);
   }
 
-  // luminance, toHsl, toOklab, toOklch methods are provided by RayRgbBase
+  // luminance, toOklch methods are provided by RayRgbBase
 
   @override
-  RayRgb8 toRgb() =>
-      toRgb8(); // Convert to 8-bit for Ray interface compatibility
+  RayHsl toHsl() {
+    // Direct conversion from RGB to HSL to avoid circular reference
+    final r = redNative / 65535.0;
+    final g = greenNative / 65535.0;
+    final b = blueNative / 65535.0;
 
-  /// Converts the color to a hexadecimal string (12 or 16 characters for 16-bit).
+    final max = math.max(r, math.max(g, b));
+    final min = math.min(r, math.min(g, b));
+    final delta = max - min;
+
+    final lightness = (max + min) / 2.0;
+    double saturation = 0.0;
+    double hue = 0.0;
+
+    if (delta != 0.0) {
+      saturation =
+          lightness > 0.5 ? delta / (2.0 - max - min) : delta / (max + min);
+
+      if (max == r) {
+        hue = ((g - b) / delta + (g < b ? 6 : 0)) * 60;
+      } else if (max == g) {
+        hue = ((b - r) / delta + 2) * 60;
+      } else {
+        hue = ((r - g) / delta + 4) * 60;
+      }
+    }
+
+    return RayHsl(
+        hue: hue,
+        saturation: saturation,
+        lightness: lightness,
+        opacity: alphaNative / 65535.0);
+  }
+
+  // Reference: https://bottosson.github.io/posts/oklab/
   @override
-  String toHexStr([int? length]) {
-    final actualLength = length ?? 12;
-    final format = HexFormat.rgba;
-    return switch (actualLength) {
-      12 => "#${toRgbInt().toRadixString(16).padLeft(12, '0').toUpperCase()}",
-      16 => format == HexFormat.rgba
-          ? "#${toRgbaInt().toRadixString(16).padLeft(16, '0').toUpperCase()}"
-          : "#${toArgbInt().toRadixString(16).padLeft(16, '0').toUpperCase()}",
-      _ => throw ArgumentError(
-          "Invalid hex length: $actualLength. Expected 12 or 16.")
-    };
+  RayOklab toOklab() {
+    // Direct conversion from RGB to Oklab to avoid circular reference
+    final r = redNative / 65535.0;
+    final g = greenNative / 65535.0;
+    final b = blueNative / 65535.0;
+
+    // Convert to linear RGB first
+    final linearR = _srgbToLinear(r);
+    final linearG = _srgbToLinear(g);
+    final linearB = _srgbToLinear(b);
+
+    // Transform to LMS space
+    final lms1 = 0.4122214708 * linearR +
+        0.5363325363 * linearG +
+        0.0514459929 * linearB;
+    final lms2 = 0.2119034982 * linearR +
+        0.6806995451 * linearG +
+        0.1073969566 * linearB;
+    final lms3 = 0.0883024619 * linearR +
+        0.2817188376 * linearG +
+        0.6299787005 * linearB;
+
+    // Apply cube root
+    final lmsCbrt1 = _signedCbrt(lms1);
+    final lmsCbrt2 = _signedCbrt(lms2);
+    final lmsCbrt3 = _signedCbrt(lms3);
+
+    // Transform to Oklab
+    final lComponent = 0.2104542553 * lmsCbrt1 +
+        0.7936177850 * lmsCbrt2 -
+        0.0040720468 * lmsCbrt3;
+    final aComponent = 1.9779984951 * lmsCbrt1 -
+        2.4285922050 * lmsCbrt2 +
+        0.4505937099 * lmsCbrt3;
+    final bComponent = 0.0259040371 * lmsCbrt1 +
+        0.7827717662 * lmsCbrt2 -
+        0.8086757660 * lmsCbrt3;
+
+    return RayOklab(
+        l: lComponent,
+        a: aComponent,
+        b: bComponent,
+        opacity: alphaNative / 65535.0);
+  }
+
+  /// Converts sRGB component to linear RGB
+  static double _srgbToLinear(double component) {
+    if (component <= 0.04045) {
+      return component / 12.92;
+    }
+    return math.pow((component + 0.055) / 1.055, 2.4) as double;
+  }
+
+  /// Signed cube root function
+  static double _signedCbrt(double value) {
+    if (value >= 0) {
+      return math.pow(value, 1.0 / 3.0) as double;
+    } else {
+      return -math.pow(-value, 1.0 / 3.0) as double;
+    }
   }
 
   // toRgbStr and toRgbaStr methods are provided by RayRgbBase
@@ -160,10 +301,10 @@ base class RayRgb16 extends RayRgbBase<int> {
   RayRgb8 toRgb8() {
     // Convert 16-bit to 8-bit (high byte for best precision)
     return RayRgb8(
-      red: redInt >> 8,
-      green: greenInt >> 8,
-      blue: blueInt >> 8,
-      alpha: alphaInt >> 8,
+      red: redNative >> 8,
+      green: greenNative >> 8,
+      blue: blueNative >> 8,
+      alpha: alphaNative >> 8,
     );
   }
 
@@ -171,28 +312,22 @@ base class RayRgb16 extends RayRgbBase<int> {
   RayRgb16 toRgb16() => this; // Already 16-bit, return self
 
   @override
-  int toJson() => _value;
+  List<int> toJson() => [_alpha, _red, _green, _blue];
 
-  /// Returns the color as a 64-bit ARGB integer.
-  int toArgbInt() => _value;
-
-  /// Returns the color as a 48-bit RGB integer, discarding alpha.
-  int toRgbInt() => _value & 0x0000FFFFFFFFFFFF;
-
-  /// Returns the color as a 64-bit RGBA integer (alpha last).
-  int toRgbaInt() => ((toRgbInt()) << 16) | (alphaInt);
 
   @override
-  String toString() =>
-      'RayRgb16(0x${_value.toRadixString(16).padLeft(16, '0').toUpperCase()})';
+  String toString() => 'RayRgb16(a: $_alpha, r: $_red, g: $_green, b: $_blue)';
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is RayRgb16 &&
           runtimeType == other.runtimeType &&
-          _value == other._value;
+          _alpha == other._alpha &&
+          _red == other._red &&
+          _green == other._green &&
+          _blue == other._blue;
 
   @override
-  int get hashCode => _value.hashCode;
+  int get hashCode => Object.hash(_alpha, _red, _green, _blue);
 }

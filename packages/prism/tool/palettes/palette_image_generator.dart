@@ -3,10 +3,10 @@ import 'package:image/image.dart' as img;
 import 'package:prism/prism.dart';
 
 img.ColorUint16 colorFromRay(RayRgb16 ray) => img.ColorUint16.rgba(
-      ray.redInt,
-      ray.greenInt,
-      ray.blueInt,
-      ray.alphaInt,
+      ray.redNative,
+      ray.greenNative,
+      ray.blueNative,
+      ray.alphaNative,
     );
 
 final title = RayRgb8(red: 33, green: 33, blue: 33).toRgb16();
@@ -213,8 +213,8 @@ class PaletteImageGenerator {
     for (final shade in presentShades) {
       final rayLuminance = tones[shade]!;
       final shadeRgb8 = rayLuminance.toRgb16();
-      final shadeColor = img.ColorUint16.rgba(shadeRgb8.redInt,
-          shadeRgb8.greenInt, shadeRgb8.blueInt, shadeRgb8.alphaInt);
+      final shadeColor = img.ColorUint16.rgba(shadeRgb8.redNative,
+          shadeRgb8.greenNative, shadeRgb8.blueNative, shadeRgb8.alphaNative);
 
       final shadeX = x + (i * shadeWidth);
       final shadeWidthActual = (i == presentShades.length - 1)

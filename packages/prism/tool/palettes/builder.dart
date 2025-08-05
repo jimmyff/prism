@@ -172,7 +172,7 @@ void _generateRgbPalette({
   for (final entry in schemes.entries) {
     final name = entry.key;
     final scheme = entry.value;
-    final rgb = scheme.source.toRgb();
+    final rgb = scheme.source.toRgb8();
 
     buffer.writeln('  $name(');
     buffer.writeln(
@@ -186,7 +186,7 @@ void _generateRgbPalette({
       }
       final rayLuminance = scheme.tones[tone]!;
       final luminance = rayLuminance.luminance;
-      final toneRgb = rayLuminance.toRgb();
+      final toneRgb = rayLuminance.toRgb8();
       buffer.writeln(
           '      RayTone.${tone.name}: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
     }
@@ -297,12 +297,7 @@ void _generateOklchPalette({
     final oklch = scheme.source.toOklch();
 
     buffer.writeln('  $name(');
-    buffer.writeln('    RayWithLuminanceOklch.fromComponents(');
-    buffer.writeln('      ${oklch.l},');
-    buffer.writeln('      ${oklch.c},');
-    buffer.writeln('      ${oklch.h},');
-    buffer.writeln('      ${oklch.opacity},');
-    buffer.writeln('      ${oklch.luminance}), // source');
+    buffer.writeln('    RayWithLuminanceOklch.fromRay(RayOklch(l: ${oklch.l}, c: ${oklch.c}, h: ${oklch.h}, opacity: ${oklch.opacity}), ${oklch.luminance}), // source');
     buffer.writeln('    const {');
 
     for (final tone in RayTone.values) {
@@ -314,12 +309,7 @@ void _generateOklchPalette({
       final luminance = rayLuminance.luminance;
       final toneOklch = rayLuminance.toOklch();
       buffer.writeln(
-          '      RayTone.${tone.name}: RayWithLuminanceOklch.fromComponents(');
-      buffer.writeln('        ${toneOklch.l},');
-      buffer.writeln('        ${toneOklch.c},');
-      buffer.writeln('        ${toneOklch.h},');
-      buffer.writeln('        ${toneOklch.opacity},');
-      buffer.writeln('        $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminanceOklch.fromRay(RayOklch(l: ${toneOklch.l}, c: ${toneOklch.c}, h: ${toneOklch.h}, opacity: ${toneOklch.opacity}), $luminance),');
     }
     buffer.writeln('    }, // tones');
     buffer.writeln('  ),');

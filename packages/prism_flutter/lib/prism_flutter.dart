@@ -34,8 +34,11 @@ extension RayToFlutterColor on RayRgb8 {
   /// final ray = RayRgb8.fromHex('#FF0000');
   /// final semiTransparent = ray.toColorWithOpacity(0.5);
   /// ```
-  Color toColorWithOpacity(double opacity) =>
-      Color.fromARGB((opacity.clamp(0.0, 1.0) * 255).round(), red, green, blue);
+  Color toColorWithOpacity(double opacity) => Color.fromARGB(
+      (opacity.clamp(0.0, 1.0) * 255).round(),
+      red.round(),
+      green.round(),
+      blue.round());
 }
 
 /// Extension methods for Flutter [Color] to convert to [RayRgb] objects.

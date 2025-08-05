@@ -1,15 +1,11 @@
+import 'dart:math' as math;
+
 import 'ray_base.dart';
+import 'ray_hsl.dart';
+import 'ray_oklab.dart';
 import 'ray_rgb_base.dart';
 import 'ray_rgb16.dart';
 
-/// Hexadecimal color format for parsing and output.
-enum HexFormat {
-  /// RGBA format where alpha is the last component (web standard).
-  rgba,
-
-  /// ARGB format where alpha is the first component (Flutter/Android standard).
-  argb
-}
 
 /// 8-bit RGB color implementation with support for multiple input/output formats.
 ///
@@ -65,7 +61,7 @@ base class RayRgb8 extends RayRgbBase<int> {
         super();
 
   /// Creates a [RayRgb8] from individual ARGB component values (0-255).
-  const RayRgb8.fromARGB(int a, int r, int g, int b)
+  const RayRgb8.fromArgb(int a, int r, int g, int b)
       : _value = ((a & 0xff) << _alphaShift) |
             ((r & 0xff) << _redShift) |
             ((g & 0xff) << _greenShift) |
@@ -76,55 +72,16 @@ base class RayRgb8 extends RayRgbBase<int> {
   ///
   /// Supports 3, 6, and 8 character hex strings with or without '#' prefix.
   factory RayRgb8.fromHex(String value, {HexFormat format = HexFormat.rgba}) {
-    String hex = value.startsWith('#') ? value.substring(1) : value;
-    hex = hex.toUpperCase();
-
-    // Validate hex characters
-    if (!RegExp(r'^[0-9A-F]+$').hasMatch(hex)) {
-      throw ArgumentError('Invalid hex color: $value');
-    }
-
-    switch (hex.length) {
-      case 3:
-        // RGB shorthand: F00 -> FF0000
-        final r = int.parse(hex[0] * 2, radix: 16);
-        final g = int.parse(hex[1] * 2, radix: 16);
-        final b = int.parse(hex[2] * 2, radix: 16);
-        return RayRgb8(red: r, green: g, blue: b);
-
-      case 6:
-        // RGB: FF0000
-        final r = int.parse(hex.substring(0, 2), radix: 16);
-        final g = int.parse(hex.substring(2, 4), radix: 16);
-        final b = int.parse(hex.substring(4, 6), radix: 16);
-        return RayRgb8(red: r, green: g, blue: b);
-
-      case 8:
-        // RGBA or ARGB format
-        if (format == HexFormat.rgba) {
-          // RGBA: FF000080 (red with 50% alpha)
-          final r = int.parse(hex.substring(0, 2), radix: 16);
-          final g = int.parse(hex.substring(2, 4), radix: 16);
-          final b = int.parse(hex.substring(4, 6), radix: 16);
-          final a = int.parse(hex.substring(6, 8), radix: 16);
-          return RayRgb8(red: r, green: g, blue: b, alpha: a);
-        } else {
-          // ARGB: 80FF0000 (red with 50% alpha)
-          return RayRgb8.fromIntARGB(int.parse(hex, radix: 16));
-        }
-
-      default:
-        throw ArgumentError(
-            'Invalid hex color length: ${hex.length}. Expected 3, 6, or 8 characters.');
-    }
+    final (r, g, b, a) = RayRgbBase.parseHex(value, format: format);
+    return RayRgb8(red: r, green: g, blue: b, alpha: a);
   }
 
   /// Creates a [RayRgb8] from a 16-bit RGB color, downscaling to 8-bit.
   factory RayRgb8.fromRgb16(dynamic rgb16Color) => RayRgb8(
-        red: rgb16Color.redInt >> 8, // Convert 16-bit to 8-bit (high byte)
-        green: rgb16Color.greenInt >> 8,
-        blue: rgb16Color.blueInt >> 8,
-        alpha: rgb16Color.alphaInt >> 8,
+        red: rgb16Color.redNative >> 8, // Convert 16-bit to 8-bit (high byte)
+        green: rgb16Color.greenNative >> 8,
+        blue: rgb16Color.blueNative >> 8,
+        alpha: rgb16Color.alphaNative >> 8,
       );
 
   /// Creates a [RayRgb8] for JSON deserialization.
@@ -135,24 +92,40 @@ base class RayRgb8 extends RayRgbBase<int> {
       : _value = 0x00000000,
         super();
 
-  /// The alpha channel of this color in an 8-bit value.
+  /// The alpha channel of this color as a normalized 8-bit value (0-255).
   ///
   /// A value of 0 means this color is fully transparent.
   /// A value of 255 means this color is fully opaque.
   @override
-  int get alphaInt => (_alphaMask & _value) >> _alphaShift;
+  num get alpha => (_alphaMask & _value) >> _alphaShift;
 
-  /// The red channel of this color in an 8-bit value.
+  /// The red channel of this color as a normalized 8-bit value (0-255).
   @override
-  int get redInt => (_redMask & _value) >> _redShift;
+  num get red => (_redMask & _value) >> _redShift;
 
-  /// The green channel of this color in an 8-bit value.
+  /// The green channel of this color as a normalized 8-bit value (0-255).
   @override
-  int get greenInt => (_greenMask & _value) >> _greenShift;
+  num get green => (_greenMask & _value) >> _greenShift;
 
-  /// The blue channel of this color in an 8-bit value.
+  /// The blue channel of this color as a normalized 8-bit value (0-255).
   @override
-  int get blueInt => (_blueMask & _value);
+  num get blue => (_blueMask & _value);
+
+  /// The alpha channel of this color in native 8-bit value (0-255).
+  @override
+  int get alphaNative => (_alphaMask & _value) >> _alphaShift;
+
+  /// The red channel of this color in native 8-bit value (0-255).
+  @override
+  int get redNative => (_redMask & _value) >> _redShift;
+
+  /// The green channel of this color in native 8-bit value (0-255).
+  @override
+  int get greenNative => (_greenMask & _value) >> _greenShift;
+
+  /// The blue channel of this color in native 8-bit value (0-255).
+  @override
+  int get blueNative => (_blueMask & _value);
 
   /// Creates a new [RayRgb8] with the same RGB values but a different alpha.
   ///
@@ -164,35 +137,151 @@ base class RayRgb8 extends RayRgbBase<int> {
   /// final semiRed = red.withAlpha(128);  // Semi-transparent red
   /// ```
   RayRgb8 withAlpha(int alpha) =>
-      RayRgb8(red: red, green: green, blue: blue, alpha: alpha);
+      RayRgb8(red: redNative, green: greenNative, blue: blueNative, alpha: alpha);
 
   @override
   RayRgb8 withOpacity(double opacity) => RayRgb8(
-      red: red,
-      green: green,
-      blue: blue,
+      red: redNative,
+      green: greenNative,
+      blue: blueNative,
       alpha: (opacity.clamp(0.0, 1.0) * 255).round());
 
   @override
   RayRgb8 lerp(Ray other, double t) {
-    final (red, green, blue, alpha) = lerpComponents(other, t);
-    return RayRgb8(red: red, green: green, blue: blue, alpha: alpha);
+    // Use the precise lerp helper and round to integers for 8-bit precision
+    final (interpRed, interpGreen, interpBlue, interpAlpha) = lerpPrecise(other, t);
+    return RayRgb8(
+      red: interpRed.round(),
+      green: interpGreen.round(), 
+      blue: interpBlue.round(),
+      alpha: interpAlpha.round(),
+    );
   }
 
   @override
   RayRgb8 get inverse {
-    final (red, green, blue, alpha) = inverseComponents;
-    return RayRgb8(red: red, green: green, blue: blue, alpha: alpha);
+    // Use the precise inverse helper and round to integers for 8-bit precision
+    final (invRed, invGreen, invBlue, invAlpha) = inversePrecise;
+    return RayRgb8(
+      red: invRed.round(),
+      green: invGreen.round(),
+      blue: invBlue.round(), 
+      alpha: invAlpha.round(),
+    );
   }
 
-  // luminance, toHsl, toOklab, toOklch methods are provided by RayRgbBase
+  // luminance, toOklch methods are provided by RayRgbBase
+  
+  @override
+  RayHsl toHsl() {
+    // Direct conversion from RGB to HSL to avoid circular reference
+    final r = red / 255.0;
+    final g = green / 255.0;
+    final b = blue / 255.0;
+    
+    final max = math.max(r, math.max(g, b));
+    final min = math.min(r, math.min(g, b));
+    final delta = max - min;
+    
+    final lightness = (max + min) / 2.0;
+    double saturation = 0.0;
+    double hue = 0.0;
+    
+    if (delta != 0.0) {
+      saturation = lightness > 0.5 ? delta / (2.0 - max - min) : delta / (max + min);
+      
+      if (max == r) {
+        hue = ((g - b) / delta + (g < b ? 6 : 0)) * 60;
+      } else if (max == g) {
+        hue = ((b - r) / delta + 2) * 60;
+      } else {
+        hue = ((r - g) / delta + 4) * 60;
+      }
+    }
+    
+    return RayHsl(hue: hue, saturation: saturation, lightness: lightness, opacity: opacity);
+  }
+  
+  @override
+  RayOklab toOklab() {
+    // Direct conversion from RGB to Oklab to avoid circular reference
+    final rNorm = red / 255.0;
+    final gNorm = green / 255.0;
+    final bNorm = blue / 255.0;
+    
+    // Convert to linear RGB first
+    final linearR = _srgbToLinear(rNorm);
+    final linearG = _srgbToLinear(gNorm);
+    final linearB = _srgbToLinear(bNorm);
+
+    // Transform to LMS space
+    final lms1 = 0.4122214708 * linearR +
+        0.5363325363 * linearG +
+        0.0514459929 * linearB;
+    final lms2 = 0.2119034982 * linearR +
+        0.6806995451 * linearG +
+        0.1073969566 * linearB;
+    final lms3 = 0.0883024619 * linearR +
+        0.2817188376 * linearG +
+        0.6299787005 * linearB;
+
+    // Apply cube root
+    final lmsCbrt1 = _signedCbrt(lms1);
+    final lmsCbrt2 = _signedCbrt(lms2);
+    final lmsCbrt3 = _signedCbrt(lms3);
+
+    // Transform to Oklab
+    final lComponent = 0.2104542553 * lmsCbrt1 +
+        0.7936177850 * lmsCbrt2 -
+        0.0040720468 * lmsCbrt3;
+    final aComponent = 1.9779984951 * lmsCbrt1 -
+        2.4285922050 * lmsCbrt2 +
+        0.4505937099 * lmsCbrt3;
+    final bComponent = 0.0259040371 * lmsCbrt1 +
+        0.7827717662 * lmsCbrt2 -
+        0.8086757660 * lmsCbrt3;
+
+    return RayOklab(l: lComponent, a: aComponent, b: bComponent, opacity: opacity);
+  }
+
+  /// Converts sRGB component to linear RGB
+  static double _srgbToLinear(double component) {
+    if (component <= 0.04045) {
+      return component / 12.92;
+    }
+    return math.pow((component + 0.055) / 1.055, 2.4) as double;
+  }
+
+  /// Signed cube root function
+  static double _signedCbrt(double value) {
+    if (value >= 0) {
+      return math.pow(value, 1.0 / 3.0) as double;
+    } else {
+      return -math.pow(-value, 1.0 / 3.0) as double;
+    }
+  }
 
   @override
-  RayRgb8 toRgb() => this; // Already 8-bit RGB, return self
+  RayRgb8 toRgb8() => this; // Already 8-bit RGB, return self
 
-  /// Converts the color to a hexadecimal string (6 or 8 characters).
+
+  // toRgbStr and toRgbaStr methods are provided by RayRgbBase
+
+  /// Optimized bit-depth conversion methods
+
   @override
-  String toHexStr([int? length, HexFormat format = HexFormat.rgba]) {
+  RayRgb16 toRgb16() => RayRgb16(
+        red: redNative * 257, // Convert 8-bit to 16-bit (0-255 -> 0-65535)
+        green: greenNative * 257,
+        blue: blueNative * 257,
+        alpha: alphaNative * 257,
+      );
+
+  /// Converts the color to an sRGB hexadecimal string (6 or 8 characters).
+  /// 
+  /// Note: Hex colors are limited to the sRGB gamut (24-bit color space).
+  /// For extended precision colors, use direct constructor values instead.
+  String toHex([int? length, HexFormat format = HexFormat.rgba]) {
     final actualLength = length ?? 6;
     return switch (actualLength) {
       6 => "#${toRgbInt().toRadixString(16).padLeft(6, '0').toUpperCase()}",
@@ -200,23 +289,9 @@ base class RayRgb8 extends RayRgbBase<int> {
           ? "#${toRgbaInt().toRadixString(16).padLeft(8, '0').toUpperCase()}"
           : "#${toArgbInt().toRadixString(16).padLeft(8, '0').toUpperCase()}",
       _ => throw ArgumentError(
-          "Invalid hex length: $actualLength. Expected 6 or 8.")
+          "Invalid sRGB hex length: $actualLength. Expected 6 or 8 characters for standard web hex colors.")
     };
   }
-
-  // toRgbStr and toRgbaStr methods are provided by RayRgbBase
-
-  /// Optimized bit-depth conversion methods
-  @override
-  RayRgb8 toRgb8() => this; // Already 8-bit, return self
-
-  @override
-  RayRgb16 toRgb16() => RayRgb16(
-        red: red * 257, // Convert 8-bit to 16-bit (0-255 -> 0-65535)
-        green: green * 257,
-        blue: blue * 257,
-        alpha: alpha * 257,
-      );
 
   @override
   int toJson() => _value;

@@ -338,11 +338,11 @@ Map<String, RayScheme<RayWithLuminanceRgb8>> materialColors = {
       RayTone.shade900: RayRgb8.fromHex('#263238'),
     },
   ),
-  'black': RayScheme.fromRgb(
+  'black': RayScheme.fromRgb8(
     RayRgb8.fromHex('#000000'),
     generateAccents: false,
   ),
-  'white': RayScheme.fromRgb(
+  'white': RayScheme.fromRgb8(
     RayRgb8.fromHex('#FFFFFF'),
     generateAccents: false,
   ),

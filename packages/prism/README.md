@@ -29,7 +29,7 @@ import 'package:prism/prism.dart';
 final red = RayRgb8.fromHex('#FF0000');
 final redInOklch = red.toOklch();                 // Convert to perceptual color space
 final darkRed = redInOklch.withLightness(0.3);    // Darken perceptually 
-print(darkRed.toRgb8().toHexStr());               // #521711
+print(darkRed.toRgb8().toHex());               // #521711
 
 // Generate accessibility schemes
 final scheme = RayScheme.fromRay(red);
@@ -44,11 +44,17 @@ Prism supports multiple color models with seamless conversion:
 ### RayRgb8 & RayRgb16 (Red, Green, Blue)
 
 ```dart
-final red8 = RayRgb8.fromHex('#FF0000');                 // 8-bit channels (0-255)
-final red16 = RayRgb16.fromHex('#FF0000');               // 16-bit channels (0-65535)
+final red8 = RayRgb8.fromHex('#FF0000');                 // 8-bit precision
+final red16 = RayRgb16.fromRgb(220.5, 137.2, 180.8);    // 16-bit precision with fractional values
 final transparent = red8.withOpacity(0.5);               // With transparency
-final webHex = red8.toHexStr();                          // Web standard: #FF0000
-final flutterHex = red8.toHexStr(format: HexFormat.argb); // Flutter: #FFFF0000
+
+// Standardized channel access (0-255 range for both)
+print('RGB8 - Red: ${red8.red}, Green: ${red8.green}');     // 255, 0
+print('RGB16 - Red: ${red16.red}, Blue: ${red16.blue}');    // 220.5, 170.7 (doubles)
+print('RGB16 Native: ${red16.redNative}');                  // 56797 (16-bit native)
+
+final webHex = red8.toHex();                          // Web standard: #FF0000
+final flutterHex = red8.toHex(format: HexFormat.argb); // Flutter: #FFFF0000
 ```
 
 ### RayHsl (Hue, Saturation, Lightness)

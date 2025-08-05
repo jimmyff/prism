@@ -358,8 +358,8 @@ enum MaterialRgb implements PrismPalette {
     RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF000000), 0.0), // source
     const {
       RayTone.shade0: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFFAFAFA), 0.984),
-      RayTone.shade50: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFF4F4F4), 0.968),
-      RayTone.shade100: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFE4E4E4), 0.9200000000000002),
+      RayTone.shade50: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFF5F5F5), 0.968),
+      RayTone.shade100: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFE5E5E5), 0.9200000000000002),
       RayTone.shade200: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFC8C8C8), 0.8320000000000001),
       RayTone.shade300: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFB1B1B1), 0.76),
       RayTone.shade400: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF9D9D9D), 0.696),
@@ -367,17 +367,17 @@ enum MaterialRgb implements PrismPalette {
       RayTone.shade600: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF808080), 0.6000000000000001),
       RayTone.shade700: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF6D6D6D), 0.536),
       RayTone.shade800: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF5D5D5D), 0.48),
-      RayTone.shade900: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF484848), 0.4),
-      RayTone.shade950: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF333333), 0.32),
-      RayTone.shade1000: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF181818), 0.20800000000000002),
+      RayTone.shade900: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF474747), 0.4),
+      RayTone.shade950: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF323232), 0.32),
+      RayTone.shade1000: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF171717), 0.20800000000000002),
     }, // tones
   ),
   white(
     RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFFFFFFF), 1.0), // source
     const {
       RayTone.shade0: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFFAFAFA), 0.984),
-      RayTone.shade50: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFF4F4F4), 0.968),
-      RayTone.shade100: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFE4E4E4), 0.9200000000000002),
+      RayTone.shade50: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFF5F5F5), 0.968),
+      RayTone.shade100: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFE5E5E5), 0.9200000000000002),
       RayTone.shade200: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFC8C8C8), 0.8320000000000001),
       RayTone.shade300: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFFB1B1B1), 0.76),
       RayTone.shade400: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF9D9D9D), 0.696),
@@ -385,9 +385,9 @@ enum MaterialRgb implements PrismPalette {
       RayTone.shade600: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF808080), 0.6000000000000001),
       RayTone.shade700: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF6D6D6D), 0.536),
       RayTone.shade800: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF5D5D5D), 0.48),
-      RayTone.shade900: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF484848), 0.4),
-      RayTone.shade950: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF333333), 0.32),
-      RayTone.shade1000: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF181818), 0.20800000000000002),
+      RayTone.shade900: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF474747), 0.4),
+      RayTone.shade950: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF323232), 0.32),
+      RayTone.shade1000: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0xFF171717), 0.20800000000000002),
     }, // tones
   ),
 ;

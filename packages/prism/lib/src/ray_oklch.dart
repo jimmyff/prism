@@ -194,13 +194,13 @@ base class RayOklch extends Ray {
   }
 
   @override
-  RayRgb8 toRgb() {
-    return toOklab().toRgb();
+  RayRgb16 toRgb16() {
+    return toOklab().toRgb16();
   }
 
   @override
   RayHsl toHsl() {
-    return toRgb().toHsl();
+    return toRgb16().toHsl();
   }
 
   @override

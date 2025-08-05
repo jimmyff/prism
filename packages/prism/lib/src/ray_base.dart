@@ -57,7 +57,7 @@ abstract base class Ray {
   /// Converts this color to a different color space.
   T toColorSpace<T extends Ray>() {
     if (T == RayRgb8) return toRgb8() as T;
-    if (T == RayRgb16) return toRgb8() as T;
+    if (T == RayRgb16) return toRgb16() as T;
     if (T == RayHsl) return toHsl() as T;
     if (T == RayOklab) return toOklab() as T;
     if (T == RayOklch) return toOklch() as T;
@@ -65,14 +65,11 @@ abstract base class Ray {
     return this as T;
   }
 
-  /// Converts this color to RGB representation.
-  RayRgb8 toRgb();
-
   /// Converts this color to 8-bit RGB representation.
-  RayRgb8 toRgb8() => toRgb();
+  RayRgb8 toRgb8() => this is RayRgb8 ? this as RayRgb8 : toRgb16().toRgb8();
 
   /// Converts this color to 16-bit RGB representation.
-  RayRgb16 toRgb16() => toRgb8().toRgb16();
+  RayRgb16 toRgb16();
 
   /// Converts this color to HSL representation.
   RayHsl toHsl();

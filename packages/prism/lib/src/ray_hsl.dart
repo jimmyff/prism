@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'ray_base.dart';
 import 'ray_rgb8.dart';
+import 'ray_rgb16.dart';
 import 'ray_oklab.dart';
 import 'ray_oklch.dart';
 
@@ -36,12 +37,6 @@ base class RayHsl extends Ray {
         _lightness = lightness.clamp(0.0, 1.0),
         _opacity = opacity.clamp(0.0, 1.0),
         super();
-
-  /// Creates a [RayHsl] from an RGB color by converting RGB to HSL.
-  factory RayHsl.fromRgb8(RayRgb8 rgb) {
-    return _rgbToHsl(
-        rgb.red / 255.0, rgb.green / 255.0, rgb.blue / 255.0, rgb.opacity);
-  }
 
   /// Creates a [RayHsl] for JSON deserialization.
   factory RayHsl.fromJson(Map<String, dynamic> json) {
@@ -150,18 +145,69 @@ base class RayHsl extends Ray {
   @override
   double get luminance {
     // Convert to RGB first, then compute luminance in RGB space
-    final rgb = toRgb();
+    final rgb = toRgb16();
     return rgb.luminance;
   }
 
   @override
-  RayRgb8 toRgb() {
-    final rgbValues = _hslToRgb(hue, saturation, lightness);
-    return RayRgb8(
-      red: (rgbValues.r * 255).round(),
-      green: (rgbValues.g * 255).round(),
-      blue: (rgbValues.b * 255).round(),
-      alpha: (opacity * 255).round(),
+  RayRgb16 toRgb16() {
+    if (saturation == 0) {
+      // Achromatic (gray)
+      final gray = (lightness * 65535).round();
+      return RayRgb16(
+        red: gray,
+        green: gray,
+        blue: gray,
+        alpha: (opacity * 65535).round(),
+      );
+    }
+
+    final hueNormalized = hue / 360;
+    final c = (1 - (2 * lightness - 1).abs()) * saturation;
+    final x = c * (1 - ((hueNormalized * 6) % 2 - 1).abs());
+    final m = lightness - c / 2;
+
+    double r1, g1, b1;
+
+    final h = (hueNormalized * 6).floor();
+    switch (h) {
+      case 0:
+        r1 = c;
+        g1 = x;
+        b1 = 0;
+        break;
+      case 1:
+        r1 = x;
+        g1 = c;
+        b1 = 0;
+        break;
+      case 2:
+        r1 = 0;
+        g1 = c;
+        b1 = x;
+        break;
+      case 3:
+        r1 = 0;
+        g1 = x;
+        b1 = c;
+        break;
+      case 4:
+        r1 = x;
+        g1 = 0;
+        b1 = c;
+        break;
+      default: // case 5
+        r1 = c;
+        g1 = 0;
+        b1 = x;
+        break;
+    }
+
+    return RayRgb16(
+      red: ((r1 + m) * 65535).round().clamp(0, 65535),
+      green: ((g1 + m) * 65535).round().clamp(0, 65535),
+      blue: ((b1 + m) * 65535).round().clamp(0, 65535),
+      alpha: (opacity * 65535).round().clamp(0, 65535),
     );
   }
 
@@ -169,10 +215,10 @@ base class RayHsl extends Ray {
   RayHsl toHsl() => this; // Already HSL, return self
 
   @override
-  RayOklab toOklab() => toRgb().toOklab();
+  RayOklab toOklab() => toRgb16().toOklab();
 
   @override
-  RayOklch toOklch() => toRgb().toOklch();
+  RayOklch toOklch() => toRgb16().toOklch();
 
   @override
   Map<String, dynamic> toJson() => {
@@ -251,97 +297,5 @@ base class RayHsl extends Ray {
     } else {
       return diff + 360;
     }
-  }
-
-  /// High-precision RGB to HSL conversion
-  static RayHsl _rgbToHsl(double r, double g, double b, double opacity) {
-    final max = math.max(r, math.max(g, b));
-    final min = math.min(r, math.min(g, b));
-    final delta = max - min;
-
-    // Calculate lightness
-    final lightness = (max + min) / 2;
-
-    double hue = 0;
-    double saturation = 0;
-
-    if (delta != 0) {
-      // Calculate saturation
-      saturation =
-          lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
-
-      // Calculate hue
-      if (max == r) {
-        hue = ((g - b) / delta) + (g < b ? 6 : 0);
-      } else if (max == g) {
-        hue = (b - r) / delta + 2;
-      } else {
-        hue = (r - g) / delta + 4;
-      }
-      hue *= 60;
-    }
-
-    return RayHsl(
-      hue: hue,
-      saturation: saturation,
-      lightness: lightness,
-      opacity: opacity,
-    );
-  }
-
-  /// High-precision HSL to RGB conversion
-  static ({double r, double g, double b}) _hslToRgb(
-      double hue, double saturation, double lightness) {
-    if (saturation == 0) {
-      // Achromatic (gray)
-      return (r: lightness, g: lightness, b: lightness);
-    }
-
-    final hueNormalized = hue / 360;
-    final c = (1 - (2 * lightness - 1).abs()) * saturation;
-    final x = c * (1 - ((hueNormalized * 6) % 2 - 1).abs());
-    final m = lightness - c / 2;
-
-    double r1, g1, b1;
-
-    final h = (hueNormalized * 6).floor();
-    switch (h) {
-      case 0:
-        r1 = c;
-        g1 = x;
-        b1 = 0;
-        break;
-      case 1:
-        r1 = x;
-        g1 = c;
-        b1 = 0;
-        break;
-      case 2:
-        r1 = 0;
-        g1 = c;
-        b1 = x;
-        break;
-      case 3:
-        r1 = 0;
-        g1 = x;
-        b1 = c;
-        break;
-      case 4:
-        r1 = x;
-        g1 = 0;
-        b1 = c;
-        break;
-      default: // case 5
-        r1 = c;
-        g1 = 0;
-        b1 = x;
-        break;
-    }
-
-    return (
-      r: (r1 + m).clamp(0.0, 1.0),
-      g: (g1 + m).clamp(0.0, 1.0),
-      b: (b1 + m).clamp(0.0, 1.0),
-    );
   }
 }

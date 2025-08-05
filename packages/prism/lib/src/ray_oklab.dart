@@ -98,7 +98,7 @@ base class RayOklab extends Ray {
   }
 
   @override
-  RayRgb8 toRgb() {
+  RayRgb16 toRgb16() {
     // Convert Oklab to linear sRGB using the inverse transformation
     final lCubed = math.pow(l + 0.3963377774 * a + 0.2158037573 * b, 3.0);
     final mCubed = math.pow(l - 0.1055613458 * a - 0.0638541728 * b, 3.0);
@@ -116,18 +116,18 @@ base class RayOklab extends Ray {
     final srgbG = _linearToSrgb(linearG);
     final srgbB = _linearToSrgb(linearB);
 
-    // Clamp values to valid range and convert to 0-255
-    final redInt = (srgbR.clamp(0.0, 1.0) * 255).round();
-    final greenInt = (srgbG.clamp(0.0, 1.0) * 255).round();
-    final blueInt = (srgbB.clamp(0.0, 1.0) * 255).round();
-    final alphaInt = (opacity * 255).round();
+    // Clamp values to valid range and convert to 0-65535
+    final redNative = (srgbR.clamp(0.0, 1.0) * 65535).round();
+    final greenNative = (srgbG.clamp(0.0, 1.0) * 65535).round();
+    final blueNative = (srgbB.clamp(0.0, 1.0) * 65535).round();
+    final alphaNative = (opacity * 65535).round();
 
-    return RayRgb8.fromARGB(alphaInt, redInt, greenInt, blueInt);
+    return RayRgb16.fromArgbNative(alphaNative, redNative, greenNative, blueNative);
   }
 
   @override
   RayHsl toHsl() {
-    return toRgb().toHsl();
+    return toRgb16().toHsl();
   }
 
   @override
@@ -162,11 +162,6 @@ base class RayOklab extends Ray {
       return component / 12.92;
     }
     return math.pow((component + 0.055) / 1.055, 2.4) as double;
-  }
-
-  /// Creates an Oklab color from RGB values (0-255) and opacity (0.0-1.0).
-  factory RayOklab.fromRgb(int r, int g, int b, [double opacity = 1.0]) {
-    return _fromLinearRgb(r / 255.0, g / 255.0, b / 255.0, opacity);
   }
 
   /// Converts RGB components to Oklab.

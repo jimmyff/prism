@@ -191,7 +191,7 @@ void main() {
       });
 
       test('works with different color types', () {
-        final rgb = RayRgb8.fromARGB(255, 255, 0, 0);
+        final rgb = RayRgb8.fromArgb(255, 255, 0, 0);
         final result = color1.lerp(rgb, 0.5);
         expect(result, isA<RayOklch>());
       });
@@ -251,8 +251,8 @@ void main() {
         expect(roundTrip.opacity, closeTo(oklch.opacity, 1e-10));
       });
 
-      test('toRgb converts via Oklab', () {
-        final rgb = oklch.toRgb();
+      test('toRgb8 converts via Oklab', () {
+        final rgb = oklch.toRgb8();
         expect(rgb, isA<RayRgb>());
         expect(rgb.opacity, closeTo(oklch.opacity, 1e-10));
       });
@@ -264,7 +264,7 @@ void main() {
       });
 
       test('round-trip conversion through all color spaces', () {
-        final rgb = oklch.toRgb();
+        final rgb = oklch.toRgb8();
         final hsl = rgb.toHsl();
         final oklab = hsl.toOklab();
         final backToOklch = oklab.toOklch();
@@ -297,16 +297,16 @@ void main() {
         final black = RayOklch(l: 0.0, c: 0.1, h: 45.0);
         final white = RayOklch(l: 1.0, c: 0.1, h: 45.0);
 
-        expect(() => black.toRgb(), returnsNormally);
-        expect(() => white.toRgb(), returnsNormally);
+        expect(() => black.toRgb8(), returnsNormally);
+        expect(() => white.toRgb8(), returnsNormally);
       });
 
       test('handles high chroma values', () {
         final saturated = RayOklch(l: 0.7, c: 0.4, h: 45.0); // Very saturated
 
-        expect(() => saturated.toRgb(), returnsNormally);
+        expect(() => saturated.toRgb8(), returnsNormally);
         // The RGB conversion should clamp values appropriately
-        final rgb = saturated.toRgb();
+        final rgb = saturated.toRgb8();
         expect(rgb.red, inInclusiveRange(0, 255));
         expect(rgb.green, inInclusiveRange(0, 255));
         expect(rgb.blue, inInclusiveRange(0, 255));
@@ -404,11 +404,11 @@ void main() {
         final saturatedTangerine = tangerine.withChroma(1.0);
 
         // Convert to RGB to verify the result
-        final saturatedRgb = saturatedTangerine.toRgb();
+        final saturatedRgb = saturatedTangerine.toRgb8();
 
         // After fix: The RGB conversion should maintain the orange/tangerine character
         // A red color (#FF0000) has hue around 0°, not 64°
-        expect(saturatedRgb.toHexStr(), isNot(equals('#FF0000')),
+        expect(saturatedRgb.toHex(), isNot(equals('#FF0000')),
             reason: 'High chroma tangerine should not become pure red');
 
         // The final color should still be recognizably tangerine/orange
@@ -456,7 +456,7 @@ void main() {
         final highLightnessColor = problemColor.withLightness(0.984);
 
         // Convert to RGB to check the result
-        final rgb = highLightnessColor.toRgb();
+        final rgb = highLightnessColor.toRgb8();
 
         // At 98.4% lightness, the color should be very light (near-white)
         // All RGB components should be high (> 200), not showing as bright red
@@ -468,7 +468,7 @@ void main() {
             reason: 'High lightness should produce high blue component');
 
         // The color should not be pure red (#FF0000)
-        expect(rgb.toHexStr(), isNot(equals('#FF0000')),
+        expect(rgb.toHex(), isNot(equals('#FF0000')),
             reason: 'High lightness color should not be pure red');
 
         // Chroma should have been clamped to a much lower value

@@ -40,14 +40,6 @@ void main() {
         expect(color.opacity, equals(0.0));
       });
 
-      test('creates Oklab color from RGB values', () {
-        final color = RayOklab.fromRgb(255, 0, 0, 1.0); // Red
-
-        expect(color.l, greaterThan(0.0));
-        expect(color.a, greaterThan(0.0)); // Red should have positive a
-        expect(color.opacity, equals(1.0));
-      });
-
       test('creates Oklab color from JSON', () {
         final json = {'l': 0.6, 'a': 0.15, 'b': -0.2, 'o': 0.8};
         final color = RayOklab.fromJson(json);
@@ -185,7 +177,7 @@ void main() {
       test('converts to RGB correctly', () {
         final oklabColor = RayOklab(
             l: 0.627975, a: 0.224863, b: 0.125846); // Approximately red
-        final rgbColor = oklabColor.toRgb();
+        final rgbColor = oklabColor.toRgb8();
 
         expect(rgbColor, isA<RayRgb>());
         expect(rgbColor.red, greaterThan(200)); // Should be predominantly red
@@ -212,7 +204,7 @@ void main() {
       test('round-trip RGB conversion preserves approximate color', () {
         final originalRgb = RayRgb8(red: 128, green: 64, blue: 192, alpha: 200);
         final oklab = originalRgb.toOklab();
-        final backToRgb = oklab.toRgb();
+        final backToRgb = oklab.toRgb8();
 
         // Due to precision and color space conversion, expect close values
         expect((backToRgb.red - originalRgb.red).abs(), lessThan(5));
@@ -296,18 +288,18 @@ void main() {
         final veryDark = RayOklab(l: 0.0, a: 0.0, b: 0.0);
         final veryBright = RayOklab(l: 1.0, a: 0.0, b: 0.0);
 
-        expect(veryDark.toRgb().red, equals(0));
-        expect(veryDark.toRgb().green, equals(0));
-        expect(veryDark.toRgb().blue, equals(0));
+        expect(veryDark.toRgb8().red, equals(0));
+        expect(veryDark.toRgb8().green, equals(0));
+        expect(veryDark.toRgb8().blue, equals(0));
 
-        expect(veryBright.toRgb().red, equals(255));
-        expect(veryBright.toRgb().green, equals(255));
-        expect(veryBright.toRgb().blue, equals(255));
+        expect(veryBright.toRgb8().red, equals(255));
+        expect(veryBright.toRgb8().green, equals(255));
+        expect(veryBright.toRgb8().blue, equals(255));
       });
 
       test('handles large a/b values', () {
         final extremeColor = RayOklab(l: 0.5, a: 0.5, b: -0.5);
-        final rgbResult = extremeColor.toRgb();
+        final rgbResult = extremeColor.toRgb8();
 
         // Should clamp to valid RGB range
         expect(rgbResult.red, inInclusiveRange(0, 255));

@@ -119,7 +119,7 @@ void main() {
     group('HSL → RGB Conversions', () {
       test('HSL red to RGB', () {
         final hsl = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(255));
         expect(rgb.green, equals(0));
@@ -129,7 +129,7 @@ void main() {
 
       test('HSL green to RGB', () {
         final hsl = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(0));
         expect(rgb.green, equals(255));
@@ -138,7 +138,7 @@ void main() {
 
       test('HSL blue to RGB', () {
         final hsl = RayHsl(hue: 240, saturation: 1.0, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(0));
         expect(rgb.green, equals(0));
@@ -147,7 +147,7 @@ void main() {
 
       test('HSL black to RGB', () {
         final hsl = RayHsl(hue: 0, saturation: 0, lightness: 0);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(0));
         expect(rgb.green, equals(0));
@@ -156,7 +156,7 @@ void main() {
 
       test('HSL white to RGB', () {
         final hsl = RayHsl(hue: 0, saturation: 0, lightness: 1.0);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(255));
         expect(rgb.green, equals(255));
@@ -165,7 +165,7 @@ void main() {
 
       test('HSL gray to RGB', () {
         final hsl = RayHsl(hue: 0, saturation: 0, lightness: 0.502);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, closeTo(128, rgbTolerance));
         expect(rgb.green, closeTo(128, rgbTolerance));
@@ -174,7 +174,7 @@ void main() {
 
       test('HSL cyan to RGB', () {
         final hsl = RayHsl(hue: 180, saturation: 1.0, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(0));
         expect(rgb.green, equals(255));
@@ -183,7 +183,7 @@ void main() {
 
       test('HSL magenta to RGB', () {
         final hsl = RayHsl(hue: 300, saturation: 1.0, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(255));
         expect(rgb.green, equals(0));
@@ -192,7 +192,7 @@ void main() {
 
       test('HSL yellow to RGB', () {
         final hsl = RayHsl(hue: 60, saturation: 1.0, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.red, equals(255));
         expect(rgb.green, equals(255));
@@ -202,7 +202,7 @@ void main() {
       test('HSL to RGB preserves opacity', () {
         final hsl =
             RayHsl(hue: 120, saturation: 1.0, lightness: 0.5, opacity: 0.502);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
 
         expect(rgb.alpha, closeTo(128, rgbTolerance)); // 0.502 * 255
       });
@@ -211,8 +211,8 @@ void main() {
         final hsl1 = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
         final hsl2 = RayHsl(hue: 360, saturation: 1.0, lightness: 0.5);
 
-        final rgb1 = hsl1.toRgb();
-        final rgb2 = hsl2.toRgb();
+        final rgb1 = hsl1.toRgb8();
+        final rgb2 = hsl2.toRgb8();
 
         expect(rgb1.red, equals(rgb2.red));
         expect(rgb1.green, equals(rgb2.green));
@@ -287,7 +287,7 @@ void main() {
     group('Oklab → RGB Conversions', () {
       test('Oklab red-like to RGB', () {
         final oklab = RayOklab(l: 0.627975, a: 0.224863, b: 0.125846);
-        final rgb = oklab.toRgb();
+        final rgb = oklab.toRgb8();
 
         expect(rgb.red, greaterThan(200));
         expect(rgb.green, lessThan(50));
@@ -297,7 +297,7 @@ void main() {
 
       test('Oklab neutral gray to RGB', () {
         final oklab = RayOklab(l: 0.5, a: 0.0, b: 0.0);
-        final rgb = oklab.toRgb();
+        final rgb = oklab.toRgb8();
 
         expect((rgb.red - rgb.green).abs(), lessThan(10));
         expect((rgb.green - rgb.blue).abs(), lessThan(10));
@@ -305,7 +305,7 @@ void main() {
 
       test('Oklab white to RGB', () {
         final oklab = RayOklab(l: 1.0, a: 0.0, b: 0.0);
-        final rgb = oklab.toRgb();
+        final rgb = oklab.toRgb8();
 
         expect(rgb.red, equals(255));
         expect(rgb.green, equals(255));
@@ -314,7 +314,7 @@ void main() {
 
       test('Oklab black to RGB', () {
         final oklab = RayOklab(l: 0.0, a: 0.0, b: 0.0);
-        final rgb = oklab.toRgb();
+        final rgb = oklab.toRgb8();
 
         expect(rgb.red, equals(0));
         expect(rgb.green, equals(0));
@@ -323,14 +323,14 @@ void main() {
 
       test('Oklab to RGB preserves opacity', () {
         final oklab = RayOklab(l: 0.5, a: 0.0, b: 0.0, opacity: 0.502);
-        final rgb = oklab.toRgb();
+        final rgb = oklab.toRgb8();
 
         expect(rgb.alpha, closeTo(128, rgbTolerance)); // 0.502 * 255
       });
 
       test('Oklab extreme values clamp to valid RGB range', () {
         final extremeOklab = RayOklab(l: 2.0, a: 1.0, b: -1.0);
-        final rgb = extremeOklab.toRgb();
+        final rgb = extremeOklab.toRgb8();
 
         expect(rgb.red, inInclusiveRange(0, 255));
         expect(rgb.green, inInclusiveRange(0, 255));
@@ -416,7 +416,7 @@ void main() {
         test('RGB→HSL→RGB round-trip preserves color ${i + 1}', () {
           final originalRgb = testColors[i];
           final hsl = originalRgb.toHsl();
-          final convertedRgb = hsl.toRgb();
+          final convertedRgb = hsl.toRgb8();
 
           expect(convertedRgb.red, closeTo(originalRgb.red, rgbTolerance));
           expect(convertedRgb.green, closeTo(originalRgb.green, rgbTolerance));
@@ -441,7 +441,7 @@ void main() {
       for (int i = 0; i < testHslColors.length; i++) {
         test('HSL→RGB→HSL round-trip preserves color ${i + 1}', () {
           final originalHsl = testHslColors[i];
-          final rgb = originalHsl.toRgb();
+          final rgb = originalHsl.toRgb8();
           final convertedHsl = rgb.toHsl();
 
           expect(convertedHsl.hue, closeTo(originalHsl.hue, hueTolerance));
@@ -472,7 +472,7 @@ void main() {
             () {
           final originalRgb = testColors[i];
           final oklab = originalRgb.toOklab();
-          final convertedRgb = oklab.toRgb();
+          final convertedRgb = oklab.toRgb8();
 
           // Oklab conversion may have more variance due to color space differences
           expect((convertedRgb.red - originalRgb.red).abs(), lessThan(10));
@@ -495,7 +495,7 @@ void main() {
         test('Oklab→RGB→Oklab round-trip preserves approximate color ${i + 1}',
             () {
           final originalOklab = testOklabColors[i];
-          final rgb = originalOklab.toRgb();
+          final rgb = originalOklab.toRgb8();
           final convertedOklab = rgb.toOklab();
 
           expect((convertedOklab.l - originalOklab.l).abs(), lessThan(0.05));
@@ -544,7 +544,7 @@ void main() {
         final originalRgb = RayRgb8(red: 128, green: 64, blue: 192);
         final hsl = originalRgb.toHsl();
         final oklab = hsl.toOklab();
-        final finalRgb = oklab.toRgb();
+        final finalRgb = oklab.toRgb8();
 
         expect((finalRgb.red - originalRgb.red).abs(), lessThan(15));
         expect((finalRgb.green - originalRgb.green).abs(), lessThan(15));
@@ -555,7 +555,7 @@ void main() {
       test('Oklab→HSL→RGB→Oklab preserves approximate color', () {
         final originalOklab = RayOklab(l: 0.7, a: 0.1, b: -0.15);
         final hsl = originalOklab.toHsl();
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
         final finalOklab = rgb.toOklab();
 
         expect((finalOklab.l - originalOklab.l).abs(), lessThan(0.1));
@@ -568,7 +568,7 @@ void main() {
         final originalRgb = RayRgb8(red: 200, green: 100, blue: 50);
         final oklab = originalRgb.toOklab();
         final hsl = oklab.toHsl();
-        final finalRgb = hsl.toRgb();
+        final finalRgb = hsl.toRgb8();
 
         expect((finalRgb.red - originalRgb.red).abs(), lessThan(15));
         expect((finalRgb.green - originalRgb.green).abs(), lessThan(15));
@@ -595,10 +595,10 @@ void main() {
           final oklab = rgb.toOklab();
           expect(oklab.opacity, closeTo(opacity, componentTolerance));
 
-          final backToRgb = hsl.toRgb();
+          final backToRgb = hsl.toRgb8();
           expect(backToRgb.opacity, closeTo(opacity, componentTolerance));
 
-          final oklabToRgb = oklab.toRgb();
+          final oklabToRgb = oklab.toRgb8();
           expect(oklabToRgb.opacity, closeTo(opacity, componentTolerance));
         }
       });
@@ -612,7 +612,7 @@ void main() {
       test('very dark RGB colors convert correctly', () {
         final rgb = RayRgb8(red: 1, green: 0, blue: 0);
         final hsl = rgb.toHsl();
-        final backToRgb = hsl.toRgb();
+        final backToRgb = hsl.toRgb8();
 
         expect(backToRgb.red, closeTo(1, rgbTolerance));
         expect(backToRgb.green, closeTo(0, rgbTolerance));
@@ -622,7 +622,7 @@ void main() {
       test('very bright RGB colors convert correctly', () {
         final rgb = RayRgb8(red: 254, green: 255, blue: 254);
         final hsl = rgb.toHsl();
-        final backToRgb = hsl.toRgb();
+        final backToRgb = hsl.toRgb8();
 
         expect(backToRgb.red, closeTo(254, rgbTolerance));
         expect(backToRgb.green, closeTo(255, rgbTolerance));
@@ -631,7 +631,7 @@ void main() {
 
       test('HSL colors with very low saturation convert correctly', () {
         final hsl = RayHsl(hue: 45, saturation: 0.01, lightness: 0.5);
-        final rgb = hsl.toRgb();
+        final rgb = hsl.toRgb8();
         final backToHsl = rgb.toHsl();
 
         expect(backToHsl.saturation, closeTo(0.01, componentTolerance));
@@ -644,13 +644,13 @@ void main() {
 
         expect(hslTransparent.opacity, closeTo(0, precisionTolerance));
 
-        final backToRgb = hslTransparent.toRgb();
+        final backToRgb = hslTransparent.toRgb8();
         expect(backToRgb.alpha, equals(0));
       });
 
       test('Oklab extreme values clamp to valid RGB', () {
         final extremeOklab = RayOklab(l: 2.0, a: 1.0, b: -1.0);
-        final rgb = extremeOklab.toRgb();
+        final rgb = extremeOklab.toRgb8();
 
         expect(rgb.red, inInclusiveRange(0, 255));
         expect(rgb.green, inInclusiveRange(0, 255));
@@ -659,7 +659,7 @@ void main() {
 
       test('negative Oklab lightness clamps to valid RGB', () {
         final negativeL = RayOklab(l: -0.5, a: 0.0, b: 0.0);
-        final rgb = negativeL.toRgb();
+        final rgb = negativeL.toRgb8();
 
         expect(rgb.red, inInclusiveRange(0, 255));
         expect(rgb.green, inInclusiveRange(0, 255));
@@ -673,13 +673,13 @@ void main() {
         for (int i = 0; i < hues.length; i++) {
           final hsl =
               RayHsl(hue: hues[i].toDouble(), saturation: 1.0, lightness: 0.5);
-          final rgb = hsl.toRgb();
+          final rgb = hsl.toRgb8();
 
           final normalizedHsl = RayHsl(
               hue: expectedNormalized[i].toDouble(),
               saturation: 1.0,
               lightness: 0.5);
-          final normalizedRgb = normalizedHsl.toRgb();
+          final normalizedRgb = normalizedHsl.toRgb8();
 
           expect((rgb.red - normalizedRgb.red).abs(), lessThan(2));
           expect((rgb.green - normalizedRgb.green).abs(), lessThan(2));
@@ -702,9 +702,9 @@ void main() {
         final darkerOklab = RayOklab(l: 0.5 - step, a: 0.0, b: 0.0);
 
         // Convert to RGB to see the effect
-        final baseRgb = baseColor.toRgb();
-        final lighterRgb = lighterOklab.toRgb();
-        final darkerRgb = darkerOklab.toRgb();
+        final baseRgb = baseColor.toRgb8();
+        final lighterRgb = lighterOklab.toRgb8();
+        final darkerRgb = darkerOklab.toRgb8();
 
         // In Oklab, equal steps should produce more perceptually uniform changes
         expect(lighterRgb.red, greaterThan(baseRgb.red));
@@ -715,8 +715,8 @@ void main() {
         final hsl360 = RayHsl(hue: 360, saturation: 1.0, lightness: 0.5);
         final hsl0 = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
 
-        final rgb360 = hsl360.toRgb();
-        final rgb0 = hsl0.toRgb();
+        final rgb360 = hsl360.toRgb8();
+        final rgb0 = hsl0.toRgb8();
 
         expect(rgb360.red, equals(rgb0.red));
         expect(rgb360.green, equals(rgb0.green));
@@ -747,7 +747,7 @@ void main() {
         final stopwatch = Stopwatch()..start();
 
         for (int i = 0; i < 1000; i++) {
-          hsl.toRgb();
+          hsl.toRgb8();
         }
 
         stopwatch.stop();
@@ -773,7 +773,7 @@ void main() {
         final stopwatch = Stopwatch()..start();
 
         for (int i = 0; i < 1000; i++) {
-          oklab.toRgb();
+          oklab.toRgb8();
         }
 
         stopwatch.stop();

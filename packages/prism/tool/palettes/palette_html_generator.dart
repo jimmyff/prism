@@ -112,7 +112,7 @@ class PaletteHtmlGenerator {
       for (final toneEntry in scheme.tones.entries) {
         final toneName = toneEntry.key.name.replaceAll('shade', '');
         final colorValue = colorSpace == 'rgb'
-            ? 'rgb(${toneEntry.value.toRgb().red}, ${toneEntry.value.toRgb().green}, ${toneEntry.value.toRgb().blue})'
+            ? 'rgb(${toneEntry.value.toRgb8().red}, ${toneEntry.value.toRgb8().green}, ${toneEntry.value.toRgb8().blue})'
             : 'oklch(${(toneEntry.value.toOklch().l * 100).toStringAsFixed(1)}% ${toneEntry.value.toOklch().c.toStringAsFixed(3)} ${toneEntry.value.toOklch().h.toStringAsFixed(2)})';
 
         buffer.writeln('  --$name-$toneName: $colorValue;');
@@ -277,10 +277,10 @@ class PaletteHtmlGenerator {
     buffer.writeln('<div class="color-card">');
 
     // Main color header with onRay text and luminance
-    final rayRgb8 = scheme.source.toRgb();
+    final rayRgb8 = scheme.source.toRgb8();
     final luminanceValue = scheme.source.luminance.toStringAsFixed(2);
     buffer.writeln(
-        '<div class="color-header" style="background-color: ${rayRgb8.toHexStr()}; color: ${scheme.source.onRay.toHexStr()};">');
+        '<div class="color-header" style="background-color: ${rayRgb8.toHex()}; color: ${scheme.source.onRay.toHex()};">');
     if (hasAlias) {
       buffer.writeln(
           '${alias?.key} / $name<span class="luminance-value">(L:$luminanceValue</span>');

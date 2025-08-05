@@ -11,3 +11,4 @@ build/
 pubspec.lock
 CLAUDE.md
 .DS_Store
+.nvimlog

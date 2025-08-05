@@ -1,9 +1,16 @@
 import 'dart:math' as math;
 
 import 'ray_base.dart';
-import 'ray_hsl.dart';
-import 'ray_oklab.dart';
 import 'ray_oklch.dart';
+
+/// Hexadecimal color format for parsing and output.
+enum HexFormat {
+  /// RGBA format where alpha is the last component (web standard).
+  rgba,
+
+  /// ARGB format where alpha is the first component (Flutter/Android standard).
+  argb
+}
 
 /// Abstract base class for RGB color implementations with shared operations.
 ///
@@ -12,29 +19,90 @@ import 'ray_oklch.dart';
 abstract base class RayRgbBase<T> extends Ray {
   const RayRgbBase();
 
-  /// The alpha/opacity component as an integer in the subclass's bit depth.
-  T get alphaInt;
 
-  /// The red component as an integer in the subclass's bit depth.
-  T get redInt;
+  /// Shared hex parsing helper method for subclasses.
+  ///
+  /// Parses an sRGB hex string and returns RGBA components (0-255).
+  /// Supports standard web hex formats: 3, 6, and 8 character strings with or without '#' prefix.
+  /// Note: Hex colors are limited to the sRGB gamut (24-bit color space).
+  static (int r, int g, int b, int a) parseHex(String value,
+      {HexFormat format = HexFormat.rgba}) {
+    String hex = value.startsWith('#') ? value.substring(1) : value;
+    hex = hex.toUpperCase();
 
-  /// The green component as an integer in the subclass's bit depth.
-  T get greenInt;
+    // Validate hex characters
+    if (!RegExp(r'^[0-9A-F]+$').hasMatch(hex)) {
+      throw ArgumentError('Invalid hex color: $value');
+    }
 
-  /// The blue component as an integer in the subclass's bit depth.
-  T get blueInt;
+    switch (hex.length) {
+      case 3:
+        // RGB shorthand: F00 -> FF0000
+        return (
+          int.parse(hex[0] * 2, radix: 16),
+          int.parse(hex[1] * 2, radix: 16),
+          int.parse(hex[2] * 2, radix: 16),
+          255
+        );
 
-  /// The alpha channel as an 8-bit value (0-255) for compatibility.
-  int get alpha => toRgb8().alphaInt;
+      case 6:
+        // RGB: FF0000
+        return (
+          int.parse(hex.substring(0, 2), radix: 16),
+          int.parse(hex.substring(2, 4), radix: 16),
+          int.parse(hex.substring(4, 6), radix: 16),
+          255
+        );
 
-  /// The red channel as an 8-bit value (0-255) for compatibility.
-  int get red => toRgb8().redInt;
+      case 8:
+        // RGBA or ARGB format
+        if (format == HexFormat.rgba) {
+          // RGBA: FF000080 (red with 50% alpha)
+          return (
+            int.parse(hex.substring(0, 2), radix: 16),
+            int.parse(hex.substring(2, 4), radix: 16),
+            int.parse(hex.substring(4, 6), radix: 16),
+            int.parse(hex.substring(6, 8), radix: 16)
+          );
+        } else {
+          // ARGB: 80FF0000 (red with 50% alpha)
+          return (
+            int.parse(hex.substring(2, 4), radix: 16),
+            int.parse(hex.substring(4, 6), radix: 16),
+            int.parse(hex.substring(6, 8), radix: 16),
+            int.parse(hex.substring(0, 2), radix: 16)
+          );
+        }
 
-  /// The green channel as an 8-bit value (0-255) for compatibility.
-  int get green => toRgb8().greenInt;
+      default:
+        throw ArgumentError(
+            'Invalid sRGB hex color length: ${hex.length}. Expected 3, 6, or 8 characters for standard web hex colors.');
+    }
+  }
 
-  /// The blue channel as an 8-bit value (0-255) for compatibility.
-  int get blue => toRgb8().blueInt;
+  /// The alpha channel as a normalized 8-bit value (0-255).
+  num get alpha;
+
+  /// The red channel as a normalized 8-bit value (0-255).
+  num get red;
+
+  /// The green channel as a normalized 8-bit value (0-255).
+  num get green;
+
+  /// The blue channel as a normalized 8-bit value (0-255).
+  num get blue;
+
+  /// The alpha component as an integer in the subclass's native bit depth.
+  T get alphaNative;
+
+  /// The red component as an integer in the subclass's native bit depth.
+  T get redNative;
+
+  /// The green component as an integer in the subclass's native bit depth.
+  T get greenNative;
+
+  /// The blue component as an integer in the subclass's native bit depth.
+  T get blueNative;
 
   @override
   double get opacity => alpha / 255.0;
@@ -73,15 +141,6 @@ abstract base class RayRgbBase<T> extends Ray {
   @override
   double get luminance => computeLuminance();
 
-  // toRgb() method is implemented by concrete subclasses to match Ray interface
-
-  @override
-  RayHsl toHsl() =>
-      RayHsl.fromRgb8(toRgb8() as dynamic); // Cast needed due to type system
-
-  @override
-  RayOklab toOklab() => RayOklab.fromRgb(red, green, blue, opacity);
-
   @override
   RayOklch toOklch() => RayOklch.fromOklab(toOklab());
 
@@ -92,38 +151,30 @@ abstract base class RayRgbBase<T> extends Ray {
   String toRgbaStr() =>
       "rgba($red, $green, $blue, ${(alpha / 255).toStringAsFixed(2)})";
 
-  /// Converts the color to a hexadecimal string.
-  /// Subclasses should override with specific bit-depth implementations.
-  String toHexStr([int? length]) =>
-      throw UnimplementedError('toHexStr must be implemented by subclasses');
 
-  /// Shared lerp implementation helper for subclasses.
-  /// Subclasses should call this and handle their own type construction.
-  (int, int, int, int) lerpComponents(Ray other, double t) {
-    final otherRgb = other.toRgb();
+  /// Shared lerp calculation helper that preserves fractional precision.
+  /// Returns interpolated RGBA values as doubles to preserve precision.
+  (double, double, double, double) lerpPrecise(Ray other, double t) {
+    final otherRgb = other.toRgb8(); // Convert to common format for interpolation
     final clampedT = t.clamp(0.0, 1.0);
 
-    // Use 8-bit representation for interpolation to maintain precision
-    final thisRgb8 = toRgb8();
-    final otherRgb8 = otherRgb.toRgb8();
-
+    // Interpolate using normalized values without rounding
     return (
-      (thisRgb8.red + (otherRgb8.red - thisRgb8.red) * clampedT).round(),
-      (thisRgb8.green + (otherRgb8.green - thisRgb8.green) * clampedT).round(),
-      (thisRgb8.blue + (otherRgb8.blue - thisRgb8.blue) * clampedT).round(),
-      (thisRgb8.alpha + (otherRgb8.alpha - thisRgb8.alpha) * clampedT).round(),
+      red + (otherRgb.red - red) * clampedT,
+      green + (otherRgb.green - green) * clampedT,
+      blue + (otherRgb.blue - blue) * clampedT,
+      alpha + (otherRgb.alpha - alpha) * clampedT,
     );
   }
 
-  /// Shared inverse implementation helper for subclasses.
-  /// Subclasses should call this and handle their own type construction.
-  (int, int, int, int) get inverseComponents {
-    final thisRgb8 = toRgb8();
+  /// Shared inverse calculation helper that preserves fractional precision.
+  /// Returns inverted RGBA values as doubles to preserve precision.
+  (double, double, double, double) get inversePrecise {
     return (
-      0xff - thisRgb8.red,
-      0xff - thisRgb8.green,
-      0xff - thisRgb8.blue,
-      thisRgb8.alpha,
+      255.0 - red,
+      255.0 - green,
+      255.0 - blue,
+      alpha.toDouble(),
     );
   }
 }
