@@ -17,7 +17,7 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 - 🎭 **Accessibility schemes**: WCAG-compliant color schemes with optimal contrast
 - 🎨 **Pre-built palettes**: Material, CSS, Spectrum, and OpenColor palettes
 - 📱 **Flutter compatible**: Perfect conversion to/from Flutter's Color class
-- ⚡ **High performance**: Zero dependencies with optimized bit operations
+- ⚡ **High performance**: Zero dependencies with optimized bit operations 
 - 🌐 **Web standards**: RGBA/ARGB hex format support
 
 ## Quick Start
@@ -81,7 +81,9 @@ final back = hsl.toRgb8();  // HSL → RGB
 
 ## Performance
 
-Optimized for performance with efficient bit operations, minimal allocations, and zero dependencies.
+Optimized for performance with efficient bit operations (in RayRgb8), minimal allocations, and zero dependencies.
+
+_Note: RayRgb16 uses component arrays instead of bit operations for web compatibility (JavaScript lacks 64-bit integer support). Future platform-specific optimizations planned when Flutter adds 16-bit color support._
 
 ## Color Palettes
 
