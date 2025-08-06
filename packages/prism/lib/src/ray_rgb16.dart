@@ -20,10 +20,8 @@ import 'ray_rgb8.dart';
 /// - `RayRgb16.empty()` - Transparent black
 ///
 /// **Factory constructors (runtime flexibility):**
-/// - `RayRgb16.fromRgb()` - 0-255 range with `num` support
-/// - `RayRgb16.fromRgbNormalized()` - 0.0-1.0 normalized values
-/// - `RayRgb16.fromArgb()` - ARGB format with `num` support
-/// - `RayRgb16.fromArgbNormalized()` - ARGB format with 0.0-1.0 values
+/// - `RayRgb16.fromComponents()` - 0-255 range with `num` support
+/// - `RayRgb16.fromComponentsNormalized()` - 0.0-1.0 normalized values
 base class RayRgb16 extends RayRgbBase<int> {
   /// Individual 16-bit color components
   final int _alpha;
@@ -35,7 +33,7 @@ base class RayRgb16 extends RayRgbBase<int> {
   ColorSpace get colorSpace => ColorSpace.rgb16;
 
   /// Creates a [RayRgb16] from individual RGB component values (0-65535).
-  const RayRgb16(
+  const RayRgb16._(
       {required int red,
       required int green,
       required int blue,
@@ -47,8 +45,9 @@ base class RayRgb16 extends RayRgbBase<int> {
         super();
 
   /// Creates a [RayRgb16] from 0.0-1.0 normalized values.
-  factory RayRgb16.fromComponentsNormalized(num red, num green, num blue, [num alpha = 1.0]) =>
-      RayRgb16(
+  factory RayRgb16.fromComponentsNormalized(num red, num green, num blue,
+          [num alpha = 1.0]) =>
+      RayRgb16._(
         red: (red.clamp(0.0, 1.0) * 65535).round(),
         green: (green.clamp(0.0, 1.0) * 65535).round(),
         blue: (blue.clamp(0.0, 1.0) * 65535).round(),
@@ -56,7 +55,7 @@ base class RayRgb16 extends RayRgbBase<int> {
       );
 
   /// Creates a [RayRgb16] from an 8-bit RGB color, upscaling to 16-bit.
-  factory RayRgb16.fromRgb8(dynamic rgb8Color) => RayRgb16(
+  factory RayRgb16.fromRgb8(dynamic rgb8Color) => RayRgb16._(
         red: rgb8Color.redNative * 257, // 8-bit to 16-bit conversion
         green: rgb8Color.greenNative * 257,
         blue: rgb8Color.blueNative * 257,
@@ -64,7 +63,7 @@ base class RayRgb16 extends RayRgbBase<int> {
       );
 
   /// Creates a [RayRgb16] for JSON deserialization.
-  factory RayRgb16.fromJson(List<dynamic> json) => RayRgb16(
+  factory RayRgb16.fromJson(List<dynamic> json) => RayRgb16._(
         alpha: json[0],
         red: json[1],
         green: json[2],
@@ -72,8 +71,9 @@ base class RayRgb16 extends RayRgbBase<int> {
       );
 
   /// Creates a [RayRgb16] from individual RGBA component values (0-255).
-  factory RayRgb16.fromComponents(num red, num green, num blue, [num alpha = 255]) => 
-      RayRgb16(
+  factory RayRgb16.fromComponents(num red, num green, num blue,
+          [num alpha = 255]) =>
+      RayRgb16._(
         red: (red.clamp(0, 255) * 257).round(),
         green: (green.clamp(0, 255) * 257).round(),
         blue: (blue.clamp(0, 255) * 257).round(),
@@ -167,14 +167,14 @@ base class RayRgb16 extends RayRgbBase<int> {
   ///
   /// Example:
   /// ```dart
-  /// final red = RayRgb16(red: 65535, green: 0, blue: 0);
+  /// final red = RayRgb16.fromComponentsNative(65535, 0, 0);
   /// final semiRed = red.withAlpha(32768);  // Semi-transparent red
   /// ```
   RayRgb16 withAlpha(int alpha) =>
-      RayRgb16(red: _red, green: _green, blue: _blue, alpha: alpha);
+      RayRgb16._(red: _red, green: _green, blue: _blue, alpha: alpha);
 
   @override
-  RayRgb16 withOpacity(double opacity) => RayRgb16(
+  RayRgb16 withOpacity(double opacity) => RayRgb16._(
       red: _red,
       green: _green,
       blue: _blue,
@@ -187,7 +187,8 @@ base class RayRgb16 extends RayRgbBase<int> {
         lerpPrecise(other, t);
 
     // Create RayRgb16 using fromComponents which preserves fractional precision
-    return RayRgb16.fromComponents(interpRed, interpGreen, interpBlue, interpAlpha);
+    return RayRgb16.fromComponents(
+        interpRed, interpGreen, interpBlue, interpAlpha);
   }
 
   @override
@@ -274,11 +275,8 @@ base class RayRgb16 extends RayRgbBase<int> {
         0.7827717662 * lmsCbrt2 -
         0.8086757660 * lmsCbrt3;
 
-    return RayOklab(
-        l: lComponent,
-        a: aComponent,
-        b: bComponent,
-        opacity: alphaNative / 65535.0);
+    return RayOklab.fromComponents(
+        lComponent, aComponent, bComponent, alphaNative / 65535.0);
   }
 
   /// Converts sRGB component to linear RGB
@@ -304,11 +302,11 @@ base class RayRgb16 extends RayRgbBase<int> {
   @override
   RayRgb8 toRgb8() {
     // Convert 16-bit to 8-bit (high byte for best precision)
-    return RayRgb8(
-      red: redNative >> 8,
-      green: greenNative >> 8,
-      blue: blueNative >> 8,
-      alpha: alphaNative >> 8,
+    return RayRgb8.fromComponentsNative(
+      redNative >> 8,
+      greenNative >> 8,
+      blueNative >> 8,
+      alphaNative >> 8,
     );
   }
 

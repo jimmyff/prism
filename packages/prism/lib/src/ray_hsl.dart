@@ -1,6 +1,4 @@
-import 'dart:math' as math;
 import 'ray_base.dart';
-import 'ray_rgb8.dart';
 import 'ray_rgb16.dart';
 import 'ray_oklab.dart';
 import 'ray_oklch.dart';
@@ -51,7 +49,8 @@ base class RayHsl extends Ray {
   /// Creates a [RayHsl] from individual HSLO component values.
   ///
   /// [hue] in degrees (0-360), [saturation], [lightness], and [opacity] in range 0-1.
-  factory RayHsl.fromComponents(num hue, num saturation, num lightness, [num opacity = 1.0]) =>
+  factory RayHsl.fromComponents(num hue, num saturation, num lightness,
+          [num opacity = 1.0]) =>
       RayHsl(
         hue: hue.toDouble(),
         saturation: saturation.toDouble(),
@@ -69,7 +68,7 @@ base class RayHsl extends Ray {
     }
     return RayHsl.fromComponents(
       values[0],
-      values[1], 
+      values[1],
       values[2],
       values.length > 3 ? values[3] : 1.0,
     );
@@ -181,11 +180,11 @@ base class RayHsl extends Ray {
     if (saturation == 0) {
       // Achromatic (gray)
       final gray = (lightness * 65535).round();
-      return RayRgb16(
-        red: gray,
-        green: gray,
-        blue: gray,
-        alpha: (opacity * 65535).round(),
+      return RayRgb16.fromComponentsNative(
+        gray,
+        gray,
+        gray,
+        (opacity * 65535).round(),
       );
     }
 
@@ -230,11 +229,11 @@ base class RayHsl extends Ray {
         break;
     }
 
-    return RayRgb16(
-      red: ((r1 + m) * 65535).round().clamp(0, 65535),
-      green: ((g1 + m) * 65535).round().clamp(0, 65535),
-      blue: ((b1 + m) * 65535).round().clamp(0, 65535),
-      alpha: (opacity * 65535).round().clamp(0, 65535),
+    return RayRgb16.fromComponentsNative(
+      ((r1 + m) * 65535).round().clamp(0, 65535),
+      ((g1 + m) * 65535).round().clamp(0, 65535),
+      ((b1 + m) * 65535).round().clamp(0, 65535),
+      (opacity * 65535).round().clamp(0, 65535),
     );
   }
 

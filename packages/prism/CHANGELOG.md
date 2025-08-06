@@ -4,6 +4,9 @@
 - **Unified channel access**: Both RayRgb8 and RayRgb16 now provide standardized `red`, `green`, `blue`, `alpha` getters returning 0-255 range (type `num`)
 - **Native value access**: Added `redNative`, `greenNative`, `blueNative`, `alphaNative` getters for accessing native bit precision values
 - **Consistent API**: Simplified color channel access across different bit depths while preserving precision
+- **Private primary constructors**: All color model classes now use private primary constructors with consistent factory method APIs
+- **Simplified API**: Removed redundant `fromArgb` constructor from RayRgb8 in favor of `fromComponents`
+- **Consistent patterns**: Standardized constructor naming across RGB8, RGB16, HSL, Oklab, and Oklch classes
 
 ## 2.0.0-beta.1
 

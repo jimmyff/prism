@@ -27,14 +27,10 @@ import 'package:prism/prism.dart';
 
 // Create and convert colors
 final red = RayRgb8.fromHex('#FF0000');
-final redInOklch = red.toOklch();                 // Convert to perceptual color space
-final darkRed = redInOklch.withLightness(0.3);    // Darken perceptually 
-print(darkRed.toRgb8().toHex());               // #521711
+final redInOklch = red.toOklch();
+final darkRed = redInOklch.withLightness(0.3);
+print(darkRed.toRgb8().toHex()); // #521711
 
-// Generate accessibility schemes
-final scheme = RayScheme.fromRay(red);
-final darkSurface = scheme.surfaceDark;           // Dark theme surface
-final textColor = darkSurface.onRay;              // Optimal contrast color
 ```
 
 ## Color Models
@@ -44,51 +40,43 @@ Prism supports multiple color models with seamless conversion:
 ### RayRgb8 & RayRgb16 (Red, Green, Blue)
 
 ```dart
-final red8 = RayRgb8.fromHex('#FF0000');                 // 8-bit precision
-final red16 = RayRgb16.fromRgb(220.5, 137.2, 180.8);    // 16-bit precision with fractional values
-final transparent = red8.withOpacity(0.5);               // With transparency
-
-// Standardized channel access (0-255 range for both)
-print('RGB8 - Red: ${red8.red}, Green: ${red8.green}');     // 255, 0
-print('RGB16 - Red: ${red16.red}, Blue: ${red16.blue}');    // 220.5, 170.7 (doubles)
-print('RGB16 Native: ${red16.redNative}');                  // 56797 (16-bit native)
-
-final webHex = red8.toHex();                          // Web standard: #FF0000
-final flutterHex = red8.toHex(format: HexFormat.argb); // Flutter: #FFFF0000
+final red8 = RayRgb8.fromHex('#FF0000');
+final red16 = RayRgb16.fromComponents(220, 137, 180);
+final transparent = red8.withOpacity(0.5);
+print(red8.toHex()); // #FF0000
 ```
 
 ### RayHsl (Hue, Saturation, Lightness)
 
 ```dart
-final orange = RayHsl(hue: 30, saturation: 0.8, lightness: 0.6);
-final green = RayHsl(hue: 120, saturation: 0.5, lightness: 0.4);
-final shifted = orange.withHue(orange.hue + 60);      // Hue shift
-print('Hue distance: ${orange.hueDistance(green)}°'); // Color analysis: 90.0°
+final orange = RayHsl.fromComponents(30, 0.8, 0.6);
+final shifted = orange.withHue(orange.hue + 60);
+print(orange.hueDistance(shifted)); // 60.0°
 ```
 
 ### RayOklab (Perceptually Uniform Color Space)
 
 ```dart
-final rgbBlue = RayRgb8.fromHex('#0000FF').toOklab(); // Convert from RGB
-final rgbRed = RayRgb8.fromHex('#FF0000').toOklab();  // Convert from RGB
-final midpoint = rgbBlue.lerp(rgbRed, 0.5);            // Perceptually uniform interpolation
+final blue = RayOklab.fromComponents(0.452, -0.032, -0.312);
+final red = RayOklab.fromComponents(0.628, 0.225, 0.126);
+final midpoint = blue.lerp(red, 0.5); // Perceptually uniform
 ```
 
 ### RayOklch (Cylindrical Oklab with Intuitive Controls)
 
 ```dart
-final baseColor = RayOklch(l: 0.7, c: 0.15, h: 120.0);      // Lightness, Chroma, Hue
-final desaturated = baseColor.withChroma(0.05);             // Reduce saturation
-final complementary = baseColor.withHue(baseColor.h + 180); // Complementary color
+final green = RayOklch.fromComponents(0.7, 0.15, 120.0);
+final desaturated = green.withChroma(0.05);
+final complementary = green.withHue(green.h + 180);
 ```
 
-### Seamless Conversion
+### Easy Conversion
 
 ```dart
-final rgbRed = RayRgb8.fromHex('#FF0000');
-final hslRed = rgbRed.toHsl();              // RGB → HSL
-final oklchRed = rgbRed.toOklch();          // RGB → Oklch  
-final backToRgb = hslRed.toRgb8();          // HSL → RGB
+final red = RayRgb8.fromHex('#FF0000');
+final hsl = red.toHsl();    // RGB → HSL
+final oklch = red.toOklch(); // RGB → Oklch
+final back = hsl.toRgb8();  // HSL → RGB
 ```
 
 ## Performance

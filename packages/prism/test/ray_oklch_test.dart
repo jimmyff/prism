@@ -6,7 +6,7 @@ void main() {
   group('RayOklch', () {
     group('constructors', () {
       test('creates color with valid parameters', () {
-        final color = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 1.0);
+        final color = RayOklch.fromComponents(0.7, 0.15, 180.0, 1.0);
         expect(color.l, closeTo(0.7, 1e-10));
         expect(color.c, closeTo(0.15, 1e-10));
         expect(color.h, closeTo(180.0, 1e-6));
@@ -15,36 +15,35 @@ void main() {
       });
 
       test('normalizes hue to [0, 360) range', () {
-        expect(RayOklch.validated(l: 0.5, c: 0.1, h: 380.0).h,
+        expect(RayOklch.fromComponentsValidated(0.5, 0.1, 380.0).h,
             closeTo(20.0, 1e-6));
-        expect(RayOklch.validated(l: 0.5, c: 0.1, h: -20.0).h,
+        expect(RayOklch.fromComponentsValidated(0.5, 0.1, -20.0).h,
             closeTo(340.0, 1e-6));
-        expect(
-            RayOklch.validated(l: 0.5, c: 0.1, h: 720.0).h, closeTo(0.0, 1e-6));
+        expect(RayOklch.fromComponentsValidated(0.5, 0.1, 720.0).h,
+            closeTo(0.0, 1e-6));
       });
 
       test('clamps chroma to minimum 0.0', () {
-        final color = RayOklch.validated(l: 0.5, c: -0.1, h: 180.0);
+        final color = RayOklch.fromComponentsValidated(0.5, -0.1, 180.0);
         expect(color.c, equals(0.0));
       });
 
       test('throws on invalid lightness', () {
-        expect(() => RayOklch.validated(l: -0.1, c: 0.1, h: 180.0),
+        expect(() => RayOklch.fromComponentsValidated(-0.1, 0.1, 180.0),
             throwsArgumentError);
-        expect(() => RayOklch.validated(l: 1.1, c: 0.1, h: 180.0),
+        expect(() => RayOklch.fromComponentsValidated(1.1, 0.1, 180.0),
             throwsArgumentError);
       });
 
       test('throws on invalid opacity', () {
-        expect(
-            () => RayOklch.validated(l: 0.5, c: 0.1, h: 180.0, opacity: -0.1),
+        expect(() => RayOklch.fromComponentsValidated(0.5, 0.1, 180.0, -0.1),
             throwsArgumentError);
-        expect(() => RayOklch.validated(l: 0.5, c: 0.1, h: 180.0, opacity: 1.1),
+        expect(() => RayOklch.fromComponentsValidated(0.5, 0.1, 180.0, 1.1),
             throwsArgumentError);
       });
 
       test('fromLch constructor works correctly', () {
-        final color = RayOklch.fromLch(0.7, 0.15, 180.0, 0.8);
+        final color = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
         expect(color.l, closeTo(0.7, 1e-10));
         expect(color.c, closeTo(0.15, 1e-10));
         expect(color.h, closeTo(180.0, 1e-6));
@@ -60,7 +59,7 @@ void main() {
       });
 
       test('fromOklab constructor converts correctly', () {
-        final oklab = RayOklab(l: 0.7, a: 0.1, b: -0.1, opacity: 0.8);
+        final oklab = RayOklab.fromComponents(0.7, 0.1, -0.1, 0.8);
         final oklch = RayOklch.fromOklab(oklab);
 
         expect(oklch.l, closeTo(oklab.l, 1e-10));
@@ -92,7 +91,7 @@ void main() {
     });
 
     group('with methods', () {
-      final color = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
+      final color = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
 
       test('withOpacity creates new color with different opacity', () {
         final newColor = color.withOpacity(0.5);
@@ -153,8 +152,8 @@ void main() {
     });
 
     group('lerp', () {
-      final color1 = RayOklch(l: 0.3, c: 0.1, h: 0.0, opacity: 0.5);
-      final color2 = RayOklch(l: 0.7, c: 0.2, h: 120.0, opacity: 1.0);
+      final color1 = RayOklch.fromComponents(0.3, 0.1, 0.0, 0.5);
+      final color2 = RayOklch.fromComponents(0.7, 0.2, 120.0, 1.0);
 
       test('returns first color when t = 0', () {
         final result = color1.lerp(color2, 0.0);
@@ -182,8 +181,8 @@ void main() {
       });
 
       test('uses shortest hue path around color wheel', () {
-        final red = RayOklch(l: 0.5, c: 0.2, h: 10.0); // Near 0°
-        final blue = RayOklch(l: 0.5, c: 0.2, h: 350.0); // Near 360°
+        final red = RayOklch.fromComponents(0.5, 0.2, 10.0); // Near 0°
+        final blue = RayOklch.fromComponents(0.5, 0.2, 350.0); // Near 360°
 
         final result = red.lerp(blue, 0.5);
         // Should go from 10° to 350° via 0°, midpoint should be around 0° (actually 360°)
@@ -191,7 +190,7 @@ void main() {
       });
 
       test('works with different color types', () {
-        final rgb = RayRgb8.fromArgb(255, 255, 0, 0);
+        final rgb = RayRgb8.fromComponents(255, 0, 0);
         final result = color1.lerp(rgb, 0.5);
         expect(result, isA<RayOklch>());
       });
@@ -204,7 +203,7 @@ void main() {
 
     group('inverse', () {
       test('inverts lightness and shifts hue by 180°', () {
-        final color = RayOklch(l: 0.3, c: 0.15, h: 45.0, opacity: 0.8);
+        final color = RayOklch.fromComponents(0.3, 0.15, 45.0, 0.8);
         final inverted = color.inverse;
 
         expect(inverted.l, closeTo(0.7, 1e-10)); // 1.0 - 0.3
@@ -214,14 +213,14 @@ void main() {
       });
 
       test('wraps hue correctly when adding 180°', () {
-        final color = RayOklch(l: 0.5, c: 0.15, h: 270.0);
+        final color = RayOklch.fromComponents(0.5, 0.15, 270.0);
         final inverted = color.inverse;
         expect(inverted.h, closeTo(90.0, 1e-6)); // (270° + 180°) % 360° = 90°
       });
     });
 
     group('color space conversions', () {
-      final oklch = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
+      final oklch = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
 
       test('toOklch returns self', () {
         expect(identical(oklch.toOklch(), oklch), isTrue);
@@ -280,7 +279,7 @@ void main() {
     group('special cases', () {
       test('handles zero chroma (gray colors)', () {
         final gray =
-            RayOklch(l: 0.5, c: 0.0, h: 45.0); // Hue irrelevant for gray
+            RayOklch.fromComponents(0.5, 0.0, 45.0); // Hue irrelevant for gray
         final oklab = gray.toOklab();
 
         expect(oklab.a, closeTo(0.0, 1e-10));
@@ -294,15 +293,16 @@ void main() {
       });
 
       test('handles extreme lightness values', () {
-        final black = RayOklch(l: 0.0, c: 0.1, h: 45.0);
-        final white = RayOklch(l: 1.0, c: 0.1, h: 45.0);
+        final black = RayOklch.fromComponents(0.0, 0.1, 45.0);
+        final white = RayOklch.fromComponents(1.0, 0.1, 45.0);
 
         expect(() => black.toRgb8(), returnsNormally);
         expect(() => white.toRgb8(), returnsNormally);
       });
 
       test('handles high chroma values', () {
-        final saturated = RayOklch(l: 0.7, c: 0.4, h: 45.0); // Very saturated
+        final saturated =
+            RayOklch.fromComponents(0.7, 0.4, 45.0); // Very saturated
 
         expect(() => saturated.toRgb8(), returnsNormally);
         // The RGB conversion should clamp values appropriately
@@ -315,7 +315,7 @@ void main() {
 
     group('JSON serialization', () {
       test('toJson creates correct map', () {
-        final color = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
+        final color = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
         final json = color.toJson();
 
         expect(json, isA<Map<String, dynamic>>());
@@ -326,7 +326,7 @@ void main() {
       });
 
       test('round-trip JSON serialization preserves values', () {
-        final original = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
+        final original = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
         final roundTrip = RayOklch.fromJson(original.toJson());
 
         expect(roundTrip.l, closeTo(original.l, 1e-10));
@@ -338,7 +338,7 @@ void main() {
 
     group('luminance', () {
       test('uses L component directly for Oklch luminance', () {
-        final color = RayOklch(l: 0.7, c: 0.15, h: 180.0);
+        final color = RayOklch.fromComponents(0.7, 0.15, 180.0);
         final luminance = color.luminance;
 
         expect(luminance, equals(0.7)); // Should be L component directly
@@ -349,32 +349,32 @@ void main() {
 
     group('equality and hashCode', () {
       test('equal colors have same equality and hashCode', () {
-        final color1 = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
-        final color2 = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
+        final color1 = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
+        final color2 = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
 
         expect(color1, equals(color2));
         expect(color1.hashCode, equals(color2.hashCode));
       });
 
       test('different colors are not equal', () {
-        final color1 = RayOklch(l: 0.7, c: 0.15, h: 180.0, opacity: 0.8);
-        final color2 = RayOklch(l: 0.6, c: 0.15, h: 180.0, opacity: 0.8);
+        final color1 = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
+        final color2 = RayOklch.fromComponents(0.6, 0.15, 180.0, 0.8);
 
         expect(color1, isNot(equals(color2)));
       });
 
       test('handles floating-point precision in equality', () {
-        final color1 = RayOklch(l: 0.7, c: 0.15, h: 180.0);
-        final color2 = RayOklch(
-            l: 0.7 + 1e-12, c: 0.15, h: 180.0); // Very small difference
+        final color1 = RayOklch.fromComponents(0.7, 0.15, 180.0);
+        final color2 = RayOklch.fromComponents(
+            0.7 + 1e-12, 0.15, 180.0); // Very small difference
 
         expect(color1, equals(color2)); // Should be considered equal
       });
 
       test('small hue differences are considered equal within tolerance', () {
-        final color1 = RayOklch(l: 0.7, c: 0.15, h: 180.0);
-        final color2 = RayOklch(
-            l: 0.7, c: 0.15, h: 180.0 + 1e-7); // Very small hue difference
+        final color1 = RayOklch.fromComponents(0.7, 0.15, 180.0);
+        final color2 = RayOklch.fromComponents(
+            0.7, 0.15, 180.0 + 1e-7); // Very small hue difference
 
         expect(color1,
             equals(color2)); // Should be considered equal within tolerance
@@ -383,8 +383,7 @@ void main() {
 
     group('toString', () {
       test('formats correctly', () {
-        final color =
-            RayOklch(l: 0.7123, c: 0.1567, h: 180.1234, opacity: 0.8567);
+        final color = RayOklch.fromComponents(0.7123, 0.1567, 180.1234, 0.8567);
         final str = color.toString();
 
         expect(str, contains('RayOklch'));
@@ -398,7 +397,7 @@ void main() {
     group('Chroma Gamut Issues', () {
       test('withChroma preserves hue for tangerine color', () {
         // Start with a tangerine color
-        final tangerine = RayOklch(l: 0.7941, c: 0.1914, h: 64.05);
+        final tangerine = RayOklch.fromComponents(0.7941, 0.1914, 64.05);
 
         // Apply maximum chroma - this should give us the most saturated tangerine
         final saturatedTangerine = tangerine.withChroma(1.0);
@@ -421,12 +420,12 @@ void main() {
       test('withChroma handles out-of-gamut values gracefully', () {
         // Test various hues with extreme chroma values
         final testColors = [
-          RayOklch(l: 0.5, c: 0.1, h: 0), // Red
-          RayOklch(l: 0.5, c: 0.1, h: 30), // Orange
-          RayOklch(l: 0.5, c: 0.1, h: 60), // Yellow
-          RayOklch(l: 0.5, c: 0.1, h: 120), // Green
-          RayOklch(l: 0.5, c: 0.1, h: 240), // Blue
-          RayOklch(l: 0.5, c: 0.1, h: 300), // Purple
+          RayOklch.fromComponents(0.5, 0.1, 0), // Red
+          RayOklch.fromComponents(0.5, 0.1, 30), // Orange
+          RayOklch.fromComponents(0.5, 0.1, 60), // Yellow
+          RayOklch.fromComponents(0.5, 0.1, 120), // Green
+          RayOklch.fromComponents(0.5, 0.1, 240), // Blue
+          RayOklch.fromComponents(0.5, 0.1, 300), // Purple
         ];
 
         for (final color in testColors) {
@@ -449,8 +448,8 @@ void main() {
 
       test('withLightness clamps chroma to valid gamut - reported issue', () {
         // Reported issue: (98.4% 0.492 24.87°) shows as bright red instead of near-white
-        final problemColor =
-            RayOklch(l: 0.5, c: 0.492, h: 24.87); // Start with lower lightness
+        final problemColor = RayOklch.fromComponents(
+            0.5, 0.492, 24.87); // Start with lower lightness
 
         // When we increase lightness to 98.4%, chroma should be clamped to valid range
         final highLightnessColor = problemColor.withLightness(0.984);

@@ -1,6 +1,6 @@
 import 'package:prism/prism.dart';
 
-final base = RayOklch.validated(l: 0.50, c: 0.3, h: 0);
+final base = RayOklch.fromComponentsValidated(0.50, 0.3, 0);
 final offset = 2;
 var structure = [
   (name: 'pink', lightness: 0.6, bright: false),
@@ -48,19 +48,19 @@ Map<String, RayScheme<RayWithLuminanceOklch>> spectrumColors = Map.fromEntries([
   MapEntry(
       'neutralCool',
       RayScheme.fromOklch(
-        RayOklch.validated(l: 0.55, c: 0.023, h: 250.0),
+        RayOklch.fromComponentsValidated(0.55, 0.023, 250.0),
         generateAccents: false,
       )),
   MapEntry(
       'neutral',
       RayScheme.fromOklch(
-        RayOklch.validated(l: 0.55, c: 0.0, h: 0.0),
+        RayOklch.fromComponentsValidated(0.55, 0.0, 0.0),
         generateAccents: false,
       )),
   MapEntry(
       'neutralWarm',
       RayScheme.fromOklch(
-        RayOklch.validated(l: 0.55, c: 0.018, h: 40.0),
+        RayOklch.fromComponentsValidated(0.55, 0.018, 40.0),
         generateAccents: false,
       )),
 ]);

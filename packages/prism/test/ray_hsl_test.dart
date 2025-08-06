@@ -164,7 +164,7 @@ void main() {
 
     test('lerp with RGB color converts and interpolates', () {
       final hsl = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-      final rgb = RayRgb8(red: 255, green: 0, blue: 0);
+      final rgb = RayRgb8.fromComponentsNative(255, 0, 0);
       final result = hsl.lerp(rgb, 0.5);
 
       expect(result.colorSpace, equals(ColorSpace.hsl));

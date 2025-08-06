@@ -7,7 +7,7 @@ void main() {
   group('RayOklab', () {
     group('Construction', () {
       test('creates Oklab color with valid components', () {
-        final color = RayOklab(l: 0.7, a: 0.1, b: -0.1, opacity: 1.0);
+        final color = RayOklab.fromComponents(0.7, 0.1, -0.1, 1.0);
 
         expect(color.l, equals(0.7));
         expect(color.a, equals(0.1));
@@ -17,13 +17,13 @@ void main() {
       });
 
       test('creates Oklab color with default opacity', () {
-        final color = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final color = RayOklab.fromComponents(0.5, 0.0, 0.0);
 
         expect(color.opacity, equals(1.0));
       });
 
       test('creates Oklab color from LAB components', () {
-        final color = RayOklab.fromLab(0.8, 0.2, -0.15, 0.9);
+        final color = RayOklab.fromComponents(0.8, 0.2, -0.15, 0.9);
 
         expect(color.l, equals(0.8));
         expect(color.a, equals(0.2));
@@ -60,19 +60,19 @@ void main() {
 
     group('Properties', () {
       test('returns correct color model', () {
-        final color = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final color = RayOklab.fromComponents(0.5, 0.0, 0.0);
         expect(color.colorSpace, equals(ColorSpace.oklab));
       });
 
       test('returns correct opacity', () {
-        final color = RayOklab(l: 0.5, a: 0.0, b: 0.0, opacity: 0.7);
+        final color = RayOklab.fromComponents(0.5, 0.0, 0.0, 0.7);
         expect(color.opacity, equals(0.7));
       });
     });
 
     group('withOpacity', () {
       test('creates new color with different opacity', () {
-        final original = RayOklab(l: 0.7, a: 0.1, b: -0.1, opacity: 1.0);
+        final original = RayOklab.fromComponents(0.7, 0.1, -0.1, 1.0);
         final modified = original.withOpacity(0.5);
 
         expect(modified.l, equals(original.l));
@@ -83,7 +83,7 @@ void main() {
       });
 
       test('throws ArgumentError for invalid opacity', () {
-        final color = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final color = RayOklab.fromComponents(0.5, 0.0, 0.0);
 
         expect(() => color.withOpacity(-0.1), throwsArgumentError);
         expect(() => color.withOpacity(1.1), throwsArgumentError);
@@ -92,8 +92,8 @@ void main() {
 
     group('lerp', () {
       test('interpolates between two Oklab colors', () {
-        final color1 = RayOklab(l: 0.3, a: -0.1, b: 0.1, opacity: 0.5);
-        final color2 = RayOklab(l: 0.7, a: 0.1, b: -0.1, opacity: 1.0);
+        final color1 = RayOklab.fromComponents(0.3, -0.1, 0.1, 0.5);
+        final color2 = RayOklab.fromComponents(0.7, 0.1, -0.1, 1.0);
 
         final midpoint = color1.lerp(color2, 0.5);
 
@@ -104,8 +104,8 @@ void main() {
       });
 
       test('returns original color at t=0', () {
-        final color1 = RayOklab(l: 0.3, a: -0.1, b: 0.1);
-        final color2 = RayOklab(l: 0.7, a: 0.1, b: -0.1);
+        final color1 = RayOklab.fromComponents(0.3, -0.1, 0.1);
+        final color2 = RayOklab.fromComponents(0.7, 0.1, -0.1);
 
         final result = color1.lerp(color2, 0.0);
 
@@ -116,8 +116,8 @@ void main() {
       });
 
       test('returns other color at t=1', () {
-        final color1 = RayOklab(l: 0.3, a: -0.1, b: 0.1);
-        final color2 = RayOklab(l: 0.7, a: 0.1, b: -0.1);
+        final color1 = RayOklab.fromComponents(0.3, -0.1, 0.1);
+        final color2 = RayOklab.fromComponents(0.7, 0.1, -0.1);
 
         // Should convert color2 to Oklab (already Oklab in this case)
         final result = color1.lerp(color2, 1.0);
@@ -129,8 +129,8 @@ void main() {
       });
 
       test('interpolates with RGB color by converting to Oklab', () {
-        final oklabColor = RayOklab(l: 0.5, a: 0.0, b: 0.0);
-        final rgbColor = RayRgb8(red: 255, green: 0, blue: 0);
+        final oklabColor = RayOklab.fromComponents(0.5, 0.0, 0.0);
+        final rgbColor = RayRgb8.fromComponentsNative(255, 0, 0);
 
         final result = oklabColor.lerp(rgbColor, 0.5);
 
@@ -139,8 +139,8 @@ void main() {
       });
 
       test('throws ArgumentError for invalid t values', () {
-        final color1 = RayOklab(l: 0.5, a: 0.0, b: 0.0);
-        final color2 = RayOklab(l: 0.7, a: 0.1, b: -0.1);
+        final color1 = RayOklab.fromComponents(0.5, 0.0, 0.0);
+        final color2 = RayOklab.fromComponents(0.7, 0.1, -0.1);
 
         expect(() => color1.lerp(color2, -0.1), throwsArgumentError);
         expect(() => color1.lerp(color2, 1.1), throwsArgumentError);
@@ -149,7 +149,7 @@ void main() {
 
     group('inverse', () {
       test('inverts Oklab color correctly', () {
-        final color = RayOklab(l: 0.7, a: 0.1, b: -0.2, opacity: 0.8);
+        final color = RayOklab.fromComponents(0.7, 0.1, -0.2, 0.8);
         final inverted = color.inverse;
 
         expect(inverted.l, closeTo(0.3, oklabTolerance)); // 1.0 - 0.7
@@ -161,8 +161,8 @@ void main() {
 
     group('luminance', () {
       test('uses L component directly for Oklab luminance', () {
-        final white = RayOklab(l: 1.0, a: 0.0, b: 0.0);
-        final black = RayOklab(l: 0.0, a: 0.0, b: 0.0);
+        final white = RayOklab.fromComponents(1.0, 0.0, 0.0);
+        final black = RayOklab.fromComponents(0.0, 0.0, 0.0);
 
         final whiteLuminance = white.luminance;
         final blackLuminance = black.luminance;
@@ -175,8 +175,8 @@ void main() {
 
     group('Color Conversions', () {
       test('converts to RGB correctly', () {
-        final oklabColor = RayOklab(
-            l: 0.627975, a: 0.224863, b: 0.125846); // Approximately red
+        final oklabColor = RayOklab.fromComponents(
+            0.627975, 0.224863, 0.125846); // Approximately red
         final rgbColor = oklabColor.toRgb8();
 
         expect(rgbColor, isA<RayRgb>());
@@ -187,7 +187,7 @@ void main() {
       });
 
       test('converts to HSL correctly', () {
-        final oklabColor = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final oklabColor = RayOklab.fromComponents(0.5, 0.0, 0.0);
         final hslColor = oklabColor.toHsl();
 
         expect(hslColor, isA<RayHsl>());
@@ -195,14 +195,14 @@ void main() {
       });
 
       test('converts to Oklab returns self', () {
-        final color = RayOklab(l: 0.5, a: 0.1, b: -0.1);
+        final color = RayOklab.fromComponents(0.5, 0.1, -0.1);
         final converted = color.toOklab();
 
         expect(converted, same(color));
       });
 
       test('round-trip RGB conversion preserves approximate color', () {
-        final originalRgb = RayRgb8(red: 128, green: 64, blue: 192, alpha: 200);
+        final originalRgb = RayRgb8.fromComponentsNative(128, 64, 192, 200);
         final oklab = originalRgb.toOklab();
         final backToRgb = oklab.toRgb8();
 
@@ -216,7 +216,7 @@ void main() {
 
     group('JSON Serialization', () {
       test('converts to JSON correctly', () {
-        final color = RayOklab(l: 0.6, a: 0.15, b: -0.2, opacity: 0.8);
+        final color = RayOklab.fromComponents(0.6, 0.15, -0.2, 0.8);
         final json = color.toJson();
 
         expect(json, isA<Map<String, dynamic>>());
@@ -227,7 +227,7 @@ void main() {
       });
 
       test('round-trip JSON serialization', () {
-        final original = RayOklab(l: 0.7, a: 0.1, b: -0.15, opacity: 0.9);
+        final original = RayOklab.fromComponents(0.7, 0.1, -0.15, 0.9);
         final json = original.toJson();
         final restored = RayOklab.fromJson(json);
 
@@ -240,19 +240,19 @@ void main() {
 
     group('Equality and Hashing', () {
       test('equals returns true for identical values', () {
-        final color1 = RayOklab(l: 0.5, a: 0.1, b: -0.1, opacity: 0.8);
-        final color2 = RayOklab(l: 0.5, a: 0.1, b: -0.1, opacity: 0.8);
+        final color1 = RayOklab.fromComponents(0.5, 0.1, -0.1, 0.8);
+        final color2 = RayOklab.fromComponents(0.5, 0.1, -0.1, 0.8);
 
         expect(color1, equals(color2));
         expect(color1.hashCode, equals(color2.hashCode));
       });
 
       test('equals returns false for different values', () {
-        final color1 = RayOklab(l: 0.5, a: 0.1, b: -0.1);
-        final color2 = RayOklab(l: 0.6, a: 0.1, b: -0.1);
-        final color3 = RayOklab(l: 0.5, a: 0.2, b: -0.1);
-        final color4 = RayOklab(l: 0.5, a: 0.1, b: -0.2);
-        final color5 = RayOklab(l: 0.5, a: 0.1, b: -0.1, opacity: 0.5);
+        final color1 = RayOklab.fromComponents(0.5, 0.1, -0.1);
+        final color2 = RayOklab.fromComponents(0.6, 0.1, -0.1);
+        final color3 = RayOklab.fromComponents(0.5, 0.2, -0.1);
+        final color4 = RayOklab.fromComponents(0.5, 0.1, -0.2);
+        final color5 = RayOklab.fromComponents(0.5, 0.1, -0.1, 0.5);
 
         expect(color1, isNot(equals(color2)));
         expect(color1, isNot(equals(color3)));
@@ -262,8 +262,8 @@ void main() {
 
       test('handles floating point precision in equality', () {
         final color1 =
-            RayOklab(l: 0.1 + 0.2, a: 0.0, b: 0.0); // 0.30000000000000004
-        final color2 = RayOklab(l: 0.3, a: 0.0, b: 0.0);
+            RayOklab.fromComponents(0.1 + 0.2, 0.0, 0.0); // 0.30000000000000004
+        final color2 = RayOklab.fromComponents(0.3, 0.0, 0.0);
 
         expect(
             color1, equals(color2)); // Should handle floating point precision
@@ -272,7 +272,7 @@ void main() {
 
     group('toString', () {
       test('returns formatted string representation', () {
-        final color = RayOklab(l: 0.627, a: 0.225, b: -0.126, opacity: 0.8);
+        final color = RayOklab.fromComponents(0.627, 0.225, -0.126, 0.8);
         final str = color.toString();
 
         expect(str, contains('RayOklab'));
@@ -285,8 +285,8 @@ void main() {
 
     group('Edge Cases', () {
       test('handles extreme lightness values', () {
-        final veryDark = RayOklab(l: 0.0, a: 0.0, b: 0.0);
-        final veryBright = RayOklab(l: 1.0, a: 0.0, b: 0.0);
+        final veryDark = RayOklab.fromComponents(0.0, 0.0, 0.0);
+        final veryBright = RayOklab.fromComponents(1.0, 0.0, 0.0);
 
         expect(veryDark.toRgb8().red, equals(0));
         expect(veryDark.toRgb8().green, equals(0));
@@ -298,7 +298,7 @@ void main() {
       });
 
       test('handles large a/b values', () {
-        final extremeColor = RayOklab(l: 0.5, a: 0.5, b: -0.5);
+        final extremeColor = RayOklab.fromComponents(0.5, 0.5, -0.5);
         final rgbResult = extremeColor.toRgb8();
 
         // Should clamp to valid RGB range

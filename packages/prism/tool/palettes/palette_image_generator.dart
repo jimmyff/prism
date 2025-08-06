@@ -9,12 +9,12 @@ img.ColorUint16 colorFromRay(RayRgb16 ray) => img.ColorUint16.rgba(
       ray.alphaNative,
     );
 
-final title = RayRgb8(red: 33, green: 33, blue: 33).toRgb16();
-final text = RayRgb8(red: 100, green: 100, blue: 100).toRgb16();
-final link = RayRgb8(red: 33, green: 150, blue: 243).toRgb16();
-final bg = RayRgb8(red: 255, green: 255, blue: 255).toRgb16();
+final title = RayRgb8.fromComponentsNative(33, 33, 33).toRgb16();
+final text = RayRgb8.fromComponentsNative(100, 100, 100).toRgb16();
+final link = RayRgb8.fromComponentsNative(33, 150, 243).toRgb16();
+final bg = RayRgb8.fromComponentsNative(255, 255, 255).toRgb16();
 
-final border = RayRgb8(red: 220, green: 220, blue: 220).toRgb16();
+final border = RayRgb8.fromComponentsNative(220, 220, 220).toRgb16();
 
 class PaletteImageGenerator {
   static const int imageWidth = 720;

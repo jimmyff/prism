@@ -202,9 +202,9 @@ final class RayWithLuminanceOklch extends RayWithLuminanceBase {
   RayWithLuminanceOklch get onRay {
     return isDark
         ? const RayWithLuminanceOklch.fromRay(
-            RayOklch(l: 1.0, c: 0.0, h: 0.0, opacity: 1.0), 1.0) // White
+            RayOklch.fromComponents(1.0, 0.0, 0.0, 1.0), 1.0) // White
         : const RayWithLuminanceOklch.fromRay(
-            RayOklch(l: 0.0, c: 0.0, h: 0.0, opacity: 1.0), 0.0); // Black
+            RayOklch.fromComponents(0.0, 0.0, 0.0, 1.0), 0.0); // Black
   }
 
   @override

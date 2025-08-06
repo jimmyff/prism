@@ -19,67 +19,6 @@ enum HexFormat {
 abstract base class RayRgbBase<T> extends Ray {
   const RayRgbBase();
 
-
-  /// Shared hex parsing helper method for subclasses.
-  ///
-  /// Parses an sRGB hex string and returns RGBA components (0-255).
-  /// Supports standard web hex formats: 3, 6, and 8 character strings with or without '#' prefix.
-  /// Note: Hex colors are limited to the sRGB gamut (24-bit color space).
-  static (int r, int g, int b, int a) parseHex(String value,
-      {HexFormat format = HexFormat.rgba}) {
-    String hex = value.startsWith('#') ? value.substring(1) : value;
-    hex = hex.toUpperCase();
-
-    // Validate hex characters
-    if (!RegExp(r'^[0-9A-F]+$').hasMatch(hex)) {
-      throw ArgumentError('Invalid hex color: $value');
-    }
-
-    switch (hex.length) {
-      case 3:
-        // RGB shorthand: F00 -> FF0000
-        return (
-          int.parse(hex[0] * 2, radix: 16),
-          int.parse(hex[1] * 2, radix: 16),
-          int.parse(hex[2] * 2, radix: 16),
-          255
-        );
-
-      case 6:
-        // RGB: FF0000
-        return (
-          int.parse(hex.substring(0, 2), radix: 16),
-          int.parse(hex.substring(2, 4), radix: 16),
-          int.parse(hex.substring(4, 6), radix: 16),
-          255
-        );
-
-      case 8:
-        // RGBA or ARGB format
-        if (format == HexFormat.rgba) {
-          // RGBA: FF000080 (red with 50% alpha)
-          return (
-            int.parse(hex.substring(0, 2), radix: 16),
-            int.parse(hex.substring(2, 4), radix: 16),
-            int.parse(hex.substring(4, 6), radix: 16),
-            int.parse(hex.substring(6, 8), radix: 16)
-          );
-        } else {
-          // ARGB: 80FF0000 (red with 50% alpha)
-          return (
-            int.parse(hex.substring(2, 4), radix: 16),
-            int.parse(hex.substring(4, 6), radix: 16),
-            int.parse(hex.substring(6, 8), radix: 16),
-            int.parse(hex.substring(0, 2), radix: 16)
-          );
-        }
-
-      default:
-        throw ArgumentError(
-            'Invalid sRGB hex color length: ${hex.length}. Expected 3, 6, or 8 characters for standard web hex colors.');
-    }
-  }
-
   /// The alpha channel as a normalized 8-bit value (0-255).
   num get alpha;
 
@@ -151,11 +90,11 @@ abstract base class RayRgbBase<T> extends Ray {
   String toRgbaStr() =>
       "rgba($red, $green, $blue, ${(alpha / 255).toStringAsFixed(2)})";
 
-
   /// Shared lerp calculation helper that preserves fractional precision.
   /// Returns interpolated RGBA values as doubles to preserve precision.
   (double, double, double, double) lerpPrecise(Ray other, double t) {
-    final otherRgb = other.toRgb8(); // Convert to common format for interpolation
+    final otherRgb =
+        other.toRgb8(); // Convert to common format for interpolation
     final clampedT = t.clamp(0.0, 1.0);
 
     // Interpolate using normalized values without rounding

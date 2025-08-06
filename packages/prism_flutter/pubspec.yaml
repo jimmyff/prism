@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  prism: ^2.0.0-beta.1
+  prism: ^2.0.0-beta.2
 
 dev_dependencies:
   flutter_test:

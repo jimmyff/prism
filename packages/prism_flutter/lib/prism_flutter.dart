@@ -1,7 +1,6 @@
 /// Flutter extensions for the Prism color manipulation library.
 ///
-/// Provides seamless conversion between [RayRgb] and Flutter [Color] objects
-/// with convenient extension methods for both directions.
+/// Provides conversion between [RayRgb8] and Flutter [Color] objects.
 library prism_flutter;
 
 export 'package:prism/prism.dart';
@@ -9,49 +8,40 @@ export 'package:prism/prism.dart';
 import 'dart:ui';
 import 'package:prism/prism.dart';
 
-/// Extension methods for [RayRgb] to convert to Flutter [Color] objects.
-extension RayToFlutterColor on RayRgb8 {
-  /// Converts this [RayRgb] to a Flutter [Color].
+/// Extension methods for [Ray] to convert to Flutter [Color] objects.
+extension RayToFlutterColor on Ray {
+  /// Converts this [RayRgb8] to a Flutter [Color].
   ///
-  /// The conversion preserves all ARGB color information, providing
-  /// perfect fidelity between Ray and Flutter Color representations.
-  ///
-  /// Example:
   /// ```dart
   /// final ray = RayRgb8.fromHex('#FF0000');
-  /// final flutterColor = ray.toColor();
+  /// final color = ray.toColor();
   /// ```
-  Color toColor() => Color(toArgbInt());
+  Color toColor() => Color(toRgb8().toArgbInt());
 
-  /// Converts this [RayRgb] to a Flutter [Color] with a specific opacity.
+  /// Converts this [Ray] to a Flutter [Color] with specific opacity.
   ///
-  /// The [opacity] parameter should be in the range [0.0, 1.0].
-  /// Values outside this range will be clamped to the valid range.
-  /// This method preserves the original RGB values while replacing the alpha.
-  ///
-  /// Example:
   /// ```dart
   /// final ray = RayRgb8.fromHex('#FF0000');
-  /// final semiTransparent = ray.toColorWithOpacity(0.5);
+  /// final transparent = ray.toColorWithOpacity(0.5);
   /// ```
-  Color toColorWithOpacity(double opacity) => Color.fromARGB(
+  Color toColorWithOpacity(double opacity) {
+    final rgb = toRgb8();
+    return Color.fromARGB(
       (opacity.clamp(0.0, 1.0) * 255).round(),
-      red.round(),
-      green.round(),
-      blue.round());
+      rgb.red.round(),
+      rgb.green.round(),
+      rgb.blue.round(),
+    );
+  }
 }
 
-/// Extension methods for Flutter [Color] to convert to [RayRgb] objects.
+/// Extension methods for Flutter [Color] to convert to [RayRgb8] objects.
 extension FlutterColorToRay on Color {
-  /// Converts this Flutter [Color] to a [RayRgb].
+  /// Converts this Flutter [Color] to a [RayRgb8].
   ///
-  /// The conversion preserves all ARGB color information, providing
-  /// perfect fidelity between Flutter Color and Ray representations.
-  ///
-  /// Example:
   /// ```dart
-  /// final flutterColor = Colors.red;
-  /// final ray = flutterColor.toRay();
+  /// final color = Colors.red;
+  /// final ray = color.toRayRgb8();
   /// ```
-  RayRgb8 toRay() => RayRgb8.fromIntARGB(toARGB32());
+  RayRgb8 toRayRgb8() => RayRgb8.fromArgbInt(toARGB32());
 }

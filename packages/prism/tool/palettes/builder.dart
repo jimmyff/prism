@@ -42,36 +42,6 @@ void main() {
     outputFileName: 'open_color.dart',
   );
 
-  // _generatePaletteFromRays(
-  //   className: 'CatppuccinLatte',
-  //   data: catppuccinLatteColors,
-  //   outputFileName: 'catppuccin_latte.dart',
-  // );
-
-  // _generatePaletteFromRays(
-  //   className: 'CatppuccinFrappe',
-  //   data: catppuccinFrappeColors,
-  //   outputFileName: 'catppuccin_frappe.dart',
-  // );
-
-  // _generatePaletteFromRays(
-  //   className: 'CatppuccinMacchiato',
-  //   data: catppuccinMacchiatoColors,
-  //   outputFileName: 'catppuccin_macchiato.dart',
-  // );
-
-  // _generatePaletteFromRays(
-  //   className: 'CatppuccinMocha',
-  //   data: catppuccinMochaColors,
-  //   outputFileName: 'catppuccin_mocha.dart',
-  // );
-
-  // _generatePaletteFromRays(
-  //   className: 'Solarized',
-  //   data: solarizedColors,
-  //   outputFileName: 'solarized.dart',
-  // );
-
   print('Palettes generated successfully!');
 }
 
@@ -176,7 +146,7 @@ void _generateRgbPalette({
 
     buffer.writeln('  $name(');
     buffer.writeln(
-        '    RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
+        '    RayWithLuminanceRgb8.fromRay(RayRgb8.fromArgbInt(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
     buffer.writeln('    const {');
 
     for (final tone in RayTone.values) {
@@ -188,7 +158,7 @@ void _generateRgbPalette({
       final luminance = rayLuminance.luminance;
       final toneRgb = rayLuminance.toRgb8();
       buffer.writeln(
-          '      RayTone.${tone.name}: RayWithLuminanceRgb8.fromRay(RayRgb8.fromIntARGB(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminanceRgb8.fromRay(RayRgb8.fromArgbInt(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
     }
     buffer.writeln('    }, // tones');
     buffer.writeln('  ),');
@@ -297,7 +267,8 @@ void _generateOklchPalette({
     final oklch = scheme.source.toOklch();
 
     buffer.writeln('  $name(');
-    buffer.writeln('    RayWithLuminanceOklch.fromRay(RayOklch(l: ${oklch.l}, c: ${oklch.c}, h: ${oklch.h}, opacity: ${oklch.opacity}), ${oklch.luminance}), // source');
+    buffer.writeln(
+        '    RayWithLuminanceOklch.fromRay(RayOklch.fromComponents(${oklch.l}, ${oklch.c}, ${oklch.h}, ${oklch.opacity}), ${oklch.luminance}), // source');
     buffer.writeln('    const {');
 
     for (final tone in RayTone.values) {
@@ -309,7 +280,7 @@ void _generateOklchPalette({
       final luminance = rayLuminance.luminance;
       final toneOklch = rayLuminance.toOklch();
       buffer.writeln(
-          '      RayTone.${tone.name}: RayWithLuminanceOklch.fromRay(RayOklch(l: ${toneOklch.l}, c: ${toneOklch.c}, h: ${toneOklch.h}, opacity: ${toneOklch.opacity}), $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminanceOklch.fromRay(RayOklch.fromComponents(${toneOklch.l}, ${toneOklch.c}, ${toneOklch.h}, ${toneOklch.opacity}), $luminance),');
     }
     buffer.writeln('    }, // tones');
     buffer.writeln('  ),');

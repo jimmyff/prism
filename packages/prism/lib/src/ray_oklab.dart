@@ -19,39 +19,31 @@ base class RayOklab extends Ray {
   final double _opacity;
 
   /// Creates an Oklab color with the specified components.
-  const RayOklab({
+  const RayOklab._({
     required this.l,
     required this.a,
     required this.b,
     double opacity = 1.0,
   }) : _opacity = opacity;
 
-  /// Creates an Oklab color from individual LAB components.
-  const RayOklab.fromLab(this.l, this.a, this.b, [this._opacity = 1.0]);
-
   /// Creates a [RayOklab] from individual LABO component values.
   ///
   /// [l] is lightness (0-1), [a] and [b] are color axes, [opacity] is 0-1.
-  factory RayOklab.fromComponents(num l, num a, num b, [num opacity = 1.0]) =>
-      RayOklab(
-        l: l.toDouble(),
-        a: a.toDouble(),
-        b: b.toDouble(),
-        opacity: opacity.toDouble(),
-      );
+  const RayOklab.fromComponents(this.l, this.a, this.b, [this._opacity = 1.0]);
 
   /// Creates a [RayOklab] from a list of component values.
   ///
   /// Accepts [l, a, b] or [l, a, b, opacity] in standard Oklab ranges.
   factory RayOklab.fromList(List<num> values) {
     if (values.length < 3 || values.length > 4) {
-      throw ArgumentError('Oklab color list must have 3 or 4 components (LABO)');
+      throw ArgumentError(
+          'Oklab color list must have 3 or 4 components (LABO)');
     }
     return RayOklab.fromComponents(
-      values[0],
-      values[1], 
-      values[2],
-      values.length > 3 ? values[3] : 1.0,
+      values[0].toDouble(),
+      values[1].toDouble(),
+      values[2].toDouble(),
+      values.length > 3 ? values[3].toDouble() : 1.0,
     );
   }
 
@@ -64,7 +56,7 @@ base class RayOklab extends Ray {
 
   /// Creates an Oklab color from a JSON value.
   factory RayOklab.fromJson(Map<String, dynamic> json) {
-    return RayOklab(
+    return RayOklab._(
       l: (json['l'] as num).toDouble(),
       a: (json['a'] as num).toDouble(),
       b: (json['b'] as num).toDouble(),
@@ -84,7 +76,7 @@ base class RayOklab extends Ray {
       throw ArgumentError.value(
           opacity, 'opacity', 'Opacity must be between 0.0 and 1.0');
     }
-    return RayOklab(l: l, a: a, b: b, opacity: opacity);
+    return RayOklab._(l: l, a: a, b: b, opacity: opacity);
   }
 
   @override
@@ -98,7 +90,7 @@ base class RayOklab extends Ray {
     if (t == 1.0) return other.toOklab();
 
     final otherOklab = other.toOklab();
-    return RayOklab(
+    return RayOklab._(
       l: l + (otherOklab.l - l) * t,
       a: a + (otherOklab.a - a) * t,
       b: b + (otherOklab.b - b) * t,
@@ -109,7 +101,7 @@ base class RayOklab extends Ray {
   @override
   RayOklab get inverse {
     // In Oklab, inversion means inverting lightness and flipping a/b axes
-    return RayOklab(
+    return RayOklab._(
       l: 1.0 - l,
       a: -a,
       b: -b,
@@ -148,7 +140,8 @@ base class RayOklab extends Ray {
     final blueNative = (srgbB.clamp(0.0, 1.0) * 65535).round();
     final alphaNative = (opacity * 65535).round();
 
-    return RayRgb16.fromComponentsNative(redNative, greenNative, blueNative, alphaNative);
+    return RayRgb16.fromComponentsNative(
+        redNative, greenNative, blueNative, alphaNative);
   }
 
   @override
@@ -183,62 +176,6 @@ base class RayOklab extends Ray {
       return component * 12.92;
     }
     return 1.055 * math.pow(component, 1.0 / 2.4) - 0.055;
-  }
-
-  /// Converts an sRGB gamma-corrected component to linear RGB.
-  static double _srgbToLinear(double component) {
-    if (component <= 0.04045) {
-      return component / 12.92;
-    }
-    return math.pow((component + 0.055) / 1.055, 2.4) as double;
-  }
-
-  /// Converts RGB components to Oklab.
-  ///
-  /// Takes normalized RGB values (0.0 to 1.0) and returns an Oklab color.
-  static RayOklab _fromLinearRgb(double r, double g, double b, double opacity) {
-    // Convert to linear RGB first
-    final linearR = _srgbToLinear(r);
-    final linearG = _srgbToLinear(g);
-    final linearB = _srgbToLinear(b);
-
-    // Transform to LMS space
-    final lms1 = 0.4122214708 * linearR +
-        0.5363325363 * linearG +
-        0.0514459929 * linearB;
-    final lms2 = 0.2119034982 * linearR +
-        0.6806995451 * linearG +
-        0.1073969566 * linearB;
-    final lms3 = 0.0883024619 * linearR +
-        0.2817188376 * linearG +
-        0.6299787005 * linearB;
-
-    // Apply cube root
-    final lmsCbrt1 = _signedCbrt(lms1);
-    final lmsCbrt2 = _signedCbrt(lms2);
-    final lmsCbrt3 = _signedCbrt(lms3);
-
-    // Transform to Oklab
-    final labL = 0.2104542553 * lmsCbrt1 +
-        0.7936177850 * lmsCbrt2 -
-        0.0040720468 * lmsCbrt3;
-    final labA = 1.9779984951 * lmsCbrt1 -
-        2.4285922050 * lmsCbrt2 +
-        0.4505937099 * lmsCbrt3;
-    final labB = 0.0259040371 * lmsCbrt1 +
-        0.7827717662 * lmsCbrt2 -
-        0.8086757660 * lmsCbrt3;
-
-    return RayOklab(l: labL, a: labA, b: labB, opacity: opacity);
-  }
-
-  /// Computes cube root while preserving sign.
-  static double _signedCbrt(double value) {
-    if (value >= 0) {
-      return math.pow(value, 1.0 / 3.0) as double;
-    } else {
-      return -math.pow(-value, 1.0 / 3.0) as double;
-    }
   }
 
   @override

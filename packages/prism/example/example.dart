@@ -9,9 +9,9 @@ void main() {
   print('🎨 Creating Colors:');
   final rgbRed = RayRgb8.fromHex('#FF0000');
   final rgb16Color = RayRgb16.fromComponents(220.5, 137.2, 180.8, 127);
-  final hslGreen = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
-  final oklabBlue = RayOklab(l: 0.452, a: -0.032, b: -0.312);
-  final oklchPurple = RayOklch(l: 0.6, c: 0.2, h: 300);
+  final hslGreen = RayHsl.fromComponents(120, 1.0, 0.5);
+  final oklabBlue = RayOklab.fromComponents(0.452, -0.032, -0.312);
+  final oklchPurple = RayOklch.fromComponents(0.6, 0.2, 300);
 
   print('RGB8: ${rgbRed.toHex()} (R:${rgbRed.red}, G:${rgbRed.green})');
   print(
@@ -106,8 +106,8 @@ void main() {
   print('Best contrast: ${bestContrast.toHex()}');
 
   // HSL color distance
-  final color1 = RayHsl(hue: 30, saturation: 0.8, lightness: 0.6);
-  final color2 = RayHsl(hue: 150, saturation: 0.6, lightness: 0.4);
+  final color1 = RayHsl.fromComponents(30, 0.8, 0.6);
+  final color2 = RayHsl.fromComponents(150, 0.6, 0.4);
   print('Hue distance: ${color1.hueDistance(color2).toStringAsFixed(1)}°');
 
   print('\n✅ Demo completed successfully!');

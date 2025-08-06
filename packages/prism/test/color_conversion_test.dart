@@ -11,7 +11,7 @@ void main() {
 
     group('RGB → HSL Conversions', () {
       test('RGB red to HSL', () {
-        final rgb = RayRgb8(red: 255, green: 0, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(255, 0, 0);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(0, precisionTolerance));
@@ -21,7 +21,7 @@ void main() {
       });
 
       test('RGB green to HSL', () {
-        final rgb = RayRgb8(red: 0, green: 255, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(0, 255, 0);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(120, precisionTolerance));
@@ -30,7 +30,7 @@ void main() {
       });
 
       test('RGB blue to HSL', () {
-        final rgb = RayRgb8(red: 0, green: 0, blue: 255);
+        final rgb = RayRgb8.fromComponentsNative(0, 0, 255);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(240, precisionTolerance));
@@ -39,7 +39,7 @@ void main() {
       });
 
       test('RGB black to HSL', () {
-        final rgb = RayRgb8(red: 0, green: 0, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(0, 0, 0);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(0, precisionTolerance));
@@ -48,7 +48,7 @@ void main() {
       });
 
       test('RGB white to HSL', () {
-        final rgb = RayRgb8(red: 255, green: 255, blue: 255);
+        final rgb = RayRgb8.fromComponentsNative(255, 255, 255);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(0, precisionTolerance));
@@ -57,7 +57,7 @@ void main() {
       });
 
       test('RGB gray to HSL', () {
-        final rgb = RayRgb8(red: 128, green: 128, blue: 128);
+        final rgb = RayRgb8.fromComponentsNative(128, 128, 128);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(0, precisionTolerance));
@@ -67,7 +67,7 @@ void main() {
       });
 
       test('RGB cyan to HSL', () {
-        final rgb = RayRgb8(red: 0, green: 255, blue: 255);
+        final rgb = RayRgb8.fromComponentsNative(0, 255, 255);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(180, precisionTolerance));
@@ -76,7 +76,7 @@ void main() {
       });
 
       test('RGB magenta to HSL', () {
-        final rgb = RayRgb8(red: 255, green: 0, blue: 255);
+        final rgb = RayRgb8.fromComponentsNative(255, 0, 255);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(300, precisionTolerance));
@@ -85,7 +85,7 @@ void main() {
       });
 
       test('RGB yellow to HSL', () {
-        final rgb = RayRgb8(red: 255, green: 255, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(255, 255, 0);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue, closeTo(60, precisionTolerance));
@@ -94,7 +94,7 @@ void main() {
       });
 
       test('RGB to HSL preserves opacity', () {
-        final rgb = RayRgb8(red: 255, green: 0, blue: 0, alpha: 128);
+        final rgb = RayRgb8.fromComponentsNative(255, 0, 0, 128);
         final hsl = rgb.toHsl();
 
         expect(hsl.opacity, closeTo(0.502, componentTolerance)); // 128/255
@@ -102,7 +102,7 @@ void main() {
 
       test('RGB orange to HSL', () {
         // Orange-ish color
-        final rgb = RayRgb8(red: 255, green: 165, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(255, 165, 0);
         final hsl = rgb.toHsl();
 
         expect(hsl.hue,
@@ -226,7 +226,7 @@ void main() {
 
     group('RGB → Oklab Conversions', () {
       test('RGB red to Oklab', () {
-        final rgb = RayRgb8(red: 255, green: 0, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(255, 0, 0);
         final oklab = rgb.toOklab();
 
         expect(oklab.l, greaterThan(0.0));
@@ -237,7 +237,7 @@ void main() {
       });
 
       test('RGB green to Oklab', () {
-        final rgb = RayRgb8(red: 0, green: 255, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(0, 255, 0);
         final oklab = rgb.toOklab();
 
         expect(oklab.l, greaterThan(0.0));
@@ -246,7 +246,7 @@ void main() {
       });
 
       test('RGB blue to Oklab', () {
-        final rgb = RayRgb8(red: 0, green: 0, blue: 255);
+        final rgb = RayRgb8.fromComponentsNative(0, 0, 255);
         final oklab = rgb.toOklab();
 
         expect(oklab.l, greaterThan(0.0));
@@ -255,7 +255,7 @@ void main() {
       });
 
       test('RGB white to Oklab', () {
-        final rgb = RayRgb8(red: 255, green: 255, blue: 255);
+        final rgb = RayRgb8.fromComponentsNative(255, 255, 255);
         final oklab = rgb.toOklab();
 
         expect(oklab.l, closeTo(1.0, perceptualTolerance));
@@ -264,7 +264,7 @@ void main() {
       });
 
       test('RGB black to Oklab', () {
-        final rgb = RayRgb8(red: 0, green: 0, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(0, 0, 0);
         final oklab = rgb.toOklab();
 
         expect(oklab.l, closeTo(0.0, perceptualTolerance));
@@ -273,7 +273,7 @@ void main() {
       });
 
       test('RGB to Oklab preserves opacity', () {
-        final rgb = RayRgb8(red: 255, green: 0, blue: 0, alpha: 128);
+        final rgb = RayRgb8.fromComponentsNative(255, 0, 0, 128);
         final oklab = rgb.toOklab();
 
         expect(oklab.opacity, closeTo(0.502, componentTolerance)); // 128/255
@@ -286,7 +286,7 @@ void main() {
 
     group('Oklab → RGB Conversions', () {
       test('Oklab red-like to RGB', () {
-        final oklab = RayOklab(l: 0.627975, a: 0.224863, b: 0.125846);
+        final oklab = RayOklab.fromComponents(0.627975, 0.224863, 0.125846);
         final rgb = oklab.toRgb8();
 
         expect(rgb.red, greaterThan(200));
@@ -296,7 +296,7 @@ void main() {
       });
 
       test('Oklab neutral gray to RGB', () {
-        final oklab = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final oklab = RayOklab.fromComponents(0.5, 0.0, 0.0);
         final rgb = oklab.toRgb8();
 
         expect((rgb.red - rgb.green).abs(), lessThan(10));
@@ -304,7 +304,7 @@ void main() {
       });
 
       test('Oklab white to RGB', () {
-        final oklab = RayOklab(l: 1.0, a: 0.0, b: 0.0);
+        final oklab = RayOklab.fromComponents(1.0, 0.0, 0.0);
         final rgb = oklab.toRgb8();
 
         expect(rgb.red, equals(255));
@@ -313,7 +313,7 @@ void main() {
       });
 
       test('Oklab black to RGB', () {
-        final oklab = RayOklab(l: 0.0, a: 0.0, b: 0.0);
+        final oklab = RayOklab.fromComponents(0.0, 0.0, 0.0);
         final rgb = oklab.toRgb8();
 
         expect(rgb.red, equals(0));
@@ -322,14 +322,14 @@ void main() {
       });
 
       test('Oklab to RGB preserves opacity', () {
-        final oklab = RayOklab(l: 0.5, a: 0.0, b: 0.0, opacity: 0.502);
+        final oklab = RayOklab.fromComponents(0.5, 0.0, 0.0, 0.502);
         final rgb = oklab.toRgb8();
 
         expect(rgb.alpha, closeTo(128, rgbTolerance)); // 0.502 * 255
       });
 
       test('Oklab extreme values clamp to valid RGB range', () {
-        final extremeOklab = RayOklab(l: 2.0, a: 1.0, b: -1.0);
+        final extremeOklab = RayOklab.fromComponents(2.0, 1.0, -1.0);
         final rgb = extremeOklab.toRgb8();
 
         expect(rgb.red, inInclusiveRange(0, 255));
@@ -376,7 +376,7 @@ void main() {
 
     group('Oklab → HSL Conversions', () {
       test('Oklab to HSL via RGB conversion', () {
-        final oklab = RayOklab(l: 0.8, a: -0.1, b: 0.1); // Light greenish
+        final oklab = RayOklab.fromComponents(0.8, -0.1, 0.1); // Light greenish
         final hsl = oklab.toHsl();
 
         expect(hsl.lightness, greaterThan(0.5));
@@ -384,7 +384,7 @@ void main() {
       });
 
       test('Oklab neutral to HSL', () {
-        final oklab = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final oklab = RayOklab.fromComponents(0.5, 0.0, 0.0);
         final hsl = oklab.toHsl();
 
         expect(hsl.saturation, closeTo(0.0, perceptualTolerance));
@@ -398,18 +398,18 @@ void main() {
 
     group('RGB ↔ HSL Round-trip Conversions', () {
       final testColors = [
-        RayRgb8(red: 255, green: 0, blue: 0), // Red
-        RayRgb8(red: 0, green: 255, blue: 0), // Green
-        RayRgb8(red: 0, green: 0, blue: 255), // Blue
-        RayRgb8(red: 255, green: 255, blue: 0), // Yellow
-        RayRgb8(red: 255, green: 0, blue: 255), // Magenta
-        RayRgb8(red: 0, green: 255, blue: 255), // Cyan
-        RayRgb8(red: 128, green: 128, blue: 128), // Gray
-        RayRgb8(red: 255, green: 165, blue: 0), // Orange
-        RayRgb8(red: 128, green: 0, blue: 128), // Purple
-        RayRgb8(red: 255, green: 192, blue: 203), // Pink
-        RayRgb8(red: 0, green: 128, blue: 0), // Dark Green
-        RayRgb8(red: 139, green: 69, blue: 19), // Brown
+        RayRgb8.fromComponentsNative(255, 0, 0), // Red
+        RayRgb8.fromComponentsNative(0, 255, 0), // Green
+        RayRgb8.fromComponentsNative(0, 0, 255), // Blue
+        RayRgb8.fromComponentsNative(255, 255, 0), // Yellow
+        RayRgb8.fromComponentsNative(255, 0, 255), // Magenta
+        RayRgb8.fromComponentsNative(0, 255, 255), // Cyan
+        RayRgb8.fromComponentsNative(128, 128, 128), // Gray
+        RayRgb8.fromComponentsNative(255, 165, 0), // Orange
+        RayRgb8.fromComponentsNative(128, 0, 128), // Purple
+        RayRgb8.fromComponentsNative(255, 192, 203), // Pink
+        RayRgb8.fromComponentsNative(0, 128, 0), // Dark Green
+        RayRgb8.fromComponentsNative(139, 69, 19), // Brown
       ];
 
       for (int i = 0; i < testColors.length; i++) {
@@ -457,14 +457,14 @@ void main() {
 
     group('RGB ↔ Oklab Round-trip Conversions', () {
       final testColors = [
-        RayRgb8(red: 255, green: 0, blue: 0), // Red
-        RayRgb8(red: 0, green: 255, blue: 0), // Green
-        RayRgb8(red: 0, green: 0, blue: 255), // Blue
-        RayRgb8(red: 255, green: 255, blue: 255), // White
-        RayRgb8(red: 0, green: 0, blue: 0), // Black
-        RayRgb8(red: 128, green: 128, blue: 128), // Gray
-        RayRgb8(red: 255, green: 165, blue: 0), // Orange
-        RayRgb8(red: 128, green: 0, blue: 128), // Purple
+        RayRgb8.fromComponentsNative(255, 0, 0), // Red
+        RayRgb8.fromComponentsNative(0, 255, 0), // Green
+        RayRgb8.fromComponentsNative(0, 0, 255), // Blue
+        RayRgb8.fromComponentsNative(255, 255, 255), // White
+        RayRgb8.fromComponentsNative(0, 0, 0), // Black
+        RayRgb8.fromComponentsNative(128, 128, 128), // Gray
+        RayRgb8.fromComponentsNative(255, 165, 0), // Orange
+        RayRgb8.fromComponentsNative(128, 0, 128), // Purple
       ];
 
       for (int i = 0; i < testColors.length; i++) {
@@ -483,12 +483,12 @@ void main() {
       }
 
       final testOklabColors = [
-        RayOklab(l: 0.627975, a: 0.224863, b: 0.125846), // Red-ish
-        RayOklab(l: 0.86644, a: -0.233887, b: 0.179498), // Green-ish
-        RayOklab(l: 0.452014, a: -0.032457, b: -0.311528), // Blue-ish
-        RayOklab(l: 1.0, a: 0.0, b: 0.0), // White
-        RayOklab(l: 0.0, a: 0.0, b: 0.0), // Black
-        RayOklab(l: 0.5, a: 0.0, b: 0.0), // Neutral gray
+        RayOklab.fromComponents(0.627975, 0.224863, 0.125846), // Red-ish
+        RayOklab.fromComponents(0.86644, -0.233887, 0.179498), // Green-ish
+        RayOklab.fromComponents(0.452014, -0.032457, -0.311528), // Blue-ish
+        RayOklab.fromComponents(1.0, 0.0, 0.0), // White
+        RayOklab.fromComponents(0.0, 0.0, 0.0), // Black
+        RayOklab.fromComponents(0.5, 0.0, 0.0), // Neutral gray
       ];
 
       for (int i = 0; i < testOklabColors.length; i++) {
@@ -541,7 +541,7 @@ void main() {
 
     group('Multi-space Conversion Chains', () {
       test('RGB→HSL→Oklab→RGB preserves approximate color', () {
-        final originalRgb = RayRgb8(red: 128, green: 64, blue: 192);
+        final originalRgb = RayRgb8.fromComponentsNative(128, 64, 192);
         final hsl = originalRgb.toHsl();
         final oklab = hsl.toOklab();
         final finalRgb = oklab.toRgb8();
@@ -553,7 +553,7 @@ void main() {
       });
 
       test('Oklab→HSL→RGB→Oklab preserves approximate color', () {
-        final originalOklab = RayOklab(l: 0.7, a: 0.1, b: -0.15);
+        final originalOklab = RayOklab.fromComponents(0.7, 0.1, -0.15);
         final hsl = originalOklab.toHsl();
         final rgb = hsl.toRgb8();
         final finalOklab = rgb.toOklab();
@@ -565,7 +565,7 @@ void main() {
       });
 
       test('RGB→Oklab→HSL→RGB preserves approximate color', () {
-        final originalRgb = RayRgb8(red: 200, green: 100, blue: 50);
+        final originalRgb = RayRgb8.fromComponentsNative(200, 100, 50);
         final oklab = originalRgb.toOklab();
         final hsl = oklab.toHsl();
         final finalRgb = hsl.toRgb8();
@@ -586,8 +586,8 @@ void main() {
         final opacities = [0.0, 0.25, 0.5, 0.75, 1.0];
 
         for (final opacity in opacities) {
-          final rgb = RayRgb8(
-              red: 128, green: 64, blue: 192, alpha: (opacity * 255).round());
+          final rgb = RayRgb8.fromComponentsNative(
+              128, 64, 192, (opacity * 255).round());
 
           final hsl = rgb.toHsl();
           expect(hsl.opacity, closeTo(opacity, componentTolerance));
@@ -610,7 +610,7 @@ void main() {
 
     group('Edge Cases and Special Color Behaviors', () {
       test('very dark RGB colors convert correctly', () {
-        final rgb = RayRgb8(red: 1, green: 0, blue: 0);
+        final rgb = RayRgb8.fromComponentsNative(1, 0, 0);
         final hsl = rgb.toHsl();
         final backToRgb = hsl.toRgb8();
 
@@ -620,7 +620,7 @@ void main() {
       });
 
       test('very bright RGB colors convert correctly', () {
-        final rgb = RayRgb8(red: 254, green: 255, blue: 254);
+        final rgb = RayRgb8.fromComponentsNative(254, 255, 254);
         final hsl = rgb.toHsl();
         final backToRgb = hsl.toRgb8();
 
@@ -639,7 +639,7 @@ void main() {
       });
 
       test('transparent colors preserve transparency', () {
-        final rgbTransparent = RayRgb8(red: 255, green: 0, blue: 0, alpha: 0);
+        final rgbTransparent = RayRgb8.fromComponentsNative(255, 0, 0, 0);
         final hslTransparent = rgbTransparent.toHsl();
 
         expect(hslTransparent.opacity, closeTo(0, precisionTolerance));
@@ -649,7 +649,7 @@ void main() {
       });
 
       test('Oklab extreme values clamp to valid RGB', () {
-        final extremeOklab = RayOklab(l: 2.0, a: 1.0, b: -1.0);
+        final extremeOklab = RayOklab.fromComponents(2.0, 1.0, -1.0);
         final rgb = extremeOklab.toRgb8();
 
         expect(rgb.red, inInclusiveRange(0, 255));
@@ -658,7 +658,7 @@ void main() {
       });
 
       test('negative Oklab lightness clamps to valid RGB', () {
-        final negativeL = RayOklab(l: -0.5, a: 0.0, b: 0.0);
+        final negativeL = RayOklab.fromComponents(-0.5, 0.0, 0.0);
         final rgb = negativeL.toRgb8();
 
         expect(rgb.red, inInclusiveRange(0, 255));
@@ -695,11 +695,11 @@ void main() {
     group('Color Space Characteristics', () {
       test('Oklab provides better perceptual uniformity than RGB', () {
         // Test that equal steps in Oklab space are more perceptually uniform
-        final baseColor = RayOklab(l: 0.5, a: 0.0, b: 0.0);
+        final baseColor = RayOklab.fromComponents(0.5, 0.0, 0.0);
         final step = 0.1;
 
-        final lighterOklab = RayOklab(l: 0.5 + step, a: 0.0, b: 0.0);
-        final darkerOklab = RayOklab(l: 0.5 - step, a: 0.0, b: 0.0);
+        final lighterOklab = RayOklab.fromComponents(0.5 + step, 0.0, 0.0);
+        final darkerOklab = RayOklab.fromComponents(0.5 - step, 0.0, 0.0);
 
         // Convert to RGB to see the effect
         final baseRgb = baseColor.toRgb8();
@@ -730,7 +730,7 @@ void main() {
 
     group('Conversion Performance', () {
       test('RGB→HSL conversion is reasonably fast', () {
-        final rgb = RayRgb8(red: 128, green: 64, blue: 192);
+        final rgb = RayRgb8.fromComponentsNative(128, 64, 192);
         final stopwatch = Stopwatch()..start();
 
         for (int i = 0; i < 1000; i++) {
@@ -756,7 +756,7 @@ void main() {
       });
 
       test('RGB→Oklab conversion is reasonably fast', () {
-        final rgb = RayRgb8(red: 128, green: 64, blue: 192);
+        final rgb = RayRgb8.fromComponentsNative(128, 64, 192);
         final stopwatch = Stopwatch()..start();
 
         for (int i = 0; i < 1000; i++) {
@@ -769,7 +769,7 @@ void main() {
       });
 
       test('Oklab→RGB conversion is reasonably fast', () {
-        final oklab = RayOklab(l: 0.7, a: 0.1, b: -0.15);
+        final oklab = RayOklab.fromComponents(0.7, 0.1, -0.15);
         final stopwatch = Stopwatch()..start();
 
         for (int i = 0; i < 1000; i++) {

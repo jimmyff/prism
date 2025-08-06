@@ -1,7 +1,10 @@
+## 2.0.0-beta.2
+
+- **Updated dependencies**: Uses Prism 2.0.0-beta.2 with standarized API
+
 ## 2.0.0-beta.1
 
 **Breaking Changes:**
-
 - **RayRgb split**: Updated extensions for `RayRgb8` and `RayRgb16` classes (replaces `RayRgb`)
 - **Extension methods**: `toRayRgb()` renamed to `toRayRgb8()` for 8-bit color support
 - **Multi-precision RGB**: Support for both 8-bit (0-255) and 16-bit (0-65535) color channels

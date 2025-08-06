@@ -97,20 +97,20 @@ void main() {
 
   group('RayRgb8 Core Functionality', () {
     group('Constructors', () {
-      test('named parameter constructor creates correct color', () {
-        final ray = RayRgb8(red: 255, green: 0, blue: 0);
+      test('fromComponentsNative constructor creates correct color', () {
+        final ray = RayRgb8.fromComponentsNative(255, 0, 0);
         validateRgb8(ray, testColors8['red']!,
-            description: 'named parameter red');
+            description: 'fromComponentsNative red');
       });
 
-      test('named parameter constructor with alpha', () {
-        final ray = RayRgb8(red: 255, green: 0, blue: 0, alpha: 127);
+      test('fromComponentsNative constructor with alpha', () {
+        final ray = RayRgb8.fromComponentsNative(255, 0, 0, 127);
         validateRgb8(ray, testColors8['semiTransparentRed']!,
-            description: 'named parameter semi-transparent red');
+            description: 'fromComponentsNative semi-transparent red');
       });
 
       test('creates color with default alpha', () {
-        final color = RayRgb8(red: 255, green: 0, blue: 0);
+        final color = RayRgb8.fromComponentsNative(255, 0, 0);
         expect(color.alpha, equals(255));
         expect(color.red, equals(255));
         expect(color.green, equals(0));
@@ -118,12 +118,12 @@ void main() {
       });
 
       test('fromArgb creates correct color', () {
-        final ray = RayRgb8.fromArgb(255, 0, 255, 0);
+        final ray = RayRgb8.fromComponents(0, 255, 0, 255);
         validateRgb8(ray, testColors8['green']!, description: 'fromArgb green');
       });
 
       test('fromArgb with transparency', () {
-        final ray = RayRgb8.fromArgb(127, 255, 0, 0);
+        final ray = RayRgb8.fromComponents(255, 0, 0, 127);
         validateRgb8(ray, testColors8['semiTransparentRed']!,
             description: 'fromArgb semi-transparent red');
       });
@@ -160,7 +160,7 @@ void main() {
 
     group('Const Constructors', () {
       test('const named parameter constructor', () {
-        const ray = RayRgb8(red: 255, green: 128, blue: 64);
+        const ray = RayRgb8.fromComponentsNative(255, 128, 64);
         expect(ray.red, equals(255));
         expect(ray.green, equals(128));
         expect(ray.blue, equals(64));
@@ -168,7 +168,7 @@ void main() {
       });
 
       test('const named parameter constructor with alpha', () {
-        const ray = RayRgb8(red: 100, green: 200, blue: 50, alpha: 127);
+        const ray = RayRgb8.fromComponentsNative(100, 200, 50, 127);
         expect(ray.red, equals(100));
         expect(ray.green, equals(200));
         expect(ray.blue, equals(50));
@@ -200,7 +200,7 @@ void main() {
       });
 
       test('const fromArgb constructor', () {
-        const ray = RayRgb8.fromArgb(200, 255, 128, 64);
+        const ray = RayRgb8.fromComponentsNative(255, 128, 64, 200);
         expect(ray.alpha, equals(200));
         expect(ray.red, equals(255));
         expect(ray.green, equals(128));
@@ -218,8 +218,8 @@ void main() {
 
       test('const constructors compile-time evaluation', () {
         // These should be compile-time constants
-        const red = RayRgb8(red: 255, green: 0, blue: 0);
-        const green = RayRgb8.fromArgb(255, 0, 255, 0);
+        const red = RayRgb8.fromComponentsNative(255, 0, 0);
+        const green = RayRgb8.fromComponentsNative(0, 255, 0, 255);
         const blue = RayRgb8.fromArgbInt(0xFF0000FF);
         const transparent = RayRgb8.empty();
 
@@ -233,7 +233,7 @@ void main() {
 
     group('Component Access', () {
       test('component values are correct', () {
-        final ray = RayRgb8.fromArgb(200, 100, 150, 75);
+        final ray = RayRgb8.fromComponents(100, 150, 75, 200);
         expect(ray.alpha, 200);
         expect(ray.red, 100);
         expect(ray.green, 150);
@@ -242,24 +242,24 @@ void main() {
       });
 
       test('alpha channel edge cases', () {
-        final transparent = RayRgb8(red: 255, green: 255, blue: 255, alpha: 0);
+        final transparent = RayRgb8.fromComponentsNative(255, 255, 255, 0);
         expect(transparent.alpha, equals(0));
 
-        final opaque = RayRgb8(red: 255, green: 255, blue: 255, alpha: 255);
+        final opaque = RayRgb8.fromComponentsNative(255, 255, 255, 255);
         expect(opaque.alpha, equals(255));
       });
 
       test('opacity calculation', () {
-        expect(RayRgb8.fromArgb(0, 0, 0, 0).opacity, 0.0);
-        expect(RayRgb8.fromArgb(255, 0, 0, 0).opacity, 1.0);
-        expect(RayRgb8.fromArgb(127, 0, 0, 0).opacity,
+        expect(RayRgb8.fromComponents(0, 0, 0, 0).opacity, 0.0);
+        expect(RayRgb8.fromComponents(0, 0, 0, 255).opacity, 1.0);
+        expect(RayRgb8.fromComponents(0, 0, 0, 127).opacity,
             closeTo(0.5, componentTolerance));
       });
     });
 
     group('Methods', () {
       test('withAlpha creates color with new alpha', () {
-        final red = RayRgb8.fromArgb(255, 255, 0, 0);
+        final red = RayRgb8.fromComponents(255, 0, 0, 255);
         final semiRed = red.withAlpha(128);
 
         expect(semiRed.red, 255);
@@ -270,7 +270,7 @@ void main() {
       });
 
       test('withOpacity creates color with new opacity', () {
-        final red = RayRgb8.fromArgb(255, 255, 0, 0);
+        final red = RayRgb8.fromComponents(255, 0, 0, 255);
         final semiRed = red.withOpacity(0.5);
 
         expect(semiRed.red, 255);
@@ -281,14 +281,14 @@ void main() {
       });
 
       test('withOpacity precision', () {
-        final base = RayRgb8(red: 255, green: 0, blue: 0);
+        final base = RayRgb8.fromComponentsNative(255, 0, 0);
         final precise = base.withOpacity(0.5);
         expect(precise.alpha, 128); // Should be 127.5 rounded to 128
         expect(precise.opacity, closeTo(0.502, componentTolerance));
       });
 
       test('color inversion', () {
-        final red = RayRgb8.fromArgb(255, 255, 0, 0);
+        final red = RayRgb8.fromComponents(255, 0, 0, 255);
         final inverted = red.inverse;
         expect(inverted.alpha, 255);
         expect(inverted.red, 0);
@@ -297,8 +297,8 @@ void main() {
       });
 
       test('lerp interpolates between colors', () {
-        final red = RayRgb8.fromArgb(255, 255, 0, 0);
-        final blue = RayRgb8.fromArgb(255, 0, 0, 255);
+        final red = RayRgb8.fromComponents(255, 0, 0, 255);
+        final blue = RayRgb8.fromComponents(0, 0, 255, 255);
 
         // Test endpoints
         final atStart = red.lerp(blue, 0.0);
@@ -320,9 +320,9 @@ void main() {
       });
 
       test('equality operator works correctly', () {
-        final red1 = RayRgb8.fromArgb(255, 255, 0, 0);
-        final red2 = RayRgb8.fromArgb(255, 255, 0, 0);
-        final blue = RayRgb8.fromArgb(255, 0, 0, 255);
+        final red1 = RayRgb8.fromComponents(255, 0, 0, 255);
+        final red2 = RayRgb8.fromComponents(255, 0, 0, 255);
+        final blue = RayRgb8.fromComponents(0, 0, 255, 255);
 
         expect(red1, equals(red2));
         expect(red1, isNot(equals(blue)));
@@ -333,9 +333,9 @@ void main() {
 
     group('Properties', () {
       test('luminance calculation for primary colors', () {
-        final black = RayRgb8.fromArgb(255, 0, 0, 0);
-        final white = RayRgb8.fromArgb(255, 255, 255, 255);
-        final red = RayRgb8.fromArgb(255, 255, 0, 0);
+        final black = RayRgb8.fromComponents(0, 0, 0, 255);
+        final white = RayRgb8.fromComponents(255, 255, 255, 255);
+        final red = RayRgb8.fromComponents(255, 0, 0, 255);
 
         expect(black.luminance, 0.0);
         expect(white.luminance, 1.0);
@@ -344,16 +344,16 @@ void main() {
       });
 
       test('max contrast selection', () {
-        final gray = RayRgb8.fromArgb(255, 128, 128, 128);
-        final black = RayRgb8.fromArgb(255, 0, 0, 0);
-        final white = RayRgb8.fromArgb(255, 255, 255, 255);
+        final gray = RayRgb8.fromComponents(128, 128, 128, 255);
+        final black = RayRgb8.fromComponents(0, 0, 0, 255);
+        final white = RayRgb8.fromComponents(255, 255, 255, 255);
 
         final selected = gray.maxContrast(black, white);
         expect(selected, equals(white));
       });
 
       test('toString formatting', () {
-        final ray = RayRgb8.fromArgb(255, 255, 0, 0);
+        final ray = RayRgb8.fromComponents(255, 0, 0, 255);
         expect(ray.toString(), 'RayRgb8(0xFFFF0000)');
       });
     });
@@ -445,7 +445,7 @@ void main() {
       });
 
       test('bit mask constants work correctly', () {
-        final color = RayRgb8.fromArgb(0xAA, 0xBB, 0xCC, 0xDD);
+        final color = RayRgb8.fromComponents(0xBB, 0xCC, 0xDD, 0xAA);
         expect(color.alpha, 0xAA);
         expect(color.red, 0xBB);
         expect(color.green, 0xCC);
@@ -455,7 +455,7 @@ void main() {
 
     group('String Conversions', () {
       test('string format conversions', () {
-        final ray = RayRgb8.fromArgb(127, 255, 128, 64);
+        final ray = RayRgb8.fromComponents(255, 128, 64, 127);
         expect(ray.toRgbStr(), 'rgb(255, 128, 64)');
         expect(ray.toRgbaStr(), 'rgba(255, 128, 64, 0.50)');
       });
@@ -477,7 +477,7 @@ void main() {
       });
 
       test('round trip conversion consistency', () {
-        final original = RayRgb8.fromArgb(127, 255, 128, 64);
+        final original = RayRgb8.fromComponents(255, 128, 64, 127);
 
         // Test RGBA round trip
         final rgbaHex = original.toHex(8);
@@ -495,7 +495,7 @@ void main() {
   group('RayRgb16 Core Functionality', () {
     group('Constructors', () {
       test('creates color with default alpha', () {
-        final color = RayRgb16(red: 65535, green: 0, blue: 0);
+        final color = RayRgb16.fromComponentsNative(65535, 0, 0);
 
         expect(color.alphaNative, equals(65535),
             reason: 'Default alpha should be 65535 (full opacity)');
@@ -536,7 +536,7 @@ void main() {
 
     group('Const Constructors', () {
       test('const named parameter constructor', () {
-        const ray = RayRgb16(red: 65535, green: 32768, blue: 16384);
+        const ray = RayRgb16.fromComponentsNative(65535, 32768, 16384);
         expect(ray.redNative, equals(65535));
         expect(ray.greenNative, equals(32768));
         expect(ray.blueNative, equals(16384));
@@ -544,8 +544,7 @@ void main() {
       });
 
       test('const named parameter constructor with alpha', () {
-        const ray =
-            RayRgb16(red: 40000, green: 50000, blue: 30000, alpha: 20000);
+        const ray = RayRgb16.fromComponentsNative(40000, 50000, 30000, 20000);
         expect(ray.redNative, equals(40000));
         expect(ray.greenNative, equals(50000));
         expect(ray.blueNative, equals(30000));
@@ -586,7 +585,7 @@ void main() {
 
       test('const constructors compile-time evaluation', () {
         // These should be compile-time constants
-        const red = RayRgb16(red: 65535, green: 0, blue: 0);
+        const red = RayRgb16.fromComponentsNative(65535, 0, 0);
         const green = RayRgb16.fromComponentsNative(0, 65535, 0, 65535);
         const blue = RayRgb16.fromComponentsNative(0, 0, 65535);
         const transparent = RayRgb16.empty();
@@ -615,7 +614,7 @@ void main() {
 
       test('const constructors with boundary values', () {
         // Test minimum values
-        const minColor = RayRgb16(red: 0, green: 0, blue: 0, alpha: 0);
+        const minColor = RayRgb16.fromComponentsNative(0, 0, 0, 0);
         expect(minColor.red, equals(0));
         expect(minColor.green, equals(0));
         expect(minColor.blue, equals(0));
@@ -623,7 +622,7 @@ void main() {
 
         // Test maximum values
         const maxColor =
-            RayRgb16(red: 65535, green: 65535, blue: 65535, alpha: 65535);
+            RayRgb16.fromComponentsNative(65535, 65535, 65535, 65535);
         expect(maxColor.redNative, equals(65535));
         expect(maxColor.greenNative, equals(65535));
         expect(maxColor.blueNative, equals(65535));
@@ -644,19 +643,18 @@ void main() {
     group('Component Access', () {
       test('alpha channel edge cases', () {
         final transparent =
-            RayRgb16(red: 65535, green: 65535, blue: 65535, alpha: 0);
+            RayRgb16.fromComponentsNative(65535, 65535, 65535, 0);
         expect(transparent.alpha, equals(0),
             reason: 'Transparent alpha should be 0');
 
         final opaque =
-            RayRgb16(red: 65535, green: 65535, blue: 65535, alpha: 65535);
+            RayRgb16.fromComponentsNative(65535, 65535, 65535, 65535);
         expect(opaque.alphaNative, equals(65535),
             reason: 'Opaque alpha should be 65535');
       });
 
       test('all component values work correctly', () {
-        final color =
-            RayRgb16(red: 12345, green: 23456, blue: 34567, alpha: 45678);
+        final color = RayRgb16.fromComponentsNative(12345, 23456, 34567, 45678);
         expect(color.redNative, equals(12345));
         expect(color.greenNative, equals(23456));
         expect(color.blueNative, equals(34567));
@@ -667,7 +665,7 @@ void main() {
     group('Methods', () {
       test('withAlpha creates color with new alpha', () {
         final original =
-            RayRgb16(red: 65535, green: 32768, blue: 16384, alpha: 65535);
+            RayRgb16.fromComponentsNative(65535, 32768, 16384, 65535);
         final modified = original.withAlpha(12345);
 
         expect(modified.redNative, equals(65535));
@@ -678,7 +676,7 @@ void main() {
 
       test('withOpacity creates color with new opacity', () {
         final original =
-            RayRgb16(red: 65535, green: 32768, blue: 16384, alpha: 65535);
+            RayRgb16.fromComponentsNative(65535, 32768, 16384, 65535);
         final modified = original.withOpacity(0.5);
 
         expect(modified.redNative, equals(65535));
@@ -688,8 +686,8 @@ void main() {
       });
 
       test('lerp interpolation works correctly', () {
-        final red = RayRgb16(red: 65535, green: 0, blue: 0, alpha: 65535);
-        final blue = RayRgb16(red: 0, green: 0, blue: 65535, alpha: 65535);
+        final red = RayRgb16.fromComponentsNative(65535, 0, 0, 65535);
+        final blue = RayRgb16.fromComponentsNative(0, 0, 65535, 65535);
 
         final midpoint = red.lerp(blue, 0.5);
         // Note: lerp now maintains full 16-bit precision
@@ -702,7 +700,7 @@ void main() {
       });
 
       test('inverse works correctly', () {
-        final red = RayRgb16(red: 65535, green: 0, blue: 0, alpha: 65535);
+        final red = RayRgb16.fromComponentsNative(65535, 0, 0, 65535);
         final inverted = red.inverse;
         // Note: inverse converts to 8-bit, inverts, then converts back to 16-bit
         expect(inverted.redNative, equals(0));
@@ -712,9 +710,9 @@ void main() {
       });
 
       test('equality and hash code', () {
-        final color1 = RayRgb16(red: 65535, green: 0, blue: 0, alpha: 65535);
-        final color2 = RayRgb16(red: 65535, green: 0, blue: 0, alpha: 65535);
-        final color3 = RayRgb16(red: 0, green: 65535, blue: 0, alpha: 65535);
+        final color1 = RayRgb16.fromComponentsNative(65535, 0, 0, 65535);
+        final color2 = RayRgb16.fromComponentsNative(65535, 0, 0, 65535);
+        final color3 = RayRgb16.fromComponentsNative(0, 65535, 0, 65535);
 
         expect(color1, equals(color2));
         expect(color1, isNot(equals(color3)));
@@ -723,7 +721,7 @@ void main() {
       });
 
       test('toString formatting', () {
-        final color = RayRgb16(red: 65535, green: 0, blue: 0, alpha: 65535);
+        final color = RayRgb16.fromComponentsNative(65535, 0, 0, 65535);
         expect(color.toString(), contains('RayRgb16'));
         expect(color.toString(), contains('RayRgb16(a:'));
       });
@@ -733,8 +731,7 @@ void main() {
   group('RayRgb16 Format Conversions', () {
     group('JSON Serialization', () {
       test('toJson returns internal value', () {
-        final color =
-            RayRgb16(red: 12345, green: 23456, blue: 34567, alpha: 45678);
+        final color = RayRgb16.fromComponentsNative(12345, 23456, 34567, 45678);
         final json = color.toJson();
         expect(json, equals([45678, 12345, 23456, 34567]));
       });
@@ -744,7 +741,7 @@ void main() {
   group('Bit Depth Conversions', () {
     group('RayRgb8 → RayRgb16', () {
       test('converts 8-bit to 16-bit correctly', () {
-        final rgb8 = RayRgb8(red: 255, green: 128, blue: 64, alpha: 200);
+        final rgb8 = RayRgb8.fromComponentsNative(255, 128, 64, 200);
         final rgb16 = RayRgb16.fromRgb8(rgb8);
 
         // 8-bit to 16-bit conversion: multiply by 257 (255 * 257 = 65535)
@@ -756,7 +753,7 @@ void main() {
       });
 
       test('RGB8 white converts to RGB16 maximum white', () {
-        final white8 = RayRgb8(red: 255, green: 255, blue: 255, alpha: 255);
+        final white8 = RayRgb8.fromComponentsNative(255, 255, 255, 255);
         final white16 = RayRgb16.fromRgb8(white8);
 
         expect(white16.redNative, equals(65535),
@@ -770,11 +767,11 @@ void main() {
       });
 
       test('converts edge cases correctly', () {
-        final transparent8 = RayRgb8(red: 255, green: 255, blue: 255, alpha: 0);
+        final transparent8 = RayRgb8.fromComponentsNative(255, 255, 255, 0);
         final transparent16 = RayRgb16.fromRgb8(transparent8);
         expect(transparent16.alpha, equals(0));
 
-        final opaque8 = RayRgb8(red: 255, green: 255, blue: 255, alpha: 255);
+        final opaque8 = RayRgb8.fromComponentsNative(255, 255, 255, 255);
         final opaque16 = RayRgb16.fromRgb8(opaque8);
         expect(opaque16.alphaNative, equals(65535));
       });
@@ -782,8 +779,7 @@ void main() {
 
     group('RayRgb16 → RayRgb8', () {
       test('converts 16-bit to 8-bit correctly', () {
-        final rgb16 =
-            RayRgb16(red: 65535, green: 32768, blue: 16384, alpha: 50000);
+        final rgb16 = RayRgb16.fromComponentsNative(65535, 32768, 16384, 50000);
         final rgb8 = rgb16.toRgb8();
 
         // 16-bit to 8-bit conversion: divide by 257 or shift right by 8
@@ -795,7 +791,7 @@ void main() {
 
       test('RGB16 maximum white converts to RGB8 white', () {
         final white16 =
-            RayRgb16(red: 65535, green: 65535, blue: 65535, alpha: 65535);
+            RayRgb16.fromComponentsNative(65535, 65535, 65535, 65535);
         final white8 = white16.toRgb8();
 
         expect(white8.red, equals(255),
@@ -812,7 +808,7 @@ void main() {
     group('Round-trip Precision Testing', () {
       test('round-trip conversion maintains precision', () {
         // Test that demonstrates precision maintained in round-trip conversion
-        final original8 = RayRgb8(red: 100, green: 150, blue: 200, alpha: 128);
+        final original8 = RayRgb8.fromComponentsNative(100, 150, 200, 128);
         final converted16 = RayRgb16.fromRgb8(original8);
         final backTo8 = converted16.toRgb8();
 
@@ -825,7 +821,7 @@ void main() {
 
       test('self conversion returns same instance', () {
         final original16 =
-            RayRgb16(red: 12345, green: 23456, blue: 34567, alpha: 45678);
+            RayRgb16.fromComponentsNative(12345, 23456, 34567, 45678);
         final converted16 = original16.toRgb16();
 
         expect(identical(original16, converted16), isTrue,
@@ -839,8 +835,7 @@ void main() {
         final testValues8 = [0, 1, 127, 128, 254, 255];
 
         for (final value in testValues8) {
-          final rgb8 =
-              RayRgb8(red: value, green: value, blue: value, alpha: value);
+          final rgb8 = RayRgb8.fromComponentsNative(value, value, value, value);
           final rgb16 = RayRgb16.fromRgb8(rgb8);
           final backToRgb8 = rgb16.toRgb8();
 
@@ -863,7 +858,7 @@ void main() {
         final testValues = [32768, 40000, 50000, 60000, 65535];
 
         for (final alpha in testValues) {
-          final color = RayRgb16(red: 0, green: 0, blue: 0, alpha: alpha);
+          final color = RayRgb16.fromComponentsNative(0, 0, 0, alpha);
           expect(color.alphaNative, equals(alpha),
               reason: 'Alpha=$alpha should not be negative');
           expect(color.alphaNative, greaterThanOrEqualTo(0),
@@ -877,7 +872,7 @@ void main() {
 
         for (final alpha in problematicValues) {
           final color =
-              RayRgb16(red: 65535, green: 32768, blue: 16384, alpha: alpha);
+              RayRgb16.fromComponentsNative(65535, 32768, 16384, alpha);
           expect(color.alphaNative, equals(alpha),
               reason: 'Problematic alpha value $alpha failed');
           expect(color.alphaNative, isPositive,
@@ -901,7 +896,7 @@ void main() {
         ];
 
         for (final alpha in testValues) {
-          final color = RayRgb16(red: 0, green: 0, blue: 0, alpha: alpha);
+          final color = RayRgb16.fromComponentsNative(0, 0, 0, alpha);
           expect(color.alphaNative, equals(alpha),
               reason: 'RayRgb16 alpha=$alpha failed');
           expect(color.alphaNative, greaterThanOrEqualTo(0),
@@ -916,7 +911,7 @@ void main() {
       test('maximum values work correctly', () {
         // Test with all maximum values
         final maxColor =
-            RayRgb16(red: 65535, green: 65535, blue: 65535, alpha: 65535);
+            RayRgb16.fromComponentsNative(65535, 65535, 65535, 65535);
 
         expect(maxColor.redNative, equals(65535));
         expect(maxColor.greenNative, equals(65535));
@@ -926,7 +921,7 @@ void main() {
 
       test('minimum values work correctly', () {
         // Test with all minimum values
-        final minColor = RayRgb16(red: 0, green: 0, blue: 0, alpha: 0);
+        final minColor = RayRgb16.fromComponentsNative(0, 0, 0, 0);
 
         expect(minColor.red, equals(0));
         expect(minColor.green, equals(0));
@@ -940,7 +935,7 @@ void main() {
 
         for (final value in boundaryValues) {
           final color =
-              RayRgb16(red: value, green: value, blue: value, alpha: value);
+              RayRgb16.fromComponentsNative(value, value, value, value);
 
           expect(color.redNative, equals(value),
               reason: 'Red component failed for boundary value $value');
@@ -969,7 +964,7 @@ void main() {
     });
 
     test('toHex throws for invalid length', () {
-      final red = RayRgb8.fromArgb(255, 255, 0, 0);
+      final red = RayRgb8.fromComponents(255, 0, 0, 255);
       expect(() => red.toHex(5), throwsArgumentError);
       expect(() => red.toHex(9), throwsArgumentError);
       expect(() => red.toHex(0), throwsArgumentError);

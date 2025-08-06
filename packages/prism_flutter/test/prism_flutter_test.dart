@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prism/prism.dart';
 import 'package:prism_flutter/prism_flutter.dart';
 
 import 'test_constants.dart';
@@ -8,7 +7,7 @@ import 'test_constants.dart';
 void main() {
   group('RayRgb8 to Flutter Color Extensions', () {
     test('toColor() converts RayRgb8 to Flutter Color correctly', () {
-      const ray = RayRgb8.fromARGB(255, 255, 0, 0);
+      const ray = RayRgb8.fromComponentsNative(255, 0, 0, 255);
       final color = ray.toColor();
 
       expect(color.toARGB32(), ray.toArgbInt());
@@ -19,7 +18,7 @@ void main() {
     });
 
     test('toColor() preserves transparency', () {
-      const ray = RayRgb8.fromARGB(128, 0, 255, 0);
+      const ray = RayRgb8.fromComponentsNative(0, 255, 0, 128);
       final color = ray.toColor();
 
       expect(color.toARGB32(), ray.toArgbInt());
@@ -30,7 +29,7 @@ void main() {
     });
 
     test('toColorWithOpacity() creates Color with specified opacity', () {
-      const ray = RayRgb8.fromARGB(255, 0, 0, 255);
+      const ray = RayRgb8.fromComponentsNative(0, 0, 255, 255);
       final color = ray.toColorWithOpacity(0.5);
 
       expect((color.a * 255.0).round() & 0xff, 128); // 0.5 * 255 rounded
@@ -40,7 +39,7 @@ void main() {
     });
 
     test('toColorWithOpacity() handles edge cases', () {
-      const ray = RayRgb8.fromARGB(100, 255, 128, 64);
+      const ray = RayRgb8.fromComponentsNative(255, 128, 64, 100);
 
       // Full opacity
       final opaque = ray.toColorWithOpacity(1.0);
@@ -59,9 +58,9 @@ void main() {
   });
 
   group('Flutter Color to RayRgb8 Extensions', () {
-    test('toRay() converts Flutter Color to RayRgb8 correctly', () {
+    test('toRayRgb8() converts Flutter Color to RayRgb8 correctly', () {
       const color = Color(0xFFFF0000);
-      final ray = color.toRay();
+      final ray = color.toRayRgb8();
 
       expect(ray.toArgbInt(), color.toARGB32());
       expect(ray.alpha, 255);
@@ -70,9 +69,9 @@ void main() {
       expect(ray.blue, 0);
     });
 
-    test('toRay() preserves transparency', () {
+    test('toRayRgb8() preserves transparency', () {
       const color = Color(0x8000FF00);
-      final ray = color.toRay();
+      final ray = color.toRayRgb8();
 
       expect(ray.toArgbInt(), color.toARGB32());
       expect(ray.alpha, closeTo(128, flutterColorTolerance));
@@ -81,9 +80,9 @@ void main() {
       expect(ray.blue, 0);
     });
 
-    test('toRay() enables RayRgb8 manipulation methods', () {
+    test('toRayRgb8() enables RayRgb8 manipulation methods', () {
       const color = Color(0xFFFF0000);
-      final ray = color.toRay();
+      final ray = color.toRayRgb8();
 
       // Test that we can use RayRgb8 methods
       final withOpacity = ray.withOpacity(0.5);
@@ -101,9 +100,9 @@ void main() {
 
   group('Round Trip Conversions', () {
     test('RayRgb8 -> Color -> RayRgb8 preserves values', () {
-      const originalRay = RayRgb8.fromARGB(200, 100, 150, 75);
+      const originalRay = RayRgb8.fromComponentsNative(100, 150, 75, 200);
       final color = originalRay.toColor();
-      final convertedRay = color.toRay();
+      final convertedRay = color.toRayRgb8();
 
       expect(convertedRay.toArgbInt(), originalRay.toArgbInt());
       expect(convertedRay, originalRay);
@@ -111,7 +110,7 @@ void main() {
 
     test('Color -> RayRgb8 -> Color preserves values', () {
       const originalColor = Color(0xC8649650);
-      final ray = originalColor.toRay();
+      final ray = originalColor.toRayRgb8();
       final convertedColor = ray.toColor();
 
       expect(convertedColor.toARGB32(), originalColor.toARGB32());
@@ -123,9 +122,9 @@ void main() {
 
       // RayRgb8 -> Color -> RayRgb8 -> Color -> RayRgb
       final color1 = originalRay.toColor();
-      final ray1 = color1.toRay();
+      final ray1 = color1.toRayRgb8();
       final color2 = ray1.toColor();
-      final finalRay = color2.toRay();
+      final finalRay = color2.toRayRgb8();
 
       expect(finalRay.toArgbInt(), originalRay.toArgbInt());
       expect(finalRay, originalRay);
@@ -146,7 +145,7 @@ void main() {
       ];
 
       for (final color in testColors) {
-        final ray = color.toRay();
+        final ray = color.toRayRgb8();
         final backToColor = ray.toColor();
 
         expect(backToColor.toARGB32(), color.toARGB32());
@@ -163,7 +162,7 @@ void main() {
       ];
 
       for (final color in testColors) {
-        final ray = color.toRay();
+        final ray = color.toRayRgb8();
         final backToColor = ray.toColor();
 
         expect(backToColor.toARGB32(), color.toARGB32());
@@ -178,9 +177,9 @@ void main() {
       const blueColor = Color(0xFF0000FF);
 
       final result = redColor
-          .toRay()
+          .toRayRgb8()
           .withOpacity(0.8)
-          .lerp(blueColor.toRay(), 0.3)
+          .lerp(blueColor.toRayRgb8(), 0.3)
           .withAlpha(200)
           .toColor();
 
@@ -192,7 +191,7 @@ void main() {
 
     test('can use RayRgb8 analysis methods on Flutter Colors', () {
       const color = Color(0xFF808080); // Gray
-      final ray = color.toRay();
+      final ray = color.toRayRgb8();
 
       final luminance = ray.computeLuminance();
       final inverted = ray.inverse;
