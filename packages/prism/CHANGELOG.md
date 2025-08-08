@@ -1,36 +1,36 @@
+# Changelog
+
 ## 2.0.0
 
-
-- **API Standardization:** color model local components are now all private with named getters for access
-- **API Standardization:** all color models have with$Component() transformers (eg: oklchColor.withChroma(120.0)) 
-- **API Clean up:** Removed color space specific RayWithLuminance implementations in favor of RayWithLuminance<T extends Ray>
-
+- Private color components with named getters
+- Added `with$Component()` transformers to all color models
+- Unified `RayWithLuminance<T extends Ray>` implementation
+- Renamed internal palette types: `Spectrum` → `Rainbow`, `RayScheme` → `Spectrum`
+- Added `fixedRays` to palettes for non-converted colors (black, white)
 
 ## 2.0.0-beta.2
 
-**API Standardization:**
-- **Unified channel access**: Both RayRgb8 and RayRgb16 now provide standardized `red`, `green`, `blue`, `alpha` getters returning 0-255 range (type `num`)
-- **Native value access**: Added `redNative`, `greenNative`, `blueNative`, `alphaNative` getters for accessing native bit precision values
-- **Consistent API**: Simplified color channel access across different bit depths while preserving precision
-- **Private primary constructors**: All color model classes now use private primary constructors with consistent factory method APIs
-- **Simplified API**: Removed redundant `fromArgb` constructor from RayRgb8 in favor of `fromComponents`
-- **Consistent patterns**: Standardized constructor naming across RGB8, RGB16, HSL, Oklab, and Oklch classes
+- Unified RGB channel access: standardized getters return 0-255 range
+- Added native value getters for full bit precision
+- Private primary constructors with consistent factory methods
+- Removed redundant `fromArgb` constructor
+- Standardized constructor naming across all color models
 
 ## 2.0.0-beta.1
 
-**Major Changes:**
-- **Multi-color space support**: Added RayHsl, RayOklab, and RayOklch alongside RayRgb8/RayRgb16
-- **Perceptually uniform color operations**: via Oklab color space
-- **RayScheme system**: Intelligent color schemes with accessibility and tonal palettes
-- **Pre-built palettes**: CSS, Material, OpenColor, and Spectrum with pre-computed luminance
-- **Palette output generation**: Efficient dart enums, PNG palette previews, CSS output
-- **Enhanced gallery**: Compact Oklch-focused HTML previews with luminance data
+**New Features:**
+
+- Multi-color space support: HSL, Oklab, Oklch alongside RGB8/RGB16
+- Perceptually uniform color operations via Oklab
+- Intelligent color schemes with accessibility tools
+- Pre-built palettes: CSS, Material, OpenColor, Rainbow
+- Palette generation tools with PNG and CSS output
 
 **Breaking Changes:**
-- **RayRgb split**: Separated `RayRgb` into `RayRgb8` (8-bit) and `RayRgb16` (16-bit)
-- **Multi-precision RGB**: Support for both 8-bit (0-255) and 16-bit (0-65535) color channels
-- **API structure**: Updated to support multiple color spaces (RayRgb8, RayRgb16, RayHsl, RayOklab, RayOklch)
-- **New palette system**: Enhanced palette generation with pre-computed schemes
+
+- Split `RayRgb` into `RayRgb8` (8-bit) and `RayRgb16` (16-bit)
+- Updated API structure for multiple color spaces
+- Enhanced palette system with pre-computed schemes
 
 ## 1.0.0
 

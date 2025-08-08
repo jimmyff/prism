@@ -11,9 +11,9 @@ Map<String, RayWithLuminance<RayRgb8>> materialSpotColors = {
 
 /// Material Design colors palette
 /// Contains all Material Design colors as RayScheme objects
-Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
+Map<String, Spectrum<RayWithLuminance<RayRgb8>>> materialColors = {
   // Red
-  'red': RayScheme.fromRgbTones(
+  'red': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FFEBEE'),
       RayTone.shade100: RayRgb8.fromHex('#FFCDD2'),
@@ -31,7 +31,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#D50000'),
     },
   ),
-  'pink': RayScheme.fromRgbTones(
+  'pink': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FCE4EC'),
       RayTone.shade100: RayRgb8.fromHex('#F8BBD0'),
@@ -49,7 +49,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#C51162'),
     },
   ),
-  'purple': RayScheme.fromRgbTones(
+  'purple': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#F3E5F5'),
       RayTone.shade100: RayRgb8.fromHex('#E1BEE7'),
@@ -68,7 +68,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
     },
   ),
 
-  'deepPurple': RayScheme.fromRgbTones(
+  'deepPurple': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#EDE7F6'),
       RayTone.shade100: RayRgb8.fromHex('#D1C4E9'),
@@ -86,7 +86,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#6200EA'),
     },
   ),
-  'indigo': RayScheme.fromRgbTones(
+  'indigo': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#E8EAF6'),
       RayTone.shade100: RayRgb8.fromHex('#C5CAE9'),
@@ -105,7 +105,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
     },
   ),
 
-  'blue': RayScheme.fromRgbTones(
+  'blue': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#E3F2FD'),
       RayTone.shade100: RayRgb8.fromHex('#BBDEFB'),
@@ -123,7 +123,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#2962FF'),
     },
   ),
-  'lightBlue': RayScheme.fromRgbTones(
+  'lightBlue': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#E1F5FE'),
       RayTone.shade100: RayRgb8.fromHex('#B3E5FC'),
@@ -141,7 +141,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#0091EA'),
     },
   ),
-  'cyan': RayScheme.fromRgbTones(
+  'cyan': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#E0F7FA'),
       RayTone.shade100: RayRgb8.fromHex('#B2EBF2'),
@@ -160,7 +160,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
     },
   ),
 
-  'teal': RayScheme.fromRgbTones(
+  'teal': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#E0F2F1'),
       RayTone.shade100: RayRgb8.fromHex('#B2DFDB'),
@@ -178,7 +178,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#00BFA5'),
     },
   ),
-  'green': RayScheme.fromRgbTones(
+  'green': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#E8F5E9'),
       RayTone.shade100: RayRgb8.fromHex('#C8E6C9'),
@@ -196,7 +196,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#00C853'),
     },
   ),
-  'lightGreen': RayScheme.fromRgbTones(
+  'lightGreen': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#F1F8E9'),
       RayTone.shade100: RayRgb8.fromHex('#DCEDC8'),
@@ -214,7 +214,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#64DD17'),
     },
   ),
-  'lime': RayScheme.fromRgbTones(
+  'lime': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#F9FBE7'),
       RayTone.shade100: RayRgb8.fromHex('#F0F4C3'),
@@ -232,7 +232,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#AEEA00'),
     },
   ),
-  'yellow': RayScheme.fromRgbTones(
+  'yellow': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FFFDE7'),
       RayTone.shade100: RayRgb8.fromHex('#FFF9C4'),
@@ -250,7 +250,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#FFD600'),
     },
   ),
-  'amber': RayScheme.fromRgbTones(
+  'amber': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FFF8E1'),
       RayTone.shade100: RayRgb8.fromHex('#FFECB3'),
@@ -268,7 +268,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#FFAB00'),
     },
   ),
-  'orange': RayScheme.fromRgbTones(
+  'orange': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FFF3E0'),
       RayTone.shade100: RayRgb8.fromHex('#FFE0B2'),
@@ -286,7 +286,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#FF6D00'),
     },
   ),
-  'deepOrange': RayScheme.fromRgbTones(
+  'deepOrange': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FBE9E7'),
       RayTone.shade100: RayRgb8.fromHex('#FFCCBC'),
@@ -304,7 +304,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.accent700: RayRgb8.fromHex('#DD2C00'),
     },
   ),
-  'brown': RayScheme.fromRgbTones(
+  'brown': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#EFEBE9'),
       RayTone.shade100: RayRgb8.fromHex('#D7CCC8'),
@@ -318,7 +318,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
       RayTone.shade900: RayRgb8.fromHex('#3E2723'),
     },
   ),
-  'gray': RayScheme.fromRgbTones(
+  'gray': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#FAFAFA'),
       RayTone.shade100: RayRgb8.fromHex('#F5F5F5'),
@@ -333,7 +333,7 @@ Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
     },
   ),
 
-  'blueGray': RayScheme.fromRgbTones(
+  'blueGray': Spectrum.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#ECEFF1'),
       RayTone.shade100: RayRgb8.fromHex('#CFD8DC'),

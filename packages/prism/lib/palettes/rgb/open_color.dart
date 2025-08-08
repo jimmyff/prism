@@ -2,12 +2,12 @@
 // ignore_for_file: public_member_api_docs
 import 'package:prism/prism.dart';
 
-/// RGB-based RayScheme enum for the OpenColor palette.
-/// Each enum value implements RayScheme directly for clean API access.
+/// RGB-based Spectrum enum for the OpenColor palette.
+/// Each enum value implements Spectrum directly for clean API access.
 enum OpenColorRgb implements PrismPalette {
   gray(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFADB5BD), 0.45606106758087217), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF8F9FA), 0.9460994970463299),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF1F3F5), 0.8939452857711131),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE9ECEF), 0.8354653852615065),
@@ -18,11 +18,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF495057), 0.07841908913532951),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF343A40), 0.04126341869813483),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF212529), 0.01806564208421097),
-    }, // tones
+    }, // spectrum
   ),
   red(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF6B6B), 0.3283692696402063), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF5F5), 0.9315738784221382),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFE3E3), 0.817442213342687),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFC9C9), 0.6725033462475025),
@@ -33,11 +33,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF03E3E), 0.22318314393791702),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE03131), 0.18265670054364558),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC92A2A), 0.14240603217230563),
-    }, // tones
+    }, // spectrum
   ),
   pink(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF06595), 0.30002551962743185), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF0F6), 0.9023399736742004),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFDEEB), 0.7950071064157509),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCC2D7), 0.6418531655876709),
@@ -48,11 +48,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD6336C), 0.17746504104502733),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC2255C), 0.13565176483482208),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA61E4D), 0.09571359439872486),
-    }, // tones
+    }, // spectrum
   ),
   grape(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCC5DE8), 0.26492266079300447), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF8F0FC), 0.8930490994878921),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF3D9FA), 0.7558252243079986),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEEBEFA), 0.6190618188690986),
@@ -63,11 +63,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAE3EC9), 0.16660965709785222),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9C36B5), 0.13042449092911268),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF862E9C), 0.09422622681694932),
-    }, // tones
+    }, // spectrum
   ),
   violet(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF845EF7), 0.19626341067993713), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF3F0FF), 0.8859486281783487),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE5DBFF), 0.7454104922570032),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD0BFFF), 0.578915001142945),
@@ -78,11 +78,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7048E8), 0.13905669460336118),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6741D9), 0.11673912180095691),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5F3DC4), 0.09755905341291768),
-    }, // tones
+    }, // spectrum
   ),
   indigo(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5C7CFA), 0.23592742051153093), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDF2FF), 0.8872878629281782),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDBE4FF), 0.7776687413455939),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFBAC8FF), 0.589676563672936),
@@ -93,11 +93,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4263EB), 0.1608008957943851),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3B5BDB), 0.13526450795017003),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF364FC7), 0.10499755391770696),
-    }, // tones
+    }, // spectrum
   ),
   blue(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF339AF0), 0.3010628025367057), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE7F5FF), 0.8951373978645168),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD0EBFF), 0.8004655830564238),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA5D8FF), 0.643310662801603),
@@ -108,11 +108,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1C7ED6), 0.2002362487854455),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1971C2), 0.15911969541654936),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1864AB), 0.12248807322697257),
-    }, // tones
+    }, // spectrum
   ),
   cyan(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF22B8CF), 0.39126054720215914), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE3FAFC), 0.9173038261154748),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC5F6FA), 0.846839786550365),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF99E9F2), 0.714609362589428),
@@ -123,11 +123,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1098AD), 0.2558376203724658),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0C8599), 0.19153127919927504),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0B7285), 0.13799230055109635),
-    }, // tones
+    }, // spectrum
   ),
   teal(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF20C997), 0.4431473018517139), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE6FCF5), 0.9303637364671467),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC3FAE8), 0.857995115734911),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF96F2D7), 0.7489458831879495),
@@ -138,11 +138,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0CA678), 0.287066648593747),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF099268), 0.21615321827795672),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF087F5B), 0.15985698654752986),
-    }, // tones
+    }, // spectrum
   ),
   green(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF51CF66), 0.47334286847799867), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEBFBEE), 0.9282957466029826),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD3F9D8), 0.8655811531448687),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB2F2BB), 0.7655709501067272),
@@ -153,11 +153,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF37B24D), 0.3318883633562236),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2F9E44), 0.25475412475310916),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2B8A3E), 0.19038349623314083),
-    }, // tones
+    }, // spectrum
   ),
   lime(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF94D82D), 0.5559709480462673), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF4FCE3), 0.943999550199773),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE9FAC8), 0.8986498312960534),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD8F5A2), 0.8251238026867704),
@@ -168,11 +168,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF74B816), 0.38051910750443346),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF66A80F), 0.3086453372902499),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5C940D), 0.23484178753687437),
-    }, // tones
+    }, // spectrum
   ),
   yellow(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCC419), 0.6024548949906061), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF9DB), 0.9412583663797642),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF3BF), 0.8912277219186296),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEC99), 0.8355081305776089),
@@ -183,11 +183,11 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF59F00), 0.44208751447639805),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF08C00), 0.37281431980690305),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE67700), 0.3001664581814326),
-    }, // tones
+    }, // spectrum
   ),
   orange(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF922B), 0.41992186820507343), // source
-    const {
+    {
       RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF4E6), 0.9167453832165661),
       RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFE8CC), 0.833328588550404),
       RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFD8A8), 0.7319888683472663),
@@ -198,57 +198,58 @@ enum OpenColorRgb implements PrismPalette {
       RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF76707), 0.29489992839750373),
       RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE8590C), 0.243271064251615),
       RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD9480F), 0.19420932883074934),
-    }, // tones
+    }, // spectrum
   ),
 ;
 
   /// The source color with precomputed luminance
+  @override
   final RayWithLuminance<RayRgb8> source;
 
   /// The complete tonal palette
-  final Map<RayTone, RayWithLuminance<RayRgb8>> tones;
+  @override
+  final Map<RayTone, RayWithLuminance<RayRgb8>> spectrum;
 
-  const OpenColorRgb(this.source, this.tones);
+  const OpenColorRgb(this.source, this.spectrum);
 
   // Direct tone access getters
   @override
-  RayWithLuminance<RayRgb8>? get shade0 => tones[RayTone.shade0];
+  RayWithLuminance<RayRgb8>? get shade0 => spectrum[RayTone.shade0];
   @override
-  RayWithLuminance<RayRgb8>? get shade50 => tones[RayTone.shade50];
+  RayWithLuminance<RayRgb8>? get shade50 => spectrum[RayTone.shade50];
   @override
-  RayWithLuminance<RayRgb8>? get shade100 => tones[RayTone.shade100];
+  RayWithLuminance<RayRgb8>? get shade100 => spectrum[RayTone.shade100];
   @override
-  RayWithLuminance<RayRgb8>? get shade200 => tones[RayTone.shade200];
+  RayWithLuminance<RayRgb8>? get shade200 => spectrum[RayTone.shade200];
   @override
-  RayWithLuminance<RayRgb8>? get shade300 => tones[RayTone.shade300];
+  RayWithLuminance<RayRgb8>? get shade300 => spectrum[RayTone.shade300];
   @override
-  RayWithLuminance<RayRgb8>? get shade400 => tones[RayTone.shade400];
+  RayWithLuminance<RayRgb8>? get shade400 => spectrum[RayTone.shade400];
   @override
-  RayWithLuminance<RayRgb8>? get shade500 => tones[RayTone.shade500];
+  RayWithLuminance<RayRgb8>? get shade500 => spectrum[RayTone.shade500];
   @override
-  RayWithLuminance<RayRgb8>? get shade600 => tones[RayTone.shade600];
+  RayWithLuminance<RayRgb8>? get shade600 => spectrum[RayTone.shade600];
   @override
-  RayWithLuminance<RayRgb8>? get shade700 => tones[RayTone.shade700];
+  RayWithLuminance<RayRgb8>? get shade700 => spectrum[RayTone.shade700];
   @override
-  RayWithLuminance<RayRgb8>? get shade800 => tones[RayTone.shade800];
+  RayWithLuminance<RayRgb8>? get shade800 => spectrum[RayTone.shade800];
   @override
-  RayWithLuminance<RayRgb8>? get shade900 => tones[RayTone.shade900];
+  RayWithLuminance<RayRgb8>? get shade900 => spectrum[RayTone.shade900];
   @override
-  RayWithLuminance<RayRgb8>? get shade950 => tones[RayTone.shade950];
+  RayWithLuminance<RayRgb8>? get shade950 => spectrum[RayTone.shade950];
   @override
-  RayWithLuminance<RayRgb8>? get shade1000 => tones[RayTone.shade1000];
+  RayWithLuminance<RayRgb8>? get shade1000 => spectrum[RayTone.shade1000];
   @override
-  RayWithLuminance<RayRgb8>? get accent100 => tones[RayTone.accent100];
+  RayWithLuminance<RayRgb8>? get accent100 => spectrum[RayTone.accent100];
   @override
-  RayWithLuminance<RayRgb8>? get accent200 => tones[RayTone.accent200];
+  RayWithLuminance<RayRgb8>? get accent200 => spectrum[RayTone.accent200];
   @override
-  RayWithLuminance<RayRgb8>? get accent400 => tones[RayTone.accent400];
+  RayWithLuminance<RayRgb8>? get accent400 => spectrum[RayTone.accent400];
   @override
-  RayWithLuminance<RayRgb8>? get accent700 => tones[RayTone.accent700];
-
+  RayWithLuminance<RayRgb8>? get accent700 => spectrum[RayTone.accent700];
   /// Access specific tone by RayTone enum
   @override
-  RayWithLuminance<RayRgb8>? tone(RayTone tone) => tones[tone];
+  RayWithLuminance<RayRgb8>? tone(RayTone tone) => spectrum[tone];
 
   /// A lighter surface variant of the primary color
   @override

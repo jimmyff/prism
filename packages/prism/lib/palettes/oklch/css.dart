@@ -2,12 +2,12 @@
 // ignore_for_file: public_member_api_docs
 import 'package:prism/prism.dart';
 
-/// Oklch-based RayScheme enum for the Css palette.
-/// Each enum value implements RayScheme directly for clean API access.
+/// Oklch-based Spectrum enum for the Css palette.
+/// Each enum value implements Spectrum directly for clean API access.
 enum CssOklch implements PrismPalette {
   aliceBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.975142855034872, 0.01266140212592498, 244.25069274913332, 1.0), 0.975142855034872), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9846253095212305, 0.001706041604281222, 247.83892134490299, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9691955271843412, 0.003425760878883507, 247.85825644496174, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9204638807608478, 0.005205556194987587, 247.88065797289056, 1.0), 0.9200000000000002),
@@ -21,11 +21,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39839834755135306, 0.012828069900931436, 248.1498610528718, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31824352680188217, 0.011305217276883942, 248.18281947572126, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2061329591102482, 0.012569865304487332, 248.43664146789928, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   antiqueWhite(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9466915392342093, 0.03108287988761896, 75.21902157659532, 1.0), 0.9466915392342093), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858000056857987, 0.004512947713326356, 78.29838472686534, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9688526984737659, 0.007919748796582589, 73.74425898208302, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9213602825620071, 0.012581282963313409, 75.36226754499813, 1.0), 0.9200000000000002),
@@ -39,11 +39,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39801058404661666, 0.030344593408713698, 74.70127253588261, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31859572433523775, 0.03490064872918176, 75.02055285868485, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20668505384656788, 0.037207740657893416, 76.91561179385417, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   aqua(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9053992300557676, 0.15455001106436891, 194.76894793196382, 1.0), 0.9053992300557676), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851474155020294, 0.012624274098880117, 196.95131104397024, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9696905541096144, 0.026073765092614384, 193.80594091017517, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9222512177422996, 0.06220995457091096, 194.87721326433882, 1.0), 0.9200000000000002),
@@ -57,15 +57,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40371556116868135, 0.06891351613103797, 194.7689479319638, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32943607260851926, 0.05623414177579194, 194.7689479319638, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21328451494953896, 0.03628003756979183, 197.89309636452745, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8013732093959819, 0.07625131655054887, 194.67964969601698, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7044124412561791, 0.0764536748817028, 194.46600810004674, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6404851056256196, 0.07619209963652297, 194.29725423293587, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5352335326300115, 0.0761011127336544, 195.1197423249325, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8806546130533563, 0.09645680730443852, 194.72554766205153, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8129831387170978, 0.13865026452440463, 195.3533201449036, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.746250788628085, 0.1271485857045577, 196.07136036524767, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5557056396997184, 0.09472619117510185, 195.70976888728774, 1.0), 0.536),
+    }, // spectrum
   ),
   aquamarine(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9149945571031645, 0.1303853498809876, 168.99196896653442, 1.0), 0.9149945571031645), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9857309931247222, 0.01574337047238919, 166.7412489549618, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9684962739478951, 0.03584846237848766, 170.26384031029102, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9215907487983451, 0.052388705457460515, 168.88516001653252, 1.0), 0.9200000000000002),
@@ -79,15 +79,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39953226841430517, 0.07997723407711689, 168.99717931578928, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.319949824256964, 0.06413165511488378, 168.8801147664659, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20512897651227652, 0.04093111711503461, 169.28158126600755, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8014815810527244, 0.15263945302190246, 168.91847193014436, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.703876176112427, 0.14118761193132637, 168.81739983025835, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6416240418635739, 0.12846601239974273, 168.97822222538656, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8806886763792621, 0.1767248328544178, 168.78207177569394, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8004417711928377, 0.16019005215677837, 169.01933698261394, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207074212883604, 0.14434396099783217, 168.95136647553562, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5359615225562072, 0.10784733250302439, 168.54085057729452, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   azure(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9889506447741006, 0.01572014456066359, 196.9023691754788, 1.0), 0.9889506447741006), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9865743181631104, 0.0021230075355284372, 197.12232627194595, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701196560386944, 0.004255873052266709, 197.08649325407814, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9203625987382483, 0.006453773090823124, 197.04421828724065, 1.0), 0.9200000000000002),
@@ -101,11 +101,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39901620158673434, 0.00914233951808768, 196.79198869101344, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31928773889916917, 0.008260627230620078, 196.74587076425823, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2072482608799945, 0.009024732425502412, 196.47588430823112, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   beige(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.963573591703508, 0.03278425241156787, 106.99935261675682, 1.0), 0.963573591703508), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842724418613983, 0.003954610548503101, 106.4718808960611, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9682232349545606, 0.009249975420292914, 106.5710444147956, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.922177823909289, 0.013355065379892892, 106.65858598232103, 1.0), 0.9200000000000002),
@@ -119,11 +119,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39919028613020113, 0.033393805429973444, 107.82160121249929, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31862552938430166, 0.03608344113169907, 108.28401255677319, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.208217992759349, 0.040635708388629135, 107.25608812528489, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   bisque(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9328562036320203, 0.051445362338375406, 71.84930337947097, 1.0), 0.9328562036320203), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9862946716100646, 0.006194290552717487, 75.40756204176436, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701232774956328, 0.014114840052550263, 74.42649625083618, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9210201463038571, 0.021166455720133075, 72.14078474455465, 1.0), 0.9200000000000002),
@@ -137,11 +137,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39967427755850016, 0.051894863482839136, 72.12130620832154, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31789383295585144, 0.05665595353625819, 71.80452887139926, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2073810152566395, 0.04546621666574815, 68.14370990814538, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   black(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.0, 0.0, 0.0, 1.0), 0.0), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -155,11 +155,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   blanchedAlmond(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9484393560282646, 0.044934486918094235, 78.05985396624106, 1.0), 0.9484393560282646), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9855264015279972, 0.005705630182319312, 84.56595227594482, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9696044152688871, 0.012424146770718406, 75.36768236918797, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9218929390992209, 0.01828116871594408, 78.23774642868418, 1.0), 0.9200000000000002),
@@ -173,11 +173,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4002927111974222, 0.04535607774874187, 79.04918012034489, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31798059758905, 0.04891771040932029, 77.90595763802087, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20818380262201655, 0.04440610802045742, 72.7231882147633, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   blue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4520137183853429, 0.31321437166460114, 264.052020638055, 1.0), 0.4520137183853429), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677794722127228, 0.015348596001067919, 257.1960937586472, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9172962347192875, 0.039981519260362634, 258.8100000364666, 1.0), 0.9200000000000002),
@@ -191,15 +191,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4005834848614664, 0.27700780146112824, 264.05990477196906, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190118513800499, 0.2210532391372736, 264.05202063805507, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20810513009167086, 0.14420252065508188, 264.05202063805507, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6931042084337469, 0.1607887332157638, 262.27884728503614, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6279940890882765, 0.19970461754064947, 262.74684631243076, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8766198092850614, 0.06053524653016103, 259.22133404342696, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7115326932652355, 0.15021855842106777, 261.6048162028409, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5182028995978825, 0.26906691198805954, 263.86403424820367, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   blueViolet(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5337649508522606, 0.2503052644516238, 301.3749618367515, 1.0), 0.5337649508522606), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9841731911242432, 0.010123785088375395, 311.1801968822724, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.966463060533555, 0.021984986259806553, 312.18901193599663, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9110777706435484, 0.059392118294864994, 311.87548077484473, 1.0), 0.9200000000000002),
@@ -213,15 +213,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3988718051527682, 0.19923403734333325, 301.2530666338288, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31920679533789453, 0.15909619208110354, 301.31317797640446, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20650943813509273, 0.10426365396410228, 301.0781034847521, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7715867550981036, 0.1666437520552339, 313.4042600730288, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6788054842376926, 0.22589982939426045, 308.818309487974, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6277713121011884, 0.2510207497924832, 304.4188517064327, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5363100143381404, 0.266125313908844, 301.42193268550443, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8665199788607428, 0.0919289148441243, 312.5227104989954, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7715867550981036, 0.1666437520552339, 313.4042600730288, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6692788084149296, 0.257973803796691, 314.57661458587165, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5361197586316865, 0.26809724761063847, 301.3037148637943, 1.0), 0.536),
+    }, // spectrum
   ),
   brown(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4806125447400232, 0.15965701812066493, 25.562112067668036, 1.0), 0.4806125447400232), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9795676209377979, 0.010053932766230785, 32.515831323248925, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9595674116966294, 0.020038795554761485, 28.90286137276731, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9070877342229867, 0.04807093687845291, 27.58465010724831, 1.0), 0.9200000000000002),
@@ -235,15 +235,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39924795884868436, 0.12437935448023343, 25.316012826542888, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31895271086264804, 0.09943197613253929, 25.49993499919921, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20547373841242944, 0.06540313459083431, 25.018955859785667, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7788902414071822, 0.12921687305281915, 26.157345034737293, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7045992744511025, 0.15068316497525588, 25.49697240618675, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6397681254091544, 0.15001191174773373, 25.597890614315997, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5361269336772693, 0.1493718313157429, 25.924831900240722, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8440671720678659, 0.08554364775135534, 27.86511961534585, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7393594529968469, 0.15878767077093994, 25.723893198304246, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.686660866825346, 0.20237747179416674, 25.092337195679484, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5363354531978622, 0.1669849836414215, 25.5191656830257, 1.0), 0.536),
+    }, // spectrum
   ),
   burlyWood(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8045399019394625, 0.07785791669844119, 73.41729679386725, 1.0), 0.8045399019394625), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9843144355819956, 0.009583791812676903, 72.66394172523924, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9689956843078761, 0.021988138499392414, 74.10038073886993, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205664368432602, 0.03081789001036058, 72.16341449741157, 1.0), 0.9200000000000002),
@@ -257,11 +257,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3987140193609989, 0.07775222566565454, 73.84524156601604, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3194031008467541, 0.06951527566205495, 69.25456646746753, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2073810152566395, 0.04546621666574815, 68.14370990814538, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   cadetBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6576814728388736, 0.06500936532486971, 198.2978249900899, 1.0), 0.6576814728388736), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858249524539864, 0.007397986865259757, 197.0363041767551, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9695947319242378, 0.017861500849027927, 196.86246183396779, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9217925428205311, 0.026331589961089433, 196.7041294585551, 1.0), 0.9200000000000002),
@@ -275,11 +275,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.399282749351552, 0.06515308298273328, 197.82618254857476, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3272930758901697, 0.05564342212340147, 200.26811356538622, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21763836514739843, 0.03700679492945875, 200.87620646685806, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   chartreuse(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8902625062753093, 0.2648037603744429, 136.00719484250826, 1.0), 0.8902625062753093), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9840069983439734, 0.03122666955768719, 134.9865159850142, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9680146299383464, 0.06406596682613026, 135.43064772678485, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9216825133560025, 0.10637076845111047, 136.20265215687235, 1.0), 0.9200000000000002),
@@ -293,15 +293,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3988669231741246, 0.12056115031262346, 136.86432673466484, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3193899981199327, 0.0966197687865102, 136.90853002128387, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2079889267880636, 0.06367987275873654, 137.53245450389957, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8005080979607929, 0.22373650759600913, 135.98755325079978, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7052143831414825, 0.21371578857360185, 137.0015671935714, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6403255607826702, 0.19389389348218655, 136.959097203036, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8818263855663124, 0.24551692870482564, 136.01520800907645, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8013111699931008, 0.24292239565797621, 137.01974806678413, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7219431286928855, 0.21875257210523202, 136.9937009161637, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5377246805922952, 0.16329861067574875, 137.11067101625702, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   chocolate(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6343984169310191, 0.1549924154304034, 50.26648308315725, 1.0), 0.6343984169310191), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9801510544987247, 0.013653654822759943, 67.6670017473892, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9556739423444454, 0.03085709043042542, 67.44509796738141, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9128290948722775, 0.05394319280488281, 57.06822770047638, 1.0), 0.9200000000000002),
@@ -315,15 +315,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3990722616647118, 0.09599906362450672, 50.04531348454923, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3189164639523073, 0.07580155625557226, 50.668360308100304, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2057948823663566, 0.05109511348244494, 50.81617479831737, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7860745377778229, 0.14103894674954304, 53.02920145583531, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7049623325687826, 0.1518669645171435, 50.32866558829918, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6409652996572668, 0.1519839169096859, 50.32923281730836, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.798444136026457, 0.15523059622721647, 66.7268406963816, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7637086444734456, 0.16548901663640805, 57.07939117233913, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7208254496251766, 0.1721037477084082, 50.45240696067705, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5350760035181883, 0.12811180867822736, 50.364588542068915, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   coral(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7351128578504906, 0.16799437675838297, 40.24667023539245, 1.0), 0.7351128578504906), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9784843080564941, 0.01256189712240146, 56.25631738338603, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9523268981433458, 0.028746356616913653, 57.376316616395854, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9078611190932547, 0.05242298704344084, 48.12118095895745, 1.0), 0.9200000000000002),
@@ -337,15 +337,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3995404644724166, 0.1059162114406503, 40.14553197398976, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31912681529745646, 0.0849686873778952, 40.44693779706766, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20818373438305446, 0.055381641232537686, 40.65076140486953, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7519679475493758, 0.15900643250145371, 45.28555409160442, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7042311596361828, 0.18655677119069178, 40.203508878975924, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6399090508676883, 0.169595051752387, 40.25060357767857, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8061889528598207, 0.1243080596739744, 51.986287379237396, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7396024119509975, 0.16973671466380327, 45.98362611723565, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7127642694462455, 0.1868547015303317, 40.74596213770346, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356392901324374, 0.14203088989499124, 40.15735100862412, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   cornflowerBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.674622013990877, 0.14135681535912847, 261.33802091148124, 1.0), 0.674622013990877), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677794722127228, 0.015348596001067919, 257.1960937586472, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9192933477958551, 0.03925321048044831, 256.58829112643656, 1.0), 0.9200000000000002),
@@ -359,15 +359,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40028289384291343, 0.1408725120973351, 261.18598430033427, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3212699588470154, 0.15484124505249455, 262.5169716793686, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20973533406809586, 0.14533213972059394, 264.05202063805507, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7953116327359886, 0.10388793752172883, 258.4598650952682, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.696541282280386, 0.15967602809600692, 259.3677419755067, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6401170238677909, 0.19280497021185525, 261.0901563144528, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5357106781366853, 0.19508496761935146, 261.5128052577944, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8779701171401899, 0.060243407630997496, 256.93412540741315, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7953116327359886, 0.10388793752172883, 258.4598650952682, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7132499042463938, 0.14998953943077487, 259.15864804751914, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5298449654195271, 0.2617550760458551, 262.7945382847322, 1.0), 0.536),
+    }, // spectrum
   ),
   cornsilk(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.977300674826716, 0.03725756623460859, 95.4385261602694, 1.0), 0.977300674826716), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9850348579792635, 0.004106514385192003, 91.4456629823251, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9694909407288311, 0.010795231027462394, 95.16298100691468, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9212196526747043, 0.015061944880461307, 94.20766497617807, 1.0), 0.9200000000000002),
@@ -381,11 +381,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40083435696556474, 0.038296138507810704, 95.7803169561603, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3178541166223862, 0.04082645480080938, 94.19640962487577, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20713147931436413, 0.042471023806139874, 94.11953372710833, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   crimson(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5711892860486797, 0.22193815309891118, 20.087366628848205, 1.0), 0.5711892860486797), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9820438037135584, 0.008696665463859264, 26.01650352013158, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9622944534026904, 0.018528687961890146, 21.567579712599915, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9017776035408418, 0.05091462747046948, 21.128479420479586, 1.0), 0.9200000000000002),
@@ -399,15 +399,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.399561751028609, 0.13309345551532786, 19.900083035700465, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3193074629247204, 0.10550012240232029, 19.91302224485124, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20493680074199677, 0.0695082342070658, 20.13325398944273, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7556719340266685, 0.14694922965556592, 18.610678990966825, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7033069908989251, 0.18876384000566393, 19.968236110064996, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6400935157788231, 0.1884070258707985, 20.19740676690747, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8523201646055042, 0.08028371057731902, 19.811773740894203, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7556719340266685, 0.14694922965556592, 18.610678990966825, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6765427352115461, 0.21296901472106794, 18.16777456145697, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5367951567076191, 0.17770827368336234, 20.088639522192587, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   cyan(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9053992300557676, 0.15455001106436891, 194.76894793196382, 1.0), 0.9053992300557676), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851474155020294, 0.012624274098880117, 196.95131104397024, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9696905541096144, 0.026073765092614384, 193.80594091017517, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9222512177422996, 0.06220995457091096, 194.87721326433882, 1.0), 0.9200000000000002),
@@ -421,15 +421,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40371556116868135, 0.06891351613103797, 194.7689479319638, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32943607260851926, 0.05623414177579194, 194.7689479319638, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21328451494953896, 0.03628003756979183, 197.89309636452745, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8013732093959819, 0.07625131655054887, 194.67964969601698, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7044124412561791, 0.0764536748817028, 194.46600810004674, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6404851056256196, 0.07619209963652297, 194.29725423293587, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5352335326300115, 0.0761011127336544, 195.1197423249325, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8806546130533563, 0.09645680730443852, 194.72554766205153, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8129831387170978, 0.13865026452440463, 195.3533201449036, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.746250788628085, 0.1271485857045577, 196.07136036524767, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5557056396997184, 0.09472619117510185, 195.70976888728774, 1.0), 0.536),
+    }, // spectrum
   ),
   darkBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.28782427149930606, 0.19944239451295373, 264.05202063805507, 1.0), 0.28782427149930606), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677794722127228, 0.015348596001067919, 257.1960937586472, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9172962347192875, 0.039981519260362634, 258.8100000364666, 1.0), 0.9200000000000002),
@@ -443,15 +443,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40026966536318315, 0.19855904212524128, 264.0327647996155, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31964155881338374, 0.19839545931901925, 264.18899416755835, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20810513009167086, 0.14420252065508188, 264.05202063805507, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6931042084337469, 0.1607887332157638, 262.27884728503614, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6375272419964761, 0.19365048212903221, 263.7914445555937, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5351320630224119, 0.20024100087293403, 264.06066541428436, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8766198092850614, 0.06053524653016103, 259.22133404342696, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7115326932652355, 0.15021855842106777, 261.6048162028409, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5182028995978825, 0.26906691198805954, 263.86403424820367, 1.0), 0.536),
+    }, // spectrum
   ),
   darkCyan(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5765220461399254, 0.09841127057761012, 194.76894793196382, 1.0), 0.5765220461399254), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858739483158449, 0.011581380924514842, 196.9683297055074, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9696905541096144, 0.026073765092614384, 193.80594091017517, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9218508566485172, 0.03941857277969278, 194.52470252392655, 1.0), 0.9200000000000002),
@@ -465,11 +465,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4139797990623862, 0.07053031256720686, 196.1292682865011, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3298706307062363, 0.056172507276670634, 196.57711032383017, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21328451494953896, 0.03628003756979183, 197.89309636452745, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkGoldenrod(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6520695645448735, 0.1321994171709362, 81.57159725687401, 1.0), 0.6520695645448735), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9840274791982134, 0.014674106904710741, 80.70849810763285, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9668162470306245, 0.036396204163963275, 86.17348108236514, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9207617377858559, 0.052489320521638974, 81.16208792975402, 1.0), 0.9200000000000002),
@@ -483,15 +483,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40069893759940367, 0.0845274633795306, 75.0115713234631, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3209258368844748, 0.06779761077856779, 74.69090098993686, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2065646263041843, 0.04364295375407176, 74.66653057985526, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8000262695548527, 0.16346476373372487, 81.62114638017461, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7051369354364225, 0.14724688390725765, 77.50449630073507, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6428340272554686, 0.13547438451353197, 75.23023064127422, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8497949528977805, 0.17386504568316463, 86.55170820406683, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8040232062579128, 0.16987124478780802, 74.66999619725938, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7236234918434253, 0.15292489115901997, 74.61271915633029, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5386601384858013, 0.113553862722201, 75.16304171089931, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   darkGray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.734808578011004, 2.7389251847183936e-8, 89.87556307831412, 1.0), 0.734808578011004), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -505,11 +505,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.43601783249755377, 0.1483657171042082, 142.49533888780988, 1.0), 0.43601783249755377), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9865617401977174, 0.017856204615177455, 142.82486980103175, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.970325552274484, 0.041890716959089754, 142.00124095137795, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.921573437557997, 0.06035617520542157, 142.1291916461697, 1.0), 0.9200000000000002),
@@ -523,15 +523,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39844534440504825, 0.11667415450714644, 142.6167780115843, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3197338048593674, 0.0944460158635419, 142.48917235431784, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20618126272400178, 0.06142679333454807, 142.94117358949543, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8007639925503044, 0.1278790988857264, 142.49941640425558, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7048794171062774, 0.12771722710707925, 142.64407130486072, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6410908848630184, 0.12915802288260805, 142.53550786816143, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5347276349858794, 0.1266086822272427, 142.5616860207641, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.880149150145571, 0.24000828018919795, 142.46452883111576, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8001109475916817, 0.23409786691574896, 142.52043531149653, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.721334116184314, 0.211336862617271, 142.54374337697837, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5365253819138133, 0.1569724845708487, 142.47301698285798, 1.0), 0.536),
+    }, // spectrum
   ),
   darkGrey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.734808578011004, 2.7389251847183936e-8, 89.87556307831412, 1.0), 0.734808578011004), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -545,11 +545,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkKhaki(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7674740400420806, 0.09803949864417484, 104.51456022160852, 1.0), 0.7674740400420806), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9856314448975415, 0.011830798093409573, 106.61463951733006, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9683388236709388, 0.027584989457799927, 104.68239742289788, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.921701767249765, 0.03966113557502933, 104.02110482919738, 1.0), 0.9200000000000002),
@@ -563,11 +563,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39972960953238834, 0.08412931575124101, 103.24291593676762, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32243941515971863, 0.0672910688227902, 101.10777185481994, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20732479394761893, 0.043278252316274, 101.17702482249422, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkMagenta(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4467978695819964, 0.2053493582741003, 328.36341792345144, 1.0), 0.4467978695819964), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9190580614178037, 0.07256175640454189, 326.87698970268474, 1.0), 0.9200000000000002),
@@ -581,15 +581,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4018369194878235, 0.1846851992039824, 328.36341792345144, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32051198244841744, 0.1473080656730022, 328.36341792345144, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20851148423838586, 0.09583237162968353, 328.36341792345144, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7046879504899161, 0.20772498583938673, 328.4431815408253, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.640668246636422, 0.20786846032204342, 328.31772567680775, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.535886336228858, 0.20844567692956248, 328.3584133314231, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8797613008442586, 0.10881465097204433, 327.9842433382593, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207543483244313, 0.25598710264957203, 328.6127624656516, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5380120862083138, 0.24727162810768896, 328.3634179234514, 1.0), 0.536),
+    }, // spectrum
   ),
   darkOliveGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4955208099126269, 0.08959830340260279, 126.18579369196588, 1.0), 0.4955208099126269), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858564551426906, 0.01131633007312319, 128.58890629568253, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9682614575639317, 0.025157432767624572, 126.54004321021097, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9217883389789612, 0.03650363524273491, 125.8610986885641, 1.0), 0.9200000000000002),
@@ -603,11 +603,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3999652094212044, 0.09052706717745283, 126.42195354453544, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3192329685064768, 0.08346778803734013, 127.99566780426106, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2063727351393639, 0.05517284845904182, 129.54922420116213, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkOrange(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.750544247319789, 0.17911451445506663, 58.28268612175627, 1.0), 0.750544247319789), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9793599542919459, 0.016881120233009708, 76.11520467436874, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9539633586722389, 0.03824994132991339, 76.19917446579007, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9105992174479745, 0.06276819570681384, 66.1227505521484, 1.0), 0.9200000000000002),
@@ -621,15 +621,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40049256159975316, 0.08821292416860421, 58.65279526015669, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31971894648128585, 0.07139668655849542, 58.13530457008958, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2064154943390812, 0.047091486281027196, 57.774366117091624, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7864616356413741, 0.15554055793348734, 62.08302330418763, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7058393307104223, 0.15576021770853957, 58.39888588508517, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6398961024829894, 0.14113164762472827, 58.0948088868547, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.819619977502507, 0.15716871863327866, 74.61558136243279, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7801709975404878, 0.16334479001249064, 63.19523382926112, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7217060551998227, 0.1592446091191708, 58.215900468899726, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.535169724499255, 0.11860923412884515, 58.0240983057933, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   darkOrchid(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5411145441017955, 0.22723834041331775, 311.50946063345964, 1.0), 0.5411145441017955), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9837949113723499, 0.012844955493922207, 321.8939568657753, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677214004140079, 0.025795716451074206, 321.9355491279715, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9150474823720807, 0.06742185092148364, 320.64087933475685, 1.0), 0.9200000000000002),
@@ -643,15 +643,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40014788415481894, 0.19465731473773754, 311.6455310769468, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31974842483669275, 0.15553456632391768, 311.7696643306789, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20675469747729583, 0.10108459367350524, 311.2620724021779, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7853804986505435, 0.1773826318634622, 319.8413432576409, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6915118078191346, 0.24468676374748716, 315.9337055543369, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6401373894132045, 0.26375099561752674, 311.44855296344423, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8729315210201928, 0.10087194125201969, 319.8182723534324, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7853804986505435, 0.1773826318634622, 319.8413432576409, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6953783995420022, 0.26273752470601397, 319.92126787349605, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.536160671559504, 0.2610928643862727, 311.2639311099596, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   darkRed(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39985687790317315, 0.16408243225809097, 29.233885192342633, 1.0), 0.39985687790317315), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9792947779822472, 0.010493725916716937, 39.44095530176489, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9587638202933412, 0.021236633055483338, 39.38228012380154, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.906321090468492, 0.048970603977392044, 32.14130479523237, 1.0), 0.9200000000000002),
@@ -665,15 +665,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39860503347545895, 0.11964316629757964, 28.89208371014751, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190725901810652, 0.0965714205905218, 28.86485898472963, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20628134750954227, 0.06153371422180064, 28.96129649640371, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7981624694737018, 0.11611293995151634, 29.570404218132854, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7047355561382305, 0.11863382062834285, 29.36558010602682, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6409860611849525, 0.12008619372439668, 29.133144418319787, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5367604839054945, 0.11980522777152328, 29.43922269240978, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8382324136518123, 0.09052124362178969, 34.17575733889105, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7247204975998042, 0.1711086349377725, 30.220068005612273, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.693500093851958, 0.19693277081822252, 29.438322823817135, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5360592970608742, 0.15992397276022768, 29.408567323306823, 1.0), 0.536),
+    }, // spectrum
   ),
   darkSalmon(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7507362330662823, 0.10818115721846304, 39.393779171800205, 1.0), 0.7507362330662823), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9834277289649981, 0.009217520248638178, 52.104468657736795, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9623392184829953, 0.021158157817363788, 51.525288482059004, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9204686663979693, 0.042371661117548844, 39.84340466545129, 1.0), 0.9200000000000002),
@@ -687,15 +687,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3997039152825591, 0.10805264066092206, 39.19363633611332, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3176066422050144, 0.0856893982181274, 38.90046619565963, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20638546403804098, 0.05651499301927935, 39.01782768626757, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7470766177878979, 0.1620018550452613, 44.36598577262479, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7044455943487483, 0.1881583046611219, 39.508786888690395, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6401300538566876, 0.17123540934432613, 39.469345809761386, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8087131922992853, 0.1208671639096301, 50.529482064700666, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7382827378992808, 0.1697729853987695, 45.01409929170845, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7115809505179228, 0.18716531258506375, 39.93736235929198, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5358764561954047, 0.1437497826284228, 39.18515911663854, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   darkSeaGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7508647801430357, 0.07970814843483152, 144.73000722612193, 1.0), 0.7508647801430357), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9849035889169029, 0.01009717719926004, 145.49828988380344, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9688841708287043, 0.02194424730423986, 145.40329677454224, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9214705469609976, 0.031786745059121185, 143.8516964614743, 1.0), 0.9200000000000002),
@@ -709,11 +709,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4004785570305993, 0.08074424049552718, 144.8462883863883, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32053452900280865, 0.08860147820059668, 144.64662260623476, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20577703148871893, 0.060648960826372826, 144.57894200676216, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkSlateBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4143427885136856, 0.1248363855750412, 286.039109421188, 1.0), 0.4143427885136856), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9838174176249449, 0.007935771087349958, 286.25295319389693, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9676194568267492, 0.01596912331298404, 286.0975219192926, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9189618306117907, 0.04064341616394147, 285.5727233165176, 1.0), 0.9200000000000002),
@@ -727,15 +727,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4002375059119619, 0.12542970237072348, 285.68254623597494, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3187557805349398, 0.13691659792059654, 285.94723627876607, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.206587268832861, 0.11529499230035042, 285.7975810898244, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7801336597837003, 0.11997675855880159, 289.7907398069544, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6791688972575592, 0.18279237635883253, 290.00234638629723, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6295536301035926, 0.21184235968088053, 287.66130583550455, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5367627258223128, 0.23160591759310684, 285.98083752179883, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8698808160897952, 0.06745146398683788, 287.7133480552286, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7801336597837003, 0.11997675855880159, 289.7907398069544, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6868250568129357, 0.17997316242708067, 291.5376079992547, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5218709625398785, 0.2859313691812991, 288.072335569253, 1.0), 0.536),
+    }, // spectrum
   ),
   darkSlateGray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4029629144320929, 0.03772368167592425, 195.7576961122208, 1.0), 0.4029629144320929), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9850722089910895, 0.004239929181886215, 197.08782638066907, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9686631641976039, 0.010582851116886236, 196.98146158651832, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205064867413542, 0.014932985910427368, 196.8971950908067, 1.0), 0.9200000000000002),
@@ -749,11 +749,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3992899204516049, 0.037741256912868504, 195.74530467750006, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3181283348123417, 0.041847935856476524, 195.25496273375302, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20941121143525193, 0.035619631578756104, 197.9657646828122, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkSlateGrey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4029629144320929, 0.03772368167592425, 195.7576961122208, 1.0), 0.4029629144320929), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9850722089910895, 0.004239929181886215, 197.08782638066907, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9686631641976039, 0.010582851116886236, 196.98146158651832, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205064867413542, 0.014932985910427368, 196.8971950908067, 1.0), 0.9200000000000002),
@@ -767,11 +767,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3992899204516049, 0.037741256912868504, 195.74530467750006, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3181283348123417, 0.041847935856476524, 195.25496273375302, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20941121143525193, 0.035619631578756104, 197.9657646828122, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   darkTurquoise(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7719287828293027, 0.13144007282025896, 196.643336102715, 1.0), 0.7719287828293027), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851474155020294, 0.012624274098880117, 196.95131104397024, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9683680679657481, 0.02402132547451707, 196.76245092859824, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.922420125175946, 0.052907690817170824, 196.27109826293366, 1.0), 0.9200000000000002),
@@ -785,15 +785,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4148139213828385, 0.07052970618954967, 198.85381002673213, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.33076034389407943, 0.05623228472297506, 200.19591189345326, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2137852431221045, 0.036353542254016796, 201.01448325914154, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8084939781355548, 0.13760339340051367, 197.12928398760187, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7303305372388805, 0.12421399047190405, 198.1233591675085, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6671333073009528, 0.11344393454874163, 198.526781149959, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8809148073551832, 0.0918829396545329, 196.4708152375597, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8084939781355548, 0.13760339340051367, 197.12928398760187, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7505119144635697, 0.12761562189665357, 198.66160750966014, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5572567481569686, 0.09473724951187495, 199.4788182285493, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   darkViolet(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5149097158144678, 0.2606736345815269, 309.81106026330025, 1.0), 0.5149097158144678), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9837949113723499, 0.012844955493922207, 321.8939568657753, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9669241392995366, 0.025204792322127762, 319.8748202965441, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9151539004283472, 0.06456179922790015, 318.7611204965875, 1.0), 0.9200000000000002),
@@ -807,15 +807,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3993384143162253, 0.19530792153523022, 309.96817071105716, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3191115659628802, 0.15598406557444736, 309.5248076945424, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20604826788122363, 0.10176007212506397, 309.40050501810015, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7832211750128723, 0.17636634263280807, 319.0956742847771, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6935779789834361, 0.23359872077962401, 313.9233095031815, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6403363928659569, 0.2518072189564846, 309.8248751292473, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5363181126886664, 0.2518519669126027, 309.7179565114024, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8720068568880467, 0.10031608870618043, 319.2267273690517, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7832211750128723, 0.17636634263280807, 319.0956742847771, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6915042128059916, 0.26155075839870934, 319.087464671078, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5365543524755101, 0.2621000525834746, 309.8412724544931, 1.0), 0.536),
+    }, // spectrum
   ),
   deepPink(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6549349935138736, 0.26133649638412065, 356.9447697294126, 1.0), 0.6549349935138736), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.983154825509715, 0.009382126166377928, 352.3539237679999, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9664270942782374, 0.018921060403852514, 352.63535999856384, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9149618448811205, 0.049516650843462004, 354.1225636556934, 1.0), 0.9200000000000002),
@@ -829,15 +829,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40323494415121575, 0.16445175412643212, 357.4572121297178, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3227222833838585, 0.1316571285165375, 357.33549883001285, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20872288948671713, 0.08506784224246616, 357.7168257583244, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7923915673804266, 0.1353801958411836, 355.4032747379957, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.705566348622542, 0.20934641256801695, 356.9661106826583, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.639438791971525, 0.24323434214274334, 357.00033014268575, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8735215287702405, 0.0769330858354323, 353.7519973906308, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7923915673804266, 0.1353801958411836, 355.4032747379957, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7193155448829553, 0.19694882930075083, 356.5852391122357, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5413041763711581, 0.22058768975840784, 357.76778289170323, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   deepSkyBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7553500136940313, 0.15342207734419872, 231.6391499728153, 1.0), 0.7553500136940313), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9847168467298922, 0.008318064605432772, 236.55643516917317, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.96922763706484, 0.01582285336580332, 233.01741580320828, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.920571133123363, 0.03917380627428881, 232.66680388493137, 1.0), 0.9200000000000002),
@@ -851,15 +851,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.41299013550665875, 0.09762083257154133, 241.78564080079997, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3365697905523133, 0.09077166178557759, 248.07857715748494, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.22834642531063087, 0.0847435987443348, 258.05598973807156, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7998155263113546, 0.09630406508202152, 231.7462489686562, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7040249668714228, 0.11783101410279356, 231.7945550309989, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6404095555931911, 0.1179014558972933, 231.68961568865825, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5392672968955633, 0.1122359632824844, 233.58153869784542, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8801417337259887, 0.05817972888754493, 232.59980863927234, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7998155263113546, 0.09630406508202152, 231.7462489686562, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7216817001064076, 0.13475200259302347, 231.38896284471528, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5735396832636169, 0.16683234236807531, 251.00833627232603, 1.0), 0.536),
+    }, // spectrum
   ),
   dimGray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5208065495993939, 1.941254111666852e-8, 89.87556294015262, 1.0), 0.5208065495993939), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -873,11 +873,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   dimGrey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5208065495993939, 1.941254111666852e-8, 89.87556294015262, 1.0), 0.5208065495993939), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -891,11 +891,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   dodgerBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6520055594356652, 0.19011903442710051, 253.20541016354557, 1.0), 0.6520055594356652), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9854593958260341, 0.00753426460267299, 241.66071260400406, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9690082969506725, 0.015417329831414603, 247.98656339843, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9198956468530206, 0.0397474919350227, 251.76968847338108, 1.0), 0.9200000000000002),
@@ -909,15 +909,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4103121458454837, 0.17545571615667255, 260.82716131195457, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.33394184148481276, 0.17287833351319176, 263.25366732923726, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2194514121568171, 0.15206471258248364, 264.05202063805507, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7996788895097099, 0.10394549989346348, 252.11645282215312, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7036361815857294, 0.1586306365041725, 253.41628954711052, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6393138442537888, 0.1872355508469555, 253.35717352391526, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5395896726831504, 0.182666052585413, 255.7700683464831, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8800510486846311, 0.06050744725702398, 251.54330486198614, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7996788895097099, 0.10394549989346348, 252.11645282215312, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7203418928953561, 0.14914733554714865, 252.78692018884004, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5508608937858548, 0.23454221842439754, 260.7553728914614, 1.0), 0.536),
+    }, // spectrum
   ),
   firebrick(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4967710743603601, 0.17968931902659385, 26.814803385782586, 1.0), 0.4967710743603601), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9795676209377979, 0.010053932766230785, 32.515831323248925, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.959298163925856, 0.020362148619727332, 32.53042213296879, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9023412364424214, 0.05097227270866458, 30.113755727760584, 1.0), 0.9200000000000002),
@@ -931,15 +931,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.400100576592955, 0.12365317511805604, 26.863231359688847, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32002391755721604, 0.09850256610243305, 26.817877040170565, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20683739183788108, 0.06422477254071654, 27.747141663090083, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.776662795676426, 0.13092765294256545, 27.25039411441019, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7054007910694684, 0.1523704831805441, 26.891592832743818, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6392703711248967, 0.15278552675569212, 26.56107395271302, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5360202316818873, 0.15203045658771844, 26.896544053169656, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8415939221280326, 0.08732283833691468, 29.459338836205525, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7339494443864187, 0.16314547129811136, 27.06250400805938, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6884366976389348, 0.2008682859723264, 26.54599859261533, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5365311758332688, 0.1642917190515163, 26.887692894683948, 1.0), 0.536),
+    }, // spectrum
   ),
   floralWhite(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9862327534926003, 0.014219978709275544, 84.58260305521654, 1.0), 0.9862327534926003), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9855868592746073, 0.0017055110328494608, 67.8027604782416, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700818812980447, 0.0041221312271211025, 91.44636374768046, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9223375289276604, 0.005800004341573072, 84.56710624373488, 1.0), 0.9200000000000002),
@@ -953,11 +953,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39923742341950363, 0.014142025644209185, 84.58995106027591, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31862513307157775, 0.014881346456206323, 84.5709698718684, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20633634733182377, 0.017876757264138603, 86.74769244546943, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   forestGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5578046070246362, 0.16878139267059, 142.8931148666495, 1.0), 0.5578046070246362), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.985561365434468, 0.01953814587542543, 143.04163626946942, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9697731027005343, 0.047518896466121785, 143.3093648200105, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9202803676843893, 0.06768536067740795, 143.06308358653075, 1.0), 0.9200000000000002),
@@ -971,15 +971,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39854157993509476, 0.11594590170420936, 142.82007223596497, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31983169116588256, 0.09369915713599422, 142.74543245147615, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20618126272400178, 0.06142679333454807, 142.94117358949543, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8007383567606872, 0.1621073586061782, 142.86416019133566, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7052876320697586, 0.16308801272300286, 143.05370772303934, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6398148578037415, 0.16308146721463834, 142.87908612475098, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8819330139613609, 0.24089013408664509, 142.92212762872327, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7998636270202273, 0.23290265753754757, 142.930168322522, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7212474241812512, 0.21041808077862137, 142.82307523146605, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.53616482335329, 0.1563267222312146, 143.00646896468675, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   fuchsia(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7016738558717924, 0.32249096477516437, 328.36341792345144, 1.0), 0.7016738558717924), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9190580614178037, 0.07256175640454189, 326.87698970268474, 1.0), 0.9200000000000002),
@@ -993,15 +993,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4018369194878235, 0.1846851992039824, 328.36341792345144, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32051198244841744, 0.1473080656730022, 328.36341792345144, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20851148423838586, 0.09583237162968353, 328.36341792345144, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.70527256234279, 0.2699012780958876, 328.47876137024195, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6412899540671914, 0.2724870726645949, 328.4507371579043, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8797613008442586, 0.10881465097204433, 327.9842433382593, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207543483244313, 0.25598710264957203, 328.6127624656516, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5380120862083138, 0.24727162810768896, 328.3634179234514, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   gainsboro(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.89449040890397, 3.334123169340593e-8, 89.8755632463301, 1.0), 0.89449040890397), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -1015,11 +1015,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   ghostWhite(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9811187576597705, 0.009267908405157175, 286.22766149279386, 1.0), 0.9811187576597705), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9853833799051537, 0.0013197675603809692, 286.37582029069296, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9707137688526399, 0.002650477797283139, 286.3503606433044, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.922476420744944, 0.0026845979964992828, 286.3470828732825, 1.0), 0.9200000000000002),
@@ -1033,11 +1033,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3997419341416198, 0.008307092852195004, 286.0179730907711, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3194901379656286, 0.01056750242470135, 285.78645811111437, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20686904082016144, 0.009838710033247584, 285.5081446357289, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   gold(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8867710734392976, 0.1821860427566396, 95.3304934870249, 1.0), 0.8867710734392976), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.986623884325492, 0.022676066356347824, 95.95370195915645, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9684012845022574, 0.050400263641787284, 94.95027906996067, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9207697551110272, 0.07262655538163812, 94.64894685943008, 1.0), 0.9200000000000002),
@@ -1051,15 +1051,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40157810492979035, 0.08206482591055544, 88.81878114742715, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32219276313206047, 0.06584289772950999, 88.74264757415376, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20720987831827192, 0.04238505510924324, 86.81954788724784, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8048783147626818, 0.1644805730201251, 88.85495573024131, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7083924655018036, 0.1447578905791003, 89.18315860588123, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6447226659136869, 0.13175351542020936, 88.7897450575677, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8769204073359506, 0.17957732945921115, 93.12994344219882, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8048783147626818, 0.1644805730201251, 88.85495573024131, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7248520969316838, 0.1481205993686672, 89.29736384161937, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.538879319076778, 0.11011945416801902, 89.06323283393108, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   goldenrod(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7515723163966895, 0.1469336987368223, 83.98811694668076, 1.0), 0.7515723163966895), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9854473455623074, 0.017904671799166456, 89.35440246012344, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9661013990268679, 0.0400057299819639, 88.19610505549049, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205214504759375, 0.05862664547039046, 82.99171438129598, 1.0), 0.9200000000000002),
@@ -1073,15 +1073,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4015192489770563, 0.08395631906898961, 77.14974578261307, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3217933235600173, 0.06719513965299517, 77.51190973823152, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2065646263041843, 0.04364295375407176, 74.66653057985526, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8034757795531879, 0.16670932524850898, 79.40750550121092, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7074631674810774, 0.14823078108313653, 76.62151983723983, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6423633573342715, 0.13444093332911142, 76.90659618103923, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8536258083054191, 0.17452706879621713, 87.52541933013372, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8042518590729619, 0.16837516840093164, 76.82625210009651, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7238628861421758, 0.15140052464360712, 77.07450989645648, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5381725281956036, 0.11248457938404184, 77.25704069843532, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   gray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5998708017071177, 2.2359581629199253e-8, 89.87556235475513, 1.0), 0.5998708017071177), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -1095,11 +1095,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   green(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.519751827794842, 0.17685825418032045, 142.49533888780994, 1.0), 0.519751827794842), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845643596788075, 0.021220550104388, 143.2219410924988, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9685851182516109, 0.050261715224061226, 142.50678533795804, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9212736896210307, 0.07207194645417048, 142.55548566406827, 1.0), 0.9200000000000002),
@@ -1113,15 +1113,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39844534440504825, 0.11667415450714644, 142.6167780115843, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3197338048593674, 0.0944460158635419, 142.48917235431784, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20618126272400178, 0.06142679333454807, 142.94117358949543, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.80180756541704, 0.15361677178418956, 142.42004799282182, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7043900866138278, 0.15159351564889986, 142.4786926959643, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6410434009596762, 0.15273947543035932, 142.56446106338768, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5352387446989956, 0.15144604466852946, 142.49358393229383, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.880149150145571, 0.24000828018919795, 142.46452883111576, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8001109475916817, 0.23409786691574896, 142.52043531149653, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.721334116184314, 0.211336862617271, 142.54374337697837, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5365253819138133, 0.1569724845708487, 142.47301698285798, 1.0), 0.536),
+    }, // spectrum
   ),
   greenYellow(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9130488583486144, 0.23346179312239318, 130.01722134531937, 1.0), 0.9130488583486144), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9864543475483917, 0.028645547942510372, 130.71339130043307, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9698914129020201, 0.06677624950194178, 130.44713615273085, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205423276013993, 0.09361129801188914, 130.22387507084642, 1.0), 0.9200000000000002),
@@ -1135,15 +1135,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40098084889850455, 0.11377077426846713, 133.3279524549103, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3205739011906047, 0.09060053953085044, 133.09347478368466, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2075855265761057, 0.05879499070400924, 133.22311236846934, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8005298693360655, 0.18063871972699858, 130.1607358195498, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7055047093939851, 0.181245426447293, 130.11229773180148, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6407440255479526, 0.17416011458429254, 130.65239462480307, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.883323151738363, 0.24030891993543824, 130.71043583510698, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8049186969701002, 0.22768589713687787, 133.14612280612457, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7238833417935432, 0.20502138776317627, 133.22137012493832, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5397122578656482, 0.1527832201723284, 133.19148481069175, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   grey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5998708017071177, 2.2359581629199253e-8, 89.87556235475513, 1.0), 0.5998708017071177), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -1157,11 +1157,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   honeydew(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9848418487934912, 0.025209745536309242, 145.3805087089977, 1.0), 0.9848418487934912), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9860176614700539, 0.0033662967637169785, 145.54987613765806, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9690043354441913, 0.006760426903679875, 145.52312890020892, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9217082001560624, 0.01026530784421412, 145.49155320642754, 1.0), 0.9200000000000002),
@@ -1175,11 +1175,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39825252352902574, 0.025157678220579544, 145.08390341094415, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3178196434733104, 0.02650748352820381, 144.91929441713324, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20570674123380422, 0.029869867115066465, 146.2208680620793, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   hotPink(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7282973933002586, 0.19707545854163505, 351.9947080594076, 1.0), 0.7282973933002586), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9834359272167388, 0.00998959769964396, 345.4078498889763, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9667106172223219, 0.019486078342180625, 349.05197981651406, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9142979000127218, 0.05334824460789051, 347.8948880689096, 1.0), 0.9200000000000002),
@@ -1193,15 +1193,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4044328431250556, 0.16721878668216733, 352.6900864904395, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32316821834663584, 0.13370152346121852, 352.4970022889939, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20829549183941196, 0.0863482023737277, 351.88545864352665, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7937127425834747, 0.1413971076448149, 350.27006929793754, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.704440519110616, 0.2015700165328545, 351.894458721993, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6409589493492579, 0.2005986419962443, 352.00790380571937, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5359857994924141, 0.20051338872214833, 352.2172893787557, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8732683573087979, 0.08128634929591438, 348.7453918343334, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7937127425834747, 0.1413971076448149, 350.27006929793754, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7195547958580292, 0.20575074869778812, 351.90326691254575, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5420505697448241, 0.22411598387891662, 352.69413924532716, 1.0), 0.536),
+    }, // spectrum
   ),
   indianRed(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6154408422417474, 0.1441517982891174, 22.228396804282934, 1.0), 0.6154408422417474), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9798418070675557, 0.009771701804419856, 25.072906691678423, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9598380435423529, 0.019796906058326427, 25.169376657467918, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9121177174680684, 0.045111017904888875, 23.069953447536378, 1.0), 0.9200000000000002),
@@ -1215,15 +1215,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40015108133166144, 0.12929721733003074, 22.549666449488882, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3179924223435839, 0.10346057069662325, 21.76510875158257, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20630960479431312, 0.06802987687875889, 22.587013203908597, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.749472153094324, 0.15115972903286415, 21.329835281430633, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6968983987952697, 0.1937511031341777, 22.200267864952302, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6413012258640928, 0.19910984207814195, 22.49503658007187, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8495465117721921, 0.0818662011240508, 22.62077812115511, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.749472153094324, 0.15115972903286415, 21.329835281430633, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6805628596614729, 0.2083752320338591, 20.85922318703479, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5354475980774563, 0.1732261203162622, 22.264176222270713, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   indigo(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.33898207118037904, 0.17927151083764675, 301.68475941911254, 1.0), 0.33898207118037904), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9841731911242432, 0.010123785088375395, 311.1801968822724, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.966463060533555, 0.021984986259806553, 312.18901193599663, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9150449706569208, 0.0535682655082763, 308.3802747149896, 1.0), 0.9200000000000002),
@@ -1237,15 +1237,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3992266153028442, 0.169322825319205, 301.8242913736363, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3185596857545198, 0.15976847171539066, 301.40106804624014, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20650943813509273, 0.10426365396410228, 301.0781034847521, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7883949606315005, 0.1389725244525996, 307.42305771026105, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7056699936758434, 0.16934721372654085, 301.7222499878706, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6413293248130706, 0.16922508757138216, 301.66284187551116, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5348367028977072, 0.1703821098769866, 301.45146544230545, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8665199788607428, 0.0919289148441243, 312.5227104989954, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7715867550981036, 0.1666437520552339, 313.4042600730288, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6705285184979701, 0.2583168172181815, 314.8719231931623, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5364568247247005, 0.26739253014812364, 301.84866574418044, 1.0), 0.536),
+    }, // spectrum
   ),
   ivory(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.995976324083091, 0.019615836543281265, 106.75046910674261, 1.0), 0.995976324083091), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.984548176209022, 0.002637250576984493, 106.44771403451998, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9690411329120912, 0.005291163757309905, 106.49781541830882, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9202301294250466, 0.008032016933380163, 106.5563199337694, 1.0), 0.9200000000000002),
@@ -1259,11 +1259,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3996633062776735, 0.009840809890349723, 106.83666380278257, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190054368415077, 0.010379206190273469, 106.97376258349479, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2068142882973256, 0.011444838762239489, 107.35990376157875, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   khaki(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9134890372879335, 0.11192227252390707, 102.829237140051, 1.0), 0.9134890372879335), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9861297691818973, 0.013188096581720345, 102.009100942819, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9683675368572997, 0.031517832271426245, 103.07971613137755, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9215507481935534, 0.04486316334405127, 103.089597569343, 1.0), 0.9200000000000002),
@@ -1277,15 +1277,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40054872572544786, 0.08308283378538425, 99.27227381540183, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32101518167496595, 0.06641458009156294, 98.38467890193554, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20863657052049886, 0.04323645744390755, 98.96727464455779, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8061666587263103, 0.1670829009542625, 99.00435884420715, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7086082944874846, 0.14664753193739363, 98.4929580992896, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6449765238190621, 0.13377190907862696, 99.24577723817015, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8871245564283123, 0.18374638614993533, 98.78924375077628, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8061666587263103, 0.1670829009542625, 99.00435884420715, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7250635346302036, 0.14999176009625556, 98.34580677804975, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5402117756727421, 0.1120491009629756, 99.26346927430497, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   lavender(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9309023295310527, 0.02694142520984427, 285.8647989589501, 1.0), 0.9309023295310527), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9856644477560043, 0.0026403323959573823, 286.35130365535423, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9688600826611129, 0.007966532802619438, 286.25009139286846, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9211890708250561, 0.010765905538157549, 286.18648785156665, 1.0), 0.9200000000000002),
@@ -1299,11 +1299,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40046397611864554, 0.026747614808904405, 285.12900724271725, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.317590369938995, 0.03011923783483484, 287.24414773488235, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20603206993108802, 0.03344765214811077, 285.7536380545446, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lavenderBlush(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9683348574274323, 0.017406479785137888, 355.10152491773215, 1.0), 0.9683348574274323), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858648577033587, 0.0010645479809507333, 17.177960981940615, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.970508473770861, 0.004467222179760275, 359.9966004902341, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9210949432676042, 0.007017107372725881, 354.8074843400031, 1.0), 0.9200000000000002),
@@ -1317,11 +1317,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40031510132570036, 0.017538812976082653, 355.8171553666074, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31993369125916454, 0.018632220728584586, 356.20882364845687, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20469904033181463, 0.021699972967158324, 352.47034623907706, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lawnGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8817531394448764, 0.2630678075160468, 136.17076082224318, 1.0), 0.8817531394448764), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.984263322786035, 0.030079253142399287, 136.13472999189597, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9673252981092245, 0.06458643042774803, 136.20302849105877, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9216825133560025, 0.10637076845111047, 136.20265215687235, 1.0), 0.9200000000000002),
@@ -1335,15 +1335,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39842641657934963, 0.12107341698730398, 137.14404437425486, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31892821009734157, 0.09715839916412046, 137.27406020546096, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2079889267880636, 0.06367987275873654, 137.53245450389957, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8006967909643564, 0.23969659064641502, 136.3529374482309, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7048347465633001, 0.2141582627686956, 137.13767105948563, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6399354029178754, 0.19434810756512078, 137.11327114248772, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8814524771998253, 0.2455638304639762, 136.1876269151819, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8013111699931008, 0.24292239565797621, 137.01974806678413, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7215653570907206, 0.21919272477577845, 137.12602647470788, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5377246805922952, 0.16329861067574875, 137.11067101625702, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   lemonChiffon(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9778096095465219, 0.05821653061153485, 102.1561211888532, 1.0), 0.9778096095465219), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.984488184381471, 0.006681602948610515, 97.34999443636724, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9703904758123446, 0.017161365457807602, 103.14446988319933, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9216391460976364, 0.024042433608420358, 101.68930304950194, 1.0), 0.9200000000000002),
@@ -1357,11 +1357,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4005353950069829, 0.0588679871771891, 102.23109801613516, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31832093525825317, 0.05880996963954398, 100.92917092644815, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20863657052049886, 0.04323645744390755, 98.96727464455779, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.856233107038588, 0.04894008113432752, 219.6542869471621, 1.0), 0.856233107038588), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9848896723498931, 0.005948090663366555, 223.45465940621008, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9683513258623582, 0.013801612516251595, 219.61817038911053, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9201055755401792, 0.01988253147402206, 220.87429206040946, 1.0), 0.9200000000000002),
@@ -1375,11 +1375,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4000392052775926, 0.049252350087054204, 219.74155042997936, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3195952311733353, 0.05354122933154269, 218.55597133603098, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2163278412263225, 0.043493322141431465, 230.77741634793617, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightCoral(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7246409379989323, 0.13773877879011645, 21.028813703505936, 1.0), 0.7246409379989323), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9820438037135584, 0.008696665463859264, 26.01650352013158, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9601100595152515, 0.019639695871727394, 21.357529345259167, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9123815037159144, 0.04497791151497911, 21.39029415906448, 1.0), 0.9200000000000002),
@@ -1393,15 +1393,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3994759269296662, 0.1301273133084937, 21.03235358826417, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32016432893689994, 0.10452496129654941, 21.132675026004662, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20653956938533796, 0.06792164617921287, 21.165228355491017, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7520333577302395, 0.14956981591958363, 19.276672821020593, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6754617838687073, 0.2131817079985294, 20.15243949549776, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6411811309694924, 0.20943012354025384, 21.23528086348856, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8518169433957482, 0.08047993741369237, 21.704568799889795, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7520333577302395, 0.14956981591958363, 19.276672821020593, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6779255050986994, 0.2111527714479005, 19.566919106313197, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356195923643017, 0.17592249469443264, 21.044666165602216, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   lightCyan(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9778581847680581, 0.03202919128041884, 196.63964568250958, 1.0), 0.9778581847680581), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9850722089910895, 0.004239929181886215, 197.08782638066907, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9693979933310738, 0.009532094672297034, 196.99893760919994, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219686764614458, 0.012822302221551226, 196.93391842077003, 1.0), 0.9200000000000002),
@@ -1415,11 +1415,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.397712770519426, 0.016646710124527037, 196.50130052707487, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31804326025114926, 0.016076996939365467, 196.371371135404, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20652602868624856, 0.01706770610826722, 195.90953033000991, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightGoldenrodYellow(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9750064961740967, 0.05183854379345641, 107.32369444361194, 1.0), 0.9750064961740967), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.985949811514345, 0.006658231288773055, 115.70221951741485, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.970148959623605, 0.014503255589860627, 106.66685420625028, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9208519236119617, 0.01998989847745934, 106.78575680698415, 1.0), 0.9200000000000002),
@@ -1433,11 +1433,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3999688351203415, 0.05303900267908665, 108.57586828667446, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3180195513744457, 0.05673372265296186, 106.3813198430771, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20901148526786537, 0.044489614423934155, 105.65016919076633, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightGray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8668630696559106, 3.231145044749767e-8, 89.87556281647686, 1.0), 0.8668630696559106), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -1451,11 +1451,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.868003274355679, 0.1557979655509353, 144.08818384005582, 1.0), 0.868003274355679), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.985561365434468, 0.01953814587542543, 143.04163626946942, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9689247241359498, 0.04313530184398166, 144.18592627241398, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9223320411778776, 0.06324268153098567, 143.6481432882595, 1.0), 0.9200000000000002),
@@ -1469,15 +1469,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39802800206073996, 0.11472772356800974, 144.01498739635343, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3195827887733912, 0.09204137012350341, 144.07056455579848, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20639766927654873, 0.0598100929358997, 143.83069750361918, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8019797727314999, 0.23033997876556964, 144.03979063115418, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7041959107573496, 0.20239791594019796, 144.0160694896001, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6399399254516153, 0.1834594743627212, 144.15402027157165, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8806106891485772, 0.23908824058816366, 144.11468512653587, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8019797727314999, 0.23033997876556964, 144.03979063115418, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207830670963951, 0.20665389268501483, 144.09805207576778, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.535900299525135, 0.15371628461947956, 144.1485660875188, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   lightGrey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8668630696559106, 3.231145044749767e-8, 89.87556281647686, 1.0), 0.8668630696559106), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -1491,11 +1491,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightPink(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8473878089598917, 0.08579244297293219, 9.086546614064398, 1.0), 0.8473878089598917), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9848008689143544, 0.007586992420299802, 7.280635840415959, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9653067483036236, 0.01749422673969508, 8.763709973328695, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9211828704024226, 0.03470892744702602, 8.956400424430063, 1.0), 0.9200000000000002),
@@ -1509,11 +1509,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39952498821619953, 0.08747490476438645, 8.502155821512526, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31865756537977324, 0.09440969171591301, 9.275027342399747, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20656467084815383, 0.07753964874584002, 8.898749455722328, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightSalmon(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7937550245784768, 0.12483287411660939, 42.42478683674448, 1.0), 0.7937550245784768), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9809542007012764, 0.010881764926547882, 54.50136058631833, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9596337969781636, 0.023625673625397962, 55.269691312369666, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9173381625373371, 0.045701777001811536, 45.38104267854062, 1.0), 0.9200000000000002),
@@ -1527,15 +1527,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39924087346716164, 0.10439420219811746, 42.01666803183413, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.318916267376353, 0.08305319099383833, 42.35556290958347, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20597118816642548, 0.054764350734704745, 43.22643122887415, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7471041617205978, 0.16698327331921797, 48.865149026189336, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7051004651487628, 0.18311239147707997, 42.435427809643826, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.640892303517823, 0.16580912510534757, 42.537384871554195, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7948805030981425, 0.1376542378557492, 55.6456400712537, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7454622141343338, 0.16801259674130234, 48.6091968896486, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7180433711374584, 0.18441053881377137, 42.89811059721479, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5351890410902915, 0.13894116764416542, 42.47083336833978, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   lightSeaGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6912009792793601, 0.11421345246860778, 188.96168087890885, 1.0), 0.6912009792793601), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9841407893211472, 0.013718509419021125, 191.40208545096942, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9687001983525136, 0.03133667803338087, 189.32965003164608, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9201407678873655, 0.045617458383075266, 189.58759618983962, 1.0), 0.9200000000000002),
@@ -1549,15 +1549,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4054115162898914, 0.07017487342393787, 189.27701738511377, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32469963572621546, 0.05619343423932777, 189.33164907472013, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21186179633500662, 0.03676065188026816, 188.6030551870013, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8037452732223752, 0.1392897782222918, 188.9393195604898, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7165570828380876, 0.1245865791316948, 188.06049260531586, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6508104955037222, 0.11288263769380724, 188.7022204038863, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8813522931734753, 0.11780245413333772, 188.53798157572558, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8144948332019134, 0.14139350665523878, 188.47224426925825, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7336305728424125, 0.12746212903608997, 188.25057167323172, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5466553321307591, 0.09500242193608079, 188.17977445712162, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   lightSkyBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8206188010058852, 0.09452819384590823, 236.75358862529686, 1.0), 0.8206188010058852), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9854593958260341, 0.00753426460267299, 241.66071260400406, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9699538910623802, 0.01498964442034208, 235.37389077329595, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205658113092242, 0.03689507370039483, 238.08892718239105, 1.0), 0.9200000000000002),
@@ -1571,11 +1571,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39891098612240267, 0.08441707087575796, 237.51334287942302, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3228050293904372, 0.07679784887480066, 242.13687092877143, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2180744219921492, 0.06733899470427451, 253.0456327786421, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightSlateGray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6190201701466622, 0.03249868968458458, 248.35132210903615, 1.0), 0.6190201701466622), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9844350773940602, 0.004523851352531767, 258.32439908392655, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700523917737683, 0.009266348271120835, 242.83648471390944, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9209068128995596, 0.012842670727156995, 244.2626030794013, 1.0), 0.9200000000000002),
@@ -1589,11 +1589,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3989866737695412, 0.03326520559815131, 250.316085471524, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3183110317416725, 0.03572670041117077, 249.00600392354903, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20735710931279133, 0.037780222824651606, 247.23187499616486, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightSlateGrey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6190201701466622, 0.03249868968458458, 248.35132210903615, 1.0), 0.6190201701466622), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9844350773940602, 0.004523851352531767, 258.32439908392655, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700523917737683, 0.009266348271120835, 242.83648471390944, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9209068128995596, 0.012842670727156995, 244.2626030794013, 1.0), 0.9200000000000002),
@@ -1607,11 +1607,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3989866737695412, 0.03326520559815131, 250.316085471524, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3183110317416725, 0.03572670041117077, 249.00600392354903, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20735710931279133, 0.037780222824651606, 247.23187499616486, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightSteelBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8136231420232811, 0.04280791794707975, 255.03341540084756, 1.0), 0.8136231420232811), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9847196278310115, 0.005726557516348122, 264.532805402187, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.968673636744361, 0.011966009209405807, 259.8226178624023, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9221081600569287, 0.01725680927100998, 256.28322359471946, 1.0), 0.9200000000000002),
@@ -1625,11 +1625,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4003302506077657, 0.04320976949146509, 255.10102206735712, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32017033088898655, 0.04607307833175448, 253.99791703731853, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20694383205919684, 0.05079170913763756, 253.2765929665758, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lightYellow(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9920074276316365, 0.04024431768547183, 107.11127948383485, 1.0), 0.9920074276316365), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842724418613983, 0.003954610548503101, 106.4718808960611, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9699172398674143, 0.011918340482495897, 111.75456977360807, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9216430688921616, 0.016012824495367957, 106.709651124532, 1.0), 0.9200000000000002),
@@ -1643,11 +1643,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3978441562727944, 0.019498689874378104, 107.25405456177118, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31717542154612655, 0.020464337019806378, 107.51174021651565, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20533386249935123, 0.020400304883108004, 108.06939069560855, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   lime(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8664396115356694, 0.2948272403370167, 142.49533888780996, 1.0), 0.8664396115356694), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.982356214365714, 0.030674175022290542, 142.34410334299815, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9657786909238449, 0.06135090949991662, 142.21739685209442, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.922334935879006, 0.11832040388862097, 142.54973213884256, 1.0), 0.9200000000000002),
@@ -1661,15 +1661,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39844534440504825, 0.11667415450714644, 142.6167780115843, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3197338048593674, 0.0944460158635419, 142.48917235431784, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20618126272400178, 0.06142679333454807, 142.94117358949543, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8001109475916817, 0.23409786691574896, 142.52043531149653, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7048470356561343, 0.2064177390358314, 142.53087578158312, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.640601844525055, 0.1876021520361983, 142.47154923131507, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.880149150145571, 0.24000828018919795, 142.46452883111576, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8001109475916817, 0.23409786691574896, 142.52043531149653, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.721334116184314, 0.211336862617271, 142.54374337697837, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5365253819138133, 0.1569724845708487, 142.47301698285798, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   limeGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7418744387539664, 0.22864582198064823, 142.83480207624046, 1.0), 0.7418744387539664), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845785413773822, 0.026249990973140288, 143.61451444776299, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9657786909238449, 0.06135090949991662, 142.21739685209442, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205340789634932, 0.09136186846566614, 142.50366944676443, 1.0), 0.9200000000000002),
@@ -1683,15 +1683,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39854157993509476, 0.11594590170420936, 142.82007223596497, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31983169116588256, 0.09369915713599422, 142.74543245147615, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20618126272400178, 0.06142679333454807, 142.94117358949543, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.800342309404694, 0.21616454153758524, 142.80008164061857, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7047592892031348, 0.20549327599211628, 142.81893513112186, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6405099926719016, 0.18665915876238434, 142.79614568221413, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8822224091812421, 0.24052108853689777, 142.834368350178, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8000243897880782, 0.23320389608436137, 142.76670360781938, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7212474241812512, 0.21041808077862137, 142.82307523146605, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5363403113146525, 0.15666021291058463, 142.73901145998903, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   linen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9602384684470778, 0.017149503133584355, 67.62155579627478, 1.0), 0.9602384684470778), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9855868592746073, 0.0017055110328494608, 67.8027604782416, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9686247811248305, 0.005137958966283518, 67.76360236858169, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.920870027405351, 0.006936963052609188, 67.73901386365314, 1.0), 0.9200000000000002),
@@ -1705,11 +1705,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3996183086839353, 0.01702771547684692, 67.3076817387685, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31884310791920945, 0.019251879180050818, 70.34283303321054, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20727204390892243, 0.021062425039849123, 69.54504174593856, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   magenta(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7016738558717924, 0.32249096477516437, 328.36341792345144, 1.0), 0.7016738558717924), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9190580614178037, 0.07256175640454189, 326.87698970268474, 1.0), 0.9200000000000002),
@@ -1723,15 +1723,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4018369194878235, 0.1846851992039824, 328.36341792345144, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32051198244841744, 0.1473080656730022, 328.36341792345144, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20851148423838586, 0.09583237162968353, 328.36341792345144, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.70527256234279, 0.2699012780958876, 328.47876137024195, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6412899540671914, 0.2724870726645949, 328.4507371579043, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8797613008442586, 0.10881465097204433, 327.9842433382593, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207543483244313, 0.25598710264957203, 328.6127624656516, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5380120862083138, 0.24727162810768896, 328.3634179234514, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   maroon(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3766920880665968, 0.154576693407068, 29.233885192342594, 1.0), 0.3766920880665968), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9792947779822472, 0.010493725916716937, 39.44095530176489, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9587638202933412, 0.021236633055483338, 39.38228012380154, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9084421978029573, 0.0478165918928197, 32.460511099251896, 1.0), 0.9200000000000002),
@@ -1745,15 +1745,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3993872549958265, 0.11349301056276107, 28.827409677296057, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190725901810652, 0.0965714205905218, 28.86485898472963, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20628134750954227, 0.06153371422180064, 28.96129649640371, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8009951821180091, 0.11211107153624514, 29.163372679684393, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7047247617240832, 0.11241709838643885, 29.721144039143834, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.639580155105511, 0.11231459769688175, 28.847830758010726, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5360518654185927, 0.11316408595956245, 29.031426060734873, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8382324136518123, 0.09052124362178969, 34.17575733889105, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7247204975998042, 0.1711086349377725, 30.220068005612273, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.693500093851958, 0.19693277081822252, 29.438322823817135, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5360592970608742, 0.15992397276022768, 29.408567323306823, 1.0), 0.536),
+    }, // spectrum
   ),
   mediumAquamarine(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7766862341637286, 0.10984527016563254, 168.82436530659578, 1.0), 0.7766862341637286), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.984753496249433, 0.012692256504619458, 172.37759733961937, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9691888544331323, 0.030736620823237668, 168.3851452240423, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9215393846988316, 0.04348000669077175, 168.89465210649303, 1.0), 0.9200000000000002),
@@ -1767,15 +1767,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39953226841430517, 0.07997723407711689, 168.99717931578928, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.319949824256964, 0.06413165511488378, 168.8801147664659, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20512897651227652, 0.04093111711503461, 169.28158126600755, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8019324564076503, 0.1575806556932519, 168.63240177770626, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.703876176112427, 0.14118761193132637, 168.81739983025835, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6413563276867205, 0.129214049175978, 168.43421479320526, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8806886763792621, 0.1767248328544178, 168.78207177569394, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8004417711928377, 0.16019005215677837, 169.01933698261394, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207074212883604, 0.14434396099783217, 168.95136647553562, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5359615225562072, 0.10784733250302439, 168.54085057729452, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3834532780297551, 0.26570670901282945, 264.05202063805507, 1.0), 0.3834532780297551), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677794722127228, 0.015348596001067919, 257.1960937586472, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9172962347192875, 0.039981519260362634, 258.8100000364666, 1.0), 0.9200000000000002),
@@ -1789,15 +1789,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4008749556439136, 0.2653610828747262, 264.1785049145219, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190118513800499, 0.2210532391372736, 264.05202063805507, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20810513009167086, 0.14420252065508188, 264.05202063805507, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6931042084337469, 0.1607887332157638, 262.27884728503614, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6279940890882765, 0.19970461754064947, 262.74684631243076, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5322403224264394, 0.25988613456045195, 263.9390541796598, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8766198092850614, 0.06053524653016103, 259.22133404342696, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7115326932652355, 0.15021855842106777, 261.6048162028409, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5182028995978825, 0.26906691198805954, 263.86403424820367, 1.0), 0.536),
+    }, // spectrum
   ),
   mediumOrchid(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6255795475614098, 0.2024381869275422, 319.2262681944153, 1.0), 0.6255795475614098), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.969324144298343, 0.02707133338085392, 325.7838803793865, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9194211964868172, 0.07050545039993306, 324.63617487913984, 1.0), 0.9200000000000002),
@@ -1811,15 +1811,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3995115278751309, 0.1910745127178475, 319.11452314886293, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190675206659515, 0.15279126522963907, 318.90616384280287, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20581330817519733, 0.09937298683478087, 318.8239785931434, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7948969864195938, 0.18439998863854662, 323.4807160189839, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6954889289924588, 0.28102130213890464, 322.71426766915795, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6407310361011125, 0.2984983617750543, 319.25669862292455, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8777590959703433, 0.1067609716264529, 323.8411566564825, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7948969864195938, 0.18439998863854662, 323.4807160189839, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7125396347643754, 0.26385904242189484, 322.8089212415881, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.536070104736827, 0.2552158851819925, 319.29711443622415, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumPurple(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6269142490785321, 0.15803055650568995, 296.6718180716783, 1.0), 0.6269142490785321), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9834054736937803, 0.009742998103222622, 305.4082217121586, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9668225592857644, 0.019579363071652818, 305.26915080678776, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.917494137993764, 0.04744225154862003, 301.53168865818884, 1.0), 0.9200000000000002),
@@ -1833,15 +1833,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39866181051703187, 0.1586006410414949, 296.9875733347559, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32005051914586075, 0.16454527611039116, 296.501515905632, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20698666827004658, 0.1072536483925015, 296.9483117986473, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7710744814148153, 0.1507960271707985, 307.1125130975546, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6495808965874291, 0.25151315109815175, 309.31586883838474, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5984410205438288, 0.27795036852421384, 305.4383969603542, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8668907000393795, 0.08221526467382646, 305.4830895665779, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7710744814148153, 0.1507960271707985, 307.1125130975546, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6713932953622511, 0.23235878295235415, 308.95913143180854, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5363135998495416, 0.2753718622878907, 296.609529525927, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumSeaGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6840420162977946, 0.14401744072133663, 154.9990155674521, 1.0), 0.6840420162977946), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9856376827650964, 0.01727035945591362, 153.57682167320948, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.970438994107977, 0.041005896509249073, 154.10598288882755, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9212588134354186, 0.05776658647388299, 154.3339866136544, 1.0), 0.9200000000000002),
@@ -1855,15 +1855,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40100135601994336, 0.10026342783333088, 154.4269933969407, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31961401582331106, 0.07893370075503423, 155.05275235200097, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20629752945756333, 0.05175102717403894, 154.26280088230573, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8000574164280925, 0.1699586398402305, 155.0057627182522, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7056528876410701, 0.17047512085123553, 155.01021281577323, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6397039813550426, 0.15853138733637268, 154.8761438815244, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8784328041575518, 0.21680085895810441, 155.08636041428156, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8015713576318444, 0.1991319567038728, 154.75173287554705, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7203672146481344, 0.1789574856551175, 154.75206467034482, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356633510502359, 0.13306924034944853, 154.75325452792953, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumSlateBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6044728726793178, 0.19389029455395487, 285.4984562734918, 1.0), 0.6044728726793178), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9838174176249449, 0.007935771087349958, 286.25295319389693, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9676194568267492, 0.01596912331298404, 286.0975219192926, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9143145055559787, 0.04340287918238523, 286.94098868981064, 1.0), 0.9200000000000002),
@@ -1877,15 +1877,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39864115933349387, 0.19424887468298024, 285.56788124122795, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3194475393846812, 0.1792771671748747, 285.3329298832549, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2079086888861987, 0.11648384506112254, 285.3669434900216, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7812094408562973, 0.11850684872802668, 288.7983679281086, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.667508454552949, 0.1926452347488294, 291.57361296321494, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5881593421014493, 0.24998160436779754, 293.31954030996565, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8698808160897952, 0.06745146398683788, 287.7133480552286, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7812094408562973, 0.11850684872802668, 288.7983679281086, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6876662604509102, 0.17852463940678795, 290.89110516567285, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5199344237953291, 0.2860357811210446, 287.4150806334655, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumSpringGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8668058515648981, 0.20674480726093405, 156.90498234593176, 1.0), 0.8668058515648981), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.983760699319935, 0.023735652486313725, 159.16910174722878, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.964129708766128, 0.05456088453152048, 157.39633919021327, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9202485619868854, 0.08280799821159986, 157.1691860221408, 1.0), 0.9200000000000002),
@@ -1899,15 +1899,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3985998602776111, 0.09575490327161297, 156.51298182302463, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3200773107385018, 0.07675155019427998, 156.61216515630926, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20680905812382558, 0.04931706378056789, 156.91579123370516, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.802848796913617, 0.1930607684896855, 156.4584671454643, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7051047226093284, 0.1689436606538658, 156.6553830286832, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6406724752870911, 0.15394367345888596, 156.50024204906467, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8796934181474065, 0.21086942539719258, 156.6310011698133, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.802848796913617, 0.1930607684896855, 156.4584671454643, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.72149107323654, 0.17361253639819804, 156.42232174825, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5364693504269974, 0.12923173741614993, 156.36330215106244, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumTurquoise(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7868021040252757, 0.11622198103670235, 191.55816271576384, 1.0), 0.7868021040252757), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9844236797946305, 0.013665390388613955, 196.93433033667435, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9703419477156215, 0.029184577790194916, 191.4518889365675, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9221990970885685, 0.04737940065145839, 191.45442627307207, 1.0), 0.9200000000000002),
@@ -1921,15 +1921,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40948553735590326, 0.07029738326344957, 192.03470357972503, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3285876245523875, 0.05653901384181563, 191.17722799630073, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2123227463609376, 0.03648495678724349, 191.66488610212429, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8188988523461758, 0.14084658911552103, 191.32637611783233, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7214458061329183, 0.12383988641772796, 192.07458370501558, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6576909607511049, 0.11322414714644191, 190.99924283489733, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.881987442089601, 0.10756342239825462, 190.98520133091984, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8188988523461758, 0.14084658911552103, 191.32637611783233, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7381504019222812, 0.12689751358079884, 191.50104000439393, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5507911609585793, 0.09481947339248438, 191.00453165268726, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   mediumVioletRed(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5533669698245631, 0.22165271506781026, 349.68684313646577, 1.0), 0.5533669698245631), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9834359272167388, 0.00998959769964396, 345.4078498889763, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9669955144879679, 0.02012221220521732, 345.67936762074135, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9148945610348154, 0.05463737463888397, 345.377059879425, 1.0), 0.9200000000000002),
@@ -1943,15 +1943,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40422299999926986, 0.16855274761011219, 350.1661823666702, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3225022576404344, 0.1346161957145718, 349.87237683868375, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20880293524850374, 0.08692069871621087, 350.6482004012883, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7935167597121866, 0.14526927441902926, 348.0127823267714, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7042098204772005, 0.22390751834938333, 349.5770049100585, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.640630440627145, 0.24159738555511873, 349.80102267939174, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.874194741143703, 0.08314625986990501, 346.19724137840365, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7935167597121866, 0.14526927441902926, 348.0127823267714, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7194716021156214, 0.21138397187750751, 349.46390602818104, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5426508777846537, 0.22625108995322382, 350.19550699381443, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   midnightBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2881188675735707, 0.14362591350384085, 272.7646515962192, 1.0), 0.2881188675735707), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9673078862088067, 0.015320946639349829, 269.9855753629956, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.91619138790218, 0.040051415538580284, 268.52907256499975, 1.0), 0.9200000000000002),
@@ -1965,15 +1965,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39841283412010536, 0.14398003399655643, 272.63226657687983, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3197760194273862, 0.15822755184702433, 272.52681653623625, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2079973361296733, 0.13133672773744756, 272.449643649234, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7892028766296139, 0.10607553739367322, 270.24889935981116, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6943993928096964, 0.16015628953827055, 272.5400457515218, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6404350440836736, 0.18207413267900535, 272.5603884612578, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5359037120541645, 0.18232222280681465, 272.5479395198457, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8747522245846416, 0.060852735274297014, 268.73021453585363, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7892028766296139, 0.10607553739367322, 270.24889935981116, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7015224065220684, 0.15588059260103979, 272.1230808699064, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.49239602792575626, 0.28895395371835836, 275.20027378282845, 1.0), 0.536),
+    }, // spectrum
   ),
   mintCream(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9911719924458184, 0.012371282556575457, 164.81261467712142, 1.0), 0.9911719924458184), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9843451710953315, 0.0010630478648143418, 197.138860718589, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.970312434654746, 0.004126354027291421, 157.17809275697815, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9213084862121623, 0.005052110289532121, 164.99908808909117, 1.0), 0.9200000000000002),
@@ -1987,11 +1987,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4004862059989091, 0.012325022371361965, 164.31089120590843, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190842899768558, 0.014119026449839532, 166.83007043977796, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20729128029457056, 0.015435470021352333, 165.85257352124714, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   mistyRose(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9400116805639774, 0.030076372142673398, 25.281231656482582, 1.0), 0.9400116805639774), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851812353297891, 0.00427004925128575, 17.230061989675512, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700782051549403, 0.008724273504059616, 26.01754195408676, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9212142905733585, 0.012117105811072008, 23.71214260482614, 1.0), 0.9200000000000002),
@@ -2005,11 +2005,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39855674935617136, 0.03100258138610072, 24.510872559056292, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31878961465787015, 0.033096225666127285, 24.89767464471872, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20576965930534258, 0.03720741261429441, 23.550788014983485, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   moccasin(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.929622109795321, 0.06753757094401582, 81.37879703325093, 1.0), 0.929622109795321), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9857522478210199, 0.008549890028505217, 84.57230722594501, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9698628267063035, 0.019213481153347978, 80.11967512613057, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9217060103302518, 0.027532698415448077, 83.53580189105006, 1.0), 0.9200000000000002),
@@ -2023,11 +2023,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3986151831854089, 0.0675544619100429, 80.66746181818813, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31806430393458285, 0.06653607850657008, 77.03154135774358, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2065646263041843, 0.04364295375407176, 74.66653057985526, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   navajoWhite(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9164021887532388, 0.07300610141176646, 77.4356216675274, 1.0), 0.9164021887532388), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9865240278405308, 0.009013893845359023, 78.28260040772184, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9703967845846226, 0.020871632565175588, 79.09641472851929, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9211216596453233, 0.02902521725691661, 77.53968916528395, 1.0), 0.9200000000000002),
@@ -2041,11 +2041,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3995673552842271, 0.07327160364308306, 78.11280922003762, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32012881227654383, 0.06857359842998305, 71.93341994420503, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20818380262201655, 0.04440610802045742, 72.7231882147633, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   navy(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.27114983340007787, 0.18788815746287876, 264.05202063805507, 1.0), 0.27114983340007787), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677794722127228, 0.015348596001067919, 257.1960937586472, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9172962347192875, 0.039981519260362634, 258.8100000364666, 1.0), 0.9200000000000002),
@@ -2059,15 +2059,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4001686887486543, 0.18702350831397838, 263.9589619423645, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3204778834596107, 0.18771931188221777, 264.0403589157477, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20810513009167086, 0.14420252065508188, 264.05202063805507, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6931042084337469, 0.1607887332157638, 262.27884728503614, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6398846553065173, 0.1886834729164842, 264.2558000668193, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5353337484798286, 0.18744450850977404, 264.1735305187221, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8766198092850614, 0.06053524653016103, 259.22133404342696, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944364352518001, 0.10391996320099539, 260.1955233416916, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7115326932652355, 0.15021855842106777, 261.6048162028409, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5182028995978825, 0.26906691198805954, 263.86403424820367, 1.0), 0.536),
+    }, // spectrum
   ),
   oldLace(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9723414432592796, 0.02155931322387556, 83.26433462863797, 1.0), 0.9723414432592796), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9853101926811423, 0.002855589825955532, 84.55883845754929, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.970302330632843, 0.006967845723795443, 88.6424276118896, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9225692633122125, 0.00869049544264519, 84.57382566682013, 1.0), 0.9200000000000002),
@@ -2081,11 +2081,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39983532044825304, 0.02247079566187507, 86.15523604850712, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3194060737031432, 0.0235028643197488, 86.08669771879374, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2049448458117091, 0.02570584406802933, 82.01649632312434, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   olive(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5806645742707471, 0.12657628385834221, 109.76923207652123, 1.0), 0.5806645742707471), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851002796631593, 0.014449259176358567, 106.66187175046848, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9702929167327903, 0.03667719677270045, 110.39385524051329, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9225275368789643, 0.05127366178143394, 109.77409880703561, 1.0), 0.9200000000000002),
@@ -2099,15 +2099,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4016442145005503, 0.08659239572725164, 107.98325085766191, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3205901201119561, 0.06888141956280214, 107.39000925334375, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2077868343610953, 0.04473157946448698, 107.72950955517696, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8001560904421772, 0.17383553073247876, 109.75959973125119, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7059303076908625, 0.1534531698127015, 109.33321345451847, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6438126125342571, 0.1394733780647902, 108.78595405295788, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8868829506291577, 0.19173612410240273, 108.44756571272873, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8065163564133806, 0.17418511129199257, 108.27873953557166, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7263058652884481, 0.15706804517409625, 108.49741017872122, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5396173848015824, 0.11672595154415924, 108.54048542588775, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   oliveDrab(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5994838408951874, 0.13738435092056225, 126.32247662228322, 1.0), 0.5994838408951874), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9862739053588798, 0.016963368446257888, 128.653430368861, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.968766947630884, 0.03887683621158335, 126.09078572433958, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9202805787554271, 0.054723813134210916, 126.65483864563178, 1.0), 0.9200000000000002),
@@ -2121,15 +2121,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4001947836255778, 0.10644357034043339, 129.1989770204997, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3215093708449629, 0.08547070102866745, 129.1634151199595, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2063727351393639, 0.05517284845904182, 129.54922420116213, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7999243070944717, 0.19824156230075285, 126.3492645537068, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7065176817906739, 0.18346651652577725, 127.49903445176658, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6423691956998668, 0.1693008036386264, 128.56244031826094, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8840867687959142, 0.23028491659064923, 127.72311317513741, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8046746330311082, 0.21437299821951414, 129.30991068039663, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7250072609119051, 0.19349698268210652, 129.4330275929657, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5380606715423044, 0.14312299925623118, 129.20375517262264, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   orange(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7926884311109178, 0.1710257304771159, 70.66991986762655, 1.0), 0.7926884311109178), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9813000830158143, 0.017508938735883092, 81.33277291791697, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9595492134874203, 0.0412437797787484, 83.87602103503376, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9178309533239839, 0.06575106763977086, 73.53500080240026, 1.0), 0.9200000000000002),
@@ -2143,15 +2143,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39997029509105925, 0.08773908568785413, 68.06052890831708, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31874947426152506, 0.07061324425597787, 66.66700550532683, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2073810152566395, 0.04546621666574815, 68.14370990814538, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7926884311109178, 0.1710257304771159, 70.66991986762655, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.706103850911958, 0.15566962482384183, 67.34041409469852, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6415642867043044, 0.14123498405808324, 67.54784212571433, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8327566080197438, 0.1715724945174046, 82.05752093514565, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7926884311109178, 0.1710257304771159, 70.66991986762655, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7206345242971287, 0.1587772342685616, 67.4260229124695, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5366921614941325, 0.11814706201848038, 67.54930123404411, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   orangeRed(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6601994842591041, 0.22935607863610208, 35.4025138525334, 1.0), 0.6601994842591041), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9787531215715451, 0.011768004358892525, 51.32371419344737, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9555319621355816, 0.024701919655842244, 49.749247987007884, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8928570727374423, 0.06044909048838945, 45.36565284117436, 1.0), 0.9200000000000002),
@@ -2165,15 +2165,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3991811048293208, 0.1123145252541676, 35.00347534166563, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31837839203248225, 0.0897123147899721, 35.44142212526351, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2069387848955919, 0.05848904670878616, 35.250741540366434, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.757905084771284, 0.14914744288126655, 38.92909355408742, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7046234804718717, 0.1852060134464047, 35.40958838242344, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6402026662091282, 0.17836382417629462, 35.62016594567929, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8230912976406153, 0.10506048830795843, 43.84448761424463, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.728799584775938, 0.17267257874484224, 39.68053346176997, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7043265587405698, 0.19056746429685292, 36.151439487363604, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356724998637629, 0.14946507283099933, 35.3100574721345, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   orchid(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7021317818471139, 0.18125822848743564, 328.70563251196756, 1.0), 0.7021317818471139), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9187292475952596, 0.07157472919188948, 327.6174715671605, 1.0), 0.9200000000000002),
@@ -2187,15 +2187,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39960338175984383, 0.18172405021737922, 328.77988560397023, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32051198244841744, 0.1473080656730022, 328.36341792345144, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20772289920418655, 0.09499673843326265, 329.34417762547906, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8004550570616812, 0.18188117277099217, 328.7844816092933, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7047381148431164, 0.2691744880632752, 328.7275639404242, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.641239730327274, 0.27110318118327037, 328.70053313369056, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8797613008442586, 0.10881465097204433, 327.9842433382593, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8004550570616812, 0.18188117277099217, 328.7844816092933, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7211914218472819, 0.2540253925736437, 328.86379543123996, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5373865057448829, 0.24661063542045528, 328.6615356760633, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   paleGoldenrod(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9210476450702686, 0.07980643614946868, 103.18328533937529, 1.0), 0.9210476450702686), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858990184929186, 0.010520011536813676, 106.59094168586647, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9693538104107805, 0.022382157910028663, 104.072290004898, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9201275530592989, 0.03189265427798475, 103.1119644056674, 1.0), 0.9200000000000002),
@@ -2209,11 +2209,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39906540122096673, 0.08031041205788557, 103.78587612596127, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3198261433370663, 0.06642305272951511, 99.67954375520173, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20863657052049886, 0.04323645744390755, 98.96727464455779, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   paleGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9035428356613487, 0.16242246254369325, 144.08571263031973, 1.0), 0.9035428356613487), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.985561365434468, 0.01953814587542543, 143.04163626946942, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700233120473141, 0.04646736184630793, 144.23943077945543, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.921423021506861, 0.06493295910426089, 143.67295247021218, 1.0), 0.9200000000000002),
@@ -2227,15 +2227,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39802800206073996, 0.11472772356800974, 144.01498739635343, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3195827887733912, 0.09204137012350341, 144.07056455579848, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20639766927654873, 0.0598100929358997, 143.83069750361918, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8016271442413433, 0.19277815469787282, 144.08425198706374, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7047907607140705, 0.19276587335833595, 144.00757514076423, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6399399254516153, 0.1834594743627212, 144.15402027157165, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8806106891485772, 0.23908824058816366, 144.11468512653587, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8019797727314999, 0.23033997876556964, 144.03979063115418, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207830670963951, 0.20665389268501483, 144.09805207576778, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.535900299525135, 0.15371628461947956, 144.1485660875188, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   paleTurquoise(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9063425240329268, 0.06414050965451015, 196.0772347600075, 1.0), 0.9063425240329268), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858249524539864, 0.007397986865259757, 197.0363041767551, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9695947319242378, 0.017861500849027927, 196.86246183396779, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.921500356944987, 0.0263619236567616, 193.77349565139923, 1.0), 0.9200000000000002),
@@ -2249,11 +2249,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39936993554804867, 0.06421043658935274, 196.39193524186464, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32640063716512147, 0.05558022493997297, 196.60123663768906, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21328451494953896, 0.03628003756979183, 197.89309636452745, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   paleVioletRed(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6779228551800194, 0.13821665229970967, 0.6808876701241835, 1.0), 0.6779228551800194), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.983154825509715, 0.009382126166377928, 352.3539237679999, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9661449458001277, 0.018433555137919312, 356.4200098506457, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.91438561819342, 0.04859838901916223, 357.07532900709936, 1.0), 0.9200000000000002),
@@ -2267,15 +2267,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39933004643730713, 0.138790151725083, 1.0044403789049474, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32085101252985865, 0.1297830036248364, 1.0583629459539516, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20748587123561343, 0.08384269004861061, 1.5707585999355587, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7921312502159354, 0.13140892035892984, 359.1484163149097, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7038487449807688, 0.20499776037040107, 0.5669142864366976, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.640880252482449, 0.22343736182356488, 0.7308391216804005, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8723461941411833, 0.07512815880667985, 357.6229954395572, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7921312502159354, 0.13140892035892984, 359.1484163149097, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7177130333274137, 0.19241534223582135, 0.4076218593858773, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.540214202158026, 0.21832808069187784, 1.4910502670678503, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   papayaWhip(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9580799082180703, 0.038258684277591486, 80.03221201017685, 1.0), 0.9580799082180703), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858000056857987, 0.004512947713326356, 78.29838472686534, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9690904886084143, 0.010736677130758626, 76.59905498295011, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.920824179718932, 0.014913600166215362, 80.70572446365796, 1.0), 0.9200000000000002),
@@ -2289,11 +2289,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979338923871544, 0.0373655012046405, 79.30672709669628, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3186608060261752, 0.042718994779949, 79.76633386155211, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20496539907878605, 0.04293369137047108, 76.68978769252186, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   peachPuff(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9112528699193992, 0.05999956128085417, 63.69872807076867, 1.0), 0.9112528699193992), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9848556141631482, 0.007549207338251188, 61.45552289622669, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9695004918502685, 0.01611507822774905, 64.67477346716063, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.921262165316852, 0.023994617919365895, 63.480179931345205, 1.0), 0.9200000000000002),
@@ -2307,11 +2307,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3986439609009255, 0.05997001454911856, 63.67873274752876, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3194017202804816, 0.06632053827312934, 62.83955454441215, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20671637776192528, 0.04681594572190148, 63.84465062051337, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   peru(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6781925733062264, 0.12274871125790536, 62.181583611829986, 1.0), 0.6781925733062264), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9823532337313139, 0.012985025035976367, 71.3335340244242, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9622185798559822, 0.02879886690087485, 72.48096185059754, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9204753739212174, 0.04954625170119001, 61.23884693799325, 1.0), 0.9200000000000002),
@@ -2325,15 +2325,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39919023235699985, 0.08767106240556381, 62.57534444657981, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3184496634485036, 0.07002036915360471, 62.51436573486964, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20671637776192528, 0.04681594572190148, 63.84465062051337, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7980147375480956, 0.14737035425074832, 62.93435850849425, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7033217352233142, 0.14925528453514278, 61.960342263303914, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.640184030971802, 0.14171867373460345, 61.696451523907285, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8243702975953991, 0.16323849047999242, 77.79312192893167, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7847136354847782, 0.16653897625998887, 66.29805482037722, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7193846358668267, 0.15850113833631516, 62.08003919511055, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356294573852834, 0.11829965067476396, 61.951981018670175, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   pink(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8677384452944413, 0.07354199863627701, 7.0855142733955985, 1.0), 0.8677384452944413), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9848008689143544, 0.007586992420299802, 7.280635840415959, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674959832193425, 0.016401672645174937, 8.162516636818049, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9207608521687383, 0.030249473355378524, 7.54140785955511, 1.0), 0.9200000000000002),
@@ -2347,11 +2347,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3992489128130634, 0.07493404883087745, 7.578611073813361, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31894743031629386, 0.08002669604661033, 7.593731122437128, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2076270851046606, 0.08065036277533737, 7.426478878496042, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   plum(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7832835108944401, 0.10776275469784043, 326.54453537406664, 1.0), 0.7832835108944401), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9222260417497259, 0.042818217291391, 325.9181796489954, 1.0), 0.9200000000000002),
@@ -2365,15 +2365,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39986857226792716, 0.10907573531488882, 326.69426228014544, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3198790881070637, 0.11987600914963736, 326.5633234621278, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2073002002047787, 0.09622593282771308, 326.41925556385297, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8003224882081569, 0.18511223953432024, 326.47179903933915, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7051453935897787, 0.20025758377941397, 326.7921594238158, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6404928819492943, 0.2008110289965592, 326.5991714533846, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.53579023005191, 0.20053452946659198, 326.4911663149272, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8808402294754357, 0.11172230356252077, 326.4736475389536, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8003224882081569, 0.18511223953432024, 326.47179903933915, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7211971573840451, 0.2596120697130419, 326.5724855973325, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5373712741898328, 0.24922345086110004, 326.58904656127186, 1.0), 0.536),
+    }, // spectrum
   ),
   powderBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8750831882547006, 0.050204131179762926, 205.73087017997483, 1.0), 0.8750831882547006), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9846068128184369, 0.005473572335566989, 211.03912231005955, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.969758317026484, 0.013790378266825816, 202.45784109901575, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205258206515685, 0.020355715561583804, 204.4189166964745, 1.0), 0.9200000000000002),
@@ -2387,11 +2387,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3987083085995014, 0.05010571656682234, 207.00105589030403, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3182415297442213, 0.05446348207306696, 206.1521228382502, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21648489308607338, 0.038413703131880854, 215.84199771385093, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   purple(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4209136612058102, 0.19345291484554145, 328.36341792345144, 1.0), 0.4209136612058102), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9190580614178037, 0.07256175640454189, 326.87698970268474, 1.0), 0.9200000000000002),
@@ -2405,15 +2405,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4018369194878235, 0.1846851992039824, 328.36341792345144, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32051198244841744, 0.1473080656730022, 328.36341792345144, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20851148423838586, 0.09583237162968353, 328.36341792345144, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7057798089721248, 0.19584362437654262, 328.393287651141, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6404814800880922, 0.19565020984070214, 328.5906283488084, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5359073029504786, 0.19659638181612107, 328.26081113624167, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8797613008442586, 0.10881465097204433, 327.9842433382593, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8008799097295273, 0.18276400370605778, 328.44911542788213, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7207543483244313, 0.25598710264957203, 328.6127624656516, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5380120862083138, 0.24727162810768896, 328.3634179234514, 1.0), 0.536),
+    }, // spectrum
   ),
   red(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6279553606145516, 0.2576833077361567, 29.233885192342633, 1.0), 0.6279553606145516), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9792947779822472, 0.010493725916716937, 39.44095530176489, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9587638202933412, 0.021236633055483338, 39.38228012380154, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8926687800082846, 0.05744733148445578, 35.62297715246606, 1.0), 0.9200000000000002),
@@ -2427,15 +2427,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39860503347545895, 0.11964316629757964, 28.89208371014751, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3190725901810652, 0.0965714205905218, 28.86485898472963, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20628134750954227, 0.06153371422180064, 28.96129649640371, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7540327029142337, 0.14835922637371982, 30.81496289453165, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7043625769966667, 0.18767006437460118, 29.399581381760644, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6409938558502533, 0.18735408990648403, 29.329609170136113, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8382324136518123, 0.09052124362178969, 34.17575733889105, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7247204975998042, 0.1711086349377725, 30.220068005612273, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.693500093851958, 0.19693277081822252, 29.438322823817135, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5360592970608742, 0.15992397276022768, 29.408567323306823, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   rosyBrown(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6927437241427709, 0.054795623862900975, 18.565295767570312, 1.0), 0.6927437241427709), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9864531984097374, 0.006566536223695576, 28.8325814910513, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9691343567409304, 0.015135202472972798, 17.41803279852659, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9197894164469484, 0.022033511120409098, 17.559973807726873, 1.0), 0.9200000000000002),
@@ -2449,11 +2449,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3992394803071541, 0.055383518539115634, 18.170406383642895, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3193846010270325, 0.06029255070214304, 19.46343086720752, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20640228171736216, 0.06494020549838038, 19.12387178361014, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   royalBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.559848184850776, 0.18823352706423252, 266.39959456769907, 1.0), 0.559848184850776), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9842545699955739, 0.007381584240541731, 260.7315198687496, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9677794722127228, 0.015348596001067919, 257.1960937586472, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.918005715606552, 0.03949422663669479, 260.1472991155231, 1.0), 0.9200000000000002),
@@ -2467,15 +2467,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3988230052677637, 0.18960702358083487, 266.32677192106297, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.319962787748642, 0.20810678319370848, 266.25843931374396, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20683127131494639, 0.14044684510619682, 266.1300304887958, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7921599207884449, 0.10461571389045315, 263.1969967591783, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6915119305150229, 0.16130127032566496, 264.57316724705663, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6232819417050726, 0.2021160710505511, 265.4330610967686, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5220346974900484, 0.26622411302890936, 266.44164975046436, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8752820080334152, 0.06091618215801643, 261.4914808219732, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7921599207884449, 0.10461571389045315, 263.1969967591783, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7074348731511171, 0.1520710889985527, 264.2463021908143, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5128171301274291, 0.2722634427009173, 266.5516263486049, 1.0), 0.536),
+    }, // spectrum
   ),
   saddleBrown(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.47078351340376934, 0.11214248977022488, 50.845224272101554, 1.0), 0.47078351340376934), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9828878129357036, 0.010952813362848562, 63.36430619169307, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9632302446037706, 0.024691238048028228, 65.58714780061135, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9211228591643813, 0.0449706062368964, 49.641152693763054, 1.0), 0.9200000000000002),
@@ -2489,15 +2489,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3990722616647118, 0.09599906362450672, 50.04531348454923, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3189164639523073, 0.07580155625557226, 50.668360308100304, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2057948823663566, 0.05109511348244494, 50.81617479831737, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8013007172957384, 0.11212790438671748, 51.282353887740285, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7032132478630855, 0.11197638352940271, 50.43105032576638, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6405057984621203, 0.11241076436930413, 51.10709862790093, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5364506516185479, 0.1120159567638632, 50.69377084922698, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.800140723005379, 0.15552358155676702, 67.47946962484112, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7637086444734456, 0.16548901663640805, 57.07939117233913, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7194604672500312, 0.17116359851641752, 50.669977747211504, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5367337759636791, 0.12741605711445375, 51.04374129263255, 1.0), 0.536),
+    }, // spectrum
   ),
   salmon(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7350023453730119, 0.15150821436226394, 28.060457337979532, 1.0), 0.7350023453730119), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9795676209377979, 0.010053932766230785, 32.515831323248925, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9590303001564425, 0.02076295774566272, 36.02935303656566, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9089525929733908, 0.04717140783088263, 29.373139623732637, 1.0), 0.9200000000000002),
@@ -2511,15 +2511,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39932638112786484, 0.12164966476063341, 27.85672252154936, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3192247948144936, 0.09637499990664676, 28.15342835429409, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20683739183788108, 0.06422477254071654, 27.747141663090083, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.730066057023058, 0.16647654622157007, 28.709136947063286, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6877381287219938, 0.2016531851265134, 28.053692366846946, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6412818754908618, 0.19418942497431654, 28.175466703486453, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8391344188438145, 0.08916054440362972, 30.983094852169287, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.730066057023058, 0.16647654622157007, 28.709136947063286, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6914329457869897, 0.19847767649716527, 28.273966776060544, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356888452983424, 0.16258077211083427, 27.967142639326628, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   sandyBrown(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7839973279160398, 0.12691301270433128, 59.7097721392312, 1.0), 0.7839973279160398), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9823532337313139, 0.012985025035976367, 71.3335340244242, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9622185798559822, 0.02879886690087485, 72.48096185059754, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9213601862557155, 0.050365722417546076, 60.351982553494395, 1.0), 0.9200000000000002),
@@ -2533,15 +2533,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39900128037512517, 0.08724250952313169, 59.288266240628225, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31813154735601373, 0.07036561082057696, 58.960062052545425, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2069383327923462, 0.04538446599803958, 61.81136491842695, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7839600642797943, 0.16052008143202656, 63.42461843825972, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7049392748346144, 0.1536348878200226, 59.59601239539189, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6389142012123175, 0.13927054818150716, 59.61867010461911, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8214515631238134, 0.15721995430208305, 75.19325309699117, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7836027159546183, 0.1627586940494364, 64.29000852671159, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7208069472289981, 0.1571196309239078, 59.376637040225425, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5355807879153175, 0.11721792639290357, 59.26065163296344, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   seaGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5685263863566714, 0.11871366622455555, 154.94914070338635, 1.0), 0.5685263863566714), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9846591724204796, 0.013961499263136666, 155.59670037742237, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.968959626920772, 0.03366910622793303, 154.86285874655118, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.921129651416827, 0.04801157730238162, 154.60831846232117, 1.0), 0.9200000000000002),
@@ -2555,15 +2555,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40100135601994336, 0.10026342783333088, 154.4269933969407, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3193922989403578, 0.08002588000088838, 154.32233583055148, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20629752945756333, 0.05175102717403894, 154.26280088230573, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8018544457944313, 0.1421899759038717, 154.78592911383558, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7041536086744069, 0.14104455071678035, 155.0340149948545, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6410705581397319, 0.14182451455237882, 155.00956793997864, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8782585371306136, 0.21764934189624932, 154.8762880464578, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8015713576318444, 0.1991319567038728, 154.75173287554705, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7203672146481344, 0.1789574856551175, 154.75206467034482, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5356633510502359, 0.13306924034944853, 154.75325452792953, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   seaShell(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9760181036235535, 0.014252869568506193, 57.592560718121035, 1.0), 0.9760181036235535), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9855868592746073, 0.0017055110328494608, 67.8027604782416, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9689004741947422, 0.004189672253105362, 56.37493776834228, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9211470437081463, 0.005954842937742959, 59.646419308225155, 1.0), 0.9200000000000002),
@@ -2577,11 +2577,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.4002227795581152, 0.014713210719305389, 59.223487552629855, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3197430175087419, 0.01556855953799447, 59.04928994576233, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20811019659700256, 0.017304711063987614, 58.48903434086587, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   sienna(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5264821721878745, 0.11511903497247952, 44.60442795052239, 1.0), 0.5264821721878745), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9831571038207658, 0.010037612322833891, 58.22027430754691, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9618175363635052, 0.022751989283174137, 56.96350613129118, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9194738485228231, 0.04466022965900133, 46.04950777734788, 1.0), 0.9200000000000002),
@@ -2595,15 +2595,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39900335323659075, 0.10088663034496764, 45.05799367519748, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3187816643894738, 0.08120329556968967, 44.37852440337749, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20592485919123346, 0.052378433076095215, 45.79368585328785, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7944522598860894, 0.12710774801683883, 45.988103731828424, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7033542544279875, 0.13339198442010733, 44.43332566863221, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.641649298222284, 0.13388822386339586, 44.84381987144793, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5366787815483004, 0.13427131420069854, 44.61704016988369, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7834419252859607, 0.15387231718347097, 59.885213147311504, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7498119059812841, 0.1675249401392546, 50.96658020052641, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7206359440601234, 0.1836463547306702, 44.274429252661484, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5365053481433633, 0.13674774984745644, 44.36537953056137, 1.0), 0.536),
+    }, // spectrum
   ),
   silver(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8077962325723751, 3.010979328285864e-8, 89.87556309411288, 1.0), 0.8077962325723751), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -2617,11 +2617,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   skyBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8148172445800997, 0.08191572880379631, 225.75365302002604, 1.0), 0.8148172445800997), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9863904766880814, 0.00788482194677823, 216.62309890723787, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9682103703194945, 0.015955308169296405, 226.96584391949497, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9210165474663446, 0.03283348316019693, 226.32167342838267, 1.0), 0.9200000000000002),
@@ -2635,11 +2635,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40244674909680733, 0.0780558374840353, 227.45797180809393, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3298600188169244, 0.07152599891280989, 236.5344718523041, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.22583054949864237, 0.061638416372332645, 248.57054145688699, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   slateBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5435671646959596, 0.1712262152725772, 285.5413370993057, 1.0), 0.5435671646959596), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9838174176249449, 0.007935771087349958, 286.25295319389693, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9676194568267492, 0.01596912331298404, 286.0975219192926, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9143145055559787, 0.04340287918238523, 286.94098868981064, 1.0), 0.9200000000000002),
@@ -2653,15 +2653,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39983989966462496, 0.17081144577830015, 285.549817552174, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3194475393846812, 0.1792771671748747, 285.3329298832549, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2079086888861987, 0.11648384506112254, 285.3669434900216, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7812094408562973, 0.11850684872802668, 288.7983679281086, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.667508454552949, 0.1926452347488294, 291.57361296321494, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5932036418691775, 0.24453319569253806, 292.41379449021815, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8698808160897952, 0.06745146398683788, 287.7133480552286, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7812094408562973, 0.11850684872802668, 288.7983679281086, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6876662604509102, 0.17852463940678795, 290.89110516567285, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5208993853044147, 0.2859808770622363, 287.7435478903922, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   slateGray(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.592504148201719, 0.03092466058292083, 248.34825421360188, 1.0), 0.592504148201719), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9844350773940602, 0.004523851352531767, 258.32439908392655, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700523917737683, 0.009266348271120835, 242.83648471390944, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9216527658228217, 0.012142757126400379, 247.95862967528302, 1.0), 0.9200000000000002),
@@ -2675,11 +2675,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3985348846138472, 0.03188547477237739, 248.6346254030653, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3185255090013285, 0.03354545373617602, 248.92120081327255, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20735710931279133, 0.037780222824651606, 247.23187499616486, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   slateGrey(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.592504148201719, 0.03092466058292083, 248.34825421360188, 1.0), 0.592504148201719), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9844350773940602, 0.004523851352531767, 258.32439908392655, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9700523917737683, 0.009266348271120835, 242.83648471390944, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9216527658228217, 0.012142757126400379, 247.95862967528302, 1.0), 0.9200000000000002),
@@ -2693,11 +2693,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3985348846138472, 0.03188547477237739, 248.6346254030653, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3185255090013285, 0.03354545373617602, 248.92120081327255, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20735710931279133, 0.037780222824651606, 247.23187499616486, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   snow(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9889369223181962, 0.00533695596150917, 17.247516412646757, 1.0), 0.9889369223181962), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9858648577033587, 0.0010645479809507333, 17.177960981940615, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9686856022445187, 0.0021404218545513468, 17.19553490518171, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.920422420485286, 0.002168199796853318, 17.197877266305802, 1.0), 0.9200000000000002),
@@ -2711,11 +2711,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39808520980613765, 0.005393479290419548, 17.383200816448007, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.317334972305656, 0.005726496642632668, 17.459116309061084, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20495180865035534, 0.006445241537487441, 17.68966780355921, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   springGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8749298758089039, 0.23526205328647298, 151.02401984691124, 1.0), 0.8749298758089039), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9829555548679085, 0.02633786857063497, 152.39108350255898, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9635089942182964, 0.058287480736602504, 151.91633354872354, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.922231269481941, 0.09509899308114814, 150.8195340262811, 1.0), 0.9200000000000002),
@@ -2729,15 +2729,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40050195194236454, 0.10540468313491022, 151.0754923737911, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.318902527754597, 0.08464227597700798, 150.71548234742303, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2056187183837951, 0.05539135102934812, 150.94349536038993, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.800537229167993, 0.2105245524592922, 150.93172762083836, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7056634700977619, 0.18585773687386406, 150.85594408925172, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6415357226211696, 0.16890854502620795, 150.94714971648517, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8772413071035549, 0.22937473224493077, 151.18878633468344, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.800537229167993, 0.2105245524592922, 150.93172762083836, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7194613419120801, 0.18916090776477154, 150.92381839205387, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5350473076256228, 0.14010878938741866, 151.15572815699787, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   steelBlue(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5880009077665624, 0.09933884428113002, 245.73941223940804, 1.0), 0.5880009077665624), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9854593958260341, 0.00753426460267299, 241.66071260400406, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9690082969506725, 0.015417329831414603, 247.98656339843, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9201982647653054, 0.039435310192725226, 245.8994388817843, 1.0), 0.9200000000000002),
@@ -2751,11 +2751,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39958722427427423, 0.09903601067065212, 245.6337351626939, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32587504565961317, 0.10123686762076875, 253.23947837391475, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.22043694571000566, 0.10255350779180088, 262.0776236810908, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   tan(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7861866349883443, 0.06382105558060946, 74.61902764202915, 1.0), 0.7861866349883443), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9860227953550623, 0.00734978780384047, 80.72132117838608, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9681799973442796, 0.0175140459412251, 73.07820580657008, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9210615827240148, 0.02507827238351533, 75.2651095953268, 1.0), 0.9200000000000002),
@@ -2769,11 +2769,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3994603935011527, 0.06436404336202296, 74.37174717736998, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.318662694127059, 0.06785914800223401, 73.04325232967076, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2073810152566395, 0.04546621666574815, 68.14370990814538, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   teal(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5431225655432248, 0.09271003964609477, 194.7689479319638, 1.0), 0.5431225655432248), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9855918367501875, 0.011644884818248652, 190.45191281988545, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9696905541096144, 0.026073765092614384, 193.80594091017517, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9207915931101998, 0.036454394249654354, 194.41320278446761, 1.0), 0.9200000000000002),
@@ -2787,11 +2787,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.41070239303881856, 0.06997080854760408, 196.14288101706657, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3298706307062363, 0.056172507276670634, 196.57711032383017, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.21328451494953896, 0.03628003756979183, 197.89309636452745, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   thistle(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8332929169348667, 0.04390796067743432, 325.9630767683555, 1.0), 0.8332929169348667), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9852514286682484, 0.005052585986952234, 325.61510116668643, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9685507243830719, 0.011842995930941251, 325.66796608164367, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9205255562943949, 0.01713776411437985, 325.71534932350716, 1.0), 0.9200000000000002),
@@ -2805,11 +2805,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3984106510978775, 0.044123114693161165, 326.3660563287378, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31919898980746314, 0.047634024777389095, 325.089043823217, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2062673683536637, 0.05146989368872239, 325.55645817960544, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   tomato(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6962193430973758, 0.19552462409760699, 32.32144085755988, 1.0), 0.6962193430973758), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9790232782002186, 0.01107198962430598, 45.72441304353968, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9563180707504964, 0.022798370755443508, 41.410719805962415, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9006003003726598, 0.05381537528580381, 39.69371476575951, 1.0), 0.9200000000000002),
@@ -2823,15 +2823,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40030472819644447, 0.11598985738120839, 32.11317813489796, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31771034892946987, 0.0923582171536779, 31.7543994838776, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20763202812913023, 0.06061929301254529, 31.909479349445682, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7439553643077345, 0.15756426616711122, 34.73498343783064, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6961030891732605, 0.19573651894647015, 32.59256014766205, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6392233775247635, 0.18495838824430977, 32.374138276224, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8307766739847824, 0.09707124408747617, 38.74243882489333, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7211637036264257, 0.17590955416847792, 35.048996757001355, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.698670025352009, 0.19368696604805247, 32.94089238497868, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5358729272585633, 0.15565393069756087, 32.04092932546695, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   turquoise(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8223341901753838, 0.13074392152556877, 185.08896284895084, 1.0), 0.8223341901753838), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9854032228735398, 0.015933505816183347, 187.34848004786338, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9704881453436067, 0.036929733694301026, 184.09319559594297, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9212766337220594, 0.0522336873828269, 184.36727105847834, 1.0), 0.9200000000000002),
@@ -2845,15 +2845,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.400972035779807, 0.07059872200100747, 185.17894748595756, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.32040643595424984, 0.056278195613906665, 185.68208312690012, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20753351257409255, 0.036501633237490755, 185.39776692188633, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8067350093947787, 0.14251599697449835, 184.50891035776863, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7092023322064775, 0.12515532499132542, 184.715113667024, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6432679917594634, 0.11340572128491416, 184.91626548654475, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8821985050999226, 0.1409332401259736, 184.82881736491973, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8067350093947787, 0.14251599697449835, 184.50891035776863, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7259944290261404, 0.12834348036930857, 184.3706210027248, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.539134889639925, 0.0952966665941843, 184.3975866191584, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
   violet(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7618985420847295, 0.18612246697727491, 327.20962703087685, 1.0), 0.7618985420847295), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9845737155273202, 0.013480024889992347, 325.6788432455186, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9674311789401041, 0.028777403746179316, 325.7971892960592, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9193883672600446, 0.073559636314146, 326.15562212343184, 1.0), 0.9200000000000002),
@@ -2867,15 +2867,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40079679067887014, 0.18501208623283094, 327.5070576760635, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.31941463125616865, 0.14765591691307217, 327.2273721765001, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2073002002047787, 0.09622593282771308, 326.41925556385297, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8010253879179654, 0.18481725484283698, 327.1288672747348, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7053980591738245, 0.2196826066957272, 327.2952941126608, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6405522711053973, 0.21978629977502798, 327.4572349603634, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5350944727132894, 0.2195780539608472, 327.1179875994278, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8804789962096197, 0.11074601859197597, 326.96886440002277, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8010253879179654, 0.18481725484283698, 327.1288672747348, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7201407595214881, 0.2580630492269898, 327.0737699850188, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5383155637208973, 0.2489070733553151, 327.1803929059145, 1.0), 0.536),
+    }, // spectrum
   ),
   wheat(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9088333926154174, 0.06149864779306693, 83.03277524459978, 1.0), 0.9088333926154174), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9860227953550623, 0.00734978780384047, 80.72132117838608, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9693337692461012, 0.017561114887101836, 81.33226492987315, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9214033436143324, 0.02469079209243982, 83.41597024013174, 1.0), 0.9200000000000002),
@@ -2889,11 +2889,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39919366420219804, 0.061639763546321315, 82.03670367955495, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3199910080233012, 0.06581477811750147, 82.86558116261068, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2065646263041843, 0.04364295375407176, 74.66653057985526, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   white(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9999999934735462, 3.727399553519285e-8, 89.87556309590244, 1.0), 0.9999999934735462), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -2907,11 +2907,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   whiteSmoke(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.9701507662048741), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9851036453012394, 3.6718749153371556e-8, 89.87556321747567, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9701507662048741, 3.61613954525523e-8, 89.87556312754793, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9219060107593574, 3.436312067886183e-8, 89.87556320824487, 1.0), 0.9200000000000002),
@@ -2925,11 +2925,11 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3979268074531537, 1.4832322101615373e-8, 89.87556329539206, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3171360077696261, 1.1820926194355033e-8, 89.87556358927095, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.20462652962226371, 7.627248391076175e-9, 89.87556334541297, 1.0), 0.20800000000000002),
-    }, // tones
+    }, // spectrum
   ),
   yellow(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9679827203267873, 0.21100590772552355, 109.76923207652125, 1.0), 0.9679827203267873), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9852484581046407, 0.024887375415040828, 109.29445360333126, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9691366348476291, 0.05953233962744135, 109.51100976101868, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9208967818024937, 0.07873356260083275, 109.4194190336004, 1.0), 0.9200000000000002),
@@ -2943,15 +2943,15 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.39946411047425656, 0.07934696419920603, 110.46324063407462, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3195061940916224, 0.06913259970961513, 108.58683564807164, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2077868343610953, 0.04473157946448698, 107.72950955517696, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8011681037650396, 0.0793633481478611, 109.67436626147793, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7039133900772456, 0.07828527766317434, 109.09589248962301, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.6410846329821079, 0.07924470593689213, 110.14216671108515, 1.0), 0.6400000000000001),
-      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5344277855729114, 0.07882223679321652, 109.68927502384035, 1.0), 0.536),
-    }, // tones
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8868829506291577, 0.19173612410240273, 108.44756571272873, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8065163564133806, 0.17418511129199257, 108.27873953557166, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7263058652884481, 0.15706804517409625, 108.49741017872122, 1.0), 0.72),
+      RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5396173848015824, 0.11672595154415924, 108.54048542588775, 1.0), 0.536),
+    }, // spectrum
   ),
   yellowGreen(
     RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7848522813388347, 0.1837407119030342, 126.63562026612131, 1.0), 0.7848522813388347), // source
-    const {
+    {
       RayTone.shade0: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9844783295607284, 0.02224062198621079, 126.21294098952924, 1.0), 0.984),
       RayTone.shade50: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9696600829887513, 0.05127607853738645, 126.42431590070738, 1.0), 0.968),
       RayTone.shade100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.9218846642035158, 0.07386262204897336, 126.87648620156912, 1.0), 0.9200000000000002),
@@ -2965,61 +2965,63 @@ enum CssOklch implements PrismPalette {
       RayTone.shade900: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.40238776740879606, 0.10833909446001092, 130.0250441900074, 1.0), 0.4),
       RayTone.shade950: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.3207970763664773, 0.08609977594598205, 129.81369618615088, 1.0), 0.32),
       RayTone.shade1000: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.2063727351393639, 0.05517284845904182, 129.54922420116213, 1.0), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8046746330311082, 0.21437299821951414, 129.30991068039663, 1.0), 0.8),
-      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7072385776795843, 0.1893203240701848, 129.63641424724136, 1.0), 0.704),
-      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.643084528966196, 0.17204094907753814, 129.5946609724146, 1.0), 0.6400000000000001),
+      RayTone.accent100: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8829210813784488, 0.23125155185100962, 128.1196520801026, 1.0), 0.8800000000000001),
+      RayTone.accent200: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.8065124456037277, 0.21596550823861171, 129.65855506411918, 1.0), 0.8),
+      RayTone.accent400: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.7244273359079851, 0.1940103859940921, 129.66740929747755, 1.0), 0.72),
       RayTone.accent700: RayWithLuminance<RayOklch>(RayOklch.fromComponents(0.5400929842916941, 0.14488372200488767, 129.77949285771535, 1.0), 0.536),
-    }, // tones
+    }, // spectrum
   ),
 ;
 
   /// The source color with precomputed luminance
+  @override
   final RayWithLuminance<RayOklch> source;
 
   /// The complete tonal palette
-  final Map<RayTone, RayWithLuminance<RayOklch>> tones;
+  @override
+  final Map<RayTone, RayWithLuminance<RayOklch>> spectrum;
 
-  const CssOklch(this.source, this.tones);
+  const CssOklch(this.source, this.spectrum);
 
   // Direct tone access getters
   @override
-  RayWithLuminance<RayOklch>? get shade0 => tones[RayTone.shade0];
+  RayWithLuminance<RayOklch>? get shade0 => spectrum[RayTone.shade0];
   @override
-  RayWithLuminance<RayOklch>? get shade50 => tones[RayTone.shade50];
+  RayWithLuminance<RayOklch>? get shade50 => spectrum[RayTone.shade50];
   @override
-  RayWithLuminance<RayOklch>? get shade100 => tones[RayTone.shade100];
+  RayWithLuminance<RayOklch>? get shade100 => spectrum[RayTone.shade100];
   @override
-  RayWithLuminance<RayOklch>? get shade200 => tones[RayTone.shade200];
+  RayWithLuminance<RayOklch>? get shade200 => spectrum[RayTone.shade200];
   @override
-  RayWithLuminance<RayOklch>? get shade300 => tones[RayTone.shade300];
+  RayWithLuminance<RayOklch>? get shade300 => spectrum[RayTone.shade300];
   @override
-  RayWithLuminance<RayOklch>? get shade400 => tones[RayTone.shade400];
+  RayWithLuminance<RayOklch>? get shade400 => spectrum[RayTone.shade400];
   @override
-  RayWithLuminance<RayOklch>? get shade500 => tones[RayTone.shade500];
+  RayWithLuminance<RayOklch>? get shade500 => spectrum[RayTone.shade500];
   @override
-  RayWithLuminance<RayOklch>? get shade600 => tones[RayTone.shade600];
+  RayWithLuminance<RayOklch>? get shade600 => spectrum[RayTone.shade600];
   @override
-  RayWithLuminance<RayOklch>? get shade700 => tones[RayTone.shade700];
+  RayWithLuminance<RayOklch>? get shade700 => spectrum[RayTone.shade700];
   @override
-  RayWithLuminance<RayOklch>? get shade800 => tones[RayTone.shade800];
+  RayWithLuminance<RayOklch>? get shade800 => spectrum[RayTone.shade800];
   @override
-  RayWithLuminance<RayOklch>? get shade900 => tones[RayTone.shade900];
+  RayWithLuminance<RayOklch>? get shade900 => spectrum[RayTone.shade900];
   @override
-  RayWithLuminance<RayOklch>? get shade950 => tones[RayTone.shade950];
+  RayWithLuminance<RayOklch>? get shade950 => spectrum[RayTone.shade950];
   @override
-  RayWithLuminance<RayOklch>? get shade1000 => tones[RayTone.shade1000];
+  RayWithLuminance<RayOklch>? get shade1000 => spectrum[RayTone.shade1000];
   @override
-  RayWithLuminance<RayOklch>? get accent100 => tones[RayTone.accent100];
+  RayWithLuminance<RayOklch>? get accent100 => spectrum[RayTone.accent100];
   @override
-  RayWithLuminance<RayOklch>? get accent200 => tones[RayTone.accent200];
+  RayWithLuminance<RayOklch>? get accent200 => spectrum[RayTone.accent200];
   @override
-  RayWithLuminance<RayOklch>? get accent400 => tones[RayTone.accent400];
+  RayWithLuminance<RayOklch>? get accent400 => spectrum[RayTone.accent400];
   @override
-  RayWithLuminance<RayOklch>? get accent700 => tones[RayTone.accent700];
+  RayWithLuminance<RayOklch>? get accent700 => spectrum[RayTone.accent700];
 
   /// Access specific tone by RayTone enum
   @override
-  RayWithLuminance<RayOklch>? tone(RayTone tone) => tones[tone];
+  RayWithLuminance<RayOklch>? tone(RayTone tone) => spectrum[tone];
 
   /// A lighter surface variant of the primary color
   @override

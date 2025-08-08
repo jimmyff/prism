@@ -59,7 +59,7 @@ void main() {
   ];
 
   for (final color in colors) {
-    final scheme = RayScheme.fromRay(color);
+    final scheme = Spectrum.fromRay(color);
     final theme = scheme.source.isDark ? 'Dark' : 'Light';
     print('${color.toHex()} → $theme theme');
     print('  Text color: ${scheme.source.onRay.toHex()}');

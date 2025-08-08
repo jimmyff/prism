@@ -6,8 +6,8 @@ import 'package:path/path.dart' as p;
 import 'package:prism/prism.dart';
 
 // Import the generated palette enums
-import 'package:prism/palettes/rgb/spectrum.dart';
-import 'package:prism/palettes/oklch/spectrum.dart';
+import 'package:prism/palettes/rgb/rainbow.dart';
+import 'package:prism/palettes/oklch/rainbow.dart';
 import 'package:prism/palettes/rgb/css.dart';
 import 'package:prism/palettes/oklch/css.dart';
 import 'package:prism/palettes/rgb/material.dart';
@@ -27,12 +27,14 @@ import 'palette_html_generator.dart';
 void main() {
   print('Generating gallery...');
 
-  _generateGallery<SpectrumRgb, SpectrumOklch>(
-    className: 'Spectrum',
-    rgbEnum: SpectrumRgb.values,
-    oklchEnum: SpectrumOklch.values,
-    preferredEnum: SpectrumOklch.values,
-    cssClassName: 'spectrum',
+  _generateGallery<RainbowRgb, RainbowOklch>(
+    className: 'Rainbow',
+    rgbEnum: RainbowRgb.values,
+    oklchEnum: RainbowOklch.values,
+    preferredEnum: RainbowOklch.values,
+    cssClassName: 'rainbow',
+    fixedRaysRgb: RainbowRgb.fixedRays,
+    fixedRaysOklch: RainbowOklch.fixedRays,
   );
 
   _generateGallery<CssRgb, CssOklch>(
@@ -41,6 +43,8 @@ void main() {
     oklchEnum: CssOklch.values,
     preferredEnum: CssRgb.values,
     cssClassName: 'css',
+    // fixedRaysRgb: CssRgb.fixedRays,
+    // fixedRaysOklch: CssOklch.fixedRays,
   );
 
   _generateGallery<MaterialRgb, MaterialOklch>(
@@ -49,6 +53,8 @@ void main() {
     oklchEnum: MaterialOklch.values,
     preferredEnum: MaterialRgb.values,
     cssClassName: 'material',
+    fixedRaysRgb: MaterialRgb.fixedRays,
+    fixedRaysOklch: MaterialOklch.fixedRays,
   );
 
   _generateGallery<OpenColorRgb, OpenColorOklch>(
@@ -57,6 +63,8 @@ void main() {
     oklchEnum: OpenColorOklch.values,
     preferredEnum: OpenColorRgb.values,
     cssClassName: 'oc',
+    // fixedRaysRgb: OpenColorRgb.fixedRays,
+    // fixedRaysOklch: OpenColorOklch.fixedRays,
   );
 
   // _generateGallery(
@@ -97,17 +105,18 @@ void main() {
   print('Gallery generated successfully!');
 }
 
-void _generateGallery<T extends PrismPalette, Q extends PrismPalette>({
-  required String className,
-  required List<T> rgbEnum,
-  required List<Q> oklchEnum,
-  required List<PrismPalette> preferredEnum,
-  required String cssClassName,
-  Map<String, String>? aliases,
-}) {
+void _generateGallery<T extends PrismPalette, Q extends PrismPalette>(
+    {required String className,
+    required List<T> rgbEnum,
+    required List<Q> oklchEnum,
+    required List<PrismPalette> preferredEnum,
+    required String cssClassName,
+    Map<String, String>? aliases,
+    Map<String, RayWithLuminance>? fixedRaysRgb,
+    Map<String, RayWithLuminance>? fixedRaysOklch}) {
   // Convert enum values to scheme maps
-  final Map<String, RayScheme<RayWithLuminance>> schemesRgb = {};
-  final Map<String, RayScheme<RayWithLuminance>> schemesOklch = {};
+  final Map<String, Spectrum<RayWithLuminance>> schemesRgb = {};
+  final Map<String, Spectrum<RayWithLuminance>> schemesOklch = {};
 
   for (final enumValue in rgbEnum) {
     final name = (enumValue as Enum).name;
@@ -123,15 +132,25 @@ void _generateGallery<T extends PrismPalette, Q extends PrismPalette>({
   final projectRoot = scriptDir.parent.parent.parent.parent; // Go up 4 levels
   final galleryDir = p.join(projectRoot.path, 'palette_gallery');
 
+  // Add other palettes as they get fixed rays support
+  // else if (className == 'Css') {
+  //   fixedRays = CssRgb.fixedRays;
+  // } else if (className == 'Rainbow') {
+  //   fixedRays = RainbowRgb.fixedRays;
+  // } else if (className == 'OpenColor') {
+  //   fixedRays = OpenColorRgb.fixedRays;
+  // }
+
   // Generate gallery HTML and CSS
   PaletteHtmlGenerator.generateGalleryHtml(
-    className: className,
-    schemesRgb: schemesRgb,
-    schemesOklch: schemesOklch,
-    cssClassName: cssClassName,
-    aliases: aliases,
-    outputPath: galleryDir,
-  );
+      className: className,
+      schemesRgb: schemesRgb,
+      schemesOklch: schemesOklch,
+      cssClassName: cssClassName,
+      aliases: aliases,
+      outputPath: galleryDir,
+      fixedRaysRgb: fixedRaysRgb,
+      fixedRaysOklch: fixedRaysOklch);
 
   // Generate PNG image
   final imageOutputPath = p.join(galleryDir, '$className.png');
@@ -140,5 +159,7 @@ void _generateGallery<T extends PrismPalette, Q extends PrismPalette>({
     schemes: schemesOklch,
     outputPath: imageOutputPath,
     aliases: aliases,
+    fixedRaysOklch: fixedRaysOklch,
+    fixedRaysRgb: fixedRaysRgb,
   );
 }

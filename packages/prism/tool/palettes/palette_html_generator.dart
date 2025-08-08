@@ -5,17 +5,19 @@ import 'package:prism/prism.dart';
 class PaletteHtmlGenerator {
   static void generateGalleryHtml({
     required String className,
-    required Map<String, RayScheme<RayWithLuminanceBase>> schemesRgb,
-    required Map<String, RayScheme<RayWithLuminanceBase>> schemesOklch,
+    required Map<String, Spectrum<RayWithLuminance>> schemesRgb,
+    required Map<String, Spectrum<RayWithLuminance>> schemesOklch,
     required String cssClassName,
     Map<String, String>? aliases,
     required String outputPath,
+    Map<String, RayWithLuminance>? fixedRaysOklch,
+    Map<String, RayWithLuminance>? fixedRaysRgb,
   }) {
     final galleryBuffer = StringBuffer();
 
     // Generate both RGB and Oklch CSS files
-    _generateCssFiles(
-        className, cssClassName, schemesRgb, schemesOklch, outputPath);
+    _generateCssFiles(className, cssClassName, schemesRgb, schemesOklch,
+        outputPath, fixedRaysOklch);
 
     _writeHtmlHeader(galleryBuffer, className);
     _writePackageInfo(galleryBuffer);
@@ -29,6 +31,13 @@ class PaletteHtmlGenerator {
       _writeColorCard(galleryBuffer, name, scheme, aliases);
     }
 
+    // Add fixed rays as separate color cards at the end
+    if (fixedRaysOklch != null && fixedRaysOklch.isNotEmpty) {
+      for (final entry in fixedRaysOklch.entries) {
+        _writeFixedRayCard(galleryBuffer, entry.key, entry.value);
+      }
+    }
+
     galleryBuffer.writeln('</div>');
     galleryBuffer.writeln('</body>');
     galleryBuffer.writeln('</html>');
@@ -39,21 +48,22 @@ class PaletteHtmlGenerator {
   static void _generateCssFiles(
     String className,
     String cssClassName,
-    Map<String, RayScheme<RayWithLuminanceBase>> schemesRgb,
-    Map<String, RayScheme<RayWithLuminanceBase>> schemesOklch,
+    Map<String, Spectrum<RayWithLuminance>> schemesRgb,
+    Map<String, Spectrum<RayWithLuminance>> schemesOklch,
     String outputPath,
+    Map<String, RayWithLuminance>? fixedRays,
   ) {
     // Generate RGB CSS file
     final rgbCssBuffer = StringBuffer();
     _writeCssHeader(rgbCssBuffer, className, 'RGB');
-    _writeCssVariables(rgbCssBuffer, schemesRgb, 'rgb');
-    _writeCssUtilities(rgbCssBuffer, schemesRgb);
+    _writeCssVariables(rgbCssBuffer, schemesRgb, 'rgb', fixedRays);
+    _writeCssUtilities(rgbCssBuffer, schemesRgb, fixedRays);
 
     // Generate Oklch CSS file
     final oklchCssBuffer = StringBuffer();
     _writeCssHeader(oklchCssBuffer, className, 'Oklch');
-    _writeCssVariables(oklchCssBuffer, schemesOklch, 'oklch');
-    _writeCssUtilities(oklchCssBuffer, schemesOklch);
+    _writeCssVariables(oklchCssBuffer, schemesOklch, 'oklch', fixedRays);
+    _writeCssUtilities(oklchCssBuffer, schemesOklch, fixedRays);
 
     // Write CSS files
     Directory(outputPath).createSync(recursive: true);
@@ -93,8 +103,9 @@ class PaletteHtmlGenerator {
 
   static void _writeCssVariables(
     StringBuffer buffer,
-    Map<String, RayScheme<RayWithLuminanceBase>> schemes,
+    Map<String, Spectrum<RayWithLuminance>> schemes,
     String colorSpace,
+    Map<String, RayWithLuminance>? fixedRays,
   ) {
     buffer.writeln(
         '/* ==========================================================================');
@@ -109,7 +120,7 @@ class PaletteHtmlGenerator {
       final scheme = entry.value;
 
       buffer.writeln('  /* $name */');
-      for (final toneEntry in scheme.tones.entries) {
+      for (final toneEntry in scheme.spectrum.entries) {
         final toneName = toneEntry.key.name.replaceAll('shade', '');
         final colorValue = colorSpace == 'rgb'
             ? 'rgb(${toneEntry.value.toRgb8().red}, ${toneEntry.value.toRgb8().green}, ${toneEntry.value.toRgb8().blue})'
@@ -120,13 +131,29 @@ class PaletteHtmlGenerator {
       buffer.writeln('');
     }
 
+    // Add fixed rays variables if they exist
+    if (fixedRays != null && fixedRays.isNotEmpty) {
+      buffer.writeln('  /* Fixed Rays */');
+      for (final entry in fixedRays.entries) {
+        final name = entry.key.toLowerCase();
+        final ray = entry.value;
+        final colorValue = colorSpace == 'rgb'
+            ? 'rgb(${ray.toRgb8().red}, ${ray.toRgb8().green}, ${ray.toRgb8().blue})'
+            : 'oklch(${(ray.toOklch().lightness * 100).toStringAsFixed(1)}% ${ray.toOklch().chroma.toStringAsFixed(3)} ${ray.toOklch().hue.toStringAsFixed(2)})';
+
+        buffer.writeln('  --$name: $colorValue;');
+      }
+      buffer.writeln('');
+    }
+
     buffer.writeln('}');
     buffer.writeln('');
   }
 
   static void _writeCssUtilities(
     StringBuffer buffer,
-    Map<String, RayScheme<RayWithLuminanceBase>> schemes,
+    Map<String, Spectrum<RayWithLuminance>> schemes,
+    Map<String, RayWithLuminance>? fixedRays,
   ) {
     // Background utilities
     buffer.writeln(
@@ -140,10 +167,18 @@ class PaletteHtmlGenerator {
       final name = entry.key.toLowerCase();
       final scheme = entry.value;
 
-      for (final toneEntry in scheme.tones.entries) {
+      for (final toneEntry in scheme.spectrum.entries) {
         final toneName = toneEntry.key.name.replaceAll('shade', '');
         buffer.writeln(
             '.bg-$name-$toneName { background-color: var(--$name-$toneName); }');
+      }
+    }
+
+    // Fixed rays background utilities
+    if (fixedRays != null && fixedRays.isNotEmpty) {
+      for (final entry in fixedRays.entries) {
+        final name = entry.key.toLowerCase();
+        buffer.writeln('.bg-$name { background-color: var(--$name); }');
       }
     }
     buffer.writeln('');
@@ -160,10 +195,18 @@ class PaletteHtmlGenerator {
       final name = entry.key.toLowerCase();
       final scheme = entry.value;
 
-      for (final toneEntry in scheme.tones.entries) {
+      for (final toneEntry in scheme.spectrum.entries) {
         final toneName = toneEntry.key.name.replaceAll('shade', '');
         buffer.writeln(
             '.text-$name-$toneName { color: var(--$name-$toneName); }');
+      }
+    }
+
+    // Fixed rays text utilities
+    if (fixedRays != null && fixedRays.isNotEmpty) {
+      for (final entry in fixedRays.entries) {
+        final name = entry.key.toLowerCase();
+        buffer.writeln('.text-$name { color: var(--$name); }');
       }
     }
     buffer.writeln('');
@@ -180,10 +223,18 @@ class PaletteHtmlGenerator {
       final name = entry.key.toLowerCase();
       final scheme = entry.value;
 
-      for (final toneEntry in scheme.tones.entries) {
+      for (final toneEntry in scheme.spectrum.entries) {
         final toneName = toneEntry.key.name.replaceAll('shade', '');
         buffer.writeln(
             '.border-$name-$toneName { border-color: var(--$name-$toneName); }');
+      }
+    }
+
+    // Fixed rays border utilities
+    if (fixedRays != null && fixedRays.isNotEmpty) {
+      for (final entry in fixedRays.entries) {
+        final name = entry.key.toLowerCase();
+        buffer.writeln('.border-$name { border-color: var(--$name); }');
       }
     }
     buffer.writeln('');
@@ -264,7 +315,7 @@ class PaletteHtmlGenerator {
   static void _writeColorCard(
     StringBuffer buffer,
     String name,
-    RayScheme<RayWithLuminanceBase> scheme,
+    Spectrum<RayWithLuminance> scheme,
     Map<String, String>? aliases,
   ) {
     // Check if this color has an alias
@@ -299,18 +350,15 @@ class PaletteHtmlGenerator {
     buffer.writeln('</div>'); // Close color-card
   }
 
-  static void _writeShadesSection(
-      StringBuffer buffer,
-      RayScheme<RayWithLuminanceBase> scheme,
-      String colorSpace,
-      String schemeName) {
+  static void _writeShadesSection(StringBuffer buffer,
+      Spectrum<RayWithLuminance> scheme, String colorSpace, String schemeName) {
     buffer.writeln('<div class="shades-column">');
 
     for (final tone in RayTone.values) {
-      if (!scheme.tones.containsKey(tone)) {
+      if (!scheme.spectrum.containsKey(tone)) {
         continue;
       }
-      final rayLuminance = scheme.tones[tone]!;
+      final rayLuminance = scheme.spectrum[tone]!;
       final textColor = rayLuminance.isLight ? '#000' : '#fff';
       final toneName = tone.name.replaceAll('shade', '');
       final lowerSchemeName = schemeName.toLowerCase();
@@ -325,6 +373,40 @@ class PaletteHtmlGenerator {
     }
 
     buffer.writeln('</div>');
+  }
+
+  static void _writeFixedRayCard(
+    StringBuffer buffer,
+    String name,
+    RayWithLuminance ray,
+  ) {
+    buffer.writeln('<div class="color-card">');
+
+    // Main color header with onRay text and luminance
+    final rayRgb8 = ray.toRgb8();
+    final luminanceValue = ray.luminance.toStringAsFixed(2);
+    buffer.writeln(
+        '<div class="color-header" style="background-color: ${rayRgb8.toHex()}; color: ${ray.onRay.toHex()};">');
+    buffer.writeln(
+        '$name <span class="luminance-value">(L:$luminanceValue)</span>');
+    buffer.writeln('</div>');
+
+    buffer.writeln('<div class="color-info">');
+
+    // Single color display (no spectrum tones)
+    buffer.writeln('<div class="shades-column">');
+    final lowerName = name.toLowerCase();
+    final textColor = ray.isLight ? '#000' : '#fff';
+    final bgClass = 'bg-$lowerName';
+
+    buffer.writeln(
+        '<div class="shade-item $bgClass" style="color: $textColor;">');
+    buffer.writeln('<span class="shade-name">$name</span>');
+    buffer.writeln('</div>');
+    buffer.writeln('</div>');
+
+    buffer.writeln('</div>'); // Close color-info
+    buffer.writeln('</div>'); // Close color-card
   }
 
   static void _writeHtmlFile(

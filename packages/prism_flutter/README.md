@@ -57,7 +57,7 @@ final result = Colors.red
     .toColor();
 
 // Generate accessibility schemes
-final scheme = RayScheme.fromRay(Colors.blue.toRayRgb8());
+final scheme = Spectrum.fromRay(Colors.blue.toRayRgb8());
 final textColor = scheme.source.onRay.toColor();
 ```
 

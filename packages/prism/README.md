@@ -15,7 +15,7 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 
 - 🎨 **Multiple color models**: RGB (8-bit & 16-bit), HSL, Oklab, and Oklch with seamless conversion
 - 🎭 **Accessibility schemes**: WCAG-compliant color schemes with optimal contrast
-- 🎨 **Pre-built palettes**: Material, CSS, Spectrum, and OpenColor palettes
+- 🎨 **Pre-built palettes**: Material, CSS, Rainbow, and OpenColor palettes
 - 📱 **Flutter compatible**: Perfect conversion to/from Flutter's Color class
 - ⚡ **High performance**: Zero dependencies with optimized bit operations 
 - 🌐 **Web standards**: RGBA/ARGB hex format support
@@ -92,9 +92,9 @@ Prism includes extensive pre-built color palettes with accessibility-focused sch
 
 ### Available Palettes
 
-#### Spectrum (Prim's own color palette)
+#### Rainbow (Prism's own color palette)
 
-![Spectrum Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Spectrum.png)
+![Rainbow Palette](https://raw.githubusercontent.com/jimmyff/prism/refs/heads/main/palette_gallery/Rainbow.png)
 
 #### Material Colors
 
@@ -113,9 +113,9 @@ CSS versions of all palettes are also available in the [palette_gallery/](https:
 ### Usage
 
 ```dart
-import 'package:prism/palettes/rgb/spectrum.dart';
-final primaryBlue = SpectrumRgb.blue.source;
-final darkBlue = SpectrumRgb.blue.shade700;
+import 'package:prism/palettes/rgb/rainbow.dart';
+final primaryBlue = RainbowRgb.blue.source;
+final darkBlue = RainbowRgb.blue.shade700;
 ```
 
 ## License
