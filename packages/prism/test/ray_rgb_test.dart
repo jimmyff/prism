@@ -632,7 +632,7 @@ void main() {
 
     group('Additional Constructor Tests', () {
       test('creates color from JSON', () {
-        final color = RayRgb16.fromJson([12345, 0, 0, 0]);
+        final color = RayRgb16.fromJson({'r': 0, 'g': 0, 'b': 0, 'a': 12345});
         expect(color.alphaNative, equals(12345));
         expect(color.red, equals(0));
         expect(color.green, equals(0));
@@ -666,7 +666,7 @@ void main() {
       test('withAlpha creates color with new alpha', () {
         final original =
             RayRgb16.fromComponentsNative(65535, 32768, 16384, 65535);
-        final modified = original.withAlpha(12345);
+        final modified = original.withAlphaNative(12345);
 
         expect(modified.redNative, equals(65535));
         expect(modified.greenNative, equals(32768));
@@ -733,7 +733,7 @@ void main() {
       test('toJson returns internal value', () {
         final color = RayRgb16.fromComponentsNative(12345, 23456, 34567, 45678);
         final json = color.toJson();
-        expect(json, equals([45678, 12345, 23456, 34567]));
+        expect(json, equals({'r': 12345, 'g': 23456, 'b': 34567, 'a': 45678}));
       });
     });
   });

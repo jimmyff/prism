@@ -1,6 +1,6 @@
 import 'package:prism/prism.dart';
 
-Map<String, RayScheme<RayWithLuminanceRgb8>> openColorSchemes = {
+Map<String, RayScheme<RayWithLuminance<RayRgb8>>> openColorSchemes = {
   'gray': RayScheme.fromRgbTones(
     tones: {
       RayTone.shade50: RayRgb8.fromHex('#f8f9fa'),

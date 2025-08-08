@@ -40,13 +40,22 @@ enum RayTone {
   double get lightness => lightnessModifier * 0.8 + 0.2;
 }
 
-/// Base class for colors with precomputed luminance values.
-abstract base class RayWithLuminanceBase extends Ray {
+/// Color with precomputed luminance for optimal performance.
+final class RayWithLuminance<T extends Ray> extends Ray {
+  /// The Ray instance this luminance-cached color wraps
+  final T _ray;
+
   /// The precomputed luminance value (0.0 to 1.0)
   final double _precomputedLuminance;
 
-  /// Creates a RayWithLuminanceBase with precomputed luminance
-  const RayWithLuminanceBase(this._precomputedLuminance) : super();
+  /// Creates a RayWithLuminance with precomputed luminance
+  const RayWithLuminance(this._ray, this._precomputedLuminance) : super();
+
+  /// Factory constructor for automatic type inference based on color space
+  static RayWithLuminance<T> fromRay<T extends Ray>(T ray) {
+    final luminance = ray.luminance;
+    return RayWithLuminance(ray, luminance);
+  }
 
   /// Returns the precomputed luminance instead of calculating it
   @override
@@ -55,97 +64,54 @@ abstract base class RayWithLuminanceBase extends Ray {
   /// Whether this color is considered dark
   bool get isDark => switch (colorSpace) {
         ColorSpace.oklab || ColorSpace.oklch => luminance < 0.70,
-
-        //rgb luminance
         _ => luminance < 0.5
       };
 
-  ColorSpace get colorSpace;
+  @override
+  ColorSpace get colorSpace => _ray.colorSpace;
 
   /// Whether this color is considered light.
   bool get isLight => !isDark;
 
   /// Returns appropriate contrast color (black/white) for text on this color.
-  RayWithLuminanceBase get onRay;
+  RayWithLuminance get onRay {
+    return switch (_ray.colorSpace) {
+      ColorSpace.oklch => isDark
+          ? const RayWithLuminance<RayOklch>(
+              RayOklch.fromComponents(1.0, 0.0, 0.0, 1.0), 1.0)
+          : const RayWithLuminance<RayOklch>(
+              RayOklch.fromComponents(0.0, 0.0, 0.0, 1.0), 0.0),
+      _ => isDark
+          ? const RayWithLuminance<RayRgb8>(
+              RayRgb8.fromArgbInt(0xFFFFFFFF), 1.0)
+          : const RayWithLuminance<RayRgb8>(
+              RayRgb8.fromArgbInt(0xFF000000), 0.0),
+    };
+  }
+
+  @override
+  double get opacity => _ray.opacity;
 
   /// Returns hex string representation.
-  String toHex([int length = 6, HexFormat format = HexFormat.rgba]);
-}
-
-/// RGB color with precomputed luminance for optimal performance.
-final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
-  /// The RayRgb8 instance this luminance-cached color wraps
-  final RayRgb8 _ray;
-
-  /// Creates an RGB color with precomputed luminance.
-  const RayWithLuminanceRgb8._(this._ray, double luminance) : super(luminance);
-
-  /// Creates from a RayRgb8 instance with precomputed luminance.
-  factory RayWithLuminanceRgb8(RayRgb8 ray, double luminance) {
-    return RayWithLuminanceRgb8._(ray, luminance);
-  }
-
-  /// Creates a const RGB color with precomputed luminance from ARGB int
-  const RayWithLuminanceRgb8.fromRay(RayRgb8 ray, double luminance)
-      : _ray = ray,
-        super(luminance);
-
-  /// Creates a const RGB color with precomputed luminance from ARGB int
-  factory RayWithLuminanceRgb8.fromArgbIntFactory(int value, double luminance) {
-    return RayWithLuminanceRgb8._(RayRgb8.fromArgbInt(value), luminance);
-  }
-
-  /// Returns appropriate contrast color (black/white) for text on this color
-  @override
-  RayWithLuminanceRgb8 get onRay {
-    return isDark
-        ? const RayWithLuminanceRgb8.fromRay(
-            RayRgb8.fromArgbInt(0xFFFFFFFF), 1.0) // White
-        : const RayWithLuminanceRgb8.fromRay(
-            RayRgb8.fromArgbInt(0xFF000000), 0.0); // Black
-  }
-
-  @override
-  ColorSpace get colorSpace => ColorSpace.rgb8;
-
-  // RGB-specific component getters
-  int get red => _ray.red.round();
-  int get green => _ray.green.round();
-  int get blue => _ray.blue.round();
-  int get alpha => _ray.alpha.round();
-
-  @override
-  double get opacity => alpha / 255.0;
-
-  // RGB-specific output methods
-  @override
   String toHex([int length = 6, HexFormat format = HexFormat.rgba]) {
-    return _ray.toHex(length, format);
+    return _ray.toRgb8().toHex(length, format);
   }
 
-  String toRgbStr() => _ray.toRgbStr();
-  String toRgbaStr() => _ray.toRgbaStr();
-  int toArgbInt() => _ray.toArgbInt();
-  int toRgbaInt() => _ray.toRgbaInt();
-  int toRgbInt() => _ray.toRgbInt();
-
-  // Ray interface implementation
+  // Ray interface implementation - delegate to wrapped ray
   @override
-  RayWithLuminanceRgb8 withOpacity(double opacity) {
-    final ray = _ray.withOpacity(opacity);
-    return RayWithLuminanceRgb8.fromRay(ray, ray.luminance);
+  RayWithLuminance<T> withOpacity(double opacity) {
+    final newRay = _ray.withOpacity(opacity) as T;
+    return RayWithLuminance<T>(newRay, luminance);
   }
 
   @override
-  Ray lerp(Ray other, double t) {
-    return _ray.lerp(other, t);
-  }
+  Ray lerp(Ray other, double t) => _ray.lerp(other, t);
 
   @override
   Ray get inverse => _ray.inverse;
 
   @override
-  RayRgb8 toRgb8() => _ray;
+  RayRgb8 toRgb8() => _ray.toRgb8();
 
   @override
   RayRgb16 toRgb16() => _ray.toRgb16();
@@ -168,7 +134,7 @@ final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is RayWithLuminanceRgb8 && other._ray == _ray);
+      (other is RayWithLuminance && other._ray == _ray);
 
   @override
   int get hashCode => _ray.hashCode;
@@ -177,124 +143,70 @@ final class RayWithLuminanceRgb8 extends RayWithLuminanceBase {
   String toString() => _ray.toString();
 }
 
-/// Oklch color with precomputed luminance for optimal performance.
-///
-/// Extends RayOklch functionality while caching luminance to avoid recalculations.
-final class RayWithLuminanceOklch extends RayWithLuminanceBase {
-  /// The RayOklch instance this luminance-cached color wraps
-  final RayOklch _ray;
+/// Type alias for backward compatibility and cleaner API
+typedef RayWithLuminanceRgb8 = RayWithLuminance<RayRgb8>;
 
-  /// Creates an Oklch color with precomputed luminance from raw values
-  const RayWithLuminanceOklch._(this._ray, double luminance) : super(luminance);
+/// Type alias for backward compatibility and cleaner API
+typedef RayWithLuminanceOklch = RayWithLuminance<RayOklch>;
 
-  /// Creates from a RayOklch instance with precomputed luminance
-  factory RayWithLuminanceOklch(RayOklch ray, double luminance) {
-    return RayWithLuminanceOklch._(ray, luminance);
+/// Type alias for the base type used in generic contexts
+typedef RayWithLuminanceBase = RayWithLuminance;
+
+/// Extension methods for RGB-specific functionality
+extension RayWithLuminanceRgb8Extensions on RayWithLuminance<RayRgb8> {
+  /// RGB component getters
+  int get red => _ray.red.round();
+  int get green => _ray.green.round();
+  int get blue => _ray.blue.round();
+  int get alpha => _ray.alpha.round();
+
+  /// RGB-specific output methods
+  String toRgbStr() => _ray.toRgbStr();
+  String toRgbaStr() => _ray.toRgbaStr();
+  int toArgbInt() => _ray.toArgbInt();
+  int toRgbaInt() => _ray.toRgbaInt();
+  int toRgbInt() => _ray.toRgbInt();
+
+  /// Factory for creating RGB colors from ARGB int
+  static RayWithLuminance<RayRgb8> fromArgbIntFactory(
+      int value, double luminance) {
+    return RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(value), luminance);
   }
+}
 
-  /// Creates a const Oklch color with precomputed luminance from RayOklch
-  const RayWithLuminanceOklch.fromRay(RayOklch ray, double luminance)
-      : _ray = ray,
-        super(luminance);
+/// Extension methods for Oklch-specific functionality
+extension RayWithLuminanceOklchExtensions on RayWithLuminance<RayOklch> {
+  /// Oklch component getters
+  double get l => _ray.lightness;
+  double get c => _ray.chroma;
+  double get h => _ray.hue;
 
-  /// Returns appropriate contrast color (black/white) for text on this color
-  @override
-  RayWithLuminanceOklch get onRay {
-    return isDark
-        ? const RayWithLuminanceOklch.fromRay(
-            RayOklch.fromComponents(1.0, 0.0, 0.0, 1.0), 1.0) // White
-        : const RayWithLuminanceOklch.fromRay(
-            RayOklch.fromComponents(0.0, 0.0, 0.0, 1.0), 0.0); // Black
-  }
-
-  @override
-  ColorSpace get colorSpace => ColorSpace.oklch;
-
-  // Oklch-specific component getters
-  double get l => _ray.l;
-  double get c => _ray.c;
-  double get h => _ray.h;
-
-  @override
-  double get opacity => _ray.opacity;
-
-  // Oklch-specific manipulation methods
-  RayWithLuminanceOklch withLightness(double lightness) {
+  /// Oklch-specific manipulation methods
+  RayWithLuminance<RayOklch> withLightness(double lightness) {
     final newRay = _ray.withLightness(lightness);
-    return RayWithLuminanceOklch.fromRay(newRay, newRay.luminance);
+    return RayWithLuminance<RayOklch>(newRay, newRay.luminance);
   }
 
-  RayWithLuminanceOklch withChroma(double chroma) {
+  RayWithLuminance<RayOklch> withChroma(double chroma) {
     final newRay = _ray.withChroma(chroma);
-    return RayWithLuminanceOklch.fromRay(newRay, newRay.luminance);
+    return RayWithLuminance<RayOklch>(newRay, newRay.luminance);
   }
 
-  RayWithLuminanceOklch withHue(double hue) {
+  RayWithLuminance<RayOklch> withHue(double hue) {
     final newRay = _ray.withHue(hue);
-    return RayWithLuminanceOklch.fromRay(newRay, newRay.luminance);
+    return RayWithLuminance<RayOklch>(newRay, newRay.luminance);
   }
-
-  // Ray interface implementation
-  @override
-  RayWithLuminanceOklch withOpacity(double opacity) {
-    final newRay = _ray.withOpacity(opacity);
-    return RayWithLuminanceOklch.fromRay(newRay, luminance);
-  }
-
-  @override
-  Ray lerp(Ray other, double t) {
-    return _ray.lerp(other, t);
-  }
-
-  @override
-  Ray get inverse => _ray.inverse;
-
-  @override
-  RayRgb8 toRgb8() => _ray.toRgb8();
-
-  @override
-  RayRgb16 toRgb16() => _ray.toRgb16();
-
-  @override
-  RayHsl toHsl() => _ray.toHsl();
-
-  @override
-  RayOklab toOklab() => _ray.toOklab();
-
-  @override
-  RayOklch toOklch() => _ray;
-
-  @override
-  dynamic toJson() => _ray.toJson();
-
-  @override
-  List<num> toList() => _ray.toList();
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is RayWithLuminanceOklch && other._ray == _ray);
-
-  @override
-  int get hashCode => _ray.hashCode;
-
-  @override
-  String toString() => _ray.toString();
-
-  @override
-  String toHex([int length = 6, HexFormat format = HexFormat.rgba]) =>
-      toRgb8().toHex(length, format);
 }
 
 /// Color scheme that provides harmonious relationships and accessibility features.
 ///
 /// Generates contrast text colors and complete tonal palette from a primary color.
-class RayScheme<T extends RayWithLuminanceBase> {
+class RayScheme<T extends RayWithLuminance> {
   /// The primary color this scheme is based on
   final T source;
 
   /// Complete tonal palette with cached luminance values.
-  final Map<RayTone, RayWithLuminanceBase> tones;
+  final Map<RayTone, RayWithLuminance> tones;
 
   /// Access tones using Material Design naming convention
   T? get shade0 => tones[RayTone.shade0] as T?;
@@ -330,39 +242,39 @@ class RayScheme<T extends RayWithLuminanceBase> {
   });
 
   /// Creates a RGB-based scheme from tone map
-  static RayScheme<RayWithLuminanceRgb8> fromRgbTones({
+  static RayScheme<RayWithLuminance<RayRgb8>> fromRgbTones({
     Ray? base,
     required Map<RayTone, Ray> tones,
   }) {
-    return _createSchemeFromTones<RayWithLuminanceRgb8>(
+    return _createSchemeFromTones<RayWithLuminance<RayRgb8>>(
         base: base, tones: tones);
   }
 
   /// Creates an Oklch-based scheme from tone map
-  static RayScheme<RayWithLuminanceOklch> fromOklchTones({
+  static RayScheme<RayWithLuminance<RayOklch>> fromOklchTones({
     Ray? base,
     required Map<RayTone, Ray> tones,
   }) {
-    return _createSchemeFromTones<RayWithLuminanceOklch>(
+    return _createSchemeFromTones<RayWithLuminance<RayOklch>>(
         base: base, tones: tones);
   }
 
-  static RayScheme<T> _createSchemeFromTones<T extends RayWithLuminanceBase>({
+  static RayScheme<T> _createSchemeFromTones<T extends RayWithLuminance>({
     Ray? base,
     required Map<RayTone, Ray> tones,
   }) {
-    // Convert map to RayWithLuminanceBase values
-    final Map<RayTone, RayWithLuminanceBase> tonesMap = {};
+    // Convert map to RayWithLuminance values
+    final Map<RayTone, RayWithLuminance> tonesMap = {};
     for (final entry in tones.entries) {
       final tone = entry.value;
       final luminance = tone.luminance;
 
       // Create appropriate concrete type based on T
       tonesMap[entry.key] = switch (T) {
-        const (RayWithLuminanceRgb8) =>
-          RayWithLuminanceRgb8(tone.toRgb8(), luminance),
-        const (RayWithLuminanceOklch) =>
-          RayWithLuminanceOklch(tone.toOklch(), luminance),
+        const (RayWithLuminance<RayRgb8>) =>
+          RayWithLuminance<RayRgb8>(tone.toRgb8(), luminance),
+        const (RayWithLuminance<RayOklch>) =>
+          RayWithLuminance<RayOklch>(tone.toOklch(), luminance),
         _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
       };
     }
@@ -373,10 +285,10 @@ class RayScheme<T extends RayWithLuminanceBase> {
 
     // Create appropriate source type based on T
     final T source = switch (T) {
-      const (RayWithLuminanceRgb8) =>
-        RayWithLuminanceRgb8(ray.toRgb8(), luminance) as T,
-      const (RayWithLuminanceOklch) =>
-        RayWithLuminanceOklch(ray.toOklch(), luminance) as T,
+      const (RayWithLuminance<RayRgb8>) =>
+        RayWithLuminance<RayRgb8>(ray.toRgb8(), luminance) as T,
+      const (RayWithLuminance<RayOklch>) =>
+        RayWithLuminance<RayOklch>(ray.toOklch(), luminance) as T,
       _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
     };
 
@@ -417,15 +329,15 @@ class RayScheme<T extends RayWithLuminanceBase> {
   /// );
   /// ```
   /// Creates a scheme with RGB-based colors
-  static RayScheme<RayWithLuminanceRgb8> fromRgb8(RayRgb8 ray,
+  static RayScheme<RayWithLuminance<RayRgb8>> fromRgb8(RayRgb8 ray,
       {bool? generateAccents}) {
-    return _createScheme<RayWithLuminanceRgb8>(ray, generateAccents);
+    return _createScheme<RayWithLuminance<RayRgb8>>(ray, generateAccents);
   }
 
   /// Creates a scheme with Oklch-based colors
-  static RayScheme<RayWithLuminanceOklch> fromOklch(RayOklch ray,
+  static RayScheme<RayWithLuminance<RayOklch>> fromOklch(RayOklch ray,
       {bool? generateAccents}) {
-    return _createScheme<RayWithLuminanceOklch>(ray, generateAccents);
+    return _createScheme<RayWithLuminance<RayOklch>>(ray, generateAccents);
   }
 
   /// Creates a scheme with the appropriate type based on the input ray's color space
@@ -440,40 +352,41 @@ class RayScheme<T extends RayWithLuminanceBase> {
     };
   }
 
-  static RayScheme<T> _createScheme<T extends RayWithLuminanceBase>(
+  static RayScheme<T> _createScheme<T extends RayWithLuminance>(
       Ray ray, bool? generateAccents) {
     final luminance = ray.luminance;
     final rayOklch = ray.toOklch();
 
     // only generate accents for colors with chroma > 0.1
-    generateAccents ??= rayOklch.c > 0.1;
+    generateAccents ??= rayOklch.chroma > 0.1;
 
-    final Map<RayTone, RayWithLuminanceBase> tonesMap = {};
+    final Map<RayTone, RayWithLuminance> tonesMap = {};
     for (final tone in RayTone.values) {
       if (tone.type == ShadeType.accent && !generateAccents) continue;
 
       final toneOklch = rayOklch
-          .withChroma(tone.fixedChroma ?? (rayOklch.c * tone.chromaModifier!))
+          .withChroma(
+              tone.fixedChroma ?? (rayOklch.chroma * tone.chromaModifier!))
           .withLightness(tone.lightness);
 
       final toneLuminance = toneOklch.luminance;
 
       // Create appropriate concrete type based on T
       tonesMap[tone] = switch (T) {
-        const (RayWithLuminanceRgb8) =>
-          RayWithLuminanceRgb8(toneOklch.toRgb8(), toneLuminance),
-        const (RayWithLuminanceOklch) =>
-          RayWithLuminanceOklch(toneOklch, toneLuminance),
+        const (RayWithLuminance<RayRgb8>) =>
+          RayWithLuminance<RayRgb8>(toneOklch.toRgb8(), toneLuminance),
+        const (RayWithLuminance<RayOklch>) =>
+          RayWithLuminance<RayOklch>(toneOklch, toneLuminance),
         _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
       };
     }
 
     // Create appropriate source type based on T
     final T source = switch (T) {
-      const (RayWithLuminanceRgb8) =>
-        RayWithLuminanceRgb8(ray.toRgb8(), luminance) as T,
-      const (RayWithLuminanceOklch) =>
-        RayWithLuminanceOklch(ray.toOklch(), luminance) as T,
+      const (RayWithLuminance<RayRgb8>) =>
+        RayWithLuminance<RayRgb8>(ray.toRgb8(), luminance) as T,
+      const (RayWithLuminance<RayOklch>) =>
+        RayWithLuminance<RayOklch>(ray.toOklch(), luminance) as T,
       _ => throw ArgumentError('Unsupported RayWithLuminance type: $T'),
     };
 
@@ -514,8 +427,8 @@ class RayScheme<T extends RayWithLuminanceBase> {
       ')';
 
   /// Helper function to compare two tone maps for equality
-  static bool _mapEquals(Map<RayTone, RayWithLuminanceBase> a,
-      Map<RayTone, RayWithLuminanceBase> b) {
+  static bool _mapEquals(
+      Map<RayTone, RayWithLuminance> a, Map<RayTone, RayWithLuminance> b) {
     if (a.length != b.length) return false;
     for (final entry in a.entries) {
       final bValue = b[entry.key];

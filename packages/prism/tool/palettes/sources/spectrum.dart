@@ -35,7 +35,8 @@ var structureFilled = List.generate(
         ? structure[i]
         : (name: "filled_$i", lightness: 0.6, bright: false));
 
-Map<String, RayScheme<RayWithLuminanceOklch>> spectrumColors = Map.fromEntries([
+Map<String, RayScheme<RayWithLuminance<RayOklch>>> spectrumColors =
+    Map.fromEntries([
   ...structureFilled.map((e) => MapEntry(
       e.name,
       RayScheme.fromOklch(e.bright

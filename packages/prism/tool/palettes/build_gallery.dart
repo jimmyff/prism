@@ -106,8 +106,8 @@ void _generateGallery<T extends PrismPalette, Q extends PrismPalette>({
   Map<String, String>? aliases,
 }) {
   // Convert enum values to scheme maps
-  final Map<String, RayScheme<RayWithLuminanceBase>> schemesRgb = {};
-  final Map<String, RayScheme<RayWithLuminanceBase>> schemesOklch = {};
+  final Map<String, RayScheme<RayWithLuminance>> schemesRgb = {};
+  final Map<String, RayScheme<RayWithLuminance>> schemesOklch = {};
 
   for (final enumValue in rgbEnum) {
     final name = (enumValue as Enum).name;

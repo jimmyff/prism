@@ -10,7 +10,7 @@ import 'ray_rgb16.dart';
 ///
 /// Stored internally as ARGB integer for Flutter compatibility and performance.
 /// Each color channel uses 8 bits (0-255 range).
-base class RayRgb8 extends RayRgbBase<int> {
+base class RayRgb8 extends RayRgbBase<RayRgb8, int> {
   /// Bit mask constants for efficient color component extraction
   static const int _alphaMask = 0xFF000000;
   static const int _redMask = 0x00FF0000;
@@ -173,23 +173,56 @@ base class RayRgb8 extends RayRgbBase<int> {
   int get blueNative => (_blueMask & _value);
 
   /// Creates a new [RayRgb8] with the same RGB values but a different alpha.
-  ///
-  /// The [alpha] value should be in the range [0, 255].
-  ///
-  /// Example:
-  /// ```dart
-  /// final red = RayRgb8.fromComponents(255, 0, 0);
-  /// final semiRed = red.withAlpha(128);  // Semi-transparent red
-  /// ```
-  RayRgb8 withAlpha(int alpha) => RayRgb8._(
-      red: redNative, green: greenNative, blue: blueNative, alpha: alpha);
-
   @override
-  RayRgb8 withOpacity(double opacity) => RayRgb8._(
+  RayRgb8 withAlpha(double alpha) => RayRgb8._(
       red: redNative,
       green: greenNative,
       blue: blueNative,
-      alpha: (opacity.clamp(0.0, 1.0) * 255).round());
+      alpha: alpha.round().clamp(0, 255));
+
+  /// Creates a new [RayRgb8] with a different alpha using native precision.
+  @override
+  RayRgb8 withAlphaNative(int alpha) => RayRgb8._(
+      red: redNative, green: greenNative, blue: blueNative, alpha: alpha);
+
+  /// Creates a new [RayRgb8] with a different red component.
+  @override
+  RayRgb8 withRed(double red) => RayRgb8._(
+      red: red.round().clamp(0, 255),
+      green: greenNative,
+      blue: blueNative,
+      alpha: alphaNative);
+
+  /// Creates a new [RayRgb8] with a different red component using native precision.
+  @override
+  RayRgb8 withRedNative(int red) => RayRgb8._(
+      red: red, green: greenNative, blue: blueNative, alpha: alphaNative);
+
+  /// Creates a new [RayRgb8] with a different green component.
+  @override
+  RayRgb8 withGreen(double green) => RayRgb8._(
+      red: redNative,
+      green: green.round().clamp(0, 255),
+      blue: blueNative,
+      alpha: alphaNative);
+
+  /// Creates a new [RayRgb8] with a different green component using native precision.
+  @override
+  RayRgb8 withGreenNative(int green) => RayRgb8._(
+      red: redNative, green: green, blue: blueNative, alpha: alphaNative);
+
+  /// Creates a new [RayRgb8] with a different blue component.
+  @override
+  RayRgb8 withBlue(double blue) => RayRgb8._(
+      red: redNative,
+      green: greenNative,
+      blue: blue.round().clamp(0, 255),
+      alpha: alphaNative);
+
+  /// Creates a new [RayRgb8] with a different blue component using native precision.
+  @override
+  RayRgb8 withBlueNative(int blue) => RayRgb8._(
+      red: redNative, green: greenNative, blue: blue, alpha: alphaNative);
 
   @override
   RayRgb8 lerp(Ray other, double t) {

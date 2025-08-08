@@ -113,7 +113,7 @@ class PaletteHtmlGenerator {
         final toneName = toneEntry.key.name.replaceAll('shade', '');
         final colorValue = colorSpace == 'rgb'
             ? 'rgb(${toneEntry.value.toRgb8().red}, ${toneEntry.value.toRgb8().green}, ${toneEntry.value.toRgb8().blue})'
-            : 'oklch(${(toneEntry.value.toOklch().l * 100).toStringAsFixed(1)}% ${toneEntry.value.toOklch().c.toStringAsFixed(3)} ${toneEntry.value.toOklch().h.toStringAsFixed(2)})';
+            : 'oklch(${(toneEntry.value.toOklch().lightness * 100).toStringAsFixed(1)}% ${toneEntry.value.toOklch().chroma.toStringAsFixed(3)} ${toneEntry.value.toOklch().hue.toStringAsFixed(2)})';
 
         buffer.writeln('  --$name-$toneName: $colorValue;');
       }

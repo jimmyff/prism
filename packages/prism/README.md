@@ -60,6 +60,7 @@ print(orange.hueDistance(shifted)); // 60.0°
 final blue = RayOklab.fromComponents(0.452, -0.032, -0.312);
 final red = RayOklab.fromComponents(0.628, 0.225, 0.126);
 final midpoint = blue.lerp(red, 0.5); // Perceptually uniform
+final brighter = blue.withLightness(blue.lightness + 0.2);
 ```
 
 ### RayOklch (Cylindrical Oklab with Intuitive Controls)

@@ -7,29 +7,32 @@ import 'package:prism/prism.dart';
 /// Cylindrical form of Oklab: L (lightness 0-1), C (chroma/saturation), H (hue 0-360°).
 base class RayOklch extends Ray {
   /// The lightness component (0.0 to 1.0).
-  final double l;
+  final double _l;
 
   /// The chroma component (saturation, 0.0 to approximately 0.4).
-  final double c;
+  final double _c;
 
   /// The hue component in degrees (0.0 to 360.0).
-  final double h;
+  final double _h;
 
   /// The opacity component (0.0 to 1.0).
   final double _opacity;
 
   /// Creates an Oklch color with the specified components.
   const RayOklch._({
-    required this.l,
-    required this.c,
-    required this.h,
+    required double l,
+    required double c,
+    required double h,
     double opacity = 1.0,
-  }) : _opacity = opacity;
+  }) : _l = l,
+       _c = c,
+       _h = h,
+       _opacity = opacity;
 
   /// Creates a constant Oklch color from individual LCHO components.
   ///
   /// [l] is lightness (0-1), [c] is chroma (0+), [h] is hue (0-360°), [opacity] is 0-1.
-  const RayOklch.fromComponents(this.l, this.c, this.h, [this._opacity = 1.0]);
+  const RayOklch.fromComponents(this._l, this._c, this._h, [this._opacity = 1.0]);
 
   /// Creates a gamut clipped [RayOklch] from individual LCHO component values.
   ///
@@ -89,20 +92,20 @@ base class RayOklch extends Ray {
 
   /// Creates a transparent black Oklch color.
   const RayOklch.empty()
-      : l = 0.0,
-        c = 0.0,
-        h = 0.0,
+      : _l = 0.0,
+        _c = 0.0,
+        _h = 0.0,
         _opacity = 0.0;
 
   /// Creates an Oklch color from an Oklab color.
   ///
   /// Converts the Oklab a and b components to chroma and hue.
   factory RayOklch.fromOklab(RayOklab oklab) {
-    final chroma = math.sqrt(oklab.a * oklab.a + oklab.b * oklab.b);
-    final hue = math.atan2(oklab.b, oklab.a) * 180.0 / math.pi;
+    final chroma = math.sqrt(oklab.opponentA * oklab.opponentA + oklab.opponentB * oklab.opponentB);
+    final hue = math.atan2(oklab.opponentB, oklab.opponentA) * 180.0 / math.pi;
 
     return RayOklch._(
-      l: oklab.l,
+      l: oklab.lightness,
       c: chroma,
       h: _normalizeHue(hue),
       opacity: oklab.opacity,
@@ -127,13 +130,22 @@ base class RayOklch extends Ray {
   @override
   double get opacity => _opacity;
 
+  /// The lightness component (0.0 to 1.0).
+  double get lightness => _l;
+
+  /// The chroma component (saturation, 0.0 to approximately 0.4).
+  double get chroma => _c;
+
+  /// The hue component in degrees (0.0 to 360.0).
+  double get hue => _h;
+
   @override
   RayOklch withOpacity(double opacity) {
     if (opacity < 0.0 || opacity > 1.0) {
       throw ArgumentError.value(
           opacity, 'opacity', 'Opacity must be between 0.0 and 1.0');
     }
-    return RayOklch._(l: l, c: c, h: h, opacity: opacity);
+    return RayOklch._(l: lightness, c: chroma, h: hue, opacity: opacity);
   }
 
   /// Creates a new color with different chroma (clamped to valid gamut range).
@@ -142,22 +154,22 @@ base class RayOklch extends Ray {
     final clampedChroma = math.max(0.0, chroma);
 
     // Find maximum valid chroma for this lightness and hue
-    final maxChroma = RayOklab.getMaxValidChroma(l, h);
+    final maxChroma = RayOklab.getMaxValidChroma(lightness, hue);
 
     // Clamp to maximum valid chroma
     final finalChroma = math.min(clampedChroma, maxChroma);
 
     return RayOklch._(
-      l: l,
+      l: lightness,
       c: finalChroma,
-      h: h,
+      h: hue,
       opacity: opacity,
     );
   }
 
   /// Creates a new color with different hue (normalized to 0-360°).
   RayOklch withHue(double hue) {
-    return RayOklch.fromComponentsValidated(l, c, hue, opacity);
+    return RayOklch.fromComponentsValidated(lightness, chroma, hue, opacity);
   }
 
   /// Creates a new color with different lightness (0.0-1.0), adjusting chroma to stay in gamut.
@@ -168,15 +180,15 @@ base class RayOklch extends Ray {
     }
 
     // Find the maximum valid chroma for this lightness and hue combination
-    final maxChroma = RayOklab.getMaxValidChroma(lightness, h);
+    final maxChroma = RayOklab.getMaxValidChroma(lightness, hue);
 
     // Clamp the current chroma to the valid range
-    final clampedChroma = math.min(c, maxChroma);
+    final clampedChroma = math.min(chroma, maxChroma);
 
     return RayOklch._(
       l: lightness,
       c: clampedChroma,
-      h: h,
+      h: hue,
       opacity: opacity,
     );
   }
@@ -194,12 +206,12 @@ base class RayOklch extends Ray {
     final otherOklch = other.toOklch();
 
     // Interpolate hue using the shorter path around the color wheel
-    final hueDiff = _shortestHueDistance(h, otherOklch.h);
-    final interpolatedHue = _normalizeHue(h + hueDiff * t);
+    final hueDiff = _shortestHueDistance(hue, otherOklch.hue);
+    final interpolatedHue = _normalizeHue(hue + hueDiff * t);
 
     return RayOklch._(
-      l: l + (otherOklch.l - l) * t,
-      c: c + (otherOklch.c - c) * t,
+      l: lightness + (otherOklch.lightness - lightness) * t,
+      c: chroma + (otherOklch.chroma - chroma) * t,
       h: interpolatedHue,
       opacity: opacity + (otherOklch.opacity - opacity) * t,
     );
@@ -209,9 +221,9 @@ base class RayOklch extends Ray {
   RayOklch get inverse {
     // In Oklch, inversion means inverting lightness and shifting hue by 180°
     return RayOklch._(
-      l: 1.0 - l,
-      c: c, // Chroma stays the same
-      h: _normalizeHue(h + 180.0),
+      l: 1.0 - lightness,
+      c: chroma, // Chroma stays the same
+      h: _normalizeHue(hue + 180.0),
       opacity: opacity,
     );
   }
@@ -219,7 +231,7 @@ base class RayOklch extends Ray {
   @override
   double get luminance {
     // In Oklch, the L component already represents perceptual lightness/luminance
-    return l;
+    return lightness;
   }
 
   @override
@@ -235,11 +247,11 @@ base class RayOklch extends Ray {
   @override
   RayOklab toOklab() {
     // Convert from polar (Oklch) to rectangular (Oklab) coordinates
-    final hueRadians = h * math.pi / 180.0;
-    final a = c * math.cos(hueRadians);
-    final b = c * math.sin(hueRadians);
+    final hueRadians = hue * math.pi / 180.0;
+    final a = chroma * math.cos(hueRadians);
+    final b = chroma * math.sin(hueRadians);
 
-    return RayOklab.fromComponents(l, a, b, opacity);
+    return RayOklab.fromComponents(lightness, a, b, opacity);
   }
 
   @override
@@ -248,20 +260,15 @@ base class RayOklch extends Ray {
   }
 
   @override
-  List<num> toList() => [l, c, h, opacity];
+  List<num> toList() => [lightness, chroma, hue, opacity];
 
   @override
-  Map<String, dynamic> toJson() {
-    final json = <String, dynamic>{
-      'l': l,
-      'c': c,
-      'h': h,
-    };
-    if (opacity != 1.0) {
-      json['o'] = opacity;
-    }
-    return json;
-  }
+  Map<String, dynamic> toJson() => {
+        'l': lightness,
+        'c': chroma,
+        'h': hue,
+        if (opacity != 1.0) 'o': opacity,
+      };
 
   /// Normalizes a hue value to the range [0.0, 360.0).
   static double _normalizeHue(double hue) {
@@ -287,23 +294,23 @@ base class RayOklch extends Ray {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     return other is RayOklch &&
-        (l - other.l).abs() < 1e-10 &&
-        (c - other.c).abs() < 1e-10 &&
-        (h - other.h).abs() <
+        (lightness - other.lightness).abs() < 1e-10 &&
+        (chroma - other.chroma).abs() < 1e-10 &&
+        (hue - other.hue).abs() <
             1e-6 && // Slightly higher tolerance for hue due to normalization
         (opacity - other.opacity).abs() < 1e-10;
   }
 
   @override
   int get hashCode => Object.hash(
-        (l * 1e10).round(),
-        (c * 1e10).round(),
-        (h * 1e6).round(), // Lower precision for hue due to normalization
+        (lightness * 1e10).round(),
+        (chroma * 1e10).round(),
+        (hue * 1e6).round(), // Lower precision for hue due to normalization
         (opacity * 1e10).round(),
       );
 
   @override
   String toString() {
-    return 'RayOklch(l: ${l.toStringAsFixed(3)}, c: ${c.toStringAsFixed(3)}, h: ${h.toStringAsFixed(1)}°, opacity: ${opacity.toStringAsFixed(3)})';
+    return 'RayOklch(lightness: ${lightness.toStringAsFixed(3)}, chroma: ${chroma.toStringAsFixed(3)}, hue: ${hue.toStringAsFixed(1)}°, opacity: ${opacity.toStringAsFixed(3)})';
   }
 }

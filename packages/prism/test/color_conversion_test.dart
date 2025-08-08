@@ -229,9 +229,9 @@ void main() {
         final rgb = RayRgb8.fromComponentsNative(255, 0, 0);
         final oklab = rgb.toOklab();
 
-        expect(oklab.l, greaterThan(0.0));
-        expect(oklab.a, greaterThan(0.0)); // Red should have positive a
-        expect(oklab.b,
+        expect(oklab.lightness, greaterThan(0.0));
+        expect(oklab.opponentA, greaterThan(0.0)); // Red should have positive a
+        expect(oklab.opponentB,
             greaterThan(0.0)); // Red should have positive b (yellow component)
         expect(oklab.opacity, equals(1.0));
       });
@@ -240,8 +240,8 @@ void main() {
         final rgb = RayRgb8.fromComponentsNative(0, 255, 0);
         final oklab = rgb.toOklab();
 
-        expect(oklab.l, greaterThan(0.0));
-        expect(oklab.a, lessThan(0.0)); // Green should have negative a
+        expect(oklab.lightness, greaterThan(0.0));
+        expect(oklab.opponentA, lessThan(0.0)); // Green should have negative a
         expect(oklab.opacity, equals(1.0));
       });
 
@@ -249,8 +249,8 @@ void main() {
         final rgb = RayRgb8.fromComponentsNative(0, 0, 255);
         final oklab = rgb.toOklab();
 
-        expect(oklab.l, greaterThan(0.0));
-        expect(oklab.b, lessThan(0.0)); // Blue should have negative b
+        expect(oklab.lightness, greaterThan(0.0));
+        expect(oklab.opponentB, lessThan(0.0)); // Blue should have negative b
         expect(oklab.opacity, equals(1.0));
       });
 
@@ -258,18 +258,18 @@ void main() {
         final rgb = RayRgb8.fromComponentsNative(255, 255, 255);
         final oklab = rgb.toOklab();
 
-        expect(oklab.l, closeTo(1.0, perceptualTolerance));
-        expect(oklab.a, closeTo(0.0, perceptualTolerance));
-        expect(oklab.b, closeTo(0.0, perceptualTolerance));
+        expect(oklab.lightness, closeTo(1.0, perceptualTolerance));
+        expect(oklab.opponentA, closeTo(0.0, perceptualTolerance));
+        expect(oklab.opponentB, closeTo(0.0, perceptualTolerance));
       });
 
       test('RGB black to Oklab', () {
         final rgb = RayRgb8.fromComponentsNative(0, 0, 0);
         final oklab = rgb.toOklab();
 
-        expect(oklab.l, closeTo(0.0, perceptualTolerance));
-        expect(oklab.a, closeTo(0.0, perceptualTolerance));
-        expect(oklab.b, closeTo(0.0, perceptualTolerance));
+        expect(oklab.lightness, closeTo(0.0, perceptualTolerance));
+        expect(oklab.opponentA, closeTo(0.0, perceptualTolerance));
+        expect(oklab.opponentB, closeTo(0.0, perceptualTolerance));
       });
 
       test('RGB to Oklab preserves opacity', () {
@@ -347,8 +347,8 @@ void main() {
         final hsl = RayHsl(hue: 0, saturation: 1.0, lightness: 0.5);
         final oklab = hsl.toOklab();
 
-        expect(oklab.l, greaterThan(0.0));
-        expect(oklab.a, greaterThan(0.0));
+        expect(oklab.lightness, greaterThan(0.0));
+        expect(oklab.opponentA, greaterThan(0.0));
         expect(oklab.opacity, equals(1.0));
       });
 
@@ -356,8 +356,8 @@ void main() {
         final hsl = RayHsl(hue: 120, saturation: 1.0, lightness: 0.5);
         final oklab = hsl.toOklab();
 
-        expect(oklab.l, greaterThan(0.0));
-        expect(oklab.a, lessThan(0.0));
+        expect(oklab.lightness, greaterThan(0.0));
+        expect(oklab.opponentA, lessThan(0.0));
         expect(oklab.opacity, equals(1.0));
       });
 
@@ -365,8 +365,8 @@ void main() {
         final hsl = RayHsl(hue: 0, saturation: 0.0, lightness: 0.5);
         final oklab = hsl.toOklab();
 
-        expect(oklab.a, closeTo(0.0, perceptualTolerance));
-        expect(oklab.b, closeTo(0.0, perceptualTolerance));
+        expect(oklab.opponentA, closeTo(0.0, perceptualTolerance));
+        expect(oklab.opponentB, closeTo(0.0, perceptualTolerance));
       });
     });
 
@@ -498,9 +498,9 @@ void main() {
           final rgb = originalOklab.toRgb8();
           final convertedOklab = rgb.toOklab();
 
-          expect((convertedOklab.l - originalOklab.l).abs(), lessThan(0.05));
-          expect((convertedOklab.a - originalOklab.a).abs(), lessThan(0.05));
-          expect((convertedOklab.b - originalOklab.b).abs(), lessThan(0.05));
+          expect((convertedOklab.lightness - originalOklab.lightness).abs(), lessThan(0.05));
+          expect((convertedOklab.opponentA - originalOklab.opponentA).abs(), lessThan(0.05));
+          expect((convertedOklab.opponentB - originalOklab.opponentB).abs(), lessThan(0.05));
           expect(convertedOklab.opacity, equals(originalOklab.opacity));
         });
       }
@@ -558,9 +558,9 @@ void main() {
         final rgb = hsl.toRgb8();
         final finalOklab = rgb.toOklab();
 
-        expect((finalOklab.l - originalOklab.l).abs(), lessThan(0.1));
-        expect((finalOklab.a - originalOklab.a).abs(), lessThan(0.1));
-        expect((finalOklab.b - originalOklab.b).abs(), lessThan(0.1));
+        expect((finalOklab.lightness - originalOklab.lightness).abs(), lessThan(0.1));
+        expect((finalOklab.opponentA - originalOklab.opponentA).abs(), lessThan(0.1));
+        expect((finalOklab.opponentB - originalOklab.opponentB).abs(), lessThan(0.1));
         expect(finalOklab.opacity, equals(originalOklab.opacity));
       });
 

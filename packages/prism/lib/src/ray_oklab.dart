@@ -7,29 +7,32 @@ import 'package:prism/prism.dart';
 /// Components: L (lightness 0-1), a (green-red axis), b (blue-yellow axis).
 base class RayOklab extends Ray {
   /// The lightness component (0.0 to 1.0).
-  final double l;
+  final double _l;
 
   /// The green-red axis component.
-  final double a;
+  final double _a;
 
   /// The blue-yellow axis component.
-  final double b;
+  final double _b;
 
   /// The opacity component (0.0 to 1.0).
   final double _opacity;
 
   /// Creates an Oklab color with the specified components.
   const RayOklab._({
-    required this.l,
-    required this.a,
-    required this.b,
+    required double l,
+    required double a,
+    required double b,
     double opacity = 1.0,
-  }) : _opacity = opacity;
+  }) : _l = l,
+       _a = a,
+       _b = b,
+       _opacity = opacity;
 
   /// Creates a [RayOklab] from individual LABO component values.
   ///
   /// [l] is lightness (0-1), [a] and [b] are color axes, [opacity] is 0-1.
-  const RayOklab.fromComponents(this.l, this.a, this.b, [this._opacity = 1.0]);
+  const RayOklab.fromComponents(this._l, this._a, this._b, [this._opacity = 1.0]);
 
   /// Creates a [RayOklab] from a list of component values.
   ///
@@ -49,9 +52,9 @@ base class RayOklab extends Ray {
 
   /// Creates a transparent black Oklab color.
   const RayOklab.empty()
-      : l = 0.0,
-        a = 0.0,
-        b = 0.0,
+      : _l = 0.0,
+        _a = 0.0,
+        _b = 0.0,
         _opacity = 0.0;
 
   /// Creates an Oklab color from a JSON value.
@@ -70,13 +73,54 @@ base class RayOklab extends Ray {
   @override
   double get opacity => _opacity;
 
+  /// The lightness component (0.0 to 1.0).
+  double get lightness => _l;
+
+  /// The green-red opponent axis component.
+  /// 
+  /// Negative values tend toward green, positive values toward red.
+  double get opponentA => _a;
+
+  /// The blue-yellow opponent axis component.
+  /// 
+  /// Negative values tend toward blue, positive values toward yellow.
+  double get opponentB => _b;
+
   @override
   RayOklab withOpacity(double opacity) {
     if (opacity < 0.0 || opacity > 1.0) {
       throw ArgumentError.value(
           opacity, 'opacity', 'Opacity must be between 0.0 and 1.0');
     }
-    return RayOklab._(l: l, a: a, b: b, opacity: opacity);
+    return RayOklab._(l: _l, a: _a, b: _b, opacity: opacity);
+  }
+
+  /// Creates a new [RayOklab] with a different lightness value.
+  /// 
+  /// [lightness] must be between 0.0 (black) and 1.0 (white).
+  /// The opponent color components (a, b) and opacity remain unchanged.
+  RayOklab withLightness(double lightness) {
+    if (lightness < 0.0 || lightness > 1.0) {
+      throw ArgumentError.value(
+          lightness, 'lightness', 'Lightness must be between 0.0 and 1.0');
+    }
+    return RayOklab._(l: lightness, a: _a, b: _b, opacity: opacity);
+  }
+
+  /// Creates a new [RayOklab] with a different green-red opponent axis value.
+  /// 
+  /// Negative values tend toward green, positive values toward red.
+  /// The lightness, blue-yellow axis, and opacity remain unchanged.
+  RayOklab withOpponentA(double opponentA) {
+    return RayOklab._(l: _l, a: opponentA, b: _b, opacity: opacity);
+  }
+
+  /// Creates a new [RayOklab] with a different blue-yellow opponent axis value.
+  /// 
+  /// Negative values tend toward blue, positive values toward yellow.
+  /// The lightness, green-red axis, and opacity remain unchanged.
+  RayOklab withOpponentB(double opponentB) {
+    return RayOklab._(l: _l, a: _a, b: opponentB, opacity: opacity);
   }
 
   @override
@@ -91,9 +135,9 @@ base class RayOklab extends Ray {
 
     final otherOklab = other.toOklab();
     return RayOklab._(
-      l: l + (otherOklab.l - l) * t,
-      a: a + (otherOklab.a - a) * t,
-      b: b + (otherOklab.b - b) * t,
+      l: _l + (otherOklab._l - _l) * t,
+      a: _a + (otherOklab._a - _a) * t,
+      b: _b + (otherOklab._b - _b) * t,
       opacity: opacity + (otherOklab.opacity - opacity) * t,
     );
   }
@@ -102,9 +146,9 @@ base class RayOklab extends Ray {
   RayOklab get inverse {
     // In Oklab, inversion means inverting lightness and flipping a/b axes
     return RayOklab._(
-      l: 1.0 - l,
-      a: -a,
-      b: -b,
+      l: 1.0 - _l,
+      a: -_a,
+      b: -_b,
       opacity: opacity,
     );
   }
@@ -112,15 +156,15 @@ base class RayOklab extends Ray {
   @override
   double get luminance {
     // In Oklab, the L component already represents perceptual lightness/luminance
-    return l;
+    return _l;
   }
 
   @override
   RayRgb16 toRgb16() {
     // Convert Oklab to linear sRGB using the inverse transformation
-    final lCubed = math.pow(l + 0.3963377774 * a + 0.2158037573 * b, 3.0);
-    final mCubed = math.pow(l - 0.1055613458 * a - 0.0638541728 * b, 3.0);
-    final sCubed = math.pow(l - 0.0894841775 * a - 1.2914855480 * b, 3.0);
+    final lCubed = math.pow(_l + 0.3963377774 * _a + 0.2158037573 * _b, 3.0);
+    final mCubed = math.pow(_l - 0.1055613458 * _a - 0.0638541728 * _b, 3.0);
+    final sCubed = math.pow(_l - 0.0894841775 * _a - 1.2914855480 * _b, 3.0);
 
     final linearR =
         4.0767416621 * lCubed - 3.3077115913 * mCubed + 0.2309699292 * sCubed;
@@ -158,17 +202,15 @@ base class RayOklab extends Ray {
   RayOklch toOklch() => RayOklch.fromOklab(this);
 
   @override
-  List<num> toList() => [l, a, b, opacity];
+  List<num> toList() => [lightness, opponentA, opponentB, opacity];
 
   @override
-  Map<String, dynamic> toJson() {
-    return {
-      'l': l,
-      'a': a,
-      'b': b,
-      'o': opacity,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'l': lightness,
+        'a': opponentA,
+        'b': opponentB,
+        if (opacity != 1.0) 'o': opacity,
+      };
 
   /// Converts a linear RGB component to sRGB gamma-corrected value.
   static double _linearToSrgb(double component) {
@@ -182,23 +224,23 @@ base class RayOklab extends Ray {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     return other is RayOklab &&
-        (l - other.l).abs() < 1e-10 &&
-        (a - other.a).abs() < 1e-10 &&
-        (b - other.b).abs() < 1e-10 &&
+        (lightness - other.lightness).abs() < 1e-10 &&
+        (opponentA - other.opponentA).abs() < 1e-10 &&
+        (opponentB - other.opponentB).abs() < 1e-10 &&
         (opacity - other.opacity).abs() < 1e-10;
   }
 
   @override
   int get hashCode => Object.hash(
-        (l * 1e10).round(),
-        (a * 1e10).round(),
-        (b * 1e10).round(),
+        (lightness * 1e10).round(),
+        (opponentA * 1e10).round(),
+        (opponentB * 1e10).round(),
         (opacity * 1e10).round(),
       );
 
   @override
   String toString() {
-    return 'RayOklab(l: ${l.toStringAsFixed(3)}, a: ${a.toStringAsFixed(3)}, b: ${b.toStringAsFixed(3)}, opacity: ${opacity.toStringAsFixed(3)})';
+    return 'RayOklab(l: ${lightness.toStringAsFixed(3)}, a: ${opponentA.toStringAsFixed(3)}, b: ${opponentB.toStringAsFixed(3)}, opacity: ${opacity.toStringAsFixed(3)})';
   }
 
   // ============================================================================

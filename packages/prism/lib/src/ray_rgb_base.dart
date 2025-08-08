@@ -16,7 +16,7 @@ enum HexFormat {
 ///
 /// Provides common functionality for RGB colors regardless of bit depth.
 /// Subclasses implement storage-specific optimizations while sharing algorithms.
-abstract base class RayRgbBase<T> extends Ray {
+abstract base class RayRgbBase<T extends Ray, D> extends Ray {
   const RayRgbBase();
 
   /// The alpha channel as a normalized 8-bit value (0-255).
@@ -32,16 +32,16 @@ abstract base class RayRgbBase<T> extends Ray {
   num get blue;
 
   /// The alpha component as an integer in the subclass's native bit depth.
-  T get alphaNative;
+  D get alphaNative;
 
   /// The red component as an integer in the subclass's native bit depth.
-  T get redNative;
+  D get redNative;
 
   /// The green component as an integer in the subclass's native bit depth.
-  T get greenNative;
+  D get greenNative;
 
   /// The blue component as an integer in the subclass's native bit depth.
-  T get blueNative;
+  D get blueNative;
 
   @override
   double get opacity => alpha / 255.0;
@@ -76,6 +76,21 @@ abstract base class RayRgbBase<T> extends Ray {
     }
     return math.pow((component + 0.055) / 1.055, 2.4) as double;
   }
+
+  T withAlpha(double alpha);
+  T withAlphaNative(D alpha);
+
+  T withRed(double alpha);
+  T withRedNative(D alpha);
+
+  T withBlue(double alpha);
+  T withBlueNative(D alpha);
+
+  T withGreen(double alpha);
+  T withGreenNative(D alpha);
+
+  @override
+  T withOpacity(double opacity) => withAlpha((opacity.clamp(0.0, 1.0) * 255));
 
   @override
   double get luminance => computeLuminance();

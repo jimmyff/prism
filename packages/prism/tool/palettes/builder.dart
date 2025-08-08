@@ -128,7 +128,7 @@ void _generateRgbPalette({
   buffer.writeln('');
 
   // Extract rays from schemes for convenience
-  final Map<String, RayWithLuminanceBase> rays = {};
+  final Map<String, RayWithLuminance> rays = {};
   for (final entry in schemes.entries) {
     rays[entry.key] = entry.value.source;
   }
@@ -146,7 +146,7 @@ void _generateRgbPalette({
 
     buffer.writeln('  $name(');
     buffer.writeln(
-        '    RayWithLuminanceRgb8.fromRay(RayRgb8.fromArgbInt(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
+        '    RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0x${rgb.toArgbInt().toRadixString(16).toUpperCase()}), ${scheme.source.luminance}), // source');
     buffer.writeln('    const {');
 
     for (final tone in RayTone.values) {
@@ -158,7 +158,7 @@ void _generateRgbPalette({
       final luminance = rayLuminance.luminance;
       final toneRgb = rayLuminance.toRgb8();
       buffer.writeln(
-          '      RayTone.${tone.name}: RayWithLuminanceRgb8.fromRay(RayRgb8.fromArgbInt(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0x${toneRgb.toArgbInt().toRadixString(16).toUpperCase()}), $luminance),');
     }
     buffer.writeln('    }, // tones');
     buffer.writeln('  ),');
@@ -167,10 +167,10 @@ void _generateRgbPalette({
   buffer.writeln(';');
   buffer.writeln('');
   buffer.writeln('  /// The source color with precomputed luminance');
-  buffer.writeln('  final RayWithLuminanceRgb8 source;');
+  buffer.writeln('  final RayWithLuminance<RayRgb8> source;');
   buffer.writeln('');
   buffer.writeln('  /// The complete tonal palette');
-  buffer.writeln('  final Map<RayTone, RayWithLuminanceRgb8> tones;');
+  buffer.writeln('  final Map<RayTone, RayWithLuminance<RayRgb8>> tones;');
   buffer.writeln('');
   buffer.writeln('  const ${baseName}Rgb(this.source, this.tones);');
   buffer.writeln('');
@@ -180,22 +180,22 @@ void _generateRgbPalette({
   for (final tone in RayTone.values) {
     buffer.writeln('  @override');
     buffer.writeln(
-        '  RayWithLuminanceRgb8? get ${tone.name} => tones[RayTone.${tone.name}];');
+        '  RayWithLuminance<RayRgb8>? get ${tone.name} => tones[RayTone.${tone.name}];');
   }
   buffer.writeln('');
 
   // Add convenience methods
   buffer.writeln('  /// Access specific tone by RayTone enum');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceRgb8? tone(RayTone tone) => tones[tone];');
+  buffer.writeln('  RayWithLuminance<RayRgb8>? tone(RayTone tone) => tones[tone];');
   buffer.writeln('');
   buffer.writeln('  /// A lighter surface variant of the primary color');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceRgb8 get surfaceLight => shade100!;');
+  buffer.writeln('  RayWithLuminance<RayRgb8> get surfaceLight => shade100!;');
   buffer.writeln('');
   buffer.writeln('  /// A darker surface variant of the primary color');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceRgb8 get surfaceDark => shade700!;');
+  buffer.writeln('  RayWithLuminance<RayRgb8> get surfaceDark => shade700!;');
   buffer.writeln('');
 
   // Add RGB aliases if they exist
@@ -250,7 +250,7 @@ void _generateOklchPalette({
   buffer.writeln('');
 
   // Extract rays from schemes for convenience
-  final Map<String, RayWithLuminanceBase> rays = {};
+  final Map<String, RayWithLuminance> rays = {};
   for (final entry in schemes.entries) {
     rays[entry.key] = entry.value.source;
   }
@@ -268,7 +268,7 @@ void _generateOklchPalette({
 
     buffer.writeln('  $name(');
     buffer.writeln(
-        '    RayWithLuminanceOklch.fromRay(RayOklch.fromComponents(${oklch.l}, ${oklch.c}, ${oklch.h}, ${oklch.opacity}), ${oklch.luminance}), // source');
+        '    RayWithLuminance<RayOklch>(RayOklch.fromComponents(${oklch.lightness}, ${oklch.chroma}, ${oklch.hue}, ${oklch.opacity}), ${oklch.luminance}), // source');
     buffer.writeln('    const {');
 
     for (final tone in RayTone.values) {
@@ -280,7 +280,7 @@ void _generateOklchPalette({
       final luminance = rayLuminance.luminance;
       final toneOklch = rayLuminance.toOklch();
       buffer.writeln(
-          '      RayTone.${tone.name}: RayWithLuminanceOklch.fromRay(RayOklch.fromComponents(${toneOklch.l}, ${toneOklch.c}, ${toneOklch.h}, ${toneOklch.opacity}), $luminance),');
+          '      RayTone.${tone.name}: RayWithLuminance<RayOklch>(RayOklch.fromComponents(${toneOklch.lightness}, ${toneOklch.chroma}, ${toneOklch.hue}, ${toneOklch.opacity}), $luminance),');
     }
     buffer.writeln('    }, // tones');
     buffer.writeln('  ),');
@@ -289,10 +289,10 @@ void _generateOklchPalette({
   buffer.writeln(';');
   buffer.writeln('');
   buffer.writeln('  /// The source color with precomputed luminance');
-  buffer.writeln('  final RayWithLuminanceOklch source;');
+  buffer.writeln('  final RayWithLuminance<RayOklch> source;');
   buffer.writeln('');
   buffer.writeln('  /// The complete tonal palette');
-  buffer.writeln('  final Map<RayTone, RayWithLuminanceOklch> tones;');
+  buffer.writeln('  final Map<RayTone, RayWithLuminance<RayOklch>> tones;');
   buffer.writeln('');
   buffer.writeln('  const ${baseName}Oklch(this.source, this.tones);');
   buffer.writeln('');
@@ -302,22 +302,22 @@ void _generateOklchPalette({
   for (final tone in RayTone.values) {
     buffer.writeln('  @override');
     buffer.writeln(
-        '  RayWithLuminanceOklch? get ${tone.name} => tones[RayTone.${tone.name}];');
+        '  RayWithLuminance<RayOklch>? get ${tone.name} => tones[RayTone.${tone.name}];');
   }
   buffer.writeln('');
 
   // Add convenience methods
   buffer.writeln('  /// Access specific tone by RayTone enum');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceOklch? tone(RayTone tone) => tones[tone];');
+  buffer.writeln('  RayWithLuminance<RayOklch>? tone(RayTone tone) => tones[tone];');
   buffer.writeln('');
   buffer.writeln('  /// A lighter surface variant of the primary color');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceOklch get surfaceLight => shade100!;');
+  buffer.writeln('  RayWithLuminance<RayOklch> get surfaceLight => shade100!;');
   buffer.writeln('');
   buffer.writeln('  /// A darker surface variant of the primary color');
   buffer.writeln('  @override');
-  buffer.writeln('  RayWithLuminanceOklch get surfaceDark => shade700!;');
+  buffer.writeln('  RayWithLuminance<RayOklch> get surfaceDark => shade700!;');
   buffer.writeln('');
 
   // Add Oklch aliases if they exist

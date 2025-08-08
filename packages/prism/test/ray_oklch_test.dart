@@ -7,25 +7,25 @@ void main() {
     group('constructors', () {
       test('creates color with valid parameters', () {
         final color = RayOklch.fromComponents(0.7, 0.15, 180.0, 1.0);
-        expect(color.l, closeTo(0.7, 1e-10));
-        expect(color.c, closeTo(0.15, 1e-10));
-        expect(color.h, closeTo(180.0, 1e-6));
+        expect(color.lightness, closeTo(0.7, 1e-10));
+        expect(color.chroma, closeTo(0.15, 1e-10));
+        expect(color.hue, closeTo(180.0, 1e-6));
         expect(color.opacity, closeTo(1.0, 1e-10));
         expect(color.colorSpace, equals(ColorSpace.oklch));
       });
 
       test('normalizes hue to [0, 360) range', () {
-        expect(RayOklch.fromComponentsValidated(0.5, 0.1, 380.0).h,
+        expect(RayOklch.fromComponentsValidated(0.5, 0.1, 380.0).hue,
             closeTo(20.0, 1e-6));
-        expect(RayOklch.fromComponentsValidated(0.5, 0.1, -20.0).h,
+        expect(RayOklch.fromComponentsValidated(0.5, 0.1, -20.0).hue,
             closeTo(340.0, 1e-6));
-        expect(RayOklch.fromComponentsValidated(0.5, 0.1, 720.0).h,
+        expect(RayOklch.fromComponentsValidated(0.5, 0.1, 720.0).hue,
             closeTo(0.0, 1e-6));
       });
 
       test('clamps chroma to minimum 0.0', () {
         final color = RayOklch.fromComponentsValidated(0.5, -0.1, 180.0);
-        expect(color.c, equals(0.0));
+        expect(color.chroma, equals(0.0));
       });
 
       test('throws on invalid lightness', () {
@@ -44,17 +44,17 @@ void main() {
 
       test('fromLch constructor works correctly', () {
         final color = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
-        expect(color.l, closeTo(0.7, 1e-10));
-        expect(color.c, closeTo(0.15, 1e-10));
-        expect(color.h, closeTo(180.0, 1e-6));
+        expect(color.lightness, closeTo(0.7, 1e-10));
+        expect(color.chroma, closeTo(0.15, 1e-10));
+        expect(color.hue, closeTo(180.0, 1e-6));
         expect(color.opacity, closeTo(0.8, 1e-10));
       });
 
       test('empty constructor creates transparent black', () {
         const color = RayOklch.empty();
-        expect(color.l, equals(0.0));
-        expect(color.c, equals(0.0));
-        expect(color.h, equals(0.0));
+        expect(color.lightness, equals(0.0));
+        expect(color.chroma, equals(0.0));
+        expect(color.hue, equals(0.0));
         expect(color.opacity, equals(0.0));
       });
 
@@ -62,14 +62,14 @@ void main() {
         final oklab = RayOklab.fromComponents(0.7, 0.1, -0.1, 0.8);
         final oklch = RayOklch.fromOklab(oklab);
 
-        expect(oklch.l, closeTo(oklab.l, 1e-10));
+        expect(oklch.lightness, closeTo(oklab.lightness, 1e-10));
         expect(oklch.opacity, closeTo(oklab.opacity, 1e-10));
 
         // Verify conversion math
-        final expectedChroma = math.sqrt(oklab.a * oklab.a + oklab.b * oklab.b);
-        final expectedHue = math.atan2(oklab.b, oklab.a) * 180.0 / math.pi;
-        expect(oklch.c, closeTo(expectedChroma, 1e-10));
-        expect(oklch.h,
+        final expectedChroma = math.sqrt(oklab.opponentA * oklab.opponentA + oklab.opponentB * oklab.opponentB);
+        final expectedHue = math.atan2(oklab.opponentB, oklab.opponentA) * 180.0 / math.pi;
+        expect(oklch.chroma, closeTo(expectedChroma, 1e-10));
+        expect(oklch.hue,
             closeTo(expectedHue < 0 ? expectedHue + 360 : expectedHue, 1e-6));
       });
 
@@ -77,9 +77,9 @@ void main() {
         final json = {'l': 0.7, 'c': 0.15, 'h': 180.0, 'o': 0.8};
         final color = RayOklch.fromJson(json);
 
-        expect(color.l, closeTo(0.7, 1e-10));
-        expect(color.c, closeTo(0.15, 1e-10));
-        expect(color.h, closeTo(180.0, 1e-6));
+        expect(color.lightness, closeTo(0.7, 1e-10));
+        expect(color.chroma, closeTo(0.15, 1e-10));
+        expect(color.hue, closeTo(180.0, 1e-6));
         expect(color.opacity, closeTo(0.8, 1e-10));
       });
 
@@ -95,9 +95,9 @@ void main() {
 
       test('withOpacity creates new color with different opacity', () {
         final newColor = color.withOpacity(0.5);
-        expect(newColor.l, equals(color.l));
-        expect(newColor.c, equals(color.c));
-        expect(newColor.h, equals(color.h));
+        expect(newColor.lightness, equals(color.lightness));
+        expect(newColor.chroma, equals(color.chroma));
+        expect(newColor.hue, equals(color.hue));
         expect(newColor.opacity, equals(0.5));
         expect(identical(newColor, color), isFalse);
       });
@@ -109,39 +109,39 @@ void main() {
 
       test('withChroma creates new color with different chroma', () {
         final newColor = color.withChroma(0.25);
-        expect(newColor.l, equals(color.l));
+        expect(newColor.lightness, equals(color.lightness));
         // Chroma is clamped to valid gamut - 0.25 is too high for L=0.7, H=180°
-        expect(newColor.c, lessThanOrEqualTo(0.25));
-        expect(newColor.c, greaterThan(0.1)); // Should be reasonable value
-        expect(newColor.h, equals(color.h));
+        expect(newColor.chroma, lessThanOrEqualTo(0.25));
+        expect(newColor.chroma, greaterThan(0.1)); // Should be reasonable value
+        expect(newColor.hue, equals(color.hue));
         expect(newColor.opacity, equals(color.opacity));
       });
 
       test('withChroma clamps negative values to 0', () {
         final newColor = color.withChroma(-0.1);
-        expect(newColor.c, equals(0.0));
+        expect(newColor.chroma, equals(0.0));
       });
 
       test('withHue creates new color with different hue', () {
         final newColor = color.withHue(90.0);
-        expect(newColor.l, equals(color.l));
-        expect(newColor.c, equals(color.c));
-        expect(newColor.h, equals(90.0));
+        expect(newColor.lightness, equals(color.lightness));
+        expect(newColor.chroma, equals(color.chroma));
+        expect(newColor.hue, equals(90.0));
         expect(newColor.opacity, equals(color.opacity));
       });
 
       test('withHue normalizes hue values', () {
-        expect(color.withHue(400.0).h, closeTo(40.0, 1e-6));
-        expect(color.withHue(-30.0).h, closeTo(330.0, 1e-6));
+        expect(color.withHue(400.0).hue, closeTo(40.0, 1e-6));
+        expect(color.withHue(-30.0).hue, closeTo(330.0, 1e-6));
       });
 
       test('withLightness creates new color with different lightness', () {
         final newColor = color.withLightness(0.5);
-        expect(newColor.l, equals(0.5));
+        expect(newColor.lightness, equals(0.5));
         // Chroma may be clamped to valid gamut for new lightness
-        expect(newColor.c, lessThanOrEqualTo(color.c));
-        expect(newColor.c, greaterThan(0.0)); // Should be reasonable value
-        expect(newColor.h, equals(color.h));
+        expect(newColor.chroma, lessThanOrEqualTo(color.chroma));
+        expect(newColor.chroma, greaterThan(0.0)); // Should be reasonable value
+        expect(newColor.hue, equals(color.hue));
         expect(newColor.opacity, equals(color.opacity));
       });
 
@@ -157,25 +157,25 @@ void main() {
 
       test('returns first color when t = 0', () {
         final result = color1.lerp(color2, 0.0);
-        expect(result.l, closeTo(color1.l, 1e-10));
-        expect(result.c, closeTo(color1.c, 1e-10));
-        expect(result.h, closeTo(color1.h, 1e-6));
+        expect(result.lightness, closeTo(color1.lightness, 1e-10));
+        expect(result.chroma, closeTo(color1.chroma, 1e-10));
+        expect(result.hue, closeTo(color1.hue, 1e-6));
         expect(result.opacity, closeTo(color1.opacity, 1e-10));
       });
 
       test('returns second color when t = 1', () {
         final result = color1.lerp(color2, 1.0);
-        expect(result.l, closeTo(color2.l, 1e-10));
-        expect(result.c, closeTo(color2.c, 1e-10));
-        expect(result.h, closeTo(color2.h, 1e-6));
+        expect(result.lightness, closeTo(color2.lightness, 1e-10));
+        expect(result.chroma, closeTo(color2.chroma, 1e-10));
+        expect(result.hue, closeTo(color2.hue, 1e-6));
         expect(result.opacity, closeTo(color2.opacity, 1e-10));
       });
 
       test('interpolates correctly at midpoint', () {
         final result = color1.lerp(color2, 0.5);
-        expect(result.l, closeTo(0.5, 1e-10));
-        expect(result.c, closeTo(0.15, 1e-10));
-        expect(result.h,
+        expect(result.lightness, closeTo(0.5, 1e-10));
+        expect(result.chroma, closeTo(0.15, 1e-10));
+        expect(result.hue,
             closeTo(60.0, 1e-6)); // Shortest path: 0° -> 120° = 60° at midpoint
         expect(result.opacity, closeTo(0.75, 1e-10));
       });
@@ -186,7 +186,7 @@ void main() {
 
         final result = red.lerp(blue, 0.5);
         // Should go from 10° to 350° via 0°, midpoint should be around 0° (actually 360°)
-        expect(result.h, closeTo(0.0, 1e-6));
+        expect(result.hue, closeTo(0.0, 1e-6));
       });
 
       test('works with different color types', () {
@@ -206,16 +206,16 @@ void main() {
         final color = RayOklch.fromComponents(0.3, 0.15, 45.0, 0.8);
         final inverted = color.inverse;
 
-        expect(inverted.l, closeTo(0.7, 1e-10)); // 1.0 - 0.3
-        expect(inverted.c, closeTo(0.15, 1e-10)); // Chroma unchanged
-        expect(inverted.h, closeTo(225.0, 1e-6)); // 45° + 180°
+        expect(inverted.lightness, closeTo(0.7, 1e-10)); // 1.0 - 0.3
+        expect(inverted.chroma, closeTo(0.15, 1e-10)); // Chroma unchanged
+        expect(inverted.hue, closeTo(225.0, 1e-6)); // 45° + 180°
         expect(inverted.opacity, closeTo(0.8, 1e-10)); // Opacity unchanged
       });
 
       test('wraps hue correctly when adding 180°', () {
         final color = RayOklch.fromComponents(0.5, 0.15, 270.0);
         final inverted = color.inverse;
-        expect(inverted.h, closeTo(90.0, 1e-6)); // (270° + 180°) % 360° = 90°
+        expect(inverted.hue, closeTo(90.0, 1e-6)); // (270° + 180°) % 360° = 90°
       });
     });
 
@@ -229,24 +229,24 @@ void main() {
       test('toOklab converts correctly', () {
         final oklab = oklch.toOklab();
 
-        expect(oklab.l, closeTo(oklch.l, 1e-10));
+        expect(oklab.lightness, closeTo(oklch.lightness, 1e-10));
         expect(oklab.opacity, closeTo(oklch.opacity, 1e-10));
 
         // Verify conversion math
-        final hueRadians = oklch.h * math.pi / 180.0;
-        final expectedA = oklch.c * math.cos(hueRadians);
-        final expectedB = oklch.c * math.sin(hueRadians);
-        expect(oklab.a, closeTo(expectedA, 1e-10));
-        expect(oklab.b, closeTo(expectedB, 1e-10));
+        final hueRadians = oklch.hue * math.pi / 180.0;
+        final expectedA = oklch.chroma * math.cos(hueRadians);
+        final expectedB = oklch.chroma * math.sin(hueRadians);
+        expect(oklab.opponentA, closeTo(expectedA, 1e-10));
+        expect(oklab.opponentB, closeTo(expectedB, 1e-10));
       });
 
       test('round-trip conversion Oklch -> Oklab -> Oklch preserves values',
           () {
         final roundTrip = RayOklch.fromOklab(oklch.toOklab());
 
-        expect(roundTrip.l, closeTo(oklch.l, 1e-10));
-        expect(roundTrip.c, closeTo(oklch.c, 1e-10));
-        expect(roundTrip.h, closeTo(oklch.h, 1e-6));
+        expect(roundTrip.lightness, closeTo(oklch.lightness, 1e-10));
+        expect(roundTrip.chroma, closeTo(oklch.chroma, 1e-10));
+        expect(roundTrip.hue, closeTo(oklch.hue, 1e-6));
         expect(roundTrip.opacity, closeTo(oklch.opacity, 1e-10));
       });
 
@@ -269,9 +269,9 @@ void main() {
         final backToOklch = oklab.toOklch();
 
         // Allow for some precision loss in conversions
-        expect(backToOklch.l, closeTo(oklch.l, 0.02));
-        expect(backToOklch.c, closeTo(oklch.c, 0.02));
-        expect(backToOklch.h, closeTo(oklch.h, 2.0));
+        expect(backToOklch.lightness, closeTo(oklch.lightness, 0.02));
+        expect(backToOklch.chroma, closeTo(oklch.chroma, 0.02));
+        expect(backToOklch.hue, closeTo(oklch.hue, 2.0));
         expect(backToOklch.opacity, closeTo(oklch.opacity, 1e-10));
       });
     });
@@ -282,13 +282,13 @@ void main() {
             RayOklch.fromComponents(0.5, 0.0, 45.0); // Hue irrelevant for gray
         final oklab = gray.toOklab();
 
-        expect(oklab.a, closeTo(0.0, 1e-10));
-        expect(oklab.b, closeTo(0.0, 1e-10));
+        expect(oklab.opponentA, closeTo(0.0, 1e-10));
+        expect(oklab.opponentB, closeTo(0.0, 1e-10));
 
         // Round-trip should preserve lightness and chroma
         final backToOklch = RayOklch.fromOklab(oklab);
-        expect(backToOklch.l, closeTo(0.5, 1e-10));
-        expect(backToOklch.c, closeTo(0.0, 1e-10));
+        expect(backToOklch.lightness, closeTo(0.5, 1e-10));
+        expect(backToOklch.chroma, closeTo(0.0, 1e-10));
         // Hue can be anything for zero chroma, so don't test it
       });
 
@@ -329,9 +329,9 @@ void main() {
         final original = RayOklch.fromComponents(0.7, 0.15, 180.0, 0.8);
         final roundTrip = RayOklch.fromJson(original.toJson());
 
-        expect(roundTrip.l, closeTo(original.l, 1e-10));
-        expect(roundTrip.c, closeTo(original.c, 1e-10));
-        expect(roundTrip.h, closeTo(original.h, 1e-6));
+        expect(roundTrip.lightness, closeTo(original.lightness, 1e-10));
+        expect(roundTrip.chroma, closeTo(original.chroma, 1e-10));
+        expect(roundTrip.hue, closeTo(original.hue, 1e-6));
         expect(roundTrip.opacity, closeTo(original.opacity, 1e-10));
       });
     });
@@ -387,9 +387,9 @@ void main() {
         final str = color.toString();
 
         expect(str, contains('RayOklch'));
-        expect(str, contains('l: 0.712'));
-        expect(str, contains('c: 0.157'));
-        expect(str, contains('h: 180.1°'));
+        expect(str, contains('lightness: 0.712'));
+        expect(str, contains('chroma: 0.157'));
+        expect(str, contains('hue: 180.1°'));
         expect(str, contains('opacity: 0.857'));
       });
     });
@@ -413,7 +413,7 @@ void main() {
         // The final color should still be recognizably tangerine/orange
         // Convert back to verify hue is preserved
         final finalOklch = saturatedRgb.toOklch();
-        expect(finalOklch.h, closeTo(64.05, 10.0),
+        expect(finalOklch.hue, closeTo(64.05, 10.0),
             reason: 'Final RGB color should preserve the tangerine hue');
       });
 
@@ -432,17 +432,17 @@ void main() {
           final saturated = color.withChroma(2.0); // Extreme chroma
 
           // Hue should be preserved
-          expect(saturated.h, closeTo(color.h, 1.0),
-              reason: 'Hue should be preserved for h=${color.h}');
+          expect(saturated.hue, closeTo(color.hue, 1.0),
+              reason: 'Hue should be preserved for h=${color.hue}');
 
           // Lightness should be preserved
-          expect(saturated.l, closeTo(color.l, 1e-6),
-              reason: 'Lightness should be preserved for h=${color.h}');
+          expect(saturated.lightness, closeTo(color.lightness, 1e-6),
+              reason: 'Lightness should be preserved for h=${color.hue}');
 
           // Chroma should be valid (not exceed reasonable bounds)
-          expect(saturated.c, lessThanOrEqualTo(0.5),
+          expect(saturated.chroma, lessThanOrEqualTo(0.5),
               reason:
-                  'Chroma should be clamped to reasonable bounds for h=${color.h}');
+                  'Chroma should be clamped to reasonable bounds for h=${color.hue}');
         }
       });
 
@@ -471,11 +471,11 @@ void main() {
             reason: 'High lightness color should not be pure red');
 
         // Chroma should have been clamped to a much lower value
-        expect(highLightnessColor.c, lessThan(0.1),
+        expect(highLightnessColor.chroma, lessThan(0.1),
             reason: 'Chroma should be significantly reduced at high lightness');
 
         // Hue should be preserved
-        expect(highLightnessColor.h, closeTo(24.87, 1.0),
+        expect(highLightnessColor.hue, closeTo(24.87, 1.0),
             reason: 'Hue should be preserved when adjusting lightness');
       });
     });

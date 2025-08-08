@@ -1,3 +1,11 @@
+## 2.0.0
+
+
+- **API Standardization:** color model local components are now all private with named getters for access
+- **API Standardization:** all color models have with$Component() transformers (eg: oklchColor.withChroma(120.0)) 
+- **API Clean up:** Removed color space specific RayWithLuminance implementations in favor of RayWithLuminance<T extends Ray>
+
+
 ## 2.0.0-beta.2
 
 **API Standardization:**

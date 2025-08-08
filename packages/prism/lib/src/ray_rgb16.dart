@@ -22,7 +22,7 @@ import 'ray_rgb8.dart';
 /// **Factory constructors (runtime flexibility):**
 /// - `RayRgb16.fromComponents()` - 0-255 range with `num` support
 /// - `RayRgb16.fromComponentsNormalized()` - 0.0-1.0 normalized values
-base class RayRgb16 extends RayRgbBase<int> {
+base class RayRgb16 extends RayRgbBase<RayRgb16, int> {
   /// Individual 16-bit color components
   final int _alpha;
   final int _red;
@@ -63,11 +63,11 @@ base class RayRgb16 extends RayRgbBase<int> {
       );
 
   /// Creates a [RayRgb16] for JSON deserialization.
-  factory RayRgb16.fromJson(List<dynamic> json) => RayRgb16._(
-        alpha: json[0],
-        red: json[1],
-        green: json[2],
-        blue: json[3],
+  factory RayRgb16.fromJson(Map<String, dynamic> json) => RayRgb16._(
+        red: json['r'],
+        green: json['g'],
+        blue: json['b'],
+        alpha: json['a'] ?? 65535,
       );
 
   /// Creates a [RayRgb16] from individual RGBA component values (0-255).
@@ -162,23 +162,56 @@ base class RayRgb16 extends RayRgbBase<int> {
   int get blueNative => _blue;
 
   /// Creates a new [RayRgb16] with the same RGB values but a different alpha.
-  ///
-  /// The [alpha] value should be in the range [0, 65535].
-  ///
-  /// Example:
-  /// ```dart
-  /// final red = RayRgb16.fromComponentsNative(65535, 0, 0);
-  /// final semiRed = red.withAlpha(32768);  // Semi-transparent red
-  /// ```
-  RayRgb16 withAlpha(int alpha) =>
-      RayRgb16._(red: _red, green: _green, blue: _blue, alpha: alpha);
-
   @override
-  RayRgb16 withOpacity(double opacity) => RayRgb16._(
+  RayRgb16 withAlpha(double alpha) => RayRgb16._(
       red: _red,
       green: _green,
       blue: _blue,
-      alpha: (opacity.clamp(0.0, 1.0) * 65535).round());
+      alpha: (alpha * 257).round().clamp(0, 65535));
+
+  /// Creates a new [RayRgb16] with a different alpha using native precision.
+  @override
+  RayRgb16 withAlphaNative(int alpha) =>
+      RayRgb16._(red: _red, green: _green, blue: _blue, alpha: alpha);
+
+  /// Creates a new [RayRgb16] with a different red component.
+  @override
+  RayRgb16 withRed(double red) => RayRgb16._(
+      red: (red * 257).round().clamp(0, 65535),
+      green: _green,
+      blue: _blue,
+      alpha: _alpha);
+
+  /// Creates a new [RayRgb16] with a different red component using native precision.
+  @override
+  RayRgb16 withRedNative(int red) =>
+      RayRgb16._(red: red, green: _green, blue: _blue, alpha: _alpha);
+
+  /// Creates a new [RayRgb16] with a different green component.
+  @override
+  RayRgb16 withGreen(double green) => RayRgb16._(
+      red: _red,
+      green: (green * 257).round().clamp(0, 65535),
+      blue: _blue,
+      alpha: _alpha);
+
+  /// Creates a new [RayRgb16] with a different green component using native precision.
+  @override
+  RayRgb16 withGreenNative(int green) =>
+      RayRgb16._(red: _red, green: green, blue: _blue, alpha: _alpha);
+
+  /// Creates a new [RayRgb16] with a different blue component.
+  @override
+  RayRgb16 withBlue(double blue) => RayRgb16._(
+      red: _red,
+      green: _green,
+      blue: (blue * 257).round().clamp(0, 65535),
+      alpha: _alpha);
+
+  /// Creates a new [RayRgb16] with a different blue component using native precision.
+  @override
+  RayRgb16 withBlueNative(int blue) =>
+      RayRgb16._(red: _red, green: _green, blue: blue, alpha: _alpha);
 
   @override
   RayRgb16 lerp(Ray other, double t) {
@@ -317,7 +350,12 @@ base class RayRgb16 extends RayRgbBase<int> {
   List<num> toList() => [red, green, blue, alpha];
 
   @override
-  List<int> toJson() => [_alpha, _red, _green, _blue];
+  Map<String, dynamic> toJson() => {
+        'r': _red,
+        'g': _green,
+        'b': _blue,
+        if (_alpha != 65535) 'a': _alpha,
+      };
 
   @override
   String toString() => 'RayRgb16(a: $_alpha, r: $_red, g: $_green, b: $_blue)';

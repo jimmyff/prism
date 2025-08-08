@@ -1,8 +1,17 @@
 import 'package:prism/prism.dart';
 
+Map<String, RayWithLuminance<RayRgb8>> materialSpotColors = {
+  'black': RayWithLuminance.fromRay<RayRgb8>(
+    RayRgb8.fromHex('#000000'),
+  ),
+  'white': RayWithLuminance.fromRay<RayRgb8>(
+    RayRgb8.fromHex('#FFFFFF'),
+  ),
+};
+
 /// Material Design colors palette
 /// Contains all Material Design colors as RayScheme objects
-Map<String, RayScheme<RayWithLuminanceRgb8>> materialColors = {
+Map<String, RayScheme<RayWithLuminance<RayRgb8>>> materialColors = {
   // Red
   'red': RayScheme.fromRgbTones(
     tones: {
@@ -337,13 +346,5 @@ Map<String, RayScheme<RayWithLuminanceRgb8>> materialColors = {
       RayTone.shade800: RayRgb8.fromHex('#37474F'),
       RayTone.shade900: RayRgb8.fromHex('#263238'),
     },
-  ),
-  'black': RayScheme.fromRgb8(
-    RayRgb8.fromHex('#000000'),
-    generateAccents: false,
-  ),
-  'white': RayScheme.fromRgb8(
-    RayRgb8.fromHex('#FFFFFF'),
-    generateAccents: false,
   ),
 };

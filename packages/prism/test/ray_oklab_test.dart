@@ -9,9 +9,9 @@ void main() {
       test('creates Oklab color with valid components', () {
         final color = RayOklab.fromComponents(0.7, 0.1, -0.1, 1.0);
 
-        expect(color.l, equals(0.7));
-        expect(color.a, equals(0.1));
-        expect(color.b, equals(-0.1));
+        expect(color.lightness, equals(0.7));
+        expect(color.opponentA, equals(0.1));
+        expect(color.opponentB, equals(-0.1));
         expect(color.opacity, equals(1.0));
         expect(color.colorSpace, equals(ColorSpace.oklab));
       });
@@ -25,18 +25,18 @@ void main() {
       test('creates Oklab color from LAB components', () {
         final color = RayOklab.fromComponents(0.8, 0.2, -0.15, 0.9);
 
-        expect(color.l, equals(0.8));
-        expect(color.a, equals(0.2));
-        expect(color.b, equals(-0.15));
+        expect(color.lightness, equals(0.8));
+        expect(color.opponentA, equals(0.2));
+        expect(color.opponentB, equals(-0.15));
         expect(color.opacity, equals(0.9));
       });
 
       test('creates empty Oklab color', () {
         final color = RayOklab.empty();
 
-        expect(color.l, equals(0.0));
-        expect(color.a, equals(0.0));
-        expect(color.b, equals(0.0));
+        expect(color.lightness, equals(0.0));
+        expect(color.opponentA, equals(0.0));
+        expect(color.opponentB, equals(0.0));
         expect(color.opacity, equals(0.0));
       });
 
@@ -44,10 +44,71 @@ void main() {
         final json = {'l': 0.6, 'a': 0.15, 'b': -0.2, 'o': 0.8};
         final color = RayOklab.fromJson(json);
 
-        expect(color.l, equals(0.6));
-        expect(color.a, equals(0.15));
-        expect(color.b, equals(-0.2));
+        expect(color.lightness, equals(0.6));
+        expect(color.opponentA, equals(0.15));
+        expect(color.opponentB, equals(-0.2));
         expect(color.opacity, equals(0.8));
+      });
+    });
+
+    group('Component Access', () {
+      test('lightness getter returns l component', () {
+        final color = RayOklab.fromComponents(0.7, 0.1, -0.1, 0.8);
+        expect(color.lightness, equals(0.7));
+      });
+
+      test('opponentA getter returns a component', () {
+        final color = RayOklab.fromComponents(0.5, 0.25, -0.2, 0.9);
+        expect(color.opponentA, equals(0.25));
+      });
+
+      test('opponentB getter returns b component', () {
+        final color = RayOklab.fromComponents(0.6, 0.1, -0.15, 1.0);
+        expect(color.opponentB, equals(-0.15));
+      });
+    });
+
+    group('Component Modification', () {
+      test('withLightness creates new color with different lightness', () {
+        final original = RayOklab.fromComponents(0.5, 0.1, -0.1, 0.8);
+        final modified = original.withLightness(0.7);
+
+        expect(modified.lightness, equals(0.7));
+        expect(modified.opponentA, equals(original.opponentA));
+        expect(modified.opponentB, equals(original.opponentB));
+        expect(modified.opacity, equals(original.opacity));
+        expect(modified == original, isFalse);
+      });
+
+      test('withLightness validates range', () {
+        final color = RayOklab.fromComponents(0.5, 0.1, -0.1);
+        
+        expect(() => color.withLightness(-0.1), throwsArgumentError);
+        expect(() => color.withLightness(1.1), throwsArgumentError);
+        expect(() => color.withLightness(0.0), returnsNormally);
+        expect(() => color.withLightness(1.0), returnsNormally);
+      });
+
+      test('withOpponentA creates new color with different a component', () {
+        final original = RayOklab.fromComponents(0.5, 0.1, -0.1, 0.8);
+        final modified = original.withOpponentA(0.3);
+
+        expect(modified.lightness, equals(original.lightness));
+        expect(modified.opponentA, equals(0.3));
+        expect(modified.opponentB, equals(original.opponentB));
+        expect(modified.opacity, equals(original.opacity));
+        expect(modified == original, isFalse);
+      });
+
+      test('withOpponentB creates new color with different b component', () {
+        final original = RayOklab.fromComponents(0.5, 0.1, -0.1, 0.8);
+        final modified = original.withOpponentB(-0.3);
+
+        expect(modified.lightness, equals(original.lightness));
+        expect(modified.opponentA, equals(original.opponentA));
+        expect(modified.opponentB, equals(-0.3));
+        expect(modified.opacity, equals(original.opacity));
+        expect(modified == original, isFalse);
       });
 
       test('creates Oklab color from JSON with default opacity', () {
@@ -75,9 +136,9 @@ void main() {
         final original = RayOklab.fromComponents(0.7, 0.1, -0.1, 1.0);
         final modified = original.withOpacity(0.5);
 
-        expect(modified.l, equals(original.l));
-        expect(modified.a, equals(original.a));
-        expect(modified.b, equals(original.b));
+        expect(modified.lightness, equals(original.lightness));
+        expect(modified.opponentA, equals(original.opponentA));
+        expect(modified.opponentB, equals(original.opponentB));
         expect(modified.opacity, equals(0.5));
         expect(modified, isNot(same(original)));
       });
@@ -97,9 +158,9 @@ void main() {
 
         final midpoint = color1.lerp(color2, 0.5);
 
-        expect(midpoint.l, closeTo(0.5, oklabTolerance));
-        expect(midpoint.a, closeTo(0.0, oklabTolerance));
-        expect(midpoint.b, closeTo(0.0, oklabTolerance));
+        expect(midpoint.lightness, closeTo(0.5, oklabTolerance));
+        expect(midpoint.opponentA, closeTo(0.0, oklabTolerance));
+        expect(midpoint.opponentB, closeTo(0.0, oklabTolerance));
         expect(midpoint.opacity, closeTo(0.75, oklabTolerance));
       });
 
@@ -109,9 +170,9 @@ void main() {
 
         final result = color1.lerp(color2, 0.0);
 
-        expect(result.l, equals(color1.l));
-        expect(result.a, equals(color1.a));
-        expect(result.b, equals(color1.b));
+        expect(result.lightness, equals(color1.lightness));
+        expect(result.opponentA, equals(color1.opponentA));
+        expect(result.opponentB, equals(color1.opponentB));
         expect(result.opacity, equals(color1.opacity));
       });
 
@@ -122,9 +183,9 @@ void main() {
         // Should convert color2 to Oklab (already Oklab in this case)
         final result = color1.lerp(color2, 1.0);
 
-        expect(result.l, equals(color2.l));
-        expect(result.a, equals(color2.a));
-        expect(result.b, equals(color2.b));
+        expect(result.lightness, equals(color2.lightness));
+        expect(result.opponentA, equals(color2.opponentA));
+        expect(result.opponentB, equals(color2.opponentB));
         expect(result.opacity, equals(color2.opacity));
       });
 
@@ -152,9 +213,9 @@ void main() {
         final color = RayOklab.fromComponents(0.7, 0.1, -0.2, 0.8);
         final inverted = color.inverse;
 
-        expect(inverted.l, closeTo(0.3, oklabTolerance)); // 1.0 - 0.7
-        expect(inverted.a, closeTo(-0.1, oklabTolerance)); // -0.1
-        expect(inverted.b, closeTo(0.2, oklabTolerance)); // -(-0.2)
+        expect(inverted.lightness, closeTo(0.3, oklabTolerance)); // 1.0 - 0.7
+        expect(inverted.opponentA, closeTo(-0.1, oklabTolerance)); // -0.1
+        expect(inverted.opponentB, closeTo(0.2, oklabTolerance)); // -(-0.2)
         expect(inverted.opacity, equals(0.8)); // Opacity preserved
       });
     });
@@ -231,9 +292,9 @@ void main() {
         final json = original.toJson();
         final restored = RayOklab.fromJson(json);
 
-        expect(restored.l, equals(original.l));
-        expect(restored.a, equals(original.a));
-        expect(restored.b, equals(original.b));
+        expect(restored.lightness, equals(original.lightness));
+        expect(restored.opponentA, equals(original.opponentA));
+        expect(restored.opponentB, equals(original.opponentB));
         expect(restored.opacity, equals(original.opacity));
       });
     });
