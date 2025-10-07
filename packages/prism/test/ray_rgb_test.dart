@@ -970,4 +970,79 @@ void main() {
       expect(() => red.toHex(0), throwsArgumentError);
     });
   });
+
+  group('RayRgb8.parse()', () {
+    test('parses hex formats', () {
+      expect(RayRgb8.parse('#FF0000'), equals(RayRgb8.fromHex('#FF0000')));
+      expect(RayRgb8.parse('#F00'), equals(RayRgb8.fromHex('#F00')));
+      expect(RayRgb8.parse('#FF0000FF'), equals(RayRgb8.fromHex('#FF0000FF')));
+    });
+
+    test('parses CSS rgb() legacy format', () {
+      final color = RayRgb8.parse('rgb(255, 128, 64)');
+      expect(color.red, 255);
+      expect(color.green, 128);
+      expect(color.blue, 64);
+      expect(color.alpha, 255);
+    });
+
+    test('parses CSS rgb() modern format', () {
+      final color = RayRgb8.parse('rgb(255 128 64)');
+      expect(color.red, 255);
+      expect(color.green, 128);
+      expect(color.blue, 64);
+      expect(color.alpha, 255);
+    });
+
+    test('parses CSS rgb() with alpha (modern)', () {
+      final color = RayRgb8.parse('rgb(255 128 64 / 0.5)');
+      expect(color.red, 255);
+      expect(color.green, 128);
+      expect(color.blue, 64);
+      expect(color.alpha, 128);
+    });
+
+    test('parses CSS rgba() legacy format', () {
+      final color = RayRgb8.parse('rgba(255, 128, 64, 0.5)');
+      expect(color.red, 255);
+      expect(color.green, 128);
+      expect(color.blue, 64);
+      expect(color.alpha, 128);
+    });
+
+    test('handles case insensitivity', () {
+      final lower = RayRgb8.parse('rgb(255, 0, 0)');
+      final upper = RayRgb8.parse('RGB(255, 0, 0)');
+      expect(lower, equals(upper));
+    });
+
+    test('handles whitespace', () {
+      final color = RayRgb8.parse('  rgb(255, 0, 0)  ');
+      expect(color.red, 255);
+      expect(color.green, 0);
+      expect(color.blue, 0);
+    });
+
+    test('throws on invalid format', () {
+      expect(() => RayRgb8.parse('invalid'), throwsArgumentError);
+      expect(() => RayRgb8.parse('hsl(120, 50%, 50%)'), throwsArgumentError);
+      expect(() => RayRgb8.parse(''), throwsArgumentError);
+    });
+  });
+
+  group('RayRgb16.parse()', () {
+    test('delegates to RayRgb8.parse()', () {
+      final color = RayRgb16.parse('#FF0000');
+      expect(color.redNative, 65535);
+      expect(color.greenNative, 0);
+      expect(color.blueNative, 0);
+    });
+
+    test('parses CSS rgb() format', () {
+      final color = RayRgb16.parse('rgb(255, 0, 0)');
+      expect(color.redNative, 65535);
+      expect(color.greenNative, 0);
+      expect(color.blueNative, 0);
+    });
+  });
 }

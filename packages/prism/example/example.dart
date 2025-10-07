@@ -20,6 +20,27 @@ void main() {
   print('Oklab Blue: ${oklabBlue.toRgb8().toHex()}');
   print('Oklch Purple: ${oklchPurple.toRgb8().toHex()}\n');
 
+  // === Parsing Color Strings ===
+  print('📝 Parsing Color Strings:');
+  final parsed1 = Ray.parse('#FF6B35'); // Auto-detect hex → RayRgb8
+  final parsed2 = Ray.parse('rgb(255, 107, 53)'); // Auto-detect rgb → RayRgb8
+  final parsed3 = Ray.parse('hsl(14, 100%, 60%)'); // Auto-detect hsl → RayHsl
+  final parsed4 = Ray.parse('oklch(0.7 0.15 30)'); // Auto-detect oklch → RayOklch
+
+  print('Hex parsed: ${(parsed1 as RayRgb8).toHex()}');
+  print('RGB parsed: ${(parsed2 as RayRgb8).toHex()}');
+  print('HSL parsed: ${(parsed3 as RayHsl)}');
+  print('Oklch parsed: ${(parsed4 as RayOklch)}');
+
+  // Type-specific parsing
+  final parsedRgb = RayRgb8.parse('rgba(100, 200, 50, 0.8)');
+  final parsedHsl = RayHsl.parse('hsl(240 80% 60% / 0.9)');
+  final parsedOklch = RayOklch.parse('oklch(0.6 0.2 120)');
+
+  print('RGB specific: ${parsedRgb.toHex(8)}');
+  print('HSL specific: $parsedHsl');
+  print('Oklch specific: $parsedOklch\n');
+
   // === Seamless Conversion ===
   print('🔄 Color Model Conversion:');
   final baseColor = RayRgb8.fromHex('#FF6B35'); // Orange

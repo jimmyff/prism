@@ -90,6 +90,40 @@ base class RayOklch extends Ray {
     );
   }
 
+  /// Parses a color string and returns a [RayOklch].
+  ///
+  /// Supports the following format:
+  /// - CSS oklch: `oklch(0.6 0.2 300)`, `oklch(0.6 0.2 300 / 0.8)`
+  ///
+  /// L (lightness) is 0-1, C (chroma) is 0+, H (hue) is 0-360 degrees,
+  /// and alpha/opacity is 0-1.
+  ///
+  /// Throws [ArgumentError] if the string format is not recognized.
+  static RayOklch parse(String value) {
+    final trimmed = value.trim();
+
+    // oklch format: oklch(0.6 0.2 300) or oklch(0.6 0.2 300 / 0.8)
+    final oklchPattern = RegExp(
+      r'^oklch\s*\(\s*(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s*(?:/\s*(\d+(?:\.\d+)?))?\s*\)$',
+      caseSensitive: false,
+    );
+
+    final match = oklchPattern.firstMatch(trimmed);
+
+    if (match != null) {
+      final l = double.parse(match.group(1)!);
+      final c = double.parse(match.group(2)!);
+      final h = double.parse(match.group(3)!);
+      final alphaStr = match.group(4);
+
+      final opacity = alphaStr != null ? double.parse(alphaStr) : 1.0;
+
+      return RayOklch.fromComponents(l, c, h, opacity);
+    }
+
+    throw ArgumentError('Invalid Oklch color format: $value');
+  }
+
   /// Creates a transparent black Oklch color.
   const RayOklch.empty()
       : _l = 0.0,

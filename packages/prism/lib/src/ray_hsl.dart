@@ -74,6 +74,53 @@ base class RayHsl extends Ray {
     );
   }
 
+  /// Parses a color string and returns a [RayHsl].
+  ///
+  /// Supports the following formats:
+  /// - CSS hsl: `hsl(120, 100%, 50%)`, `hsl(120 100% 50%)`, `hsl(120 100% 50% / 0.5)`
+  /// - CSS hsla: `hsla(120, 100%, 50%, 0.5)`
+  ///
+  /// Hue is in degrees (0-360), saturation and lightness are percentages,
+  /// and alpha/opacity is 0-1.
+  ///
+  /// Throws [ArgumentError] if the string format is not recognized.
+  static RayHsl parse(String value) {
+    final trimmed = value.trim();
+
+    // Modern format: hsl(120 100% 50%) or hsl(120 100% 50% / 0.5)
+    final hslModern = RegExp(
+      r'^hsla?\s*\(\s*(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)%\s+(\d+(?:\.\d+)?)%\s*(?:/\s*(\d+(?:\.\d+)?))?\s*\)$',
+      caseSensitive: false,
+    );
+
+    // Legacy format: hsl(120, 100%, 50%) or hsla(120, 100%, 50%, 0.5)
+    final hslLegacy = RegExp(
+      r'^hsla?\s*\(\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)%\s*,\s*(\d+(?:\.\d+)?)%\s*(?:,\s*(\d+(?:\.\d+)?))?\s*\)$',
+      caseSensitive: false,
+    );
+
+    Match? match = hslModern.firstMatch(trimmed);
+    match ??= hslLegacy.firstMatch(trimmed);
+
+    if (match != null) {
+      final h = double.parse(match.group(1)!);
+      final s = double.parse(match.group(2)!) / 100.0; // Convert percentage to 0-1
+      final l = double.parse(match.group(3)!) / 100.0; // Convert percentage to 0-1
+      final alphaStr = match.group(4);
+
+      final opacity = alphaStr != null ? double.parse(alphaStr) : 1.0;
+
+      return RayHsl(
+        hue: h,
+        saturation: s,
+        lightness: l,
+        opacity: opacity,
+      );
+    }
+
+    throw ArgumentError('Invalid HSL color format: $value');
+  }
+
   /// Creates a transparent black HSL color.
   RayHsl.empty() : this(hue: 0, saturation: 0, lightness: 0, opacity: 0);
 

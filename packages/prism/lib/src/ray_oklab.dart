@@ -50,6 +50,40 @@ base class RayOklab extends Ray {
     );
   }
 
+  /// Parses a color string and returns a [RayOklab].
+  ///
+  /// Supports the following format:
+  /// - CSS oklab: `oklab(0.5 0.1 -0.2)`, `oklab(0.5 0.1 -0.2 / 0.8)`
+  ///
+  /// L (lightness) is 0-1, a and b are opponent color axes (typically -0.4 to 0.4),
+  /// and alpha/opacity is 0-1.
+  ///
+  /// Throws [ArgumentError] if the string format is not recognized.
+  static RayOklab parse(String value) {
+    final trimmed = value.trim();
+
+    // oklab format: oklab(0.5 0.1 -0.2) or oklab(0.5 0.1 -0.2 / 0.8)
+    final oklabPattern = RegExp(
+      r'^oklab\s*\(\s*(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s*(?:/\s*(\d+(?:\.\d+)?))?\s*\)$',
+      caseSensitive: false,
+    );
+
+    final match = oklabPattern.firstMatch(trimmed);
+
+    if (match != null) {
+      final l = double.parse(match.group(1)!);
+      final a = double.parse(match.group(2)!);
+      final b = double.parse(match.group(3)!);
+      final alphaStr = match.group(4);
+
+      final opacity = alphaStr != null ? double.parse(alphaStr) : 1.0;
+
+      return RayOklab.fromComponents(l, a, b, opacity);
+    }
+
+    throw ArgumentError('Invalid Oklab color format: $value');
+  }
+
   /// Creates a transparent black Oklab color.
   const RayOklab.empty()
       : _l = 0.0,

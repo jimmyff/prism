@@ -62,6 +62,62 @@ base class RayRgb8 extends RayRgbBase<RayRgb8, int> {
     return RayRgb8._(red: r, green: g, blue: b, alpha: a);
   }
 
+  /// Parses a color string and returns a [RayRgb8].
+  ///
+  /// Supports the following formats:
+  /// - Hex: `#RGB`, `#RRGGBB`, `#RRGGBBAA` (RGBA format only)
+  /// - CSS rgb: `rgb(255, 0, 0)`, `rgb(255 0 0)`, `rgb(255 0 0 / 0.5)`
+  /// - CSS rgba: `rgba(255, 0, 0, 1.0)`
+  ///
+  /// Throws [ArgumentError] if the string format is not recognized.
+  static RayRgb8 parse(String value) {
+    final trimmed = value.trim();
+
+    // Try hex format first (most common)
+    if (trimmed.startsWith('#')) {
+      try {
+        return RayRgb8.fromHex(trimmed, format: HexFormat.rgba);
+      } catch (e) {
+        throw ArgumentError('Invalid hex color format: $value');
+      }
+    }
+
+    // Try CSS rgb/rgba formats
+    // Modern format: rgb(255 0 0) or rgb(255 0 0 / 0.5)
+    final rgbModern = RegExp(
+      r'^rgba?\s*\(\s*(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s*(?:/\s*(\d+(?:\.\d+)?))?\s*\)$',
+      caseSensitive: false,
+    );
+
+    // Legacy format: rgb(255, 0, 0) or rgba(255, 0, 0, 1.0)
+    final rgbLegacy = RegExp(
+      r'^rgba?\s*\(\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*(?:,\s*(\d+(?:\.\d+)?))?\s*\)$',
+      caseSensitive: false,
+    );
+
+    Match? match = rgbModern.firstMatch(trimmed);
+    match ??= rgbLegacy.firstMatch(trimmed);
+
+    if (match != null) {
+      final r = double.parse(match.group(1)!);
+      final g = double.parse(match.group(2)!);
+      final b = double.parse(match.group(3)!);
+      final alphaStr = match.group(4);
+
+      // Alpha can be 0-1 (opacity) or 0-255 (legacy)
+      double alpha = 255.0;
+      if (alphaStr != null) {
+        final alphaValue = double.parse(alphaStr);
+        // If alpha is between 0-1, treat as opacity, otherwise as 0-255
+        alpha = alphaValue <= 1.0 ? alphaValue * 255.0 : alphaValue;
+      }
+
+      return RayRgb8.fromComponents(r, g, b, alpha);
+    }
+
+    throw ArgumentError('Invalid RGB color format: $value');
+  }
+
   /// Creates a [RayRgb8] from a 16-bit RGB color, downscaling to 8-bit.
   factory RayRgb8.fromRgb16(dynamic rgb16Color) => RayRgb8._(
         red: rgb16Color.redNative >> 8, // Convert 16-bit to 8-bit (high byte)

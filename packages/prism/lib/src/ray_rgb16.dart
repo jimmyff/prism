@@ -114,6 +114,19 @@ base class RayRgb16 extends RayRgbBase<RayRgb16, int> {
         _alpha = values.length > 3 ? values[3] & 0xFFFF : 65535,
         super();
 
+  /// Parses a color string and returns a [RayRgb16].
+  ///
+  /// Delegates to [RayRgb8.parse] and converts the result to 16-bit precision.
+  /// Supports the same formats as [RayRgb8.parse]:
+  /// - Hex: `#RGB`, `#RRGGBB`, `#RRGGBBAA` (RGBA format only)
+  /// - CSS rgb: `rgb(255, 0, 0)`, `rgb(255 0 0)`, `rgb(255 0 0 / 0.5)`
+  /// - CSS rgba: `rgba(255, 0, 0, 1.0)`
+  ///
+  /// Throws [ArgumentError] if the string format is not recognized.
+  static RayRgb16 parse(String value) {
+    return RayRgb8.parse(value).toRgb16();
+  }
+
   /// Creates a transparent black color.
   const RayRgb16.empty()
       : _alpha = 0,

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.0
+
+- Added `parse()` methods for parsing color strings
+  - `RayRgb8.parse()` - Parse hex (#RGB, #RRGGBB, #RRGGBBAA) and CSS rgb/rgba formats
+  - `RayRgb16.parse()` - Parse RGB formats with 16-bit precision
+  - `RayHsl.parse()` - Parse CSS hsl/hsla formats (legacy and modern syntax)
+  - `RayOklab.parse()` - Parse CSS oklab() format
+  - `RayOklch.parse()` - Parse CSS oklch() format
+  - `Ray.parse()` - Auto-detect format and return appropriate Ray subclass
+- Support for both modern (space-separated) and legacy (comma-separated) CSS syntax
+- Support for modern (`/ alpha`) and legacy (`rgba`, `hsla`) alpha syntax
+
 ## 2.0.0
 
 - Private color components with named getters

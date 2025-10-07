@@ -25,10 +25,9 @@ See [prism_flutter](https://pub.dev/packages/prism_flutter) which adds Flutter s
 ```dart
 import 'package:prism/prism.dart';
 
-// Create and convert colors
-final red = RayRgb8.fromHex('#FF0000');
-final redInOklch = red.toOklch();
-final darkRed = redInOklch.withLightness(0.3);
+// Parse, convert, and manipulate colors
+final red = Ray.parse('#FF0000');
+final darkRed = red.toOklch().withLightness(0.3);
 print(darkRed.toRgb8().toHex()); // #521711
 
 ```
@@ -40,45 +39,58 @@ Prism supports multiple color models with seamless conversion:
 ### RayRgb8 & RayRgb16 (Red, Green, Blue)
 
 ```dart
-final red8 = RayRgb8.fromHex('#FF0000');
-final red16 = RayRgb16.fromComponents(220, 137, 180);
-final transparent = red8.withOpacity(0.5);
-print(red8.toHex()); // #FF0000
+final red = Ray.parse('#FF0000');
+final transparent = red.withOpacity(0.5);
+print(transparent.toHex(8)); // #FF000080
 ```
 
 ### RayHsl (Hue, Saturation, Lightness)
 
 ```dart
-final orange = RayHsl.fromComponents(30, 0.8, 0.6);
-final shifted = orange.withHue(orange.hue + 60);
-print(orange.hueDistance(shifted)); // 60.0°
+final orange = Ray.parse('hsl(30, 80%, 60%)');
+final shifted = orange.withHue(orange.hue + 60); // Shift hue by 60°
 ```
 
 ### RayOklab (Perceptually Uniform Color Space)
 
 ```dart
-final blue = RayOklab.fromComponents(0.452, -0.032, -0.312);
-final red = RayOklab.fromComponents(0.628, 0.225, 0.126);
-final midpoint = blue.lerp(red, 0.5); // Perceptually uniform
-final brighter = blue.withLightness(blue.lightness + 0.2);
+final blue = Ray.parse('oklch(0.45 0.31 264)').toOklab();
+final red = Ray.parse('#FF0000').toOklab();
+final midpoint = blue.lerp(red, 0.5); // Perceptually smooth gradient
 ```
 
 ### RayOklch (Cylindrical Oklab with Intuitive Controls)
 
 ```dart
-final green = RayOklch.fromComponents(0.7, 0.15, 120.0);
-final desaturated = green.withChroma(0.05);
-final complementary = green.withHue(green.h + 180);
+final green = Ray.parse('oklch(0.7 0.15 120)');
+final darker = green.withLightness(0.3);    // Adjust brightness
+final vibrant = green.withChroma(0.25);     // Adjust saturation
 ```
 
 ### Easy Conversion
 
 ```dart
-final red = RayRgb8.fromHex('#FF0000');
-final hsl = red.toHsl();    // RGB → HSL
-final oklch = red.toOklch(); // RGB → Oklch
-final back = hsl.toRgb8();  // HSL → RGB
+final red = Ray.parse('#FF0000');
+final hsl = red.toHsl();      // RGB → HSL
+final oklch = red.toOklch();  // RGB → Oklch
+final back = hsl.toRgb8();    // HSL → RGB
 ```
+
+## Parsing Color Strings
+
+Parse color strings with automatic format detection:
+
+```dart
+final color = Ray.parse('#FF0000');              // Hex → RayRgb8
+final color = Ray.parse('rgb(255, 0, 0)');       // CSS RGB → RayRgb8
+final color = Ray.parse('hsl(120, 100%, 50%)'); // CSS HSL → RayHsl
+final color = Ray.parse('oklch(0.6 0.2 300)');  // CSS Oklch → RayOklch
+
+// Or use type-specific parsing
+final rgb = RayRgb8.parse('rgba(255, 0, 0, 0.5)');
+```
+
+Supports modern and legacy CSS syntax, hex formats, and alpha channels.
 
 ## Performance
 

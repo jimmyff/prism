@@ -94,6 +94,38 @@ abstract base class Ray {
     throw UnimplementedError('fromList must be implemented by subclasses');
   }
 
+  /// Parses a color string and returns the appropriate [Ray] subclass.
+  ///
+  /// Automatically detects the format and returns the corresponding color type:
+  /// - Hex formats → [RayRgb8]
+  /// - `rgb()`/`rgba()` → [RayRgb8]
+  /// - `hsl()`/`hsla()` → [RayHsl]
+  /// - `oklab()` → [RayOklab]
+  /// - `oklch()` → [RayOklch]
+  ///
+  /// Throws [ArgumentError] if the string format is not recognized.
+  ///
+  /// Example:
+  /// ```dart
+  /// final red = Ray.parse('#FF0000');          // RayRgb8
+  /// final blue = Ray.parse('rgb(0, 0, 255)');  // RayRgb8
+  /// final green = Ray.parse('hsl(120, 100%, 50%)'); // RayHsl
+  /// final color = Ray.parse('oklch(0.6 0.2 300)');  // RayOklch
+  /// ```
+  static Ray parse(String value) {
+    final trimmed = value.trim();
+    final lowerCased = trimmed.toLowerCase();
+
+    return switch (lowerCased) {
+      _ when trimmed.startsWith('#') => RayRgb8.parse(trimmed),
+      _ when lowerCased.startsWith('rgb') => RayRgb8.parse(trimmed),
+      _ when lowerCased.startsWith('hsl') => RayHsl.parse(trimmed),
+      _ when lowerCased.startsWith('oklab') => RayOklab.parse(trimmed),
+      _ when lowerCased.startsWith('oklch') => RayOklch.parse(trimmed),
+      _ => throw ArgumentError('Unknown color format: $value'),
+    };
+  }
+
   /// Returns the color components as a list.
   ///
   /// The format matches what fromList expects:

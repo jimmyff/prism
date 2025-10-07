@@ -2,6 +2,8 @@ import 'dart:math' as math;
 import 'package:test/test.dart';
 import 'package:prism/prism.dart';
 
+import 'test_constants.dart';
+
 void main() {
   group('RayOklch', () {
     group('constructors', () {
@@ -478,6 +480,50 @@ void main() {
         expect(highLightnessColor.hue, closeTo(24.87, 1.0),
             reason: 'Hue should be preserved when adjusting lightness');
       });
+    });
+  });
+
+  group('RayOklch.parse()', () {
+    test('parses oklch() format', () {
+      final color = RayOklch.parse('oklch(0.6 0.2 300)');
+      expect(color.lightness, closeTo(0.6, precisionTolerance));
+      expect(color.chroma, closeTo(0.2, precisionTolerance));
+      expect(color.hue, closeTo(300, precisionTolerance));
+      expect(color.opacity, closeTo(1.0, precisionTolerance));
+    });
+
+    test('parses oklch() with alpha', () {
+      final color = RayOklch.parse('oklch(0.8 0.15 240 / 0.9)');
+      expect(color.lightness, closeTo(0.8, precisionTolerance));
+      expect(color.chroma, closeTo(0.15, precisionTolerance));
+      expect(color.hue, closeTo(240, precisionTolerance));
+      expect(color.opacity, closeTo(0.9, precisionTolerance));
+    });
+
+    test('handles negative lightness', () {
+      final color = RayOklch.parse('oklch(-0.1 0.2 180)');
+      expect(color.lightness, closeTo(-0.1, precisionTolerance));
+      expect(color.chroma, closeTo(0.2, precisionTolerance));
+      expect(color.hue, closeTo(180, precisionTolerance));
+    });
+
+    test('handles case insensitivity', () {
+      final lower = RayOklch.parse('oklch(0.6 0.2 300)');
+      final upper = RayOklch.parse('OKLCH(0.6 0.2 300)');
+      expect(lower, equals(upper));
+    });
+
+    test('handles whitespace', () {
+      final color = RayOklch.parse('  oklch(0.6 0.2 300)  ');
+      expect(color.lightness, closeTo(0.6, precisionTolerance));
+      expect(color.chroma, closeTo(0.2, precisionTolerance));
+      expect(color.hue, closeTo(300, precisionTolerance));
+    });
+
+    test('throws on invalid format', () {
+      expect(() => RayOklch.parse('invalid'), throwsArgumentError);
+      expect(() => RayOklch.parse('rgb(255, 0, 0)'), throwsArgumentError);
+      expect(() => RayOklch.parse(''), throwsArgumentError);
     });
   });
 }

@@ -472,4 +472,57 @@ void main() {
       expect(hue0.lightnessDistance(hue180), closeTo(1.0, precisionTolerance));
     });
   });
+
+  group('RayHsl.parse()', () {
+    test('parses CSS hsl() legacy format', () {
+      final color = RayHsl.parse('hsl(120, 100%, 50%)');
+      expect(color.hue, closeTo(120, precisionTolerance));
+      expect(color.saturation, closeTo(1.0, precisionTolerance));
+      expect(color.lightness, closeTo(0.5, precisionTolerance));
+      expect(color.opacity, closeTo(1.0, precisionTolerance));
+    });
+
+    test('parses CSS hsl() modern format', () {
+      final color = RayHsl.parse('hsl(240 50% 75%)');
+      expect(color.hue, closeTo(240, precisionTolerance));
+      expect(color.saturation, closeTo(0.5, precisionTolerance));
+      expect(color.lightness, closeTo(0.75, precisionTolerance));
+      expect(color.opacity, closeTo(1.0, precisionTolerance));
+    });
+
+    test('parses CSS hsl() with alpha (modern)', () {
+      final color = RayHsl.parse('hsl(180 60% 40% / 0.8)');
+      expect(color.hue, closeTo(180, precisionTolerance));
+      expect(color.saturation, closeTo(0.6, precisionTolerance));
+      expect(color.lightness, closeTo(0.4, precisionTolerance));
+      expect(color.opacity, closeTo(0.8, precisionTolerance));
+    });
+
+    test('parses CSS hsla() legacy format', () {
+      final color = RayHsl.parse('hsla(90, 80%, 30%, 0.5)');
+      expect(color.hue, closeTo(90, precisionTolerance));
+      expect(color.saturation, closeTo(0.8, precisionTolerance));
+      expect(color.lightness, closeTo(0.3, precisionTolerance));
+      expect(color.opacity, closeTo(0.5, precisionTolerance));
+    });
+
+    test('handles case insensitivity', () {
+      final lower = RayHsl.parse('hsl(120, 100%, 50%)');
+      final upper = RayHsl.parse('HSL(120, 100%, 50%)');
+      expect(lower, equals(upper));
+    });
+
+    test('handles whitespace', () {
+      final color = RayHsl.parse('  hsl(120, 100%, 50%)  ');
+      expect(color.hue, closeTo(120, precisionTolerance));
+      expect(color.saturation, closeTo(1.0, precisionTolerance));
+      expect(color.lightness, closeTo(0.5, precisionTolerance));
+    });
+
+    test('throws on invalid format', () {
+      expect(() => RayHsl.parse('invalid'), throwsArgumentError);
+      expect(() => RayHsl.parse('rgb(255, 0, 0)'), throwsArgumentError);
+      expect(() => RayHsl.parse(''), throwsArgumentError);
+    });
+  });
 }

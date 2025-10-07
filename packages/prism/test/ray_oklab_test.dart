@@ -369,4 +369,48 @@ void main() {
       });
     });
   });
+
+  group('RayOklab.parse()', () {
+    test('parses oklab() format', () {
+      final color = RayOklab.parse('oklab(0.5 0.1 -0.2)');
+      expect(color.lightness, closeTo(0.5, precisionTolerance));
+      expect(color.opponentA, closeTo(0.1, precisionTolerance));
+      expect(color.opponentB, closeTo(-0.2, precisionTolerance));
+      expect(color.opacity, closeTo(1.0, precisionTolerance));
+    });
+
+    test('parses oklab() with alpha', () {
+      final color = RayOklab.parse('oklab(0.7 -0.15 0.25 / 0.8)');
+      expect(color.lightness, closeTo(0.7, precisionTolerance));
+      expect(color.opponentA, closeTo(-0.15, precisionTolerance));
+      expect(color.opponentB, closeTo(0.25, precisionTolerance));
+      expect(color.opacity, closeTo(0.8, precisionTolerance));
+    });
+
+    test('handles negative values', () {
+      final color = RayOklab.parse('oklab(-0.1 -0.3 -0.4)');
+      expect(color.lightness, closeTo(-0.1, precisionTolerance));
+      expect(color.opponentA, closeTo(-0.3, precisionTolerance));
+      expect(color.opponentB, closeTo(-0.4, precisionTolerance));
+    });
+
+    test('handles case insensitivity', () {
+      final lower = RayOklab.parse('oklab(0.5 0.1 -0.2)');
+      final upper = RayOklab.parse('OKLAB(0.5 0.1 -0.2)');
+      expect(lower, equals(upper));
+    });
+
+    test('handles whitespace', () {
+      final color = RayOklab.parse('  oklab(0.5 0.1 -0.2)  ');
+      expect(color.lightness, closeTo(0.5, precisionTolerance));
+      expect(color.opponentA, closeTo(0.1, precisionTolerance));
+      expect(color.opponentB, closeTo(-0.2, precisionTolerance));
+    });
+
+    test('throws on invalid format', () {
+      expect(() => RayOklab.parse('invalid'), throwsArgumentError);
+      expect(() => RayOklab.parse('rgb(255, 0, 0)'), throwsArgumentError);
+      expect(() => RayOklab.parse(''), throwsArgumentError);
+    });
+  });
 }

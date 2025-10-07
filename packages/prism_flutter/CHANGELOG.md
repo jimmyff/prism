@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0
+
+- Updated for Prism 2.1.0 compatibility (adds `parse()` methods)
+
 ## 2.0.0
 
 - Updated for Prism 2.0.0 compatibility
