@@ -8,6 +8,8 @@ export 'package:prism/prism.dart';
 import 'dart:ui';
 import 'package:prism/prism.dart';
 
+import 'package:flutter/material.dart';
+
 /// Extension methods for [Ray] to convert to Flutter [Color] objects.
 extension RayToFlutterColor on Ray {
   /// Converts this [RayRgb8] to a Flutter [Color].
@@ -33,6 +35,14 @@ extension RayToFlutterColor on Ray {
       rgb.blue.round(),
     );
   }
+}
+
+extension PrismPaletteFlutter on PrismPalette {
+  /// Provides the ray's surface color for the themes brightness
+  Ray surface(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark
+      ? surfaceDark
+      : surfaceLight;
 }
 
 /// Extension methods for Flutter [Color] to convert to [RayRgb8] objects.
