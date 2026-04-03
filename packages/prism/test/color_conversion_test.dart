@@ -729,6 +729,19 @@ void main() {
     // ============================================================================
 
     group('Conversion Performance', () {
+      // Calibrate: scale thresholds relative to hardware speed
+      late double speedFactor;
+      setUpAll(() {
+        final sw = Stopwatch()..start();
+        var sum = 0;
+        for (var i = 0; i < 1000000; i++) {
+          sum += i;
+        }
+        sw.stop();
+        assert(sum > 0); // prevent optimisation
+        speedFactor = (sw.elapsedMicroseconds / 500).clamp(1.0, 20.0);
+      });
+
       test('RGB→HSL conversion is reasonably fast', () {
         final rgb = RayRgb8.fromComponentsNative(128, 64, 192);
         final stopwatch = Stopwatch()..start();
@@ -739,7 +752,7 @@ void main() {
 
         stopwatch.stop();
         expect(stopwatch.elapsedMicroseconds,
-            lessThan(10000)); // Less than 10ms for 1000 conversions
+            lessThan((10000 * speedFactor).ceil()));
       });
 
       test('HSL→RGB conversion is reasonably fast', () {
@@ -752,7 +765,7 @@ void main() {
 
         stopwatch.stop();
         expect(stopwatch.elapsedMicroseconds,
-            lessThan(10000)); // Less than 10ms for 1000 conversions
+            lessThan((10000 * speedFactor).ceil()));
       });
 
       test('RGB→Oklab conversion is reasonably fast', () {
@@ -765,7 +778,7 @@ void main() {
 
         stopwatch.stop();
         expect(stopwatch.elapsedMicroseconds,
-            lessThan(50000)); // Less than 50ms for 1000 conversions
+            lessThan((50000 * speedFactor).ceil()));
       });
 
       test('Oklab→RGB conversion is reasonably fast', () {
@@ -778,7 +791,7 @@ void main() {
 
         stopwatch.stop();
         expect(stopwatch.elapsedMicroseconds,
-            lessThan(50000)); // Less than 50ms for 1000 conversions
+            lessThan((50000 * speedFactor).ceil()));
       });
     });
   });
