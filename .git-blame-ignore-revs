@@ -1,0 +1,6 @@
+# Reformatting commits to ignore in `git blame`.
+# Enable locally with:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# format: tall-style 80-col baseline
+6e56aeedcf4000e17179a78197c1e04f549f3480
