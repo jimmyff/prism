@@ -24,15 +24,16 @@ base class RayOklab extends Ray {
     required double a,
     required double b,
     double opacity = 1.0,
-  }) : _l = l,
-       _a = a,
-       _b = b,
-       _opacity = opacity;
+  })  : _l = l,
+        _a = a,
+        _b = b,
+        _opacity = opacity;
 
   /// Creates a [RayOklab] from individual LABO component values.
   ///
   /// [l] is lightness (0-1), [a] and [b] are color axes, [opacity] is 0-1.
-  const RayOklab.fromComponents(this._l, this._a, this._b, [this._opacity = 1.0]);
+  const RayOklab.fromComponents(this._l, this._a, this._b,
+      [this._opacity = 1.0]);
 
   /// Creates a [RayOklab] from a list of component values.
   ///
@@ -111,12 +112,12 @@ base class RayOklab extends Ray {
   double get lightness => _l;
 
   /// The green-red opponent axis component.
-  /// 
+  ///
   /// Negative values tend toward green, positive values toward red.
   double get opponentA => _a;
 
   /// The blue-yellow opponent axis component.
-  /// 
+  ///
   /// Negative values tend toward blue, positive values toward yellow.
   double get opponentB => _b;
 
@@ -130,7 +131,7 @@ base class RayOklab extends Ray {
   }
 
   /// Creates a new [RayOklab] with a different lightness value.
-  /// 
+  ///
   /// [lightness] must be between 0.0 (black) and 1.0 (white).
   /// The opponent color components (a, b) and opacity remain unchanged.
   RayOklab withLightness(double lightness) {
@@ -142,7 +143,7 @@ base class RayOklab extends Ray {
   }
 
   /// Creates a new [RayOklab] with a different green-red opponent axis value.
-  /// 
+  ///
   /// Negative values tend toward green, positive values toward red.
   /// The lightness, blue-yellow axis, and opacity remain unchanged.
   RayOklab withOpponentA(double opponentA) {
@@ -150,7 +151,7 @@ base class RayOklab extends Ray {
   }
 
   /// Creates a new [RayOklab] with a different blue-yellow opponent axis value.
-  /// 
+  ///
   /// Negative values tend toward blue, positive values toward yellow.
   /// The lightness, green-red axis, and opacity remain unchanged.
   RayOklab withOpponentB(double opponentB) {

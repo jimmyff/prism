@@ -97,7 +97,8 @@ void main() {
     test('delegates to appropriate parser for each format', () {
       // Each parser should handle its own validation and errors
       expect(() => Ray.parse('rgb(300, 0, 0)'), returnsNormally); // Clamped
-      expect(() => Ray.parse('hsl(400, 100%, 50%)'), returnsNormally); // Normalized
+      expect(() => Ray.parse('hsl(400, 100%, 50%)'),
+          returnsNormally); // Normalized
       expect(() => Ray.parse('#GGGGGG'), throwsArgumentError); // Invalid hex
     });
   });

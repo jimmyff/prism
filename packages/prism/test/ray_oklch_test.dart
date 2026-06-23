@@ -68,8 +68,10 @@ void main() {
         expect(oklch.opacity, closeTo(oklab.opacity, 1e-10));
 
         // Verify conversion math
-        final expectedChroma = math.sqrt(oklab.opponentA * oklab.opponentA + oklab.opponentB * oklab.opponentB);
-        final expectedHue = math.atan2(oklab.opponentB, oklab.opponentA) * 180.0 / math.pi;
+        final expectedChroma = math.sqrt(oklab.opponentA * oklab.opponentA +
+            oklab.opponentB * oklab.opponentB);
+        final expectedHue =
+            math.atan2(oklab.opponentB, oklab.opponentA) * 180.0 / math.pi;
         expect(oklch.chroma, closeTo(expectedChroma, 1e-10));
         expect(oklch.hue,
             closeTo(expectedHue < 0 ? expectedHue + 360 : expectedHue, 1e-6));

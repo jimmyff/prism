@@ -25,7 +25,8 @@ void main() {
   final parsed1 = Ray.parse('#FF6B35'); // Auto-detect hex → RayRgb8
   final parsed2 = Ray.parse('rgb(255, 107, 53)'); // Auto-detect rgb → RayRgb8
   final parsed3 = Ray.parse('hsl(14, 100%, 60%)'); // Auto-detect hsl → RayHsl
-  final parsed4 = Ray.parse('oklch(0.7 0.15 30)'); // Auto-detect oklch → RayOklch
+  final parsed4 =
+      Ray.parse('oklch(0.7 0.15 30)'); // Auto-detect oklch → RayOklch
 
   print('Hex parsed: ${(parsed1 as RayRgb8).toHex()}');
   print('RGB parsed: ${(parsed2 as RayRgb8).toHex()}');

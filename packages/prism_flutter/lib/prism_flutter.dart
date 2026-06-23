@@ -41,8 +41,8 @@ extension PrismPaletteFlutter on PrismPalette {
   /// Provides the ray's surface color for the themes brightness
   Ray surface(BuildContext context) =>
       Theme.of(context).brightness == Brightness.dark
-      ? surfaceDark
-      : surfaceLight;
+          ? surfaceDark
+          : surfaceLight;
 }
 
 /// Extension methods for Flutter [Color] to convert to [RayRgb8] objects.

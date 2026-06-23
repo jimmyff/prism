@@ -104,8 +104,10 @@ base class RayHsl extends Ray {
 
     if (match != null) {
       final h = double.parse(match.group(1)!);
-      final s = double.parse(match.group(2)!) / 100.0; // Convert percentage to 0-1
-      final l = double.parse(match.group(3)!) / 100.0; // Convert percentage to 0-1
+      final s =
+          double.parse(match.group(2)!) / 100.0; // Convert percentage to 0-1
+      final l =
+          double.parse(match.group(3)!) / 100.0; // Convert percentage to 0-1
       final alphaStr = match.group(4);
 
       final opacity = alphaStr != null ? double.parse(alphaStr) : 1.0;

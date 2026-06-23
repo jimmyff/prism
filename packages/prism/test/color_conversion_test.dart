@@ -498,9 +498,12 @@ void main() {
           final rgb = originalOklab.toRgb8();
           final convertedOklab = rgb.toOklab();
 
-          expect((convertedOklab.lightness - originalOklab.lightness).abs(), lessThan(0.05));
-          expect((convertedOklab.opponentA - originalOklab.opponentA).abs(), lessThan(0.05));
-          expect((convertedOklab.opponentB - originalOklab.opponentB).abs(), lessThan(0.05));
+          expect((convertedOklab.lightness - originalOklab.lightness).abs(),
+              lessThan(0.05));
+          expect((convertedOklab.opponentA - originalOklab.opponentA).abs(),
+              lessThan(0.05));
+          expect((convertedOklab.opponentB - originalOklab.opponentB).abs(),
+              lessThan(0.05));
           expect(convertedOklab.opacity, equals(originalOklab.opacity));
         });
       }
@@ -558,9 +561,12 @@ void main() {
         final rgb = hsl.toRgb8();
         final finalOklab = rgb.toOklab();
 
-        expect((finalOklab.lightness - originalOklab.lightness).abs(), lessThan(0.1));
-        expect((finalOklab.opponentA - originalOklab.opponentA).abs(), lessThan(0.1));
-        expect((finalOklab.opponentB - originalOklab.opponentB).abs(), lessThan(0.1));
+        expect((finalOklab.lightness - originalOklab.lightness).abs(),
+            lessThan(0.1));
+        expect((finalOklab.opponentA - originalOklab.opponentA).abs(),
+            lessThan(0.1));
+        expect((finalOklab.opponentB - originalOklab.opponentB).abs(),
+            lessThan(0.1));
         expect(finalOklab.opacity, equals(originalOklab.opacity));
       });
 

@@ -6,7 +6,7 @@ import 'package:prism/prism.dart';
 enum _RainbowRgbFixedRays {
   black(RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF000000), 0.0)),
   white(RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFFFFF), 1.0)),
-;
+  ;
 
   const _RainbowRgbFixedRays(this.ray);
   final RayWithLuminance<RayRgb8> ray;
@@ -18,586 +18,1033 @@ enum RainbowRgb implements PrismPalette {
   pink(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEB0074), 0.6), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FA), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEFF4), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFD6E2), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA7C2), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7EA9), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF5393), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF82081), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE90075), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC80063), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAD0055), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF860041), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF62002D), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF330014), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFC1D3), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF95B7), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF659B), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC80063), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FA), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEFF4), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFD6E2), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFA7C2), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7EA9), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF5393), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFF82081), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE90075), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC80063), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAD0055), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF860041), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF62002D), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF330014), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFC1D3), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF95B7), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF659B), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC80063), 0.536),
     }, // spectrum
   ),
   crimson(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF20046), 0.6), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7F7), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEEEE), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFD3D4), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF9EA6), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7082), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF586E), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEF445D), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE03552), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC12C45), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA6243A), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF811A2C), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E101D), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF31040B), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFBCBF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF8995), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF476B), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC12C45), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7F7), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEEEE), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFD3D4), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFF9EA6), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7082), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF586E), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFEF445D), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE03552), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC12C45), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA6243A), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF811A2C), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E101D), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF31040B), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFBCBF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF8995), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF476B), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC12C45), 0.536),
     }, // spectrum
   ),
   red(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFD0000), 0.62), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF6F2), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFECE5), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFCEBD), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF9F86), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7F65), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF96A51), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE4583F), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD44D36), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6412D), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D3725), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7A291B), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF591B11), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2E0A05), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFB29A), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7554), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF6548), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6412D), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF6F2), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFECE5), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFCEBD), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFF9F86), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7F65), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF96A51), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE4583F), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD44D36), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6412D), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D3725), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7A291B), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF591B11), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF2E0A05), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFB29A), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7554), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF6548), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6412D), 0.536),
     }, // spectrum
   ),
   rust(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFB4700), 0.65), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF5EA), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFE8CF), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFD2AE), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA973), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF8D4F), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEC7939), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD76826), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC55F22), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA9501C), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF924416), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF71330F), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF522308), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2A0E02), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA240), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF8E37), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFB7B2F), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA9501C), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF5EA), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFE8CF), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFD2AE), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFA973), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF8D4F), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEC7939), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD76826), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC55F22), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA9501C), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF924416), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF71330F), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF522308), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF2A0E02), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFA240), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF8E37), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFB7B2F), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA9501C), 0.536),
     }, // spectrum
   ),
   orange(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF68200), 0.72), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7EB), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEED1), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFDAB1), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFEB777), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF59838), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDF841B), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC87516), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB76B14), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D5B0F), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF874E0B), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF683B06), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4B2903), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF261200), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFB629), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA022), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEA8A1C), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D5B0F), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7EB), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEED1), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFDAB1), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFEB777), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF59838), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDF841B), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC87516), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB76B14), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D5B0F), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF874E0B), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF683B06), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4B2903), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF261200), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFB629), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA022), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEA8A1C), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D5B0F), 0.536),
     }, // spectrum
   ),
   amber(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFB400), 0.84), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF9E8), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF1CA), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFDFA7), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF5BD66), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEBA100), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD78C00), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC07C00), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB07100), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF976100), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF825200), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF643F00), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF482C00), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF241300), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFC000), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA900), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE19200), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF976100), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF9E8), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF1CA), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFDFA7), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFF5BD66), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEBA100), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD78C00), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC07C00), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB07100), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF976100), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF825200), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF643F00), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF482C00), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF241300), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFC000), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA900), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE19200), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF976100), 0.536),
     }, // spectrum
   ),
   yellow(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFE100), 0.93), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFFAE7), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF5C7), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9E4A2), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE6C55C), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD9AC00), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC79600), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB28600), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA37A00), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8C6800), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF785900), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5C4400), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF423000), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF211600), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFCE00), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF0B500), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD09D00), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8C6800), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFFAE7), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF5C7), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFF9E4A2), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE6C55C), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD9AC00), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC79600), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB28600), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFA37A00), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8C6800), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF785900), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5C4400), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF423000), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF211600), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFCE00), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF0B500), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD09D00), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8C6800), 0.536),
     }, // spectrum
   ),
   lemon(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF2E200), 0.89), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCFCE4), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFAF9C0), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDEA97), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD4CE40), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC2B700), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAEA300), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9B9100), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8E8500), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF797100), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF686100), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF504A00), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF393400), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1B1900), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEEDF00), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD2C400), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6AA00), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF797100), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCFCE4), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFAF9C0), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFEDEA97), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD4CE40), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC2B700), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAEA300), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF9B9100), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8E8500), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF797100), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF686100), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF504A00), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF393400), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF1B1900), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFEEDF00), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD2C400), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6AA00), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF797100), 0.536),
     }, // spectrum
   ),
   lime(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9FCD00), 0.78), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF7FEE8), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDFDC9), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD9F0A4), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB8D75F), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9DC300), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF88B000), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF799D00), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6E8F00), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E7B00), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF506900), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3D5100), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2A3900), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF131B00), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFBCEF00), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA4D400), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8EB800), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E7B00), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF7FEE8), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDFDC9), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD9F0A4), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB8D75F), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9DC300), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF88B000), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF799D00), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF6E8F00), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E7B00), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF506900), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3D5100), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2A3900), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF131B00), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFBCEF00), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA4D400), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8EB800), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E7B00), 0.536),
     }, // spectrum
   ),
   green(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4AB500), 0.68), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF2FFED), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE2FFD7), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCAF3BA), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9FDC86), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF78CA52), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5AB723), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF47A600), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF409800), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF368200), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2D6F00), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF215600), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF153D00), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF071E00), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF80FA3B), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF62E000), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF54C200), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF368200), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF2FFED), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE2FFD7), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFCAF3BA), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF9FDC86), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF78CA52), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5AB723), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF47A600), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF409800), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF368200), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2D6F00), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF215600), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF153D00), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF071E00), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF80FA3B), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF62E000), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF54C200), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF368200), 0.536),
     }, // spectrum
   ),
   forest(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B436), 0.65), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDFFF1), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD7FFE1), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB5F8C6), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF79E399), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF48CF79), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2CBA66), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0CA856), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0A994E), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF078342), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF057138), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF035729), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF013E1C), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF001E0A), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF19FF87), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF15E277), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF10C466), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF078342), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDFFF1), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD7FFE1), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB5F8C6), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF79E399), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF48CF79), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2CBA66), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0CA856), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0A994E), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF078342), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF057138), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF035729), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF013E1C), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF001E0A), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF19FF87), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF15E277), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF10C466), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF078342), 0.536),
     }, // spectrum
   ),
   emerald(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF009E57), 0.57), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE9FFF6), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD0FFED), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA5FAD8), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF72E1B8), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF59C9A1), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF42B58E), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2BA37D), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF159671), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008160), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF006F51), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00553E), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003D2B), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF001E13), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00FDBE), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00DFA7), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00C291), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008160), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE9FFF6), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD0FFED), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFA5FAD8), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF72E1B8), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF59C9A1), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF42B58E), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF2BA37D), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF159671), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008160), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF006F51), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00553E), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003D2B), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF001E13), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF00FDBE), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00DFA7), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00C291), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008160), 0.536),
     }, // spectrum
   ),
   turquoise(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF18C2AE), 0.73), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF0FEFB), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDCFDF7), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC0F1E7), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8ED9CC), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5BC7B6), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2CB4A3), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF12A291), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF109485), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0C7F71), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF086D61), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF05544A), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF023C35), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF001D19), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF23F8DF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1DDBC5), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF18BEAB), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0C7F71), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF0FEFB), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDCFDF7), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC0F1E7), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8ED9CC), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5BC7B6), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2CB4A3), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF12A291), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF109485), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0C7F71), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF086D61), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF05544A), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF023C35), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF001D19), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF23F8DF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1DDBC5), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF18BEAB), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0C7F71), 0.536),
     }, // spectrum
   ),
   cyan(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00DBE0), 0.8), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF1FDFD), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE3FAFA), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB6F2F3), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7BDBDD), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2BC9CC), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B6BA), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00A7AC), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF009A9F), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008489), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF007176), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00575B), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003F41), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF001E20), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8AEBED), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00DBE0), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00C6CD), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008489), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF1FDFD), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE3FAFA), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB6F2F3), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF7BDBDD), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2BC9CC), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B6BA), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF00A7AC), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF009A9F), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008489), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF007176), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00575B), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003F41), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF001E20), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8AEBED), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00DBE0), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00C6CD), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008489), 0.536),
     }, // spectrum
   ),
   cerulean(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B0E4), 0.66), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF4FCFE), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE7F9FC), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC2EEF7), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF75D9ED), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00C8E5), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B7DC), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00A7D1), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF009AC4), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0085AF), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00739B), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF005978), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF004057), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF001F2D), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA1E5F3), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4FD2EA), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00BDE0), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0086B4), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF4FCFE), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE7F9FC), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC2EEF7), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF75D9ED), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00C8E5), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B7DC), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF00A7D1), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF009AC4), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0085AF), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00739B), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF005978), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF004057), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF001F2D), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFA1E5F3), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4FD2EA), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00BDE0), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0086B4), 0.536),
     }, // spectrum
   ),
   azure(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00A3FE), 0.65), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF5FBFE), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEAF7FD), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCAEBFA), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8CD4F3), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4DC0EC), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00AEE6), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF009DDD), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0091D0), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF007CBB), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF006BA8), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00528F), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003A76), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF001B43), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAFE1F7), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF72CBF0), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B5E8), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF007DD3), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF5FBFE), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEAF7FD), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFCAEBFA), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8CD4F3), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4DC0EC), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00AEE6), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF009DDD), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0091D0), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF007CBB), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF006BA8), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00528F), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003A76), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF001B43), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFAFE1F7), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF72CBF0), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00B5E8), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF007DD3), 0.536),
     }, // spectrum
   ),
   sky(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF008EFF), 0.63), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF6FBFF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDF6FE), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD0E9FC), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9BCFF8), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6CBAF3), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF39A6ED), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0095E8), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0088DD), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0074C7), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0062B5), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF004A9A), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003181), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00085E), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB8DDFA), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF87C6F5), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4FAEEF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0072DE), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF6FBFF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDF6FE), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD0E9FC), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF9BCFF8), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6CBAF3), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF39A6ED), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0095E8), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0088DD), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0074C7), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0062B5), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF004A9A), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF003181), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF00085E), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB8DDFA), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF87C6F5), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4FAEEF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0072DE), 0.536),
     }, // spectrum
   ),
   blue(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0077FF), 0.61), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF6FBFF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDF6FF), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD2E7FF), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA1CBFF), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF78B3FF), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF519DFF), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2888FF), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0079FF), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0064E8), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0052D5), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0036B9), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00139E), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00005C), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFBCDAFF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8FC0FF), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF60A5FF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF005CFF), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF6FBFF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDF6FF), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD2E7FF), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFA1CBFF), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF78B3FF), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF519DFF), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF2888FF), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0079FF), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0064E8), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0052D5), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0036B9), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF00139E), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF00005C), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFBCDAFF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8FC0FF), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF60A5FF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF005CFF), 0.536),
     }, // spectrum
   ),
   indigo(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4958F5), 0.55), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF7FAFF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEFF4FF), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD8E4FF), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFADC4FF), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8DA8FF), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF738DFF), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6077FF), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5669FF), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4653F0), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3940DC), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2A1EC0), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1D0397), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0B0152), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC4D5FF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9FB7FF), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7C97FF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4428FF), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF7FAFF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEFF4FF), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD8E4FF), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFADC4FF), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8DA8FF), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF738DFF), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF6077FF), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF5669FF), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4653F0), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3940DC), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2A1EC0), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF1D0397), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0B0152), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC4D5FF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9FB7FF), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7C97FF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4428FF), 0.536),
     }, // spectrum
   ),
   berry(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF714AEE), 0.55), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9F9FF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF3F2FF), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE1DFFF), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC2BAFF), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAC9BFF), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9981FF), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8969FF), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7E5BFF), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6D45E9), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5F30D5), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4B0EB5), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF350785), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF190248), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD3CDFF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB8A9FF), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA17EFF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF721BFF), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9F9FF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF3F2FF), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE1DFFF), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC2BAFF), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFAC9BFF), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9981FF), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8969FF), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF7E5BFF), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6D45E9), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5F30D5), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF4B0EB5), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF350785), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF190248), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD3CDFF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB8A9FF), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA17EFF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF721BFF), 0.536),
     }, // spectrum
   ),
   violet(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF913EE4), 0.56), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCF8FF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9F0FF), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF0D7FF), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD9B1FF), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC890FF), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB775FF), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA95AFF), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D4CF2), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8A34DB), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF791BC8), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E0F9E), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF440874), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF21023D), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE9C2FF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDB92FF), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCE4FFF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8E1DEA), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCF8FF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9F0FF), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFF0D7FF), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD9B1FF), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC890FF), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB775FF), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFA95AFF), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF9D4CF2), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8A34DB), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF791BC8), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5E0F9E), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF440874), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF21023D), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE9C2FF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDB92FF), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCE4FFF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8E1DEA), 0.536),
     }, // spectrum
   ),
   purple(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA42EC8), 0.55), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFEEFFF), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFBD5FF), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFEDABFF), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE087FE), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCF6BF1), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC24FE6), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB541D9), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA028C3), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8E07B0), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6E0489), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF500264), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF280034), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF8BFFF), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF18FFF), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE853FF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA50ACC), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFEEFFF), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFBD5FF), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFEDABFF), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE087FE), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCF6BF1), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC24FE6), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFB541D9), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA028C3), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8E07B0), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6E0489), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF500264), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF280034), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFF8BFFF), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF18FFF), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE853FF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA50ACC), 0.536),
     }, // spectrum
   ),
   fuchsia(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFDE00D0), 0.62), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FF), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEEFE), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFD4FA), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA3F3), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFB76EC), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF249E2), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE50DD6), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFD500C7), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB700AB), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D0093), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7A0072), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF590053), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF2E002A), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFBEF7), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFE8FF0), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF858E8), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB700AB), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FF), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEEFE), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFD4FA), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFA3F3), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFB76EC), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF249E2), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE50DD6), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFD500C7), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB700AB), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D0093), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7A0072), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF590053), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF2E002A), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFBEF7), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFE8FF0), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF858E8), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB700AB), 0.536),
     }, // spectrum
   ),
   magenta(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFED00A5), 0.62), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FC), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEFF8), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFD5ED), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFA5D9), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7AC8), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFD4CB9), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF400AB), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE3009E), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC30087), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA80074), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF830059), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5F0040), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF32001F), 0.20800000000000002),
-      RayTone.accent100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFBFE4), 0.8800000000000001),
-      RayTone.accent200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF92D1), 0.8),
-      RayTone.accent400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF5FBF), 0.72),
-      RayTone.accent700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC30087), 0.536),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFF7FC), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFFEFF8), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFD5ED), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFA5D9), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF7AC8), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFD4CB9), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFF400AB), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE3009E), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC30087), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA80074), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF830059), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5F0040), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF32001F), 0.20800000000000002),
+      RayTone.accent100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFFFBFE4), 0.8800000000000001),
+      RayTone.accent200:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF92D1), 0.8),
+      RayTone.accent400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFF5FBF), 0.72),
+      RayTone.accent700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC30087), 0.536),
     }, // spectrum
   ),
   neutralCool(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF68737F), 0.55), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9FAFC), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF2F5F9), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE0E6EB), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC2C9D1), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA9B2BD), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF949FAA), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF828E9A), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF76828E), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF646F7B), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF545F6A), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3E4954), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF29343F), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF0D1824), 0.20800000000000002),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF9FAFC), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF2F5F9), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE0E6EB), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC2C9D1), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA9B2BD), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF949FAA), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF828E9A), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF76828E), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF646F7B), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF545F6A), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3E4954), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF29343F), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF0D1824), 0.20800000000000002),
     }, // spectrum
   ),
   neutral(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF717171), 0.55), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFAFAFA), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF5F5F5), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE5E5E5), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFC8C8C8), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB1B1B1), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D9D9D), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8C8C8C), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF808080), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6D6D6D), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5D5D5D), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF474747), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF323232), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF171717), 0.20800000000000002),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFAFAFA), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF5F5F5), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE5E5E5), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFC8C8C8), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFB1B1B1), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF9D9D9D), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8C8C8C), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF808080), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF6D6D6D), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF5D5D5D), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF474747), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF323232), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF171717), 0.20800000000000002),
     }, // spectrum
   ),
   neutralWarm(
     RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF7B6E6A), 0.55), // source
     {
-      RayTone.shade0: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCFAF9), 0.984),
-      RayTone.shade50: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF8F4F2), 0.968),
-      RayTone.shade100: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFE9E3E1), 0.9200000000000002),
-      RayTone.shade200: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFCFC6C3), 0.8320000000000001),
-      RayTone.shade300: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFBAAEAA), 0.76),
-      RayTone.shade400: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA79A96), 0.696),
-      RayTone.shade500: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF978984), 0.6400000000000001),
-      RayTone.shade600: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF8A7D78), 0.6000000000000001),
-      RayTone.shade700: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF776A66), 0.536),
-      RayTone.shade800: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF675A56), 0.48),
-      RayTone.shade900: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF514440), 0.4),
-      RayTone.shade950: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3C2F2B), 0.32),
-      RayTone.shade1000: RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF201410), 0.20800000000000002),
+      RayTone.shade0:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFFCFAF9), 0.984),
+      RayTone.shade50:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFF8F4F2), 0.968),
+      RayTone.shade100: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFE9E3E1), 0.9200000000000002),
+      RayTone.shade200: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFFCFC6C3), 0.8320000000000001),
+      RayTone.shade300:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFBAAEAA), 0.76),
+      RayTone.shade400:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFFA79A96), 0.696),
+      RayTone.shade500: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF978984), 0.6400000000000001),
+      RayTone.shade600: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF8A7D78), 0.6000000000000001),
+      RayTone.shade700:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF776A66), 0.536),
+      RayTone.shade800:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF675A56), 0.48),
+      RayTone.shade900:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF514440), 0.4),
+      RayTone.shade950:
+          RayWithLuminance<RayRgb8>(RayRgb8.fromArgbInt(0xFF3C2F2B), 0.32),
+      RayTone.shade1000: RayWithLuminance<RayRgb8>(
+          RayRgb8.fromArgbInt(0xFF201410), 0.20800000000000002),
     }, // spectrum
   ),
-;
+  ;
 
   /// The source color with precomputed luminance
   @override
@@ -644,6 +1091,7 @@ enum RainbowRgb implements PrismPalette {
   RayWithLuminance<RayRgb8>? get accent400 => spectrum[RayTone.accent400];
   @override
   RayWithLuminance<RayRgb8>? get accent700 => spectrum[RayTone.accent700];
+
   /// Access specific tone by RayTone enum
   @override
   RayWithLuminance<RayRgb8>? tone(RayTone tone) => spectrum[tone];
@@ -654,9 +1102,9 @@ enum RainbowRgb implements PrismPalette {
 
   /// Map of all fixed rays for iteration
   static Map<String, RayWithLuminance<RayRgb8>> get fixedRays => {
-    'black': _RainbowRgbFixedRays.black.ray,
-    'white': _RainbowRgbFixedRays.white.ray,
-  };
+        'black': _RainbowRgbFixedRays.black.ray,
+        'white': _RainbowRgbFixedRays.white.ray,
+      };
 
   /// A lighter surface variant of the primary color
   @override
@@ -665,6 +1113,4 @@ enum RainbowRgb implements PrismPalette {
   /// A darker surface variant of the primary color
   @override
   RayWithLuminance<RayRgb8> get surfaceDark => shade700!;
-
 }
-

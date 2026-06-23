@@ -24,15 +24,16 @@ base class RayOklch extends Ray {
     required double c,
     required double h,
     double opacity = 1.0,
-  }) : _l = l,
-       _c = c,
-       _h = h,
-       _opacity = opacity;
+  })  : _l = l,
+        _c = c,
+        _h = h,
+        _opacity = opacity;
 
   /// Creates a constant Oklch color from individual LCHO components.
   ///
   /// [l] is lightness (0-1), [c] is chroma (0+), [h] is hue (0-360°), [opacity] is 0-1.
-  const RayOklch.fromComponents(this._l, this._c, this._h, [this._opacity = 1.0]);
+  const RayOklch.fromComponents(this._l, this._c, this._h,
+      [this._opacity = 1.0]);
 
   /// Creates a gamut clipped [RayOklch] from individual LCHO component values.
   ///
@@ -135,7 +136,8 @@ base class RayOklch extends Ray {
   ///
   /// Converts the Oklab a and b components to chroma and hue.
   factory RayOklch.fromOklab(RayOklab oklab) {
-    final chroma = math.sqrt(oklab.opponentA * oklab.opponentA + oklab.opponentB * oklab.opponentB);
+    final chroma = math.sqrt(
+        oklab.opponentA * oklab.opponentA + oklab.opponentB * oklab.opponentB);
     final hue = math.atan2(oklab.opponentB, oklab.opponentA) * 180.0 / math.pi;
 
     return RayOklch._(

@@ -82,7 +82,7 @@ void main() {
 
       test('withLightness validates range', () {
         final color = RayOklab.fromComponents(0.5, 0.1, -0.1);
-        
+
         expect(() => color.withLightness(-0.1), throwsArgumentError);
         expect(() => color.withLightness(1.1), throwsArgumentError);
         expect(() => color.withLightness(0.0), returnsNormally);
