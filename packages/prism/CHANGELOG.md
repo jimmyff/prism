@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0
+
+- Added `Ray.contrastRatio()` — WCAG 2.x contrast ratio between two colors (down-converts to sRGB; correct for every `Ray` type, including Oklch)
+- Added `Beam` — a portable, interpolatable linear gradient (one ray = flat color, many = gradient). Interpolation space follows the rays (Oklch → perceptual, RGB → sRGB)
+
 ## 2.1.0
 
 - Added `parse()` methods for parsing color strings

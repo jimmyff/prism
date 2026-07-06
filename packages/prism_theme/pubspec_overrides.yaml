@@ -1,0 +1,5 @@
+# Committed: prism 2.2.0 (Beam, Ray.contrastRatio) is branch-only, not yet
+# published, so resolve it from the local path within this monorepo.
+dependency_overrides:
+  prism:
+    path: ../prism

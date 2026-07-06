@@ -6,6 +6,7 @@ export 'src/ray_hsl.dart';
 export 'src/ray_oklab.dart';
 export 'src/ray_oklch.dart';
 export 'src/spectrum.dart';
+export 'src/beam.dart';
 
 import 'src/spectrum.dart';
 

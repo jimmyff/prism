@@ -1,0 +1,10 @@
+# Single-prism resolution for the whole prism family (branch-only versions).
+dependency_overrides:
+  prism:
+    path: ../../prism
+  prism_flutter:
+    path: ../../prism_flutter
+  prism_theme:
+    path: ../../prism_theme
+  prism_theme_flutter:
+    path: ../

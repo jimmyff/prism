@@ -1,0 +1,10 @@
+# Committed: single-prism resolution. prism_flutter and prism_theme both depend
+# on prism as a (branch-only) hosted dep; overriding all three to local paths
+# forces exactly one `prism` instance so the Ray types unify.
+dependency_overrides:
+  prism:
+    path: ../prism
+  prism_flutter:
+    path: ../prism_flutter
+  prism_theme:
+    path: ../prism_theme

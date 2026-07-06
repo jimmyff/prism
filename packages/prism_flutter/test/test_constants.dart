@@ -4,7 +4,7 @@
 /// to ensure consistency and maintainability in test assertions, particularly
 /// for Flutter Color ↔ RayRgb8 conversions where floating-point precision
 /// and rounding can introduce small variations.
-library test_constants;
+library;
 
 // ============================================================================
 // Flutter Color Conversion Tolerance Constants

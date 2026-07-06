@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:prism/prism.dart';
 
 /// Enumeration of supported color spaces.
@@ -45,6 +47,10 @@ abstract base class Ray {
   double get luminance;
 
   /// Returns the color ([a] or [b]) with the highest contrast to this color.
+  ///
+  /// Note: this compares the polymorphic [luminance] (perceptual Oklch L for
+  /// Oklch/Oklab rays), not WCAG contrast. For accessibility use
+  /// [contrastRatio].
   Ray maxContrast(Ray a, Ray b) {
     final lum = luminance;
     final lumA = a.luminance;
@@ -52,6 +58,39 @@ abstract base class Ray {
     final contrastA = (lum - lumA).abs();
     final contrastB = (lum - lumB).abs();
     return contrastA > contrastB ? a : b;
+  }
+
+  /// The WCAG 2.x relative luminance of this color (0.0–1.0).
+  ///
+  /// Computed from the sRGB representation — deliberately NOT the [luminance]
+  /// getter, which returns Oklch L for Oklch/Oklab rays. Down-converts via
+  /// [toRgb8] so the value matches the gamut-clipped, 8-bit pixel Flutter
+  /// renders.
+  double _wcagRelativeLuminance() {
+    final rgb = toRgb8();
+    double channel(num value) {
+      final s = value / 255.0;
+      return s <= 0.03928
+          ? s / 12.92
+          : math.pow((s + 0.055) / 1.055, 2.4) as double;
+    }
+
+    return 0.2126 * channel(rgb.red) +
+        0.7152 * channel(rgb.green) +
+        0.0722 * channel(rgb.blue);
+  }
+
+  /// The WCAG 2.x contrast ratio between this color and [other].
+  ///
+  /// Returns a value in [1, 21]: 1 for identical luminance, 21 for
+  /// black-on-white. Symmetric. Down-converts to sRGB (not the perceptual
+  /// [luminance] getter), so it is correct for every [Ray] type.
+  double contrastRatio(Ray other) {
+    final a = _wcagRelativeLuminance();
+    final b = other._wcagRelativeLuminance();
+    final hi = math.max(a, b);
+    final lo = math.min(a, b);
+    return (hi + 0.05) / (lo + 0.05);
   }
 
   /// Converts this color to a different color space.

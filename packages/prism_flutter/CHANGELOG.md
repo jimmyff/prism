@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.0
+
+- Added `Beam.toLinearGradient()` — densifies a `Beam` into a Flutter `LinearGradient` (GPU sRGB stop-interpolation approximates the perceptual path)
+- Requires Prism 2.2.0 (`Beam`)
+
 ## 2.1.0
 
 - Updated for Prism 2.1.0 compatibility (adds `parse()` methods)
