@@ -5,7 +5,8 @@ import 'lerp.dart';
 /// The focus ring is drawn as an offset ring *outside* the widget bounds
 /// ([focusOffset] gap, [focusWidth] stroke) so it contrasts with the surface,
 /// never the fill — which is why the `focus` role can safely share the action
-/// seed. Ring rendering itself lands in the interface layer.
+/// seed. Ring rendering itself lands in the interface layer
+/// (`prism_theme_flutter`'s `PrismFocusRing`).
 class PrismGeometry {
   final double radiusSm;
   final double radiusMd;

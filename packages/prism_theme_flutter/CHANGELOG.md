@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+- `PrismText` — a text widget that renders from a typography slot (`PrismText.title/.label/.caption/.body/.data/.bodySmall/.headline/.display`) plus a `PrismText.styled(text, style:)` escape hatch. Resolves its `PrismTextStyle` from `context.prism.typography`, applies the slot's `PrismTextCase` to the visible string while keeping the original in `semanticsLabel`, colours with the `ink` role by default, and forwards `italic`/`maxLines`/`overflow`/`textAlign`. Prism consumers render text through this rather than shipping their own.
+- `PrismFocusRing({visible, child, borderRadius})` — the rendering half of the geometry focus contract: strokes `geometry.focusWidth` at a `geometry.focusOffset` gap outside the child bounds in the `focus` role, drawn only when visible. Paints outside the child (no clip), so clipping ancestors crop it.
+- Both are exported from `prism_theme_flutter.dart`; the preview screen's typography section dogfoods `PrismText`.
+
 ## 0.2.0
 
 - Converter maps `PrismTextStyle.fontVariations` → Flutter `FontVariation`s and reconciles `wght`: synthesizes `FontVariation('wght', fontWeight)` when absent, or derives `FontWeight` from an explicit `wght` axis (rounded to the nearest 100, clamped `[100, 900]`) so fallback fonts and metrics agree. Styles with no variations are byte-for-byte unchanged. `textCase` is intentionally not mapped (apply it at the widget layer).

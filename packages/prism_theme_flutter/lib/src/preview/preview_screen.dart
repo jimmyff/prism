@@ -261,16 +261,13 @@ class _Typography extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                PrismText.caption(
                   '$name · ${style.fontFamily ?? "—"}',
-                  style: p.typography.caption.flutter.copyWith(color: p.inkFaint),
+                  color: p.inkFaint,
                 ),
                 for (var i = 0; i < paragraphs.length; i++) ...[
                   if (i > 0) SizedBox(height: p.spacing.sm),
-                  Text(
-                    style.textCase.apply(paragraphs[i]),
-                    style: style.flutter.copyWith(color: p.ink),
-                  ),
+                  PrismText.styled(paragraphs[i], style: style),
                 ],
               ],
             ),

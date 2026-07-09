@@ -1,6 +1,6 @@
 name: prism_theme_flutter
 description: Flutter bindings for prism_theme — a PrismThemeExtension, ThemeData/ColorScheme/TextTheme mapping, and context.prism for perceptual, interpolatable themes.
-version: 0.2.0
+version: 0.3.0
 repository: https://github.com/jimmyff/prism
 publish_to: none # TODO: remove once proven in kosmos2
 
