@@ -130,6 +130,23 @@ The **focus ring** is modelled as an offset ring drawn *outside* the widget boun
 
 The `structure` contrast level (1.5) sits below WCAG's 3:1 non-text minimum — it is for decorative hairlines (`divider`), not functional boundaries.
 
+## Typography
+
+`PrismTypography` is eight slots on one modular scale — the seven scale slots (`display`/`headline`/`title`/`body`/`bodySmall`/`label`/`caption`) plus `data`, a same-size `body` sibling for a second (typically monospace) voice. `fromScale` gives `data` `body`'s step, so `data == body` for single-font apps.
+
+Each `PrismTextStyle` carries optional variable-font axes and a case transform:
+
+```dart
+PrismTextStyle(
+  fontFamily: 'Fraunces',
+  fontSize: 48,
+  fontVariations: const [PrismFontVariation('opsz', 48), PrismFontVariation('WONK', 1)],
+  textCase: PrismTextCase.upper,   // apply(String) at render time
+);
+```
+
+`fontVariations` compare with set semantics (order-insensitive, last value wins per axis) and `lerp` as a per-axis union — shared axes interpolate, one-sided axes snap at t=0.5. See [prism_theme_flutter](../prism_theme_flutter) for how axes map to Flutter `FontVariation`s and how `wght` reconciles with `fontWeight`.
+
 ## Persistence
 
 Persist a tiny `PrismThemeSelection` (`sourceId` + brightness), not the compiled scheme. Keep sources in code keyed by `sourceId` and recompile at boot. Brightness is a discrete light/dark choice — store it as a bool and rebuild with `PrismBrightness.of(isDark)` if you prefer.

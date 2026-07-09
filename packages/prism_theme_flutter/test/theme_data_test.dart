@@ -172,8 +172,16 @@ void main() {
   });
 
   group('toTextTheme', () {
-    test('fans the 7 slots out to all 15 styles', () {
-      final theme = _source().compile(PrismBrightness.light);
+    test('fans 7 of the 8 slots out to all 15 styles (data unmapped)', () {
+      // A distinct second-voice `data` slot must not leak into any Material
+      // slot — every mapped style keeps `body`'s family, not `data`'s.
+      final theme = _source()
+          .copyWith(
+            typography: PrismTypography.fromScale(fontFamily: 'Serif').copyWith(
+              data: const PrismTextStyle(fontFamily: 'Mono', fontSize: 15),
+            ),
+          )
+          .compile(PrismBrightness.light);
       final tt = theme.toTextTheme();
       expect(tt.bodyLarge!.fontSize, theme.typography.body.fontSize);
       expect(tt.displayLarge!.fontSize, theme.typography.display.fontSize);
@@ -197,6 +205,7 @@ void main() {
         tt.labelSmall,
       ];
       expect(styles.every((s) => s != null), isTrue);
+      expect(styles.any((s) => s!.fontFamily == 'Mono'), isFalse); // data unmapped
     });
   });
 

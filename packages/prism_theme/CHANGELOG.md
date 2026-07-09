@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- `PrismTextStyle.fontVariations` — variable-font axes (`PrismFontVariation(tag, value)`, 4-char tag). Compared with set semantics (order-insensitive, last-wins per axis); `lerp` takes a per-axis union (shared axes interpolate, one-sided axes snap at t=0.5) and emits a canonical sorted list.
+- `PrismTextStyle.textCase` — a render-time case transform (`PrismTextCase.none`/`upper`/`lower`, with `apply(String)`); snaps at t=0.5 in `lerp`.
+- `PrismTypography` gains an eighth slot, `data` — a same-size `body` sibling for a second (typically monospace) voice. `fromScale` gives it `body`'s step (`data == body`), so its signature is unchanged. **Breaking:** the `PrismTypography` const constructor now requires `data`.
+
 ## 0.1.0
 
 - Initial release: authored `PrismThemeSource` → pure `compile()` → `PrismTheme`; intent-based roles, `Beam` canvas, contrast `audit()`, and light/dark/`atDarkness(t)` interpolation.

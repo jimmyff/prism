@@ -1,6 +1,6 @@
 name: prism_theme
 description: An authored, compilable, fully-interpolatable theme system built on Prism's perceptual Oklch colors — intent-based roles, contrast auditing, and light/dark/darkness lerping.
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/jimmyff/prism
 publish_to: none # TODO: remove once proven in kosmos2
 

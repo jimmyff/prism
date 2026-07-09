@@ -117,7 +117,9 @@ extension PrismThemeData on PrismTheme {
     return cs;
   }
 
-  /// A Material [TextTheme]: the 7 prism slots fanned out to 15 (some scaled).
+  /// A Material [TextTheme]: 7 of the 8 prism slots fanned out to 15 (some
+  /// scaled). The `data` slot is intentionally unmapped — it is a second-voice
+  /// sibling with no Material slot; read it via `context.prism.typography.data`.
   TextTheme toTextTheme() {
     final t = typography;
     TextStyle f(PrismTextStyle s) => s.flutter;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prism_theme_flutter/prism_theme_flutter.dart';
+import 'package:prism_theme_flutter/preview.dart';
 
 void main() => runApp(const DemoApp());
 
@@ -268,6 +269,21 @@ class _DemoAppState extends State<DemoApp> {
             (v) => setState(() => _morph = v),
           ),
           _brightnessToggle(context),
+          const SizedBox(height: 8),
+          // The dev preview tool, launched with source A.
+          OutlinedButton.icon(
+            icon: const Icon(Icons.palette_outlined),
+            label: Text('Open preview tool — ${demoSources[_a].name}'),
+            onPressed:
+                () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder:
+                        (_) => PrismThemePreviewScreen(
+                          source: demoSources[_a].source,
+                        ),
+                  ),
+                ),
+          ),
           const SizedBox(height: 8),
           // A stock filled TextField — themed entirely by the ColorScheme.
           const TextField(

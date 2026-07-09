@@ -2,16 +2,19 @@ import 'dart:math' as math;
 
 import 'text_style.dart';
 
-/// Seven text slots on a single modular scale.
+/// Eight text slots on a single modular scale.
 ///
-/// Slots (with their scale steps): `caption` −2 · `bodySmall` −1 ·
+/// Seven scale slots (with their steps): `caption` −2 · `bodySmall` −1 ·
 /// `label` −1 (weight 500) · `body` 0 · `title` +2 · `headline` +4 ·
-/// `display` +6.
+/// `display` +6. Plus `data` — a same-size sibling of `body` for a second
+/// (typically monospace) "data" voice; `fromScale` gives it `body`'s step so
+/// `data == body` for single-font apps.
 class PrismTypography {
   final PrismTextStyle display;
   final PrismTextStyle headline;
   final PrismTextStyle title;
   final PrismTextStyle body;
+  final PrismTextStyle data;
   final PrismTextStyle bodySmall;
   final PrismTextStyle label;
   final PrismTextStyle caption;
@@ -21,6 +24,7 @@ class PrismTypography {
     required this.headline,
     required this.title,
     required this.body,
+    required this.data,
     required this.bodySmall,
     required this.label,
     required this.caption,
@@ -44,6 +48,7 @@ class PrismTypography {
       bodySmall: at(-1),
       label: at(-1, weight: 500),
       body: at(0),
+      data: at(0),
       title: at(2),
       headline: at(4),
       display: at(6),
@@ -65,6 +70,7 @@ class PrismTypography {
       headline: a(headline),
       title: a(title),
       body: a(body),
+      data: a(data),
       bodySmall: a(bodySmall),
       label: a(label),
       caption: a(caption),
@@ -77,6 +83,7 @@ class PrismTypography {
     headline: headline.lerp(other.headline, t),
     title: title.lerp(other.title, t),
     body: body.lerp(other.body, t),
+    data: data.lerp(other.data, t),
     bodySmall: bodySmall.lerp(other.bodySmall, t),
     label: label.lerp(other.label, t),
     caption: caption.lerp(other.caption, t),
@@ -87,6 +94,7 @@ class PrismTypography {
     PrismTextStyle? headline,
     PrismTextStyle? title,
     PrismTextStyle? body,
+    PrismTextStyle? data,
     PrismTextStyle? bodySmall,
     PrismTextStyle? label,
     PrismTextStyle? caption,
@@ -95,6 +103,7 @@ class PrismTypography {
     headline: headline ?? this.headline,
     title: title ?? this.title,
     body: body ?? this.body,
+    data: data ?? this.data,
     bodySmall: bodySmall ?? this.bodySmall,
     label: label ?? this.label,
     caption: caption ?? this.caption,
@@ -105,6 +114,7 @@ class PrismTypography {
     headline,
     title,
     body,
+    data,
     bodySmall,
     label,
     caption,
