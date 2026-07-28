@@ -7,6 +7,20 @@ import 'role_spec.dart';
 import 'seed.dart';
 import 'seeds.dart';
 
+/// How an accent's [PrismAccentSpec.ink] lightness is resolved at compile.
+enum PrismInkMode {
+  /// The authored lightness is used verbatim (the default).
+  fixed,
+
+  /// The authored lightness is the *preferred* value; if the compiled ink
+  /// would fail body contrast against the scheme's backdrops (canvas,
+  /// surface, surfaceRaised, chrome), its lightness is solved to the nearest
+  /// passing value — light member darkens, dark member brightens. Identity
+  /// whenever the authored value passes, so a passing theme compiles
+  /// bit-identically to [fixed].
+  adaptive,
+}
+
 /// The authored spec for an accent family — one visible line per accent.
 ///
 /// An accent compiles to three colors: [fill] (buttons/badges/selected),
@@ -31,6 +45,9 @@ class PrismAccentSpec {
   /// Multiplier applied to the base's chroma (>= 0; may exceed 1).
   final double chroma;
 
+  /// How the [ink] lightness resolves at compile (see [PrismInkMode]).
+  final PrismInkMode inkMode;
+
   const PrismAccentSpec._({
     required PrismSeed? seed,
     required RayOklch? color,
@@ -38,6 +55,7 @@ class PrismAccentSpec {
     this.onFill = (light: 0.99, dark: 0.18),
     this.ink = (light: 0.44, dark: 0.80),
     this.chroma = 1.0,
+    this.inkMode = PrismInkMode.fixed,
   }) : _seed = seed,
        _color = color,
        assert(
@@ -53,6 +71,7 @@ class PrismAccentSpec {
     LightnessPair onFill = (light: 0.99, dark: 0.18),
     LightnessPair ink = (light: 0.44, dark: 0.80),
     double chroma = 1.0,
+    PrismInkMode inkMode = PrismInkMode.fixed,
   }) : this._(
          seed: seed,
          color: null,
@@ -60,6 +79,7 @@ class PrismAccentSpec {
          onFill: onFill,
          ink: ink,
          chroma: chroma,
+         inkMode: inkMode,
        );
 
   /// An accent derived from an inline absolute [color] (acts as an inline seed).
@@ -69,6 +89,7 @@ class PrismAccentSpec {
     LightnessPair onFill = (light: 0.99, dark: 0.18),
     LightnessPair ink = (light: 0.44, dark: 0.80),
     double chroma = 1.0,
+    PrismInkMode inkMode = PrismInkMode.fixed,
   }) : this._(
          seed: null,
          color: color,
@@ -76,6 +97,7 @@ class PrismAccentSpec {
          onFill: onFill,
          ink: ink,
          chroma: chroma,
+         inkMode: inkMode,
        );
 
   /// The base color as a sealed union (exactly one case, by construction).
@@ -117,6 +139,7 @@ class PrismAccentSpec {
     LightnessPair? onFill,
     LightnessPair? ink,
     double? chroma,
+    PrismInkMode? inkMode,
   }) {
     var newSeed = _seed;
     var newColor = _color;
@@ -137,6 +160,7 @@ class PrismAccentSpec {
       onFill: onFill ?? this.onFill,
       ink: ink ?? this.ink,
       chroma: chroma ?? this.chroma,
+      inkMode: inkMode ?? this.inkMode,
     );
   }
 
@@ -149,15 +173,17 @@ class PrismAccentSpec {
           fill == other.fill &&
           onFill == other.onFill &&
           ink == other.ink &&
-          chroma == other.chroma;
+          chroma == other.chroma &&
+          inkMode == other.inkMode;
 
   @override
-  int get hashCode => Object.hash(_seed, _color, fill, onFill, ink, chroma);
+  int get hashCode =>
+      Object.hash(_seed, _color, fill, onFill, ink, chroma, inkMode);
 
   @override
   String toString() =>
       'PrismAccentSpec($base, fill: $fill, onFill: $onFill, '
-      'ink: $ink, chroma: $chroma)';
+      'ink: $ink, chroma: $chroma, inkMode: ${inkMode.name})';
 }
 
 /// Compiles one accent slot (opaque): lightness first, then chroma.

@@ -2,7 +2,9 @@ import 'package:prism/prism.dart';
 
 import 'accent.dart';
 import 'accent_spec.dart';
+import 'adaptive_ink.dart';
 import 'brightness.dart';
+import 'contrast.dart';
 import 'geometry.dart';
 import 'role.dart';
 import 'role_spec.dart';
@@ -73,11 +75,17 @@ class PrismThemeSource {
   PrismTypography get _typography => typography ?? PrismTypography.standard();
 
   /// Compiles this document into a [PrismTheme] for [brightness] (pure).
-  PrismTheme compile(PrismBrightness brightness) {
+  ///
+  /// [policy] is the contrast target for [PrismInkMode.adaptive] accents; it
+  /// does not affect fixed-ink themes.
+  PrismTheme compile(
+    PrismBrightness brightness, {
+    PrismContrastPolicy policy = const PrismContrastPolicy(),
+  }) {
     final effectiveSeeds = brightness.isDark ? (darkSeeds ?? seeds) : seeds;
     return PrismTheme(
       brightness: brightness,
-      scheme: _compileScheme(effectiveSeeds, brightness),
+      scheme: _compileScheme(effectiveSeeds, brightness, policy),
       typography: _typography,
       spacing: spacing,
       geometry: geometry,
@@ -88,12 +96,18 @@ class PrismThemeSource {
   }
 
   /// Compiles both brightnesses into a [PrismThemePair].
-  PrismThemePair compilePair() => PrismThemePair(
-    light: compile(PrismBrightness.light),
-    dark: compile(PrismBrightness.dark),
+  PrismThemePair compilePair({
+    PrismContrastPolicy policy = const PrismContrastPolicy(),
+  }) => PrismThemePair(
+    light: compile(PrismBrightness.light, policy: policy),
+    dark: compile(PrismBrightness.dark, policy: policy),
   );
 
-  PrismScheme _compileScheme(PrismSeeds seeds, PrismBrightness b) {
+  PrismScheme _compileScheme(
+    PrismSeeds seeds,
+    PrismBrightness b,
+    PrismContrastPolicy policy,
+  ) {
     final deltas = <PrismRole, double>{};
 
     RayOklch single(PrismRole role, PrismRoleSpec spec) {
@@ -124,19 +138,6 @@ class PrismThemeSource {
       return Beam.linear([r.color, end]);
     }
 
-    PrismAccent accent(
-      PrismAccentSpec spec,
-      PrismRole fillRole,
-      PrismRole onFillRole,
-      PrismRole inkRole,
-    ) {
-      final r = spec.resolveSeed(seeds, b);
-      if (r.fillDelta > _deltaEpsilon) deltas[fillRole] = r.fillDelta;
-      if (r.onFillDelta > _deltaEpsilon) deltas[onFillRole] = r.onFillDelta;
-      if (r.inkDelta > _deltaEpsilon) deltas[inkRole] = r.inkDelta;
-      return r.accent;
-    }
-
     final canvasBeam =
         canvas == null
             ? Beam.flat(_defaultCanvas.resolveSeed(seeds, b).color)
@@ -149,6 +150,60 @@ class PrismThemeSource {
       roles.surfaceRaised,
     );
     final chrome = fillBeam(PrismRole.chrome, roles.chrome);
+
+    // Adaptive inks solve against the audit's backdrops (canvas + the
+    // flattened surfaces above), built once per compile and only when an
+    // accent opts in — a fixed-ink theme pays nothing.
+    final hasAdaptiveInk = [
+      roles.action,
+      roles.hero,
+      roles.highlight,
+      roles.error,
+      roles.warning,
+      roles.success,
+      roles.info,
+    ].any((s) => s.inkMode == PrismInkMode.adaptive);
+    final inkBackdrops =
+        hasAdaptiveInk
+            ? InkSolveBackdrops.of(canvasBeam, surface, surfaceRaised, chrome)
+            : null;
+
+    PrismAccent accent(
+      PrismAccentSpec spec,
+      PrismRole fillRole,
+      PrismRole onFillRole,
+      PrismRole inkRole,
+    ) {
+      var effective = spec;
+      // Adaptive ink: keep the authored lightness when it passes; otherwise
+      // solve this member's lightness to the nearest passing value (light
+      // darkens, dark brightens). Same sampling as the audit, so the solved
+      // ink measures identically there.
+      if (spec.inkMode == PrismInkMode.adaptive) {
+        final authoredL = b.isDark ? spec.ink.dark : spec.ink.light;
+        final solvedL = solveInkLightness(
+          base: spec.base.baseColor(seeds),
+          chromaMult: spec.chroma,
+          authoredL: authoredL,
+          isDark: b.isDark,
+          target: policy.body,
+          backdrops: inkBackdrops!,
+        );
+        if (solvedL != authoredL) {
+          effective = spec.copyWith(
+            ink:
+                b.isDark
+                    ? (light: spec.ink.light, dark: solvedL)
+                    : (light: solvedL, dark: spec.ink.dark),
+          );
+        }
+      }
+      final r = effective.resolveSeed(seeds, b);
+      if (r.fillDelta > _deltaEpsilon) deltas[fillRole] = r.fillDelta;
+      if (r.onFillDelta > _deltaEpsilon) deltas[onFillRole] = r.onFillDelta;
+      if (r.inkDelta > _deltaEpsilon) deltas[inkRole] = r.inkDelta;
+      return r.accent;
+    }
     final scrim = single(PrismRole.scrim, roles.scrim);
     final ink = single(PrismRole.ink, roles.ink);
     final inkMuted = single(PrismRole.inkMuted, roles.inkMuted);

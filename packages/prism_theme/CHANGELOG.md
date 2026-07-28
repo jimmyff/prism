@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+- `PrismInkMode {fixed, adaptive}` on `PrismAccentSpec` — adaptive accent inks: the authored ink lightness is the *preferred* value; when the compiled ink would fail body contrast against the scheme's backdrops (canvas, surface, surfaceRaised, chrome), compile solves the lightness to the nearest passing value (light member darkens, dark brightens). Identity when the authored value passes — a passing theme compiles bit-identically to `fixed`; unsolvable backdrops keep the authored value for the audit to report.
+- `compile`/`compilePair` gain an optional `policy` (`PrismContrastPolicy`) — the contrast target for adaptive inks; fixed-ink themes are unaffected.
+- Audit sampling/compositing extracted to a shared internal module, so the adaptive solve and `auditScheme` measure identically by construction.
+
 ## 0.2.0
 
 - `PrismTextStyle.fontVariations` — variable-font axes (`PrismFontVariation(tag, value)`, 4-char tag). Compared with set semantics (order-insensitive, last-wins per axis); `lerp` takes a per-axis union (shared axes interpolate, one-sided axes snap at t=0.5) and emits a canonical sorted list.

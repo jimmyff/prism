@@ -1,6 +1,7 @@
 import 'package:prism/prism.dart';
 
 import 'accent.dart';
+import 'audit_backdrops.dart';
 import 'lerp.dart';
 import 'role.dart';
 
@@ -104,21 +105,7 @@ class PrismScheme {
   /// Composites [src] over [dst] (source-over alpha compositing, sRGB math).
   ///
   /// The public primitive behind [over]/[wash] and hover/pressed state layers.
-  RayOklch composite(Ray src, Ray dst) {
-    final s = src.toRgb8();
-    final d = dst.toRgb8();
-    final sa = s.alpha / 255.0;
-    final da = d.alpha / 255.0;
-    final outA = sa + da * (1 - sa);
-    if (outA <= 0) return const RayOklch.empty();
-    double channel(num sc, num dc) => (sc * sa + dc * da * (1 - sa)) / outA;
-    return RayRgb8.fromComponents(
-      channel(s.red, d.red),
-      channel(s.green, d.green),
-      channel(s.blue, d.blue),
-      outA * 255,
-    ).toOklch();
-  }
+  RayOklch composite(Ray src, Ray dst) => compositeColors(src, dst);
 
   /// The [role] color composited over [background].
   ///

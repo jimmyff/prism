@@ -1,5 +1,6 @@
 import 'package:prism/prism.dart';
 
+import 'audit_backdrops.dart';
 import 'role.dart';
 import 'scheme.dart';
 
@@ -67,15 +68,14 @@ class PrismAuditResult {
       '${level.name})${advisory ? " [advisory]" : ""}';
 }
 
-const int _canvasSamples = 16;
-
 /// Audits [scheme] against [policy], returning **every** checked pair.
 ///
 /// Alpha roles are composited over the background before measuring, and a
-/// gradient canvas is sampled at [_canvasSamples] points with the minimum ratio
-/// taken (endpoint-only sampling gives a false pass when a role's luminance
-/// falls inside the canvas span). Filter `.where((r) => !r.passes)` for
-/// failures.
+/// gradient canvas is sampled at [auditCanvasSamples] points with the minimum
+/// ratio taken (endpoint-only sampling gives a false pass when a role's
+/// luminance falls inside the canvas span). Filter `.where((r) => !r.passes)`
+/// for failures. Sampling/compositing live in `audit_backdrops.dart`, shared
+/// with the adaptive-ink compile solve so both measure identically.
 List<PrismAuditResult> auditScheme(
   PrismScheme scheme, [
   PrismContrastPolicy policy = const PrismContrastPolicy(),
@@ -84,14 +84,17 @@ List<PrismAuditResult> auditScheme(
 
   // Fills may be authored translucent (frosted panels); flatten them over the
   // canvas before measuring, so a role is audited against what actually renders.
-  final canvasSamples = _sample(scheme.canvas);
+  final canvasSamples = sampleBeam(scheme.canvas);
   final canvas = ('canvas', canvasSamples);
-  final surface = ('surface', _backdrop(scheme, scheme.surface, canvasSamples));
+  final surface = (
+    'surface',
+    flattenBackdrop(scheme.surface, canvasSamples),
+  );
   final surfaceRaised = (
     'surfaceRaised',
-    _backdrop(scheme, scheme.surfaceRaised, canvasSamples),
+    flattenBackdrop(scheme.surfaceRaised, canvasSamples),
   );
-  final chrome = ('chrome', _backdrop(scheme, scheme.chrome, canvasSamples));
+  final chrome = ('chrome', flattenBackdrop(scheme.chrome, canvasSamples));
 
   void add(
     PrismRole fgRole,
@@ -104,7 +107,7 @@ List<PrismAuditResult> auditScheme(
       PrismAuditResult(
         foreground: fgRole,
         background: bg.$1,
-        ratio: _minContrast(scheme, fg, bg.$2),
+        ratio: minContrastOver(fg, bg.$2),
         required: policy.threshold(level),
         level: level,
         advisory: advisory,
@@ -224,42 +227,3 @@ void assertSchemeAccessible(
   }());
 }
 
-/// The minimum contrast of [fg] (composited if translucent) over [bgSamples].
-double _minContrast(PrismScheme scheme, RayOklch fg, List<RayOklch> bgSamples) {
-  var min = double.infinity;
-  for (final s in bgSamples) {
-    final rendered = fg.opacity < 1.0 ? scheme.composite(fg, s) : fg;
-    final ratio = rendered.contrastRatio(s);
-    if (ratio < min) min = ratio;
-  }
-  return min;
-}
-
-/// Samples a background beam: one color if flat, [_canvasSamples] if a gradient.
-List<RayOklch> _sample(Beam<RayOklch> beam) {
-  if (!beam.isGradient) return [beam.base];
-  return [
-    for (var i = 0; i < _canvasSamples; i++)
-      beam.colorAt(i / (_canvasSamples - 1)),
-  ];
-}
-
-/// A fill's audit backdrop: its own samples if fully opaque, else the fill
-/// flattened over **every** canvas sample.
-///
-/// A translucent panel can sit over any region of the canvas, so the minimum
-/// contrast across all fill×canvas composites is the conservative measure.
-/// Bounded [_canvasSamples]², at audit (test/tool/debug-assert) time only —
-/// never per frame.
-List<RayOklch> _backdrop(
-  PrismScheme scheme,
-  Beam<RayOklch> fill,
-  List<RayOklch> canvasSamples,
-) {
-  final fills = _sample(fill);
-  if (fills.every((f) => f.opacity >= 1.0)) return fills;
-  return [
-    for (final c in canvasSamples)
-      for (final f in fills) scheme.composite(f, c),
-  ];
-}

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0
+
+- Added `Ray.wcagLuminance` — the WCAG 2.x relative luminance behind `contrastRatio`, now public (sRGB-derived, correct for every `Ray` type); lets callers precompute luminances instead of re-converting per comparison
+
 ## 2.2.0
 
 - Added `Ray.contrastRatio()` — WCAG 2.x contrast ratio between two colors (down-converts to sRGB; correct for every `Ray` type, including Oklch)
