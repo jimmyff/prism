@@ -90,6 +90,7 @@ void main() {
       expect(g.radiusSm, 4);
       expect(g.radiusMd, 8);
       expect(g.radiusLg, 16);
+      expect(g.radiusXl, 24);
       expect(g.radiusFull, 999);
       expect(g.focusWidth, 2);
       expect(g.focusOffset, 2);

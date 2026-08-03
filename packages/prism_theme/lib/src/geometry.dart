@@ -12,6 +12,10 @@ class PrismGeometry {
   final double radiusMd;
   final double radiusLg;
 
+  /// Hero-surface radius — large feature cards and panels, softer than
+  /// [radiusLg] without reading as a pill.
+  final double radiusXl;
+
   /// A "stadium"/max radius sentinel for pill shapes — large enough to fully
   /// round any realistic control height, so callers need no per-widget height.
   final double radiusFull;
@@ -26,6 +30,7 @@ class PrismGeometry {
     this.radiusSm = 4.0,
     this.radiusMd = 8.0,
     this.radiusLg = 16.0,
+    this.radiusXl = 24.0,
     this.radiusFull = 999.0,
     this.focusWidth = 2.0,
     this.focusOffset = 2.0,
@@ -37,6 +42,7 @@ class PrismGeometry {
     radiusSm: lerpDouble(radiusSm, other.radiusSm, t),
     radiusMd: lerpDouble(radiusMd, other.radiusMd, t),
     radiusLg: lerpDouble(radiusLg, other.radiusLg, t),
+    radiusXl: lerpDouble(radiusXl, other.radiusXl, t),
     radiusFull: lerpDouble(radiusFull, other.radiusFull, t),
     focusWidth: lerpDouble(focusWidth, other.focusWidth, t),
     focusOffset: lerpDouble(focusOffset, other.focusOffset, t),
@@ -47,6 +53,7 @@ class PrismGeometry {
     double? radiusSm,
     double? radiusMd,
     double? radiusLg,
+    double? radiusXl,
     double? radiusFull,
     double? focusWidth,
     double? focusOffset,
@@ -55,6 +62,7 @@ class PrismGeometry {
     radiusSm: radiusSm ?? this.radiusSm,
     radiusMd: radiusMd ?? this.radiusMd,
     radiusLg: radiusLg ?? this.radiusLg,
+    radiusXl: radiusXl ?? this.radiusXl,
     radiusFull: radiusFull ?? this.radiusFull,
     focusWidth: focusWidth ?? this.focusWidth,
     focusOffset: focusOffset ?? this.focusOffset,
@@ -68,6 +76,7 @@ class PrismGeometry {
           radiusSm == other.radiusSm &&
           radiusMd == other.radiusMd &&
           radiusLg == other.radiusLg &&
+          radiusXl == other.radiusXl &&
           radiusFull == other.radiusFull &&
           focusWidth == other.focusWidth &&
           focusOffset == other.focusOffset &&
@@ -78,6 +87,7 @@ class PrismGeometry {
     radiusSm,
     radiusMd,
     radiusLg,
+    radiusXl,
     radiusFull,
     focusWidth,
     focusOffset,
@@ -87,7 +97,8 @@ class PrismGeometry {
   @override
   String toString() =>
       'PrismGeometry(radiusSm: $radiusSm, radiusMd: '
-      '$radiusMd, radiusLg: $radiusLg, radiusFull: $radiusFull, '
+      '$radiusMd, radiusLg: $radiusLg, radiusXl: $radiusXl, '
+      'radiusFull: $radiusFull, '
       'focusWidth: $focusWidth, focusOffset: $focusOffset, '
       'outlineWidth: $outlineWidth)';
 }

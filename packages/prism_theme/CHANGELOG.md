@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- `PrismGeometry.radiusXl` (default 24) — hero-surface radius between `radiusLg` and the pill sentinel; carried through `lerp`/`copyWith`/equality.
+
 ## 0.2.1
 
 - `PrismInkMode {fixed, adaptive}` on `PrismAccentSpec` — adaptive accent inks: the authored ink lightness is the *preferred* value; when the compiled ink would fail body contrast against the scheme's backdrops (canvas, surface, surfaceRaised, chrome), compile solves the lightness to the nearest passing value (light member darkens, dark brightens). Identity when the authored value passes — a passing theme compiles bit-identically to `fixed`; unsolvable backdrops keep the authored value for the audit to report.
