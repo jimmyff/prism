@@ -80,7 +80,13 @@ extension PrismThemeData on PrismTheme {
       scrim: onSurfaceOf(s.scrim),
       // Inverse trio, explicit (were correct only by fallback accident).
       inverseSurface: solid(s.ink),
-      onInverseSurface: solid(s.surface.base),
+      // The **composited** surface, like `surface` above — never the authored
+      // ray. An authored surface may be translucent (Kosmos's is `alpha: 0.3`),
+      // and this slot is a *foreground*: Material paints it as snackbar text
+      // and `SnackBarAction` labels over `inverseSurface`. Passing the raw ray
+      // through drew them at the authored alpha over a near-white ground —
+      // legible-looking in a swatch, ~1.8:1 on screen.
+      onInverseSurface: solid(solidSurface),
       inversePrimary: solid(s.action.fill.withLightness(isDark ? 0.44 : 0.80)),
       surfaceTint: Colors.transparent, // kill stray elevation tinting
       // Surface ramp: dim=canvas, bright=surfaceRaised (else both collapse to

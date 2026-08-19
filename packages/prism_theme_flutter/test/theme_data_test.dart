@@ -13,7 +13,10 @@ double _contrast(Color a, Color b) {
   return (hi + 0.05) / (lo + 0.05);
 }
 
-PrismThemeSource _source() => PrismThemeSource(
+/// [surfaceAlpha] authors a **translucent** surface, as a real app may (Kosmos
+/// runs 0.3 so its panels sit over the living sky). Null keeps the default
+/// opaque table, which is what every case but the inverse-pair one wants.
+PrismThemeSource _source({double? surfaceAlpha}) => PrismThemeSource(
   seeds: PrismSeeds(
     primary: RayOklch.fromComponents(0.55, 0.16, 264),
     secondary: RayOklch.fromComponents(0.60, 0.13, 200),
@@ -26,6 +29,15 @@ PrismThemeSource _source() => PrismThemeSource(
       RayOklch.fromComponents(0.22, 0.08, 262),
     ]),
   ),
+  roles: surfaceAlpha == null
+      ? const PrismRoles()
+      : PrismRoles(
+          surface: PrismRoleSpec(
+            PrismSeed.neutral,
+            l: (light: 0.97, dark: 0.21),
+            alpha: surfaceAlpha,
+          ),
+        ),
 );
 
 void main() {
@@ -103,8 +115,32 @@ void main() {
       final cs = theme.toColorScheme();
       final s = theme.scheme;
       expect(cs.inverseSurface, s.ink.toColor());
-      expect(cs.onInverseSurface, s.surface.base.toColor());
+      expect(cs.onInverseSurface, cs.surface);
       expect(cs.inversePrimary, s.action.fill.withLightness(0.80).toColor());
+    });
+
+    test('the inverse pair stays readable under a translucent surface', () {
+      // The regression this pins: `onInverseSurface` is a **foreground** —
+      // Material paints it as snackbar text and `SnackBarAction` labels over
+      // `inverseSurface` — and it used to carry the authored ray straight
+      // through. An app whose surface is translucent (Kosmos: `alpha: 0.3`)
+      // then drew that text at the authored alpha over a near-white ground:
+      // grey on white, ~1.8:1. Opacity is the mechanism; contrast is the
+      // property, so assert the property.
+      for (final brightness in PrismBrightness.values) {
+        final cs = _source(surfaceAlpha: 0.3).compile(brightness)
+            .toColorScheme();
+        expect(
+          cs.onInverseSurface.a,
+          1.0,
+          reason: 'a foreground may not carry the authored alpha ($brightness)',
+        );
+        expect(
+          _contrast(cs.onInverseSurface, cs.inverseSurface),
+          greaterThanOrEqualTo(4.5),
+          reason: 'inverse pair must clear WCAG AA body text ($brightness)',
+        );
+      }
     });
 
     test(

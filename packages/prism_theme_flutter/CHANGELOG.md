@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- **Fix:** `onInverseSurface` maps to the **composited** surface, not the authored ray — it is a foreground, so a translucent surface washed out snack-bar text.
+
 ## 0.3.0
 
 - `PrismText` — a text widget that renders from a typography slot (`PrismText.title/.label/.caption/.body/.data/.bodySmall/.headline/.display`) plus a `PrismText.styled(text, style:)` escape hatch. Resolves its `PrismTextStyle` from `context.prism.typography`, applies the slot's `PrismTextCase` to the visible string while keeping the original in `semanticsLabel`, colours with the `ink` role by default, and forwards `italic`/`maxLines`/`overflow`/`textAlign`. Prism consumers render text through this rather than shipping their own.
