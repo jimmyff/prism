@@ -8,15 +8,22 @@ import 'scheme.dart';
 ///
 /// `body` (4.5) = normal text; `large` (3.0) = large text and non-text UI;
 /// `structure` (1.5) = structural lines (outlines).
+///
+/// [decorativeFills] names accent fills that never stand alone as a control —
+/// a marker wash behind words, a glint across a label — so their fill-vs-
+/// backdrop rows are advisory (WCAG 1.4.11 exempts decoration). Content on the
+/// fill and the accent's ink stay binding.
 class PrismContrastPolicy {
   final double body;
   final double large;
   final double structure;
+  final Set<PrismRole> decorativeFills;
 
   const PrismContrastPolicy({
     this.body = 4.5,
     this.large = 3.0,
     this.structure = 1.5,
+    this.decorativeFills = const {},
   });
 
   double threshold(PrismContrastLevel level) => switch (level) {
@@ -86,10 +93,7 @@ List<PrismAuditResult> auditScheme(
   // canvas before measuring, so a role is audited against what actually renders.
   final canvasSamples = sampleBeam(scheme.canvas);
   final canvas = ('canvas', canvasSamples);
-  final surface = (
-    'surface',
-    flattenBackdrop(scheme.surface, canvasSamples),
-  );
+  final surface = ('surface', flattenBackdrop(scheme.surface, canvasSamples));
   final surfaceRaised = (
     'surfaceRaised',
     flattenBackdrop(scheme.surfaceRaised, canvasSamples),
@@ -173,9 +177,16 @@ List<PrismAuditResult> auditScheme(
     for (final bg in [canvas, surface, surfaceRaised, chrome]) {
       add(inkRole, accent.ink, bg, PrismContrastLevel.body);
     }
-    // Solid fill vs canvas/surfaces (non-text).
+    // Solid fill vs canvas/surfaces (non-text); advisory for a decorative
+    // fill.
     for (final bg in [canvas, surface, surfaceRaised]) {
-      add(fillRole, accent.fill, bg, PrismContrastLevel.large);
+      add(
+        fillRole,
+        accent.fill,
+        bg,
+        PrismContrastLevel.large,
+        advisory: policy.decorativeFills.contains(fillRole),
+      );
     }
   }
 
@@ -226,4 +237,3 @@ void assertSchemeAccessible(
     return true;
   }());
 }
-

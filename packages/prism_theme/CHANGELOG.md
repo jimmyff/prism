@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- `PrismContrastPolicy.decorativeFills` — accent fills that never stand alone as a control (a marker wash, a glint): their fill-vs-backdrop audit rows become advisory. Content on the fill and the accent ink stay binding.
+
 ## 0.2.2
 
 - `PrismGeometry.radiusXl` (default 24) — hero-surface radius between `radiusLg` and the pill sentinel; carried through `lerp`/`copyWith`/equality.

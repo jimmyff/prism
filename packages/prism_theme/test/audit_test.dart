@@ -47,6 +47,38 @@ void main() {
       expect(fail.toString(), contains('inkMuted'));
       expect(fail.toString(), contains('FAIL'));
     });
+
+    test('a decorative fill audits advisory against backdrops, its onFill '
+        'still binding', () {
+      // A highlighter yellow on a light page: no luminance contrast to speak
+      // of, which is what a marker wash is.
+      final theme = PrismThemeSource(
+        seeds: brand(),
+        roles: const PrismRoles(
+          highlight: PrismAccentSpec(
+            PrismSeed.tertiary,
+            fill: (light: 0.92, dark: 0.92),
+            onFill: (light: 0.25, dark: 0.25),
+          ),
+        ),
+      ).compile(PrismBrightness.light);
+      bool isFillRow(PrismAuditResult r) =>
+          r.foreground == PrismRole.highlightFill;
+      expect(hardFailures(theme).where(isFillRow), isNotEmpty);
+
+      const policy = PrismContrastPolicy(
+        decorativeFills: {PrismRole.highlightFill},
+      );
+      final rows = theme.audit(policy: policy);
+      expect(rows.where(isFillRow).every((r) => r.advisory), isTrue);
+      expect(
+        rows
+            .where((r) => r.foreground == PrismRole.highlightOnFill)
+            .every((r) => !r.advisory),
+        isTrue,
+      );
+      expect(() => theme.assertAccessible(policy: policy), returnsNormally);
+    });
   });
 
   group('audit — gradient canvas interior crossover', () {
